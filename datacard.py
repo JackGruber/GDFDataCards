@@ -93,5 +93,38 @@ def readMultipleLines():
 
 
 
+def downloadArmyBook(id: str):
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, id + ".json")
+    download = True
+
+    if not os.path.exists(DATAFOLDERARMYBOOK):
+        try:
+            os.makedirs(DATAFOLDERARMYBOOK)
+        except Exception as ex:
+            print("Data folder creation failed")
+            print(ex)
+            sys.exit(1)
+
+    # download only when older than 1 day
+    if os.path.exists(armyBookJsonFile):
+        if time.time() - os.stat(armyBookJsonFile)[stat.ST_MTIME] < 86400:
+            download = False
+
+    if (download == True):
+        try:
+            print("Download army book ...")
+            urllib.request.urlretrieve(
+                "https://army-forge-studio.onepagerules.com/api/army-books/" + id + "~3?armyForge=true", armyBookJsonFile)
+        except Exception as ex:
+            print("Download of army book failed")
+            print(ex)
+
+    if not os.path.exists(armyBookJsonFile):
+        print("No aramy book for " + id)
+        sys.exit(1)
+
+    return True
+
+
 if __name__ == "__main__":
     Main()
