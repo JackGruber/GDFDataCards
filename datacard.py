@@ -93,6 +93,29 @@ def readMultipleLines():
 
 
 
+def loadJsonFile(jsonFile: str):
+    try:
+        f = open(jsonFile, encoding="utf8")
+        file = f.read()
+        f.close()
+    except Exception as ex:
+        print("file failed to open " + jsonFile)
+        print(ex)
+        sys.exit(1)
+
+    try:
+        jsonObj = json.loads(file)
+    except json.decoder.JSONDecodeError as ex:
+        print(file + " Json is not valid!")
+        print(ex)
+        sys.exit(1)
+    except Exception as ex:
+        print("Unhandeld Exception")
+        print(ex)
+        sys.exit(1)
+    return jsonObj
+
+
 def downloadArmyBook(id: str):
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, id + ".json")
     download = True
