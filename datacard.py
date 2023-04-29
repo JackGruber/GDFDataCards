@@ -11,6 +11,7 @@ DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 
 
 def Main():
+    parseArmyJsonList(os.path.join(DATAFOLDER, "1682156014864.json"))
     parseArmyTextList()
 
 
@@ -91,6 +92,73 @@ def readMultipleLines():
             end = 0
     return buffer
 
+
+def parseArmyJsonList(armyListJsonFile: str):
+    print("Parse army list ...")
+    armyData = {}
+    jsonArmyBookList = {}
+
+    jsonArmyList = loadJsonFile(armyListJsonFile)
+    armyData['armyId'] = jsonArmyList['armyId']
+    downloadArmyBook(armyData['armyId'])
+    jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
+        DATAFOLDERARMYBOOK, armyData['armyId'] + ".json"))
+    armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
+    armyData['listPoints'] = jsonArmyList['listPoints']
+    armyData['listName'] = jsonArmyList['list']['name']
+
+    print("  ", armyData['armyName'], ",", armyData['listPoints'],
+          " Point, ", armyData['listName'])
+
+    for unit in jsonArmyList['list']['units']:
+        downloadArmyBook(unit['armyId'])
+        jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
+            DATAFOLDERARMYBOOK, unit['armyId'] + ".json"))
+        a = getUnit(unit, jsonArmyBookList)
+        if (a['name'] == "Prime Brothers"):
+            print(a)
+
+
+def getUnit(unit, jsonArmyBookList):
+    data = {}
+    for listUnit in jsonArmyBookList[unit['armyId']]['units']:
+        if (listUnit['id'] == unit['id']):
+            data['type'] = listUnit['name']
+            data['name'] = listUnit['name']
+            data['id'] = listUnit['id']
+            data['defense'] = listUnit['defense']
+            data['quality'] = listUnit['quality']
+            data['upgrades'] = listUnit['upgrades']
+            data['weapon'] = {}
+            for equipment in listUnit['equipment']:
+                data['weapon'][equipment['id']] = {}
+                data['weapon'][equipment['id']]['label'] = equipment['label']
+                data['weapon'][equipment['id']]['attacks'] = equipment['attacks']
+
+                if "name" in equipment:
+                    data['weapon'][equipment['id']]['name'] = equipment['name']
+                if "range" in equipment:
+                    data['weapon'][equipment['id']
+                                   ]['range'] = equipment['range']
+
+                data['weapon'][equipment['id']]['specialRules'] = []
+                for specialRules in equipment['specialRules']:
+                    data['weapon'][equipment['id']
+                                   ]['specialRules'].append(specialRules)
+
+            data['specialRules'] = {}
+            for specialRules in listUnit['specialRules']:
+                data['specialRules'][specialRules['key']] = {}
+                data['specialRules'][specialRules['key']
+                                     ]['name'] = specialRules['name']
+                data['specialRules'][specialRules['key']
+                                     ]['rating'] = specialRules['rating']
+
+            break
+
+    if "customName" in unit:
+        data['name'] = unit['customName']
+    return data
 
 
 def loadJsonFile(jsonFile: str):
