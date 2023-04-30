@@ -23,6 +23,7 @@ IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
 def Main():
     createFolderStructure()
+    army = parseArmyTextList()
     createDataCard(army['units'])
     openFile(DATACARDPDF)
 
