@@ -8,7 +8,7 @@ Tool to create PDF data cards for Onepagerules (GFF).
 
 ### Windows
 
-- Download GDFDataCards from release page
+- Download GDFDataCards from [release](https://github.com/JackGruber/OPRDataCards/releases) page
 - Store `GDFDataCards.exe` in a folder
 - Create a subfolder `font` where `GDFDataCards.exe` is located
 - Download [Rosa Sans](https://fontlibrary.org/en/font/rosa-sans) Font
