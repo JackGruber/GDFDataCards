@@ -16,7 +16,7 @@ import platform
 
 DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
-FONTFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
@@ -71,11 +71,15 @@ def openFile(filePath):
 
 
 def createDataCard(units):
-
-    pdfmetrics.registerFont(TTFont('bold', os.path.join(
-        FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
-    pdfmetrics.registerFont(TTFont('regular', os.path.join(
-        FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")))
+    try:
+        pdfmetrics.registerFont(TTFont('bold', os.path.join(
+            FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
+        pdfmetrics.registerFont(TTFont('regular', os.path.join(
+            FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")))
+    except Exception as ex:
+        print("Font is missing!")
+        print(ex)
+        sys.exit(1)
 
     datacardSize = (200.0, 130.0)
     lineColor = [1.00, 0.55, 0.10]
