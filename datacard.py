@@ -213,42 +213,57 @@ def createDataCard(units):
         # Weapon
         startX = 5
         startY = datacardSize[1] - 70
+        offsetX = [0, 70, 90, 115, 130]
         offsetY = 0
         headers = {'name': 'Weapon', 'range': 'Range', 'attacks': 'Attacks',
                    'ap': 'AP', 'specialRules': ['Special rules']}
         unit['weapon'].insert(0, headers)
         font = "bold"
         for weapon in unit['weapon']:
-            offsetX = 0
             pdf.setFont(font, 5)
             pdf.setFillColorRGB(0, 0, 0)
 
-            pdf.drawString(startX, startY + offsetY, weapon['name'])
-            offsetX += 70
+            pdf.drawString(startX + offsetX[0],
+                           startY + offsetY, weapon['name'])
+
             if "range" in weapon:
-                pdf.drawString(startX + offsetX, startY +
+                pdf.drawString(startX + offsetX[1], startY +
                                offsetY, weapon['range'])
             else:
-                pdf.drawString(startX + offsetX, startY + offsetY, "-")
-            offsetX += 20
-            pdf.drawString(startX + offsetX, startY +
+                pdf.drawString(startX + offsetX[1], startY + offsetY, "-")
+
+            pdf.drawString(startX + offsetX[2], startY +
                            offsetY, weapon['attacks'])
-            offsetX += 25
+
             if "ap" in weapon:
-                pdf.drawString(startX + offsetX, startY +
+                pdf.drawString(startX + offsetX[3], startY +
                                offsetY, weapon['ap'])
             else:
-                pdf.drawString(startX + offsetX, startY + offsetY, "-")
-            offsetX += 15
+                pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
+
             if "specialRules" in weapon:
-                pdf.drawString(startX + offsetX, startY + offsetY,
+                pdf.drawString(startX + offsetX[4], startY + offsetY,
                                ", ".join(weapon['specialRules']))
             else:
-                pdf.drawString(startX + offsetX, startY + offsetY, "-")
-            offsetX += 20
+                pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
 
             offsetY -= 8
             font = "regular"
+
+        if len(unit['equipment']) > 0:
+            headers = {'name': 'Equipment', 'specialRules': ['']}
+            unit['equipment'].insert(0, headers)
+            font = "bold"
+            for equipment in unit['equipment']:
+                pdf.setFont(font, 5)
+                pdf.setFillColorRGB(0, 0, 0)
+                pdf.drawString(startX + offsetX[0],
+                               startY + offsetY, equipment['name'])
+                pdf.drawString(startX + offsetX[4], startY + offsetY,
+                               ", ".join(equipment['specialRules']))
+                offsetY -= 8
+                font = "regular"
+
         pdf.showPage()
     pdf.save()
 
