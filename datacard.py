@@ -204,8 +204,10 @@ def createDataCard(units):
         pdf.drawCentredString(startX, startY, "Quality")
         pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
         pdf.setFont('regular', 5)
-        pdf.drawCentredString(startX, startY - (lineHight*1), unit["quality"])
-        pdf.drawCentredString(startX, startY - (lineHight*4), unit["defense"])
+        pdf.drawCentredString(
+            startX, startY - (lineHight*1), unit["quality"] + "+")
+        pdf.drawCentredString(
+            startX, startY - (lineHight*4), unit["defense"] + "+")
 
         # Weapon
         startX = 5
