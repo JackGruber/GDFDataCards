@@ -22,8 +22,43 @@ IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
 
 def Main():
+    createFolderStructure()
     createDataCard(army['units'])
     openFile(DATACARDPDF)
+
+
+def createFolderStructure():
+    if not os.path.exists(DATAFOLDER):
+        try:
+            os.makedirs(DATAFOLDER)
+        except Exception as ex:
+            print("Data folder creation failed")
+            print(ex)
+            sys.exit(1)
+
+    if not os.path.exists(DATAFOLDERARMYBOOK):
+        try:
+            os.makedirs(DATAFOLDERARMYBOOK)
+        except Exception as ex:
+            print("army book folder creation failed")
+            print(ex)
+            sys.exit(1)
+
+    if not os.path.exists(FONTFOLDER):
+        try:
+            os.makedirs(FONTFOLDER)
+        except Exception as ex:
+            print("font folder creation failed")
+            print(ex)
+            sys.exit(1)
+
+    if not os.path.exists(IMAGEFOLDER):
+        try:
+            os.makedirs(IMAGEFOLDER)
+        except Exception as ex:
+            print("image folder creation failed")
+            print(ex)
+            sys.exit(1)
 
 
 def openFile(filePath):
