@@ -18,6 +18,7 @@ DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
+IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
 
 def Main():
@@ -88,15 +89,27 @@ def createDataCard(units):
                        (height/2)-1, ", ".join(unit['specialRules']))
 
         # Image box
-        with Image.open('spacemarine.png') as img:
-            img.load()
-            imgSize = img.size
-            draw = ImageDraw.Draw(img)
-            draw.polygon(((0, 0), (imgSize[0]/2, imgSize[1]),
-                          (0, imgSize[1])), fill=(0, 255, 0))
-            draw.polygon(((imgSize[0], 0), (imgSize[0]/2, imgSize[1]),
-                          (imgSize[0], imgSize[1])), fill=(0, 255, 0))
-            img.save(os.path.join(DATAFOLDER, "img.png"))
+        unitImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
+        unitImage = os.path.join(IMAGEFOLDER, unitImage)
+        if os.path.exists(unitImage + ".jpg"):
+            unitImage = unitImage + ".jpg"
+        elif os.path.exists(unitImage + ".jpeg"):
+            unitImage = unitImage + ".jpeg"
+        elif os.path.exists(unitImage + ".png"):
+            unitImage = unitImage + ".png"
+        else:
+            unitImage = None
+
+        if (unitImage != None):
+            with Image.open(unitImage) as img:
+                img.load()
+                imgSize = img.size
+                draw = ImageDraw.Draw(img)
+                draw.polygon(((0, 0), (imgSize[0]/2, imgSize[1]),
+                              (0, imgSize[1])), fill=(0, 255, 0))
+                draw.polygon(((imgSize[0], 0), (imgSize[0]/2, imgSize[1]),
+                              (imgSize[0], imgSize[1])), fill=(0, 255, 0))
+                img.save(os.path.join(DATAFOLDER, "img.png"))
 
         edgeLength = 60
         offsetTop = 2
@@ -110,15 +123,19 @@ def createDataCard(units):
         ]
 
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
-        pdf.drawImage(os.path.join(DATAFOLDER, "img.png"), datacardSize[0] - offsetRight - edgeLength,
-                      datacardSize[1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
+        if (unitImage != None):
+            pdf.drawImage(os.path.join(DATAFOLDER, "img.png"), datacardSize[0] - offsetRight - edgeLength,
+                          datacardSize[1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
+            fillPath = 0
+        else:
+            fillPath = 1
         path = pdf.beginPath()
         path.moveTo(triangle[0][0], triangle[0][1])
         path.lineTo(triangle[1][0], triangle[1][1])
         path.lineTo(triangle[2][0], triangle[2][1])
         path.close()
         pdf.setLineJoin(1)
-        pdf.drawPath(path, stroke=1, fill=0)
+        pdf.drawPath(path, stroke=1, fill=fillPath)
 
         # Unit Name
         parts = unit['name'].split(" ")
