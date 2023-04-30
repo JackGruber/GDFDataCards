@@ -274,7 +274,16 @@ def parseArmyTextList():
                 unit = True
                 data = armyListText[x].split("|")
                 unitData['points'] = data[1].strip(" ")
-                unitData['specialRules'] = data[2].split(",")
+                unitData['specialRules'] = []
+                unitData['equipment'] = []
+                for specialRules in data[2].split(","):
+                    if re.match(r'^\s?\dx\s', specialRules):
+                        regExMatch = re.search(
+                            r"(\dx)([^(]+)(\()(.*)(\))", specialRules.strip(" "))
+                        unitData['equipment'].append(
+                            {'name': regExMatch.group(2).strip(" "), 'specialRules': regExMatch.group(4).split(",")})
+                    else:
+                        unitData['specialRules'].append(specialRules)
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
