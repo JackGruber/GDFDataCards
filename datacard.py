@@ -18,8 +18,7 @@ DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
-IMAGEFOLDER = os.path.join(os.path.dirname(
-    os.path.abspath(__file__)), "images")
+IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
 
 def Main():
