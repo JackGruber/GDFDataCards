@@ -16,7 +16,13 @@ import subprocess
 import platform
 import io
 
-DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
+# determine if application is a script file or frozen exe
+if getattr(sys, 'frozen', False):
+    BASEPATH = os.path.dirname(sys.executable)
+elif __file__:
+    BASEPATH = os.path.dirname(__file__)
+
+DATAFOLDER = os.path.join(BASEPATH, "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
