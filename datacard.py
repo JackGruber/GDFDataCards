@@ -108,9 +108,23 @@ def createDataCard(units):
         pdf.drawPath(path, stroke=1, fill=0)
 
         # Unit Name
+        parts = unit['name'].split(" ")
+        nameLines = []
+        maxLineCahrs = 20
+        lineParts = []
+        for part in parts:
+            if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
+                nameLines.append(" ".join(lineParts))
+                lineParts = []
+            lineParts.append(part)
+        nameLines.append(" ".join(lineParts))
+
         pdf.setFont('bold', 10)
         pdf.setFillColorRGB(0, 0, 0)
-        pdf.drawString(5, datacardSize[1] - 25, unit['name'])
+        offset = 0
+        for line in nameLines:
+            pdf.drawString(5, datacardSize[1] - 25 - offset, line)
+            offset += 8
 
         # Skills
         startX = datacardSize[0] - 25
