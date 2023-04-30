@@ -11,6 +11,8 @@ from reportlab.pdfbase import pdfmetrics
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, letter
 from PIL import Image, ImageDraw
+import subprocess
+import platform
 
 DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
