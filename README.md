@@ -1,4 +1,4 @@
-# Datacards for OPR GDF
+# Datacards for OPR
 
 Tool to create PDF data cards for Onepagerules (GFF).
 
