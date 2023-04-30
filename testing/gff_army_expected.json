@@ -1,0 +1,372 @@
+{
+    "listName": "300pt - PB - Prime Brothers [GFF 300pts]",
+    "units": [
+        {
+            "points": "75pts",
+            "specialRules": [
+                " Fearless",
+                " Hero",
+                " Tough(3)"
+            ],
+            "equipment": [],
+            "name": "Prime Master test",
+            "unitCount": "1",
+            "quality": "3",
+            "defense": "2",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Heavy Rifle ",
+                    "range": "24\"",
+                    "attacks": "A1",
+                    "ap": "1"
+                }
+            ]
+        },
+        {
+            "points": "40pts",
+            "specialRules": [
+                " Fearless",
+                " Scout",
+                " Strider"
+            ],
+            "equipment": [
+                {
+                    "name": "Scopes",
+                    "specialRules": [
+                        "Sniper"
+                    ]
+                }
+            ],
+            "name": "Infiltrator",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "3",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Marksman Carbine ",
+                    "range": "18\"",
+                    "attacks": "A1",
+                    "specialRules": [
+                        "Rending"
+                    ]
+                }
+            ]
+        },
+        {
+            "points": "40pts",
+            "specialRules": [
+                " Fearless"
+            ],
+            "equipment": [],
+            "name": "Assault Prime Brother",
+            "unitCount": "1",
+            "quality": "3",
+            "defense": "2",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A3"
+                },
+                {
+                    "name": "Plasma Pistol ",
+                    "range": "12\"",
+                    "attacks": "A1",
+                    "ap": "4"
+                }
+            ]
+        },
+        {
+            "points": "50pts",
+            "specialRules": [
+                " Fearless"
+            ],
+            "equipment": [],
+            "name": "Prime Brother",
+            "unitCount": "1",
+            "quality": "3",
+            "defense": "2",
+            "weapon": [
+                {
+                    "name": "Auto-Rifle ",
+                    "range": "18\"",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Grenade-Mod ",
+                    "range": "12\"",
+                    "attacks": "A1",
+                    "specialRules": [
+                        "Blast(3)"
+                    ]
+                }
+            ]
+        },
+        {
+            "points": "35pts",
+            "specialRules": [
+                " Fearless"
+            ],
+            "equipment": [],
+            "name": "Prime Brother",
+            "unitCount": "1",
+            "quality": "3",
+            "defense": "2",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Heavy Rifle ",
+                    "range": "24\"",
+                    "attacks": "A1",
+                    "ap": "1"
+                }
+            ]
+        },
+        {
+            "points": "60pts",
+            "specialRules": [
+                " Fearless",
+                " Scout",
+                " Stealth"
+            ],
+            "equipment": [],
+            "name": "Eliminator Prime Brother with more text",
+            "unitCount": "1",
+            "quality": "3",
+            "defense": "3",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Sniper Rifle ",
+                    "range": "30\"",
+                    "attacks": "A1",
+                    "ap": "1",
+                    "specialRules": [
+                        "Sniper"
+                    ]
+                }
+            ]
+        },
+        {
+            "points": "85pts",
+            "specialRules": [
+                " Hero",
+                " Tough(3)",
+                " Strider"
+            ],
+            "equipment": [
+                {
+                    "name": "Forward Observer",
+                    "specialRules": [
+                        "Take Aim"
+                    ]
+                }
+            ],
+            "name": "Storm Leader",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "4",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A2"
+                },
+                {
+                    "name": "Plasma Pistol ",
+                    "range": "12\"",
+                    "attacks": "A1",
+                    "ap": "4"
+                }
+            ]
+        },
+        {
+            "points": "20pts",
+            "specialRules": [],
+            "equipment": [
+                {
+                    "name": "Demo Charges",
+                    "specialRules": [
+                        "AP(4) in melee"
+                    ]
+                }
+            ],
+            "name": "Veteran",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "5",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Rifle ",
+                    "range": "24\"",
+                    "attacks": "A1"
+                }
+            ]
+        },
+        {
+            "points": "15pts",
+            "specialRules": [
+                " "
+            ],
+            "equipment": [],
+            "name": "2x Veteran",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "5",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Rifle ",
+                    "range": "24\"",
+                    "attacks": "A1"
+                }
+            ]
+        },
+        {
+            "points": "25pts",
+            "specialRules": [
+                " Relentless"
+            ],
+            "equipment": [],
+            "name": "Special Weapon",
+            "unitCount": "1",
+            "quality": "5",
+            "defense": "5",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Flamethrower ",
+                    "range": "12\"",
+                    "attacks": "A6"
+                }
+            ]
+        },
+        {
+            "points": "25pts",
+            "specialRules": [
+                " Relentless"
+            ],
+            "equipment": [],
+            "name": "Special Weapon",
+            "unitCount": "1",
+            "quality": "5",
+            "defense": "5",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Grenade Launcher ",
+                    "range": "24\"",
+                    "attacks": "A1",
+                    "specialRules": [
+                        "Blast(3)"
+                    ]
+                }
+            ]
+        },
+        {
+            "points": "45pts",
+            "specialRules": [
+                " Strider"
+            ],
+            "equipment": [],
+            "name": "Storm Trooper",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "4",
+            "weapon": [
+                {
+                    "name": "Energy Fist ",
+                    "attacks": "A2",
+                    "ap": "4"
+                },
+                {
+                    "name": "Shred Rifle ",
+                    "range": "18\"",
+                    "attacks": "A3",
+                    "specialRules": [
+                        "Rending"
+                    ]
+                }
+            ]
+        },
+        {
+            "points": "25pts",
+            "specialRules": [
+                " Strider"
+            ],
+            "equipment": [],
+            "name": "Storm Trooper",
+            "unitCount": "1",
+            "quality": "4",
+            "defense": "4",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Plasma Rifle ",
+                    "range": "24\"",
+                    "attacks": "A1",
+                    "ap": "4"
+                }
+            ]
+        },
+        {
+            "points": "45pts",
+            "specialRules": [
+                " Scout",
+                " Stealth"
+            ],
+            "equipment": [],
+            "name": "Sniper",
+            "unitCount": "1",
+            "quality": "5",
+            "defense": "5",
+            "weapon": [
+                {
+                    "name": "CCW ",
+                    "attacks": "A1"
+                },
+                {
+                    "name": "Sniper Rifle ",
+                    "range": "30\"",
+                    "attacks": "A1",
+                    "ap": "1",
+                    "specialRules": [
+                        "Sniper"
+                    ]
+                }
+            ]
+        }
+    ]
+}
