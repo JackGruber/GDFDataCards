@@ -279,17 +279,14 @@ def createDataCard(units):
     pdf.save()
 
 
-def parseArmyTextList():
-    print("Enter Army list from 'Share as Text', complete input with two new lines")
-    armyListText = readMultipleLines()
+def parseArmyTextList(armyListText):
     armyData = {}
 
     length = len(armyListText[0])
     if (length > 6 and armyListText[0][0] == "+" and armyListText[0][1] == "+" and armyListText[0][2] == " " and armyListText[0][length - 3] == " " and armyListText[0][length - 2] == "+" and armyListText[0][length - 1] == "+"):
         armyData['listName'] = armyListText[0].rstrip(" ++").lstrip("++ ")
     else:
-        print("No Army Data!")
-        sys.exit(1)
+        return False
 
     unit = False
     armyData['units'] = []
