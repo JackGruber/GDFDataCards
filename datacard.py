@@ -10,9 +10,11 @@ from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.pdfbase import pdfmetrics
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import A4, letter
+from reportlab.lib import utils
 from PIL import Image, ImageDraw
 import subprocess
 import platform
+import io
 
 DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
@@ -150,7 +152,9 @@ def createDataCard(units):
                               (0, imgSize[1])), fill=(0, 255, 0))
                 draw.polygon(((imgSize[0], 0), (imgSize[0]/2, imgSize[1]),
                               (imgSize[0], imgSize[1])), fill=(0, 255, 0))
-                img.save(os.path.join(DATAFOLDER, "img.png"))
+                imageBuffer = io.BytesIO()
+                img.save(imageBuffer, "png")
+                imageBuffer.seek(0)
 
         edgeLength = 60
         offsetTop = 2
@@ -165,7 +169,7 @@ def createDataCard(units):
 
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
         if (unitImage != None):
-            pdf.drawImage(os.path.join(DATAFOLDER, "img.png"), datacardSize[0] - offsetRight - edgeLength,
+            pdf.drawImage(utils.ImageReader(imageBuffer), datacardSize[0] - offsetRight - edgeLength,
                           datacardSize[1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
             fillPath = 0
         else:
