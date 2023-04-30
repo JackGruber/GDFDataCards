@@ -71,6 +71,7 @@ def openFile(filePath):
 
 
 def createDataCard(units):
+    print("Create datacards ...")
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
             FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
