@@ -19,6 +19,7 @@ DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 
 
 def Main():
+    createDataCard(army['units'])
     openFile(DATACARDPDF)
 
 
