@@ -197,17 +197,37 @@ def parseArmyTextList():
                 unitData['quality'] = regExMatch[0][2]
                 unitData['defense'] = regExMatch[0][3]
             elif unit == True:
-                regExMatch = re.findall(
-                    r"([^(]+)\s(\(.*?\))(?:,\s|$)", armyListText[x].strip(" "))
+                parts = armyListText[x].strip(" ").split(" ")
+                parts = list(armyListText[x].strip(" "))
 
-                for weapon in regExMatch:
+                weapons = []
+                weaponExtract = []
+                bracket = 0
+                weaponRule = False
+                for part in parts:
+                    if (part == "("):
+                        bracket += 1
+                        weaponRule = True
+                    elif (part == ")"):
+                        bracket -= 1
+
+                    if (part == "," and len(weaponExtract) == 0):
+                        continue
+
+                    weaponExtract.append(part)
+
+                    if (weaponRule == True and bracket == 0):
+                        print(''.join(weaponExtract))
+                        weapons.append(''.join(weaponExtract).strip())
+                        weaponExtract = []
+                        weaponRule = False
+
+                for weapon in weapons:
+                    regExMatch = re.search(
+                        r"([^(]+)(\()(.*)(\))", weapon.strip(" "))
                     weaponData = {}
-                    weaponData['name'] = weapon[0]
-                    weaponRules = list(weapon[1])
-                    weaponRules[0] = " "
-                    weaponRules[len(weaponRules)-1] = " "
-                    weaponRules = ''.join(weaponRules)
-                    weaponRules = weaponRules.strip(" ").split(",")
+                    weaponData['name'] = regExMatch.group(1)
+                    weaponRules = regExMatch.group(3).split(",")
                     for weaponRule in weaponRules:
                         weaponRule = weaponRule.strip(" ")
                         if re.match(r'\d+"', weaponRule):
@@ -243,7 +263,6 @@ def readMultipleLines():
         else:
             end = 0
     return buffer
-
 
 
 if __name__ == "__main__":
