@@ -302,7 +302,6 @@ def parseArmyTextList():
                     weaponExtract.append(part)
 
                     if (weaponRule == True and bracket == 0):
-                        print(''.join(weaponExtract))
                         weapons.append(''.join(weaponExtract).strip())
                         weaponExtract = []
                         weaponRule = False
