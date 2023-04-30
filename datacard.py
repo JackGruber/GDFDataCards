@@ -15,10 +15,20 @@ from PIL import Image, ImageDraw
 DATAFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts")
+DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 
 
 def Main():
-    createDataCard(army['units'][3])
+    openFile(DATACARDPDF)
+
+
+def openFile(filePath):
+    if platform.system() == 'Darwin':
+        subprocess.call(('open', filePath))
+    elif platform.system() == 'Windows':
+        os.startfile(filePath)
+    else:
+        subprocess.call(('xdg-open', filePath))
 
 
 def createDataCard(units):
@@ -31,7 +41,7 @@ def createDataCard(units):
     datacardSize = (200.0, 130.0)
     lineColor = [1.00, 0.55, 0.10]
     # creating a pdf object
-    pdf = canvas.Canvas("sample.pdf", pagesize=datacardSize)
+    pdf = canvas.Canvas(DATACARDPDF, pagesize=datacardSize)
     pdf.setTitle("GDF data card")
 
     for unit in units:
