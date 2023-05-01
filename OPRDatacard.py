@@ -13,6 +13,10 @@ import time
 import stat
 import json
 import re
+import click
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
+
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
     BASEPATH = os.path.dirname(sys.executable)
@@ -25,12 +29,30 @@ FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 
+@click.command()
+@click.option(
+    "--json / --txt",
+    "typeJson",
+    default=True,
+    required=False
+)
 
-def Main():
+def Main(typeJson):
     createFolderStructure()
-    army = parseArmyTextList()
-    createDataCard(army['units'])
-    openFile(DATACARDPDF)
+    army = None
+    if(typeJson == True):
+        Tk().withdraw()
+        jsonFile = askopenfilename()
+        if jsonFile != "":
+            army = parseArmyJsonList(jsonFile)
+    else:
+        print("Enter Army list from 'Share as Text', complete input with two new lines")
+        txtData = readMultipleLines()
+        army = parseArmyTextList(txtData)
+    
+    if army != None:
+        createDataCard(army['units'])
+        openFile(DATACARDPDF)
 
 
 def createFolderStructure():
