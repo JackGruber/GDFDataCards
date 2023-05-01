@@ -4,16 +4,22 @@
         {
             "points": "75pts",
             "specialRules": [
-                " Fearless",
-                " Hero",
-                " Tough(3)"
+                {
+                    "label": " Fearless"
+                },
+                {
+                    "label": " Hero"
+                },
+                {
+                    "label": " Tough(3)"
+                }
             ],
             "equipment": [],
             "name": "Prime Master test",
             "unitCount": 1,
             "quality": 3,
             "defense": 2,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 2
@@ -29,9 +35,15 @@
         {
             "points": "40pts",
             "specialRules": [
-                " Fearless",
-                " Scout",
-                " Strider"
+                {
+                    "label": " Fearless"
+                },
+                {
+                    "label": " Scout"
+                },
+                {
+                    "label": " Strider"
+                }
             ],
             "equipment": [
                 {
@@ -45,7 +57,7 @@
             "unitCount": 1,
             "quality": 4,
             "defense": 3,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 2
@@ -55,7 +67,9 @@
                     "range": 18,
                     "attacks": 1,
                     "specialRules": [
-                        "Rending"
+                        {
+                            "label": "Rending"
+                        }
                     ]
                 }
             ]
@@ -63,14 +77,16 @@
         {
             "points": "40pts",
             "specialRules": [
-                " Fearless"
+                {
+                    "label": " Fearless"
+                }
             ],
             "equipment": [],
             "name": "Assault Prime Brother",
             "unitCount": 1,
             "quality": 3,
             "defense": 2,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 3
@@ -86,14 +102,16 @@
         {
             "points": "50pts",
             "specialRules": [
-                " Fearless"
+                {
+                    "label": " Fearless"
+                }
             ],
             "equipment": [],
             "name": "Prime Brother",
             "unitCount": 1,
             "quality": 3,
             "defense": 2,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "Auto-Rifle ",
                     "range": 18,
@@ -108,7 +126,9 @@
                     "range": 12,
                     "attacks": 1,
                     "specialRules": [
-                        "Blast(3)"
+                        {
+                            "label": "Blast(3)"
+                        }
                     ]
                 }
             ]
@@ -116,14 +136,16 @@
         {
             "points": "35pts",
             "specialRules": [
-                " Fearless"
+                {
+                    "label": " Fearless"
+                }
             ],
             "equipment": [],
             "name": "Prime Brother",
             "unitCount": 1,
             "quality": 3,
             "defense": 2,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 2
@@ -139,16 +161,22 @@
         {
             "points": "60pts",
             "specialRules": [
-                " Fearless",
-                " Scout",
-                " Stealth"
+                {
+                    "label": " Fearless"
+                },
+                {
+                    "label": " Scout"
+                },
+                {
+                    "label": " Stealth"
+                }
             ],
             "equipment": [],
             "name": "Eliminator Prime Brother with more text",
             "unitCount": 1,
             "quality": 3,
             "defense": 3,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 2
@@ -159,7 +187,9 @@
                     "attacks": 1,
                     "ap": 1,
                     "specialRules": [
-                        "Sniper"
+                        {
+                            "label": "Sniper"
+                        }
                     ]
                 }
             ]
@@ -167,9 +197,15 @@
         {
             "points": "85pts",
             "specialRules": [
-                " Hero",
-                " Tough(3)",
-                " Strider"
+                {
+                    "label": " Hero"
+                },
+                {
+                    "label": " Tough(3)"
+                },
+                {
+                    "label": " Strider"
+                }
             ],
             "equipment": [
                 {
@@ -183,7 +219,7 @@
             "unitCount": 1,
             "quality": 4,
             "defense": 4,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 2
@@ -211,7 +247,7 @@
             "unitCount": 1,
             "quality": 4,
             "defense": 5,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -226,14 +262,16 @@
         {
             "points": "15pts",
             "specialRules": [
-                " "
+                {
+                    "label": " "
+                }
             ],
             "equipment": [],
             "name": "2x Veteran",
             "unitCount": 1,
             "quality": 4,
             "defense": 5,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -248,14 +286,16 @@
         {
             "points": "25pts",
             "specialRules": [
-                " Relentless"
+                {
+                    "label": " Relentless"
+                }
             ],
             "equipment": [],
             "name": "Special Weapon",
             "unitCount": 1,
             "quality": 5,
             "defense": 5,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -270,14 +310,16 @@
         {
             "points": "25pts",
             "specialRules": [
-                " Relentless"
+                {
+                    "label": " Relentless"
+                }
             ],
             "equipment": [],
             "name": "Special Weapon",
             "unitCount": 1,
             "quality": 5,
             "defense": 5,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -287,7 +329,9 @@
                     "range": 24,
                     "attacks": 1,
                     "specialRules": [
-                        "Blast(3)"
+                        {
+                            "label": "Blast(3)"
+                        }
                     ]
                 }
             ]
@@ -295,14 +339,16 @@
         {
             "points": "45pts",
             "specialRules": [
-                " Strider"
+                {
+                    "label": " Strider"
+                }
             ],
             "equipment": [],
             "name": "Storm Trooper",
             "unitCount": 1,
             "quality": 4,
             "defense": 4,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "Energy Fist ",
                     "attacks": 2,
@@ -313,7 +359,9 @@
                     "range": 18,
                     "attacks": 3,
                     "specialRules": [
-                        "Rending"
+                        {
+                            "label": "Rending"
+                        }
                     ]
                 }
             ]
@@ -321,14 +369,16 @@
         {
             "points": "25pts",
             "specialRules": [
-                " Strider"
+                {
+                    "label": " Strider"
+                }
             ],
             "equipment": [],
             "name": "Storm Trooper",
             "unitCount": 1,
             "quality": 4,
             "defense": 4,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -344,15 +394,19 @@
         {
             "points": "45pts",
             "specialRules": [
-                " Scout",
-                " Stealth"
+                {
+                    "label": " Scout"
+                },
+                {
+                    "label": " Stealth"
+                }
             ],
             "equipment": [],
             "name": "Sniper",
             "unitCount": 1,
             "quality": 5,
             "defense": 5,
-            "weapon": [
+            "weapons": [
                 {
                     "name": "CCW ",
                     "attacks": 1
@@ -363,7 +417,9 @@
                     "attacks": 1,
                     "ap": 1,
                     "specialRules": [
-                        "Sniper"
+                        {
+                            "label": "Sniper"
+                        }
                     ]
                 }
             ]
