@@ -1,3 +1,11 @@
+import io
+import platform
+import subprocess
+from PIL import Image, ImageDraw
+from reportlab.lib import utils
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
 import sys
 import os
 import urllib.request
@@ -5,17 +13,6 @@ import time
 import stat
 import json
 import re
-from reportlab.pdfgen import canvas
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfbase import pdfmetrics
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import A4, letter
-from reportlab.lib import utils
-from PIL import Image, ImageDraw
-import subprocess
-import platform
-import io
-
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
     BASEPATH = os.path.dirname(sys.executable)
