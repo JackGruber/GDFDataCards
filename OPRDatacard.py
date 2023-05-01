@@ -284,14 +284,14 @@ def createDataCard(units):
 
             if "ap" in weapon:
                 pdf.drawString(startX + offsetX[3], startY +
-                               offsetY, weapon['ap'])
+                               offsetY, str(weapon['ap']))
             else:
                 pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
 
             if "specialRules" in weapon and len(weapon['specialRules']) > 0:
                 label = []
                 for specialRule in weapon['specialRules']:
-                    label.append(specialRule['label'])
+                    label.append(str(specialRule['label']))
 
                 pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             else:
@@ -343,7 +343,7 @@ def parseArmyTextList(armyListText):
                         unitData['equipment'].append(
                             {'name': regExMatch.group(2).strip(" "), 'specialRules': regExMatch.group(4).split(",")})
                     else:
-                        unitData['specialRules'].append(specialRules)
+                        unitData['specialRules'].append({'label': specialRules})
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
@@ -395,10 +395,10 @@ def parseArmyTextList(armyListText):
                         else:
                             if not "specialRules" in weaponData:
                                 weaponData['specialRules'] = []
-                            weaponData['specialRules'].append(weaponRule)
-                    if not "weapon" in unitData:
-                        unitData['weapon'] = []
-                    unitData['weapon'].append(weaponData)
+                            weaponData['specialRules'].append({'label': weaponRule})
+                    if not "weapons" in unitData:
+                        unitData['weapons'] = []
+                    unitData['weapons'].append(weaponData)
         else:
             unit = False
             if "name" in unitData:
