@@ -53,12 +53,7 @@ def Main(typeJson, armyFile):
             army = parseArmyJsonList(armyFile)
     else:
         if(armyFile != None):
-            try:
-                f = open(armyFile, "r")
-                txtData = f.read().split("\n")
-                f.close()
-            except Exception as ex:
-                print("Error Reading test txt file " + str(ex))
+            txtData = readTxtFile(armyFile)
         else:
             print("Enter Army list from 'Share as Text', complete input with two new lines")
             txtData = readMultipleLines()
@@ -68,6 +63,15 @@ def Main(typeJson, armyFile):
     if army != None:
         createDataCard(army['units'])
         openFile(DATACARDPDF)
+
+def readTxtFile(file):
+    try:
+        f = open(file, "r")
+        txtData = f.read().split("\n")
+        f.close()
+    except Exception as ex:
+        print("Error Reading test txt file " + str(ex))
+    return txtData
 
 def fileSelectDialog():
     Tk().withdraw()
