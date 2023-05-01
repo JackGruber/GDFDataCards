@@ -213,35 +213,34 @@ def createDataCard(units):
         pdf.drawCentredString(startX, startY, "Quality")
         pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
         pdf.setFont('regular', 5)
-        pdf.drawCentredString(
-            startX, startY - (lineHight*1), unit["quality"] + "+")
-        pdf.drawCentredString(
-            startX, startY - (lineHight*4), unit["defense"] + "+")
+        pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
+        pdf.drawCentredString(startX, startY - (lineHight*4), str(unit["defense"]) + "+")
 
         # Weapon
         startX = 5
         startY = datacardSize[1] - 70
         offsetX = [0, 70, 90, 115, 130]
         offsetY = 0
-        headers = {'name': 'Weapon', 'range': 'Range', 'attacks': 'Attacks',
-                   'ap': 'AP', 'specialRules': ['Special rules']}
-        unit['weapon'].insert(0, headers)
-        font = "bold"
-        for weapon in unit['weapon']:
-            pdf.setFont(font, 5)
+        headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
+        for i in range(len(headers)):
+            pdf.setFont("bold", 5)
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
+        offsetY -= 8
+
+        for weapon in unit['weapons']:
+            pdf.setFont("regular", 5)
             pdf.setFillColorRGB(0, 0, 0)
 
             pdf.drawString(startX + offsetX[0],
                            startY + offsetY, weapon['name'])
 
             if "range" in weapon:
-                pdf.drawString(startX + offsetX[1], startY +
-                               offsetY, weapon['range'])
+                pdf.drawString(startX + offsetX[1], startY + offsetY, str(weapon['range']) + '"')
             else:
                 pdf.drawString(startX + offsetX[1], startY + offsetY, "-")
 
-            pdf.drawString(startX + offsetX[2], startY +
-                           offsetY, weapon['attacks'])
+            pdf.drawString(startX + offsetX[2], startY + offsetY, "A" + str(weapon['attacks']))
 
             if "ap" in weapon:
                 pdf.drawString(startX + offsetX[3], startY +
@@ -249,14 +248,16 @@ def createDataCard(units):
             else:
                 pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
 
-            if "specialRules" in weapon:
-                pdf.drawString(startX + offsetX[4], startY + offsetY,
-                               ", ".join(weapon['specialRules']))
+            if "specialRules" in weapon and len(weapon['specialRules']) > 0:
+                label = []
+                for specialRule in weapon['specialRules']:
+                    label.append(specialRule['label'])
+
+                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             else:
                 pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
 
             offsetY -= 8
-            font = "regular"
 
         if 'equipment' in unit and len(unit['equipment']) > 0:
             headers = {'name': 'Equipment', 'specialRules': ['']}
@@ -265,10 +266,8 @@ def createDataCard(units):
             for equipment in unit['equipment']:
                 pdf.setFont(font, 5)
                 pdf.setFillColorRGB(0, 0, 0)
-                pdf.drawString(startX + offsetX[0],
-                               startY + offsetY, equipment['name'])
-                pdf.drawString(startX + offsetX[4], startY + offsetY,
-                               ", ".join(equipment['specialRules']))
+                pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
+                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(equipment['specialRules']))
                 offsetY -= 8
                 font = "regular"
 
