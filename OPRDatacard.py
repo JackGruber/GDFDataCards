@@ -461,6 +461,10 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
                                     unitData['weapons'].append(getWeapon(gains))
+                                elif gains['type'] == "ArmyBookItem":
+                                    if 'equipment' not in unitData:
+                                        unitData['equipment'] = []
+                                    unitData['equipment'].append(addEquipment(gains))
                                 else:
                                     print("Waring no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
@@ -470,6 +474,17 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     unitData['weapons'] = removeWeapon(section["replaceWhat"], unitData['weapons'])
 
     return unitData
+
+
+def addEquipment(data):
+    equipment = {}
+    equipment['name'] = data['name']
+    equipment['specialRules'] = []
+
+    for rule in data['content']:
+        equipment['specialRules'].append(rule['label'])
+
+    return equipment
 
 
 def parseArmyJsonList(armyListJsonFile: str):
