@@ -131,8 +131,12 @@ def createDataCard(units):
         pdf.drawPath(path, stroke=1, fill=1)
         pdf.setFont('bold', 4)
         pdf.setFillColorRGB(0, 0, 0)
+
+        specialRules = []
+        for rule in unit['specialRules']:
+            specialRules.append(rule['label'])
         pdf.drawString(sideClearance+2, bottomClearance +
-                       (height/2)-1, ", ".join(unit['specialRules']))
+                       (height/2)-1, ", ".join(specialRules))
 
         # Image box
         unitImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
