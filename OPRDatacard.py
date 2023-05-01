@@ -381,5 +381,189 @@ def readMultipleLines():
     return buffer
 
 
+def getUnit(unit, jsonArmyBookList):
+    data = {}
+    for listUnit in jsonArmyBookList[unit['armyId']]['units']:
+        if (listUnit['id'] == unit['id']):
+            data['type'] = listUnit['name']
+            data['name'] = listUnit['name']
+            data['armyId'] = unit['armyId']
+            data['id'] = listUnit['id']
+            data['defense'] = listUnit['defense']
+            data['quality'] = listUnit['quality']
+            data['upgrades'] = listUnit['upgrades']
+            data['weapons'] = []
+            for equipment in listUnit['equipment']:
+                data['weapons'].append(getWeapon(equipment))
+
+            data['specialRules'] = getSpecialRules(listUnit['specialRules'])
+            data = getUnitUpgrades(unit, data, jsonArmyBookList)
+            break
+    if "customName" in unit:
+        data['name'] = unit['customName']
+    return data
+
+
+def getSpecialRules(data):
+    specialRules = []
+    for specialRule in data:
+        rule = specialRule
+        if specialRule['rating'] != "":
+            rule['label'] = specialRule['name'] + \
+                "(" + specialRule['rating'] + ")"
+        else:
+            rule['label'] = specialRule['name']
+
+        specialRules.append(rule)
+
+    return specialRules
+
+
+def getWeapon(data):
+    weapon = {}
+    weapon['attacks'] = data['attacks']
+
+    if "name" in data:
+        weapon['name'] = data['name']
+
+    if "range" in data:
+        weapon['range'] = data['range']
+
+    weapon['specialRules'] = getSpecialRules(data['specialRules'])
+
+    for i in range(len(weapon['specialRules'])):
+        if weapon['specialRules'][i]['key'] == "ap":
+            weapon['ap'] = weapon['specialRules'][i]['rating']
+            weapon['specialRules'].pop(i)
+            break
+
+    return weapon
+
+
+def removeWeapon(removeWeapon, weapons):
+    for remove in removeWeapon:
+        for i in range(len(weapons)):
+            if weapons[i]['name'].strip() == remove.strip():
+                weapons.pop(i)
+                break
+    return weapons
+
+
+def getUnitUpgrades(unit, unitData, jsonArmyBookList):
+    for upgrade in unit['selectedUpgrades']:
+        armyId = unit['armyId']
+        upgradeId = upgrade['upgradeId']
+        optionId = upgrade['optionId']
+        for package in jsonArmyBookList[armyId]['upgradePackages']:
+            for section in package['sections']:
+                if (section['uid'] == upgradeId):
+                    for option in section['options']:
+                        if option['uid'] == optionId:
+                            for gains in option['gains']:
+                                if (gains['type'] == "ArmyBookWeapon"):
+                                    unitData['weapons'].append(getWeapon(gains))
+                                else:
+                                    print("Waring no handling for " +
+                                          gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
+
+                            if "replaceWhat" in section:
+                                if (gains['type'] == "ArmyBookWeapon"):
+                                    unitData['weapons'] = removeWeapon(section["replaceWhat"], unitData['weapons'])
+
+    return unitData
+
+
+def parseArmyJsonList(armyListJsonFile: str):
+    print("Parse army list ...")
+    armyData = {}
+    jsonArmyBookList = {}
+
+    jsonArmyList = loadJsonFile(armyListJsonFile)
+    armyData['armyId'] = jsonArmyList['armyId']
+    downloadArmyBook(armyData['armyId'])
+    jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
+        DATAFOLDERARMYBOOK, armyData['armyId'] + ".json"))
+    armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
+    armyData['listPoints'] = jsonArmyList['listPoints']
+    armyData['listName'] = jsonArmyList['list']['name']
+
+    armyData['units'] = []
+    for unit in jsonArmyList['list']['units']:
+        downloadArmyBook(unit['armyId'])
+        jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
+            DATAFOLDERARMYBOOK, unit['armyId'] + ".json"))
+        unitData = getUnit(unit, jsonArmyBookList)
+        armyData['units'].append(unitData)
+
+    return armyData
+
+
+def loadJsonFile(jsonFile: str):
+    try:
+        f = open(jsonFile, encoding="utf8")
+        file = f.read()
+        f.close()
+    except Exception as ex:
+        print("file failed to open " + jsonFile)
+        print(ex)
+        sys.exit(1)
+
+    try:
+        jsonObj = json.loads(file)
+    except json.decoder.JSONDecodeError as ex:
+        print(file + " Json is not valid!")
+        print(ex)
+        sys.exit(1)
+    except Exception as ex:
+        print("Unhandeld Exception")
+        print(ex)
+        sys.exit(1)
+    return jsonObj
+
+
+def downloadArmyBook(id: str):
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, id + ".json")
+    download = True
+    if not os.path.exists(DATAFOLDERARMYBOOK):
+        try:
+            os.makedirs(DATAFOLDERARMYBOOK)
+        except Exception as ex:
+            print("Error data folder creation failed")
+            print(ex)
+            return False
+
+    # download only when older than 1 day
+    if os.path.exists(armyBookJsonFile):
+        if time.time() - os.stat(armyBookJsonFile)[stat.ST_MTIME] < 86400:
+            download = False
+
+    if (download == True):
+        try:
+            print("Download army book ...")
+            urllib.request.urlretrieve(
+                "https://army-forge-studio.onepagerules.com/api/army-books/" + id + "~3?armyForge=true", armyBookJsonFile)
+        except Exception as ex:
+            print("Error download of army book failed")
+            print(ex)
+            return False
+
+    if not os.path.exists(armyBookJsonFile):
+        print("Error no aramy book for " + id)
+        return False
+
+    return True
+
+
+def SaveDictToJson(dictData, file):
+    try:
+        with open(file, 'w') as fp:
+            fp.write(json.dumps(dictData, indent=4))
+    except Exception as ex:
+        print("Error saving dict to json")
+        print(ex)
+        return False
+    return True
+
+
 if __name__ == "__main__":
     Main()
