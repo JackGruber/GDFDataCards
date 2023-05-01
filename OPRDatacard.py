@@ -46,10 +46,12 @@ def Main(typeJson, armyFile):
     createFolderStructure()
     army = None
     if(typeJson == True):
-        Tk().withdraw()
-        jsonFile = askopenfilename()
-        if jsonFile != "":
-            army = parseArmyJsonList(jsonFile)
+        if(armyFile == None):
+            Tk().withdraw()
+            armyFile = askopenfilename()
+
+        if armyFile != None and armyFile != "":
+            army = parseArmyJsonList(armyFile)
     else:
         if(armyFile != None):
             try:
