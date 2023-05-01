@@ -7,7 +7,7 @@ TESTDIR = os.path.dirname(__file__)
 
 def readJsonFile(file):
     try:
-        f = open(os.path.join(TESTDIR, file), "r")
+        f = open(file, "r", encoding="utf8")
         expected = json.loads(f.read())
         f.close()
     except Exception as ex:
