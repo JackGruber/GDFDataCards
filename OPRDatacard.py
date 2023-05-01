@@ -261,7 +261,7 @@ def createDataCard(units):
             offsetY -= 8
             font = "regular"
 
-        if len(unit['equipment']) > 0:
+        if 'equipment' in unit and len(unit['equipment']) > 0:
             headers = {'name': 'Equipment', 'specialRules': ['']}
             unit['equipment'].insert(0, headers)
             font = "bold"
