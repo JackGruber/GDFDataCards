@@ -311,9 +311,9 @@ def parseArmyTextList(armyListText):
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
-                unitData['unitCount'] = regExMatch[0][1]
-                unitData['quality'] = regExMatch[0][2]
-                unitData['defense'] = regExMatch[0][3]
+                unitData['unitCount'] = int(regExMatch[0][1])
+                unitData['quality'] = int(regExMatch[0][2])
+                unitData['defense'] = int(regExMatch[0][3])
             elif unit == True:
                 parts = armyListText[x].strip(" ").split(" ")
                 parts = list(armyListText[x].strip(" "))
@@ -348,12 +348,14 @@ def parseArmyTextList(armyListText):
                     for weaponRule in weaponRules:
                         weaponRule = weaponRule.strip(" ")
                         if re.match(r'\d+"', weaponRule):
-                            weaponData['range'] = weaponRule
+                            weaponData['range'] = int(
+                                weaponRule.replace('"', ''))
                         elif re.match(r'A\d+', weaponRule):
-                            weaponData['attacks'] = weaponRule
+                            weaponData['attacks'] = int(
+                                weaponRule.replace("A", ""))
                         elif re.match(r'AP\(\d+\)', weaponRule):
-                            weaponData['ap'] = weaponRule.replace(
-                                "AP(", "").replace(")", "")
+                            weaponData['ap'] = int(weaponRule.replace(
+                                "AP(", "").replace(")", ""))
                         else:
                             if not "specialRules" in weaponData:
                                 weaponData['specialRules'] = []

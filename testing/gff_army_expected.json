@@ -10,19 +10,19 @@
             ],
             "equipment": [],
             "name": "Prime Master test",
-            "unitCount": "1",
-            "quality": "3",
-            "defense": "2",
+            "unitCount": 1,
+            "quality": 3,
+            "defense": 2,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Heavy Rifle ",
-                    "range": "24\"",
-                    "attacks": "A1",
-                    "ap": "1"
+                    "range": 24,
+                    "attacks": 1,
+                    "ap": 1
                 }
             ]
         },
@@ -42,18 +42,18 @@
                 }
             ],
             "name": "Infiltrator",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "3",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 3,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Marksman Carbine ",
-                    "range": "18\"",
-                    "attacks": "A1",
+                    "range": 18,
+                    "attacks": 1,
                     "specialRules": [
                         "Rending"
                     ]
@@ -67,19 +67,19 @@
             ],
             "equipment": [],
             "name": "Assault Prime Brother",
-            "unitCount": "1",
-            "quality": "3",
-            "defense": "2",
+            "unitCount": 1,
+            "quality": 3,
+            "defense": 2,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A3"
+                    "attacks": 3
                 },
                 {
                     "name": "Plasma Pistol ",
-                    "range": "12\"",
-                    "attacks": "A1",
-                    "ap": "4"
+                    "range": 12,
+                    "attacks": 1,
+                    "ap": 4
                 }
             ]
         },
@@ -90,23 +90,23 @@
             ],
             "equipment": [],
             "name": "Prime Brother",
-            "unitCount": "1",
-            "quality": "3",
-            "defense": "2",
+            "unitCount": 1,
+            "quality": 3,
+            "defense": 2,
             "weapon": [
                 {
                     "name": "Auto-Rifle ",
-                    "range": "18\"",
-                    "attacks": "A2"
+                    "range": 18,
+                    "attacks": 2
                 },
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Grenade-Mod ",
-                    "range": "12\"",
-                    "attacks": "A1",
+                    "range": 12,
+                    "attacks": 1,
                     "specialRules": [
                         "Blast(3)"
                     ]
@@ -120,19 +120,19 @@
             ],
             "equipment": [],
             "name": "Prime Brother",
-            "unitCount": "1",
-            "quality": "3",
-            "defense": "2",
+            "unitCount": 1,
+            "quality": 3,
+            "defense": 2,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Heavy Rifle ",
-                    "range": "24\"",
-                    "attacks": "A1",
-                    "ap": "1"
+                    "range": 24,
+                    "attacks": 1,
+                    "ap": 1
                 }
             ]
         },
@@ -145,19 +145,19 @@
             ],
             "equipment": [],
             "name": "Eliminator Prime Brother with more text",
-            "unitCount": "1",
-            "quality": "3",
-            "defense": "3",
+            "unitCount": 1,
+            "quality": 3,
+            "defense": 3,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Sniper Rifle ",
-                    "range": "30\"",
-                    "attacks": "A1",
-                    "ap": "1",
+                    "range": 30,
+                    "attacks": 1,
+                    "ap": 1,
                     "specialRules": [
                         "Sniper"
                     ]
@@ -180,19 +180,19 @@
                 }
             ],
             "name": "Storm Leader",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "4",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 4,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A2"
+                    "attacks": 2
                 },
                 {
                     "name": "Plasma Pistol ",
-                    "range": "12\"",
-                    "attacks": "A1",
-                    "ap": "4"
+                    "range": 12,
+                    "attacks": 1,
+                    "ap": 4
                 }
             ]
         },
@@ -208,18 +208,18 @@
                 }
             ],
             "name": "Veteran",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "5",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 5,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Rifle ",
-                    "range": "24\"",
-                    "attacks": "A1"
+                    "range": 24,
+                    "attacks": 1
                 }
             ]
         },
@@ -230,18 +230,18 @@
             ],
             "equipment": [],
             "name": "2x Veteran",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "5",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 5,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Rifle ",
-                    "range": "24\"",
-                    "attacks": "A1"
+                    "range": 24,
+                    "attacks": 1
                 }
             ]
         },
@@ -252,18 +252,18 @@
             ],
             "equipment": [],
             "name": "Special Weapon",
-            "unitCount": "1",
-            "quality": "5",
-            "defense": "5",
+            "unitCount": 1,
+            "quality": 5,
+            "defense": 5,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Flamethrower ",
-                    "range": "12\"",
-                    "attacks": "A6"
+                    "range": 12,
+                    "attacks": 6
                 }
             ]
         },
@@ -274,18 +274,18 @@
             ],
             "equipment": [],
             "name": "Special Weapon",
-            "unitCount": "1",
-            "quality": "5",
-            "defense": "5",
+            "unitCount": 1,
+            "quality": 5,
+            "defense": 5,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Grenade Launcher ",
-                    "range": "24\"",
-                    "attacks": "A1",
+                    "range": 24,
+                    "attacks": 1,
                     "specialRules": [
                         "Blast(3)"
                     ]
@@ -299,19 +299,19 @@
             ],
             "equipment": [],
             "name": "Storm Trooper",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "4",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 4,
             "weapon": [
                 {
                     "name": "Energy Fist ",
-                    "attacks": "A2",
-                    "ap": "4"
+                    "attacks": 2,
+                    "ap": 4
                 },
                 {
                     "name": "Shred Rifle ",
-                    "range": "18\"",
-                    "attacks": "A3",
+                    "range": 18,
+                    "attacks": 3,
                     "specialRules": [
                         "Rending"
                     ]
@@ -325,19 +325,19 @@
             ],
             "equipment": [],
             "name": "Storm Trooper",
-            "unitCount": "1",
-            "quality": "4",
-            "defense": "4",
+            "unitCount": 1,
+            "quality": 4,
+            "defense": 4,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Plasma Rifle ",
-                    "range": "24\"",
-                    "attacks": "A1",
-                    "ap": "4"
+                    "range": 24,
+                    "attacks": 1,
+                    "ap": 4
                 }
             ]
         },
@@ -349,19 +349,19 @@
             ],
             "equipment": [],
             "name": "Sniper",
-            "unitCount": "1",
-            "quality": "5",
-            "defense": "5",
+            "unitCount": 1,
+            "quality": 5,
+            "defense": 5,
             "weapon": [
                 {
                     "name": "CCW ",
-                    "attacks": "A1"
+                    "attacks": 1
                 },
                 {
                     "name": "Sniper Rifle ",
-                    "range": "30\"",
-                    "attacks": "A1",
-                    "ap": "1",
+                    "range": 30,
+                    "attacks": 1,
+                    "ap": 1,
                     "specialRules": [
                         "Sniper"
                     ]
