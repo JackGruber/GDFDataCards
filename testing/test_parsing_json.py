@@ -28,7 +28,6 @@ def test_getSpecialRules_Weapons():
     for test in testCases:
         rules = armyBookHdf["units"][test['unit']]["equipment"][test['equipment']]['specialRules']
         result = OPRDatacard.getSpecialRules(rules)
-        print(result)
         assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
 
 
@@ -65,7 +64,6 @@ def test_removeWeapon():
 
     for test in testCases:
         result = OPRDatacard.removeWeapon(test['remove'], weapons.copy())
-        print(result)
         assert result == test['expected'], "Weapon remove error for: " + ", ". join(test['remove'])
 
 
