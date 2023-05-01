@@ -47,8 +47,7 @@ def Main(typeJson, armyFile):
     army = None
     if(typeJson == True):
         if(armyFile == None):
-            Tk().withdraw()
-            armyFile = askopenfilename()
+            armyFile = fileSelectDialog()
 
         if armyFile != None and armyFile != "":
             army = parseArmyJsonList(armyFile)
@@ -70,6 +69,9 @@ def Main(typeJson, armyFile):
         createDataCard(army['units'])
         openFile(DATACARDPDF)
 
+def fileSelectDialog():
+    Tk().withdraw()
+    return askopenfilename()
 
 def createFolderStructure():
     if not os.path.exists(DATAFOLDER):
