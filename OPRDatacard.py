@@ -36,8 +36,13 @@ IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
     default=True,
     required=False
 )
+@click.option(
+    "-f",
+    "--file",
+    "armyFile",
+)
 
-def Main(typeJson):
+def Main(typeJson, armyFile):
     createFolderStructure()
     army = None
     if(typeJson == True):
@@ -46,8 +51,17 @@ def Main(typeJson):
         if jsonFile != "":
             army = parseArmyJsonList(jsonFile)
     else:
-        print("Enter Army list from 'Share as Text', complete input with two new lines")
-        txtData = readMultipleLines()
+        if(armyFile != None):
+            try:
+                f = open(armyFile, "r")
+                txtData = f.read().split("\n")
+                f.close()
+            except Exception as ex:
+                print("Error Reading test txt file " + str(ex))
+        else:
+            print("Enter Army list from 'Share as Text', complete input with two new lines")
+            txtData = readMultipleLines()
+
         army = parseArmyTextList(txtData)
     
     if army != None:
