@@ -171,8 +171,14 @@ def createDataCard(units):
         path.close()
         pdf.setLineJoin(1)
         pdf.drawPath(path, stroke=1, fill=0)
+
+        # Unit type
         pdf.line(sideClearance, datacardSize[1] - 45,
                  datacardSize[0]-sideClearance, datacardSize[1] - 45)
+        if 'type' in unit and unit['name'] != unit['type']:
+            pdf.setFont('regular', 5)
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.drawString(5, datacardSize[1] - 44, unit['type'])
 
         # Bottom Info Box
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
