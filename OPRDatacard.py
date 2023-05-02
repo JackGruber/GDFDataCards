@@ -175,10 +175,17 @@ def createDataCard(army):
         # Unit type
         pdf.line(sideClearance, datacardSize[1] - 45,
                  datacardSize[0]-sideClearance, datacardSize[1] - 45)
+        smallInfo = []
+        if (unit['size'] > 1):
+            smallInfo.append(str(unit['size']) + "x")
+
         if 'type' in unit and unit['name'] != unit['type']:
-            pdf.setFont('regular', 5)
-            pdf.setFillColorRGB(0, 0, 0)
-            pdf.drawString(5, datacardSize[1] - 44, unit['type'])
+            smallInfo.append(unit['type'])
+
+        pdf.setFont('regular', 5)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawString(5, datacardSize[1] - 44, " ".join(smallInfo))
+
 
         # Bottom Info Box
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
@@ -269,8 +276,6 @@ def createDataCard(army):
 
         # Unit Name
         parts = unit['name'].split(" ")
-        if (unit['size'] > 1):
-            parts.append("[" + str(unit['size']) + "]")
         nameLines = []
         maxLineCahrs = 21
         lineParts = []
