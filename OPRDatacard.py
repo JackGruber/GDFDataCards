@@ -560,6 +560,8 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     if 'equipment' not in unitData:
                                         unitData['equipment'] = []
                                     unitData['equipment'].append(addEquipment(gains))
+                                elif gains['type'] == "ArmyBookRule":
+                                    unitData['specialRules'].append(getSpecialRules([gains])[0])
                                 else:
                                     print("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
