@@ -131,3 +131,11 @@ def test_getUnit():
     assert len(result['weapons']) == 2
     assert len(result['specialRules']) == 3
     assert len(result['specialRules']) == 3
+
+
+def test_unitWithManyUpgrades():
+    book = {}
+
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDIR, 'gf_many_upgrades.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDIR, 'gf_many_upgrades_expected.json'))
+    assert result == expected
