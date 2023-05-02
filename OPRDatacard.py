@@ -497,13 +497,17 @@ def getSpecialRules(data):
     return specialRules
 
 
-def getWeapon(data):
+def getWeapon(data, modCount=-1):
     if DEBUG == True:
         print("Func: getWeapon")
 
     weapon = {}
     weapon['attacks'] = data['attacks']
-    weapon['count'] = data['count']
+
+    if (modCount != -1):
+        weapon['count'] = modCount
+    else:
+        weapon['count'] = data['count']
 
     if "name" in data:
         weapon['name'] = data['name']
@@ -559,7 +563,11 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                         if option['uid'] == optionId:
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    unitData['weapons'].append(getWeapon(gains))
+                                    if type == "upgrade" and affects == "all":
+                                        modeCount = unitData['size']
+                                    else:
+                                        modeCount = -1
+                                    unitData['weapons'].append(getWeapon(gains, modeCount))
                                 elif gains['type'] == "ArmyBookItem":
                                     if 'equipment' not in unitData:
                                         unitData['equipment'] = []
