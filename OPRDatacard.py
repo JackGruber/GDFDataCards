@@ -494,7 +494,7 @@ def getWeapon(data):
     if "name" in data:
         weapon['name'] = data['name']
 
-    if "range" in data:
+    if "range" in data and data['range'] > 0:
         weapon['range'] = data['range']
 
     weapon['specialRules'] = getSpecialRules(data['specialRules'])
