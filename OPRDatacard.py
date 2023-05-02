@@ -450,6 +450,7 @@ def getUnit(unit, jsonArmyBookList):
             data['defense'] = listUnit['defense']
             data['quality'] = listUnit['quality']
             data['upgrades'] = listUnit['upgrades']
+            data['size'] = listUnit['size']
             if "notes" in unit:
                 data['notes'] = unit['notes']
             else:
@@ -463,6 +464,7 @@ def getUnit(unit, jsonArmyBookList):
             break
     if "customName" in unit:
         data['name'] = unit['customName']
+
     return data
 
 
@@ -487,6 +489,7 @@ def getWeapon(data):
 
     weapon = {}
     weapon['attacks'] = data['attacks']
+    weapon['count'] = data['count']
 
     if "name" in data:
         weapon['name'] = data['name']
@@ -505,11 +508,14 @@ def getWeapon(data):
     return weapon
 
 
-def removeWeapon(removeWeapon, weapons):
+def removeWeapon(removeWeapon, count: int, weapons):
     for remove in removeWeapon:
         for i in range(len(weapons)):
-            if weapons[i]['name'].strip() == remove.strip():
-                weapons.pop(i)
+            if re.match(r'^' + remove.strip() + 's?$', weapons[i]['name'].strip()):
+                if (count == "any" or count == None or weapons[i]['count'] == 1):
+                    weapons.pop(i)
+                else:
+                    weapons[i]['count'] -= count
                 break
     return weapons
 
@@ -524,6 +530,16 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
         optionId = upgrade['optionId']
         for package in jsonArmyBookList[armyId]['upgradePackages']:
             for section in package['sections']:
+                type = None
+                affects = None
+                replaceWhat = None
+                if "type" in section:
+                    type = section['type']
+                if "affects" in section:
+                    affects = section['affects']
+                if "replaceWhat" in section:
+                    replaceWhat = section['replaceWhat']
+
                 if (section['uid'] == upgradeId):
                     for option in section['options']:
                         if option['uid'] == optionId:
@@ -535,12 +551,18 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                         unitData['equipment'] = []
                                     unitData['equipment'].append(addEquipment(gains))
                                 else:
-                                    print("Waring no handling for " +
+                                    print("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
 
-                            if "replaceWhat" in section:
+                            if type == "replace":
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    unitData['weapons'] = removeWeapon(section["replaceWhat"], unitData['weapons'])
+                                    if affects == "any":
+                                        # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
+                                        affects = 1
+
+                                    unitData['weapons'] = removeWeapon(replaceWhat, affects, unitData['weapons'])
+                                else:
+                                    print(f"Unhandelt type '{type}' in unit upgrades")
 
     return unitData
 

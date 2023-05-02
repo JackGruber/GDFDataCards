@@ -33,15 +33,17 @@ def test_getSpecialRules_Weapons():
 
 def test_getWeapon():
     testCases = [
-        {'unit': 0, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Rifle', 'range': 24, 'specialRules': []}},
-        {'unit': 1, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Heavy Rifle', 'range': 24, 'specialRules': [], 'ap': '1'}},
-        {'unit': 4, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Plasma Rifle', 'range': 24, 'specialRules': [], 'ap': '4'}},
+        {'unit': 0, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Rifle', 'range': 24, 'specialRules': [], 'count': 1}},
+        {'unit': 1, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Heavy Rifle',
+                                                 'range': 24, 'specialRules': [], 'ap': '1', 'count': 1}},
+        {'unit': 4, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Plasma Rifle',
+                                                 'range': 24, 'specialRules': [], 'ap': '4', 'count': 1}},
         {'unit': 8, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mortar', 'range': 30, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}]}},
+            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}], 'count': 1}},
         {'unit': 9, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Sniper Rifle', 'range': 30, 'specialRules': [
-            {'key': 'sniper', 'name': 'Sniper', 'rating': '', 'modify': False, 'label': 'Sniper'}], 'ap': '1'}},
+            {'key': 'sniper', 'name': 'Sniper', 'rating': '', 'modify': False, 'label': 'Sniper'}], 'ap': '1', 'count': 1}},
         {'unit': 10, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mini GL', 'range': 18, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}]}},
+            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}], 'count': 1}},
     ]
 
     for test in testCases:
@@ -51,19 +53,37 @@ def test_getWeapon():
 
 
 def test_removeWeapon():
-    weapons = [{'name': 'CCW'}, {'name': 'Heavy Rifle'}, {'name': 'Heavy Pistol'}, {'name': 'CCW'}]
+    weapons = [{'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
+        'name': 'Heavy Pistol', 'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}]
     testCases = [
-        {'remove': [], 'expected': [{'name': 'CCW'}, {'name': 'Heavy Rifle'}, {'name': 'Heavy Pistol'}, {'name': 'CCW'}]},
-        {'remove': ['CCW'], 'expected': [{'name': 'Heavy Rifle'}, {'name': 'Heavy Pistol'}, {'name': 'CCW'}]},
-        {'remove': ['Heavy Pistol'], 'expected': [{'name': 'CCW'}, {'name': 'Heavy Rifle'}, {'name': 'CCW'}]},
-        {'remove': ['Some'], 'expected': [{'name': 'CCW'}, {
-            'name': 'Heavy Rifle'}, {'name': 'Heavy Pistol'}, {'name': 'CCW'}]},
-        {'remove': ['CCW', 'Heavy Rifle'], 'expected': [{'name': 'Heavy Pistol'}, {'name': 'CCW'}]},
-        {'remove': ['CCW', 'CCW'], 'expected': [{'name': 'Heavy Rifle'}, {'name': 'Heavy Pistol'}]},
+        {'remove': [], 'count': 1, 'expected': [
+            {'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {'name': 'Heavy Pistol',
+                                                                               'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
+        {'remove': ['CCW'], 'count': 1, 'expected': [
+            {'name': 'Heavy Rifle', 'count': 1}, {
+                'name': 'Heavy Pistol', 'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
+        {'remove': ['Heavy Pistol'], 'count': 1, 'expected': [
+            {'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
+                'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
+        {'remove': ['Some'], 'count': 1, 'expected': [
+            {'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
+                'name': 'Heavy Pistol', 'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
+        {'remove': ['CCW', 'Heavy Rifle'], 'count': 1, 'expected': [
+            {'name': 'Heavy Pistol',
+             'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
+        {'remove': ['CCW', 'CCW'], 'count': 1, 'expected': [
+            {'name': 'Heavy Rifle', 'count': 1},
+            {'name': 'Heavy Pistol', 'count': 1}, {'name': 'Grenades', 'count': 2}
+        ]},
     ]
 
     for test in testCases:
-        result = OPRDatacard.removeWeapon(test['remove'], weapons.copy())
+        result = OPRDatacard.removeWeapon(test['remove'], test['count'], weapons.copy())
         assert result == test['expected'], "Weapon remove error for: " + ", ". join(test['remove'])
 
 
@@ -76,13 +96,14 @@ def test_getUnitUpgrades():
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}]}
-    expected = {'weapons': [{'attacks': 1, 'name': 'Heavy Pistol', 'range': 12, 'specialRules': [], 'ap': '1'}]}
+    expected = {'weapons': [{'attacks': 1, 'count': 1,
+                             'name': 'Heavy Pistol', 'range': 12, 'specialRules': [], 'ap': '1'}]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'weapons': []}, book)
     assert result == expected, "Upgrade Heavy Pistol"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'weapons': [{'attacks': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [
+    expected = {'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [
     ], 'ap': '4'}], 'equipment': [{'name': 'Forward Observer', 'specialRules': ['Take Aim']}]}
 
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'weapons': []}, book)
