@@ -8,8 +8,8 @@ import OPRDatacard  # nopep8
 
 
 def test_parseArmyTextList():
-    armyList = readArmyTxt("gff_army.txt")
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDIR, 'gff_army_expected.json'))
+    armyList = readArmyTxt(os.path.join(testhelper.TESTDATADIR, 'txt_army.txt'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'txt_army_expected.json'))
     result = OPRDatacard.parseArmyTextList(armyList)
     assert result == expected, "Parsed Armylist is wrong"
 
