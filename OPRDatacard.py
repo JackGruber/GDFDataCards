@@ -677,7 +677,7 @@ def downloadArmyBook(id: str, gameSystemId):
     return True
 
 
-def SaveDictToJson(dictData, file):
+def saveDictToJson(dictData, file):
     try:
         with open(file, 'w') as fp:
             fp.write(json.dumps(dictData, indent=4))
