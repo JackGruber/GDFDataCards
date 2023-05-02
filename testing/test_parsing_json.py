@@ -136,6 +136,6 @@ def test_getUnit():
 def test_unitWithManyUpgrades():
     book = {}
 
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDIR, 'gf_many_upgrades.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDIR, 'gf_many_upgrades_expected.json'))
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades_expected.json'))
     assert result == expected
