@@ -73,7 +73,7 @@ def Main(typeJson, armyFile, debugOutput):
         if (DEBUG == True):
             saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
 
-        createDataCard(army['units'])
+        createDataCard(army)
         openFile(DATACARDPDF)
 
 
@@ -135,7 +135,7 @@ def openFile(filePath):
         subprocess.call(('xdg-open', filePath))
 
 
-def createDataCard(units):
+def createDataCard(army):
     print("Create datacards ...")
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
@@ -153,7 +153,7 @@ def createDataCard(units):
     pdf = canvas.Canvas(DATACARDPDF, pagesize=datacardSize)
     pdf.setTitle("GDF data card")
 
-    for unit in units:
+    for unit in army['units']:
         print("  ", unit['name'], "(", unit['id'], ")")
 
         # Card Box
@@ -660,6 +660,7 @@ def parseArmyJsonList(armyListJsonFile: str):
 
     jsonArmyList = loadJsonFile(armyListJsonFile)
     armyData['armyId'] = jsonArmyList['armyId']
+    armyData['gameSystem'] = jsonArmyList['gameSystem']
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
 
     downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
