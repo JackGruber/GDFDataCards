@@ -450,6 +450,10 @@ def getUnit(unit, jsonArmyBookList):
             data['defense'] = listUnit['defense']
             data['quality'] = listUnit['quality']
             data['upgrades'] = listUnit['upgrades']
+            if "notes" in unit:
+                data['notes'] = unit['notes']
+            else:
+                data['notes'] = None
             data['weapons'] = []
             for equipment in listUnit['equipment']:
                 data['weapons'].append(getWeapon(equipment))
