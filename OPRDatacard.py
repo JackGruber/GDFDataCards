@@ -356,6 +356,7 @@ def parseArmyTextList(armyListText):
     if (length > 6 and armyListText[0][0] == "+" and armyListText[0][1] == "+" and armyListText[0][2] == " " and armyListText[0][length - 3] == " " and armyListText[0][length - 2] == "+" and armyListText[0][length - 1] == "+"):
         armyData['listName'] = armyListText[0].rstrip(" ++").lstrip("++ ")
     else:
+        print("Error No valid army data found!")
         return False
 
     unit = False
@@ -370,6 +371,7 @@ def parseArmyTextList(armyListText):
                 unitData['points'] = data[1].strip(" ")
                 unitData['specialRules'] = []
                 unitData['equipment'] = []
+                unitData['id'] = f'{x}'
                 for specialRules in data[2].split(","):
                     if re.match(r'^\s?(\dx\s|Scopes)', specialRules):
                         regExMatch = re.search(
@@ -381,7 +383,7 @@ def parseArmyTextList(armyListText):
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
-                unitData['unitCount'] = int(regExMatch[0][1])
+                unitData['size'] = int(regExMatch[0][1])
                 unitData['quality'] = int(regExMatch[0][2])
                 unitData['defense'] = int(regExMatch[0][3])
             elif unit == True:
@@ -411,10 +413,16 @@ def parseArmyTextList(armyListText):
 
                 for weapon in weapons:
                     regExMatch = re.search(
-                        r"([^(]+)(\()(.*)(\))", weapon.strip(" "))
+                        r"(\d+x)?([^(]+)(\()(.*)(\))", weapon.strip(" "))
                     weaponData = {}
-                    weaponData['name'] = regExMatch.group(1)
-                    weaponRules = regExMatch.group(3).split(",")
+                    weaponData['name'] = regExMatch.group(2)
+                    weaponData['count'] = regExMatch.group(1)
+                    if weaponData['count'] == None:
+                        weaponData['count'] = 1
+                    else:
+                        weaponData['count'] = int(weaponData['count'].replace("x", ""))
+
+                    weaponRules = regExMatch.group(4).split(",")
                     for weaponRule in weaponRules:
                         weaponRule = weaponRule.strip(" ")
                         if re.match(r'\d+"', weaponRule):
