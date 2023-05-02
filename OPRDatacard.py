@@ -28,6 +28,8 @@ DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
+DEBUG = False
+
 
 @click.command()
 @click.option(
@@ -41,8 +43,15 @@ IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
     "--file",
     "armyFile",
 )
-
-def Main(typeJson, armyFile):
+@click.option(
+    "--debug / --no-debug",
+    "debugOutput",
+    default=False,
+    required=False
+)
+def Main(typeJson, armyFile, debugOutput):
+    global DEBUG
+    DEBUG = debugOutput
     createFolderStructure()
     army = None
     if(typeJson == True):
@@ -429,6 +438,8 @@ def readMultipleLines():
 
 
 def getUnit(unit, jsonArmyBookList):
+    if DEBUG == True:
+        print("Func: getUnit")
     data = {}
     for listUnit in jsonArmyBookList[unit['armyId']]['units']:
         if (listUnit['id'] == unit['id']):
@@ -467,6 +478,9 @@ def getSpecialRules(data):
 
 
 def getWeapon(data):
+    if DEBUG == True:
+        print("Func: getWeapon")
+
     weapon = {}
     weapon['attacks'] = data['attacks']
 
@@ -497,6 +511,9 @@ def removeWeapon(removeWeapon, weapons):
 
 
 def getUnitUpgrades(unit, unitData, jsonArmyBookList):
+    if DEBUG == True:
+        print("Func: getUnitUpgrades")
+
     for upgrade in unit['selectedUpgrades']:
         armyId = unit['armyId']
         upgradeId = upgrade['upgradeId']
