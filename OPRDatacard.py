@@ -339,7 +339,11 @@ def createDataCard(units):
                 font = "regular"
 
         pdf.showPage()
-    pdf.save()
+    try:
+        pdf.save()
+    except Exception as ex:
+        print("Error PDF save failed")
+        print(str(ex))
 
 
 def parseArmyTextList(armyListText):
