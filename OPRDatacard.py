@@ -69,7 +69,10 @@ def Main(typeJson, armyFile, debugOutput):
 
         army = parseArmyTextList(txtData)
 
-    if army != None:
+    if army != None and army != False:
+        if (DEBUG == True):
+            saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
+
         createDataCard(army['units'])
         openFile(DATACARDPDF)
 
