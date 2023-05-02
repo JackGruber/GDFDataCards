@@ -186,6 +186,38 @@ def createDataCard(army):
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(5, datacardSize[1] - 44, " ".join(smallInfo))
 
+        # Wounds
+        if 'gameSystem' in army and army['gameSystem'] == "gff":
+            woundsSize = 8
+            wounds = 5
+            tough = 0
+            startX = 2
+            startY = datacardSize[1] - 45 - woundsSize
+            for rule in unit['specialRules']:
+                if (rule['key'] == "tough"):
+                    tough = int(rule['rating'])
+
+            pdf.setLineJoin(1)
+            pdf.setFillColorRGB(0.5, 0.5, 0.5)
+            path = pdf.beginPath()
+            path.moveTo(startX, startY)
+            path.lineTo(startX + (woundsSize * tough), startY)
+            path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
+            path.lineTo(startX, startY + woundsSize)
+            path.close()
+            pdf.drawPath(path, stroke=1, fill=0)
+
+            path = pdf.beginPath()
+            path.moveTo(startX + (woundsSize * tough), startY)
+            path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY)
+            path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY + woundsSize)
+            path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
+
+            path.close()
+            pdf.drawPath(path, stroke=1, fill=1)
+
+            for i in range(wounds + tough):
+                pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
 
         # Bottom Info Box
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
