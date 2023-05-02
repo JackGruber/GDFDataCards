@@ -597,11 +597,9 @@ def parseArmyJsonList(armyListJsonFile: str):
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
-        downloadArmyBook(unit['armyId'])
-        jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
-            DATAFOLDERARMYBOOK, unit['armyId'] + ".json"))
         unitData = getUnit(unit, jsonArmyBookList)
-        armyData['units'].append(unitData)
+        if unitData != {}:
+            armyData['units'].append(unitData)
 
     return armyData
 
