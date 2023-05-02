@@ -1,0 +1,269 @@
+{
+    "gameSystem": "gff",
+    "armyId": "z65fgu0l29i4lnlu",
+    "armyIds": [
+        "z65fgu0l29i4lnlu"
+    ],
+    "armyFaction": null,
+    "armyName": "Human Defense Force",
+    "modified": "2023-04-22T09:31:34.299Z",
+    "saveVersion": 3,
+    "listPoints": 300,
+    "list": {
+        "id": "_gEFxByt",
+        "key": "I-uj9M36-gEzx7DAiDdnz",
+        "name": "300pt - HDF",
+        "units": [
+            {
+                "id": "dwJg2Bu",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "WkKWC",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "oM5IcF6CY",
+                        "upgradeId": "biu0sem",
+                        "optionId": "uG08OTq"
+                    },
+                    {
+                        "instanceId": "QrSaPfNsR",
+                        "upgradeId": "KLO_Oyg",
+                        "optionId": "8TLlvtc"
+                    },
+                    {
+                        "instanceId": "29BbXH9Me",
+                        "upgradeId": "r5XpHsA",
+                        "optionId": "8reDsp0"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "95wirM-",
+                "armyId": "z65fgu0l29i4lnlu",
+                "customName": "Red Sniper",
+                "selectionId": "l15LE",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "SG9cgFZ",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "FUYR9",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "X07nnBRU3",
+                        "upgradeId": "YePWZjo",
+                        "optionId": "-YEWz"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Xuu-drz",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "M3zFa",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "_RbCBphzc",
+                        "upgradeId": "byolukJ",
+                        "optionId": "kbOtMVe"
+                    },
+                    {
+                        "instanceId": "trDAEmpGt",
+                        "upgradeId": "eYKvSJz",
+                        "optionId": "SKHoadM"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Xuu-drz",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "iOU3J",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "zuon9v7-Z",
+                        "upgradeId": "byolukJ",
+                        "optionId": "Z8S0x-6"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "SScXOqX",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "uqSum",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "DC6X9pHVX",
+                        "upgradeId": "2PGJ-qx",
+                        "optionId": "OOp_nHn"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "SScXOqX",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "pSWt3",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "SG9cgFZ",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "uJYRA",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "Yyi9MMg9c",
+                        "upgradeId": "YePWZjo",
+                        "optionId": "yb8x5a1"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "SScXOqX",
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectionId": "hmwCB",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ],
+        "points": 300,
+        "pointsLimit": 300,
+        "creationTime": "1682154623015",
+        "campaignMode": false,
+        "competitive": true,
+        "gameSystem": "gff",
+        "unitPreview": null,
+        "selectedUnitId": "uqSum",
+        "undoUnitRemove": [
+            {
+                "id": "SG9cgFZ",
+                "cost": 20,
+                "name": "Special Weapon",
+                "size": 1,
+                "defense": 5,
+                "quality": 5,
+                "upgrades": [
+                    "G1"
+                ],
+                "equipment": [
+                    {
+                        "id": "Oim3N",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 1,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "GOw-Q",
+                        "label": "Plasma Rifle",
+                        "range": 24,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "4",
+                                "modify": false
+                            }
+                        ],
+                        "name": "Plasma Rifle",
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "specialRules": [
+                    {
+                        "key": "relentless",
+                        "name": "Relentless",
+                        "rating": ""
+                    }
+                ],
+                "disabledUpgradeSections": [],
+                "armyId": "z65fgu0l29i4lnlu",
+                "selectedUpgrades": [],
+                "sortId": 4,
+                "selectionId": "kXJcN",
+                "combined": false,
+                "joinToUnit": null,
+                "loadout": [
+                    {
+                        "id": "Oim3N",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 1,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "GOw-Q",
+                        "label": "Plasma Rifle",
+                        "range": 24,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "4",
+                                "modify": false
+                            }
+                        ],
+                        "name": "Plasma Rifle",
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    },
+    "favourite": false
+}

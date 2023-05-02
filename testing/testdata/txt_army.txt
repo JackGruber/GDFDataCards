@@ -1,0 +1,52 @@
+++ 300pt - PB - Prime Brothers [GFF 300pts] ++
+
+Prime Master test [1] Q3+ D2+ | 75pts | Fearless, Hero, Tough(3)
+CCW (A2), Heavy Rifle (24", A1, AP(1))
+
+Infiltrator [1] Q4+ D3+ | 40pts | Fearless, Scout, Strider, Scopes(Sniper)
+CCW (A2), Marksman Carbine (18", A1, Rending)
+
+Assault Prime Brother [1] Q3+ D2+ | 40pts | Fearless
+CCW (A3), Plasma Pistol (12", A1, AP(4))
+
+Prime Brother [1] Q3+ D2+ | 50pts | Fearless
+Auto-Rifle (18", A2), CCW (A2), Grenade-Mod (12", A1, Blast(3))
+
+Prime Brother [1] Q3+ D2+ | 35pts | Fearless
+CCW (A2), Heavy Rifle (24", A1, AP(1))
+
+Eliminator Prime Brother with more text [1] Q3+ D3+ | 60pts | Fearless, Scout, Stealth
+CCW (A2), Sniper Rifle (30", A1, AP(1), Sniper)
+
+Storm Leader [1] Q4+ D4+ | 85pts | Hero, Tough(3), Strider, 1x Forward Observer(Take Aim)
+CCW (A2), Plasma Pistol (12", A1, AP(4))
+
+Veteran [1] Q4+ D5+ | 20pts | 1x Demo Charges(AP(4) in melee)
+CCW (A1), Rifle (24", A1)
+
+2x Veteran [1] Q4+ D5+ | 15pts | 
+CCW (A1), Rifle (24", A1)
+
+Special Weapon [1] Q5+ D5+ | 25pts | Relentless
+CCW (A1), Flamethrower (12", A6)
+
+Special Weapon [1] Q5+ D5+ | 25pts | Relentless
+CCW (A1), Grenade Launcher (24", A1, Blast(3))
+
+Storm Trooper [1] Q4+ D4+ | 45pts | Strider
+Energy Fist (A2, AP(4)), Shred Rifle (18", A3, Rending)
+
+Storm Trooper [1] Q4+ D4+ | 25pts | Strider
+CCW (A1), Plasma Rifle (24", A1, AP(4))
+
+Sniper [1] Q5+ D5+ | 45pts | Scout, Stealth
+CCW (A1), Sniper Rifle (30", A1, AP(1), Sniper)
+
+Aggro Squad [3] Q3+ D2+ | 320pts | Fearless, Tough(3)
+3x Dual Energy Fists (A4, AP(4)), 3x Twin Fist-Pistols (12", A4)
+
+Prime ATV [1] Q3+ D2+ | 255pts | Fast, Fearless, Scout, Strider, Tough(6)
+Heavy Fusion Rifle (18", A1, AP(4), Deadly(6)), Twin Auto-Rifles (18", A4)
+
+Attack Speeder [1] Q3+ D2+ | 385pts | Ambush, Fast, Fearless, Impact(6), Strider, Tough(9)
+Fusion Destroyer (12", A2, AP(4), Deadly(3)), Twin Strike Missiles (18", A2, AP(3), Deadly(3))

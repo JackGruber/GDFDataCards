@@ -1,6 +1,6 @@
 # Datacards for OPR
 
-Tool to create PDF data cards for Onepagerules (GFF).
+Tool to create PDF data cards for Onepagerules (GF, GFF, AOF, AOFS and AOFR).
 
 <img src="img/datacard.png">
 
@@ -13,10 +13,25 @@ Tool to create PDF data cards for Onepagerules (GFF).
 - Create a subfolder `font` where `GDFDataCards.exe` is located
 - Download [Rosa Sans](https://fontlibrary.org/en/font/rosa-sans) Font
 - Unzip font and store the `*.ttf` files it in `fonts\rosa-sans`
-- Start `GDFDataCards.exe`
+
+## Usage
+
+### With json army list
+
+- Select in OPR army forge `Share as File` and save file
+<br/>
+<img src="img/opr_army_forge_option.png"><br/>
+<img src="img/opr_army_forge_json2.png"><br/>
+
+- Start `GDFDataCards`
+- Select downloaded army list from OPR army forge
+
+### With text army list
+
+- Start `GDFDataCards` with parameter `--txt`
 - Copy Army info from OPR army forge with `Share as Text`
 <br/>
-<img src="img/opr_army_forge_txt1.png">
+<img src="img/opr_army_forge_option.png"><br/>
 <img src="img/opr_army_forge_txt2.png">
 - Past the text into `GDFDataCards.exe`
 

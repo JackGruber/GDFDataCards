@@ -1,3 +1,11 @@
+import io
+import platform
+import subprocess
+from PIL import Image, ImageDraw
+from reportlab.lib import utils
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+from reportlab.pdfgen import canvas
 import sys
 import os
 import urllib.request
@@ -5,16 +13,9 @@ import time
 import stat
 import json
 import re
-from reportlab.pdfgen import canvas
-from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.pdfbase import pdfmetrics
-from reportlab.lib import colors
-from reportlab.lib.pagesizes import A4, letter
-from reportlab.lib import utils
-from PIL import Image, ImageDraw
-import subprocess
-import platform
-import io
+import click
+from tkinter import Tk
+from tkinter.filedialog import askopenfilename
 
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
@@ -27,13 +28,68 @@ DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
+DEBUG = False
 
 
-def Main():
+@click.command()
+@click.option(
+    "--json / --txt",
+    "typeJson",
+    default=True,
+    required=False
+)
+@click.option(
+    "-f",
+    "--file",
+    "armyFile",
+)
+@click.option(
+    "--debug / --no-debug",
+    "debugOutput",
+    default=False,
+    required=False
+)
+def Main(typeJson, armyFile, debugOutput):
+    global DEBUG
+    DEBUG = debugOutput
     createFolderStructure()
-    army = parseArmyTextList()
-    createDataCard(army['units'])
-    openFile(DATACARDPDF)
+    army = None
+    if (typeJson == True):
+        if (armyFile == None):
+            armyFile = fileSelectDialog()
+
+        if armyFile != None and armyFile != "":
+            army = parseArmyJsonList(armyFile)
+    else:
+        if (armyFile != None):
+            txtData = readTxtFile(armyFile)
+        else:
+            print("Enter Army list from 'Share as Text', complete input with two new lines")
+            txtData = readMultipleLines()
+
+        army = parseArmyTextList(txtData)
+
+    if army != None and army != False:
+        if (DEBUG == True):
+            saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
+
+        createDataCard(army['units'])
+        openFile(DATACARDPDF)
+
+
+def readTxtFile(file):
+    try:
+        f = open(file, "r")
+        txtData = f.read().split("\n")
+        f.close()
+    except Exception as ex:
+        print("Error Reading test txt file " + str(ex))
+    return txtData
+
+
+def fileSelectDialog():
+    Tk().withdraw()
+    return askopenfilename()
 
 
 def createFolderStructure():
@@ -98,6 +154,8 @@ def createDataCard(units):
     pdf.setTitle("GDF data card")
 
     for unit in units:
+        print("  ", unit['name'], "(", unit['id'], ")")
+
         # Card Box
         topClearance = 10
         bottomClearance = 10
@@ -113,8 +171,14 @@ def createDataCard(units):
         path.close()
         pdf.setLineJoin(1)
         pdf.drawPath(path, stroke=1, fill=0)
+
+        # Unit type
         pdf.line(sideClearance, datacardSize[1] - 45,
                  datacardSize[0]-sideClearance, datacardSize[1] - 45)
+        if 'type' in unit and unit['name'] != unit['type']:
+            pdf.setFont('regular', 5)
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.drawString(5, datacardSize[1] - 44, unit['type'])
 
         # Bottom Info Box
         pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
@@ -134,18 +198,33 @@ def createDataCard(units):
         pdf.drawPath(path, stroke=1, fill=1)
         pdf.setFont('bold', 4)
         pdf.setFillColorRGB(0, 0, 0)
+
+        specialRules = []
+        for rule in unit['specialRules']:
+            specialRules.append(rule['label'])
         pdf.drawString(sideClearance+2, bottomClearance +
-                       (height/2)-1, ", ".join(unit['specialRules']))
+                       (height/2)-1, ", ".join(specialRules))
 
         # Image box
-        unitImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
-        unitImage = os.path.join(IMAGEFOLDER, unitImage)
-        if os.path.exists(unitImage + ".jpg"):
-            unitImage = unitImage + ".jpg"
-        elif os.path.exists(unitImage + ".jpeg"):
-            unitImage = unitImage + ".jpeg"
-        elif os.path.exists(unitImage + ".png"):
-            unitImage = unitImage + ".png"
+        if 'type' in unit:
+            unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
+            unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
+
+        unitNameImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
+        unitNameImage = os.path.join(IMAGEFOLDER, unitNameImage)
+
+        if os.path.exists(unitNameImage + ".jpg"):
+            unitImage = unitNameImage + ".jpg"
+        elif os.path.exists(unitNameImage + ".jpeg"):
+            unitImage = unitNameImage + ".jpeg"
+        elif os.path.exists(unitNameImage + ".png"):
+            unitImage = unitNameImage + ".png"
+        elif os.path.exists(unitTypeImage + ".jpg"):
+            unitImage = unitTypeImage + ".jpg"
+        elif os.path.exists(unitTypeImage + ".jpeg"):
+            unitImage = unitTypeImage + ".jpeg"
+        elif os.path.exists(unitTypeImage + ".png"):
+            unitImage = unitTypeImage + ".png"
         else:
             unitImage = None
 
@@ -190,8 +269,10 @@ def createDataCard(units):
 
         # Unit Name
         parts = unit['name'].split(" ")
+        if (unit['size'] > 1):
+            parts.append("[" + str(unit['size']) + "]")
         nameLines = []
-        maxLineCahrs = 20
+        maxLineCahrs = 21
         lineParts = []
         for part in parts:
             if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
@@ -216,80 +297,86 @@ def createDataCard(units):
         pdf.drawCentredString(startX, startY, "Quality")
         pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
         pdf.setFont('regular', 5)
-        pdf.drawCentredString(
-            startX, startY - (lineHight*1), unit["quality"] + "+")
-        pdf.drawCentredString(
-            startX, startY - (lineHight*4), unit["defense"] + "+")
+        pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
+        pdf.drawCentredString(startX, startY - (lineHight*4), str(unit["defense"]) + "+")
 
         # Weapon
         startX = 5
         startY = datacardSize[1] - 70
         offsetX = [0, 70, 90, 115, 130]
         offsetY = 0
-        headers = {'name': 'Weapon', 'range': 'Range', 'attacks': 'Attacks',
-                   'ap': 'AP', 'specialRules': ['Special rules']}
-        unit['weapon'].insert(0, headers)
-        font = "bold"
-        for weapon in unit['weapon']:
-            pdf.setFont(font, 5)
+        headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
+        for i in range(len(headers)):
+            pdf.setFont("bold", 5)
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
+        offsetY -= 8
+
+        for weapon in unit['weapons']:
+            pdf.setFont("regular", 5)
             pdf.setFillColorRGB(0, 0, 0)
 
+            if weapon['count'] > 1:
+                weaponLabel = str(weapon['count']) + "x " + weapon['name']
+            else:
+                weaponLabel = weapon['name']
+
             pdf.drawString(startX + offsetX[0],
-                           startY + offsetY, weapon['name'])
+                           startY + offsetY, weaponLabel)
 
             if "range" in weapon:
-                pdf.drawString(startX + offsetX[1], startY +
-                               offsetY, weapon['range'])
+                pdf.drawString(startX + offsetX[1], startY + offsetY, str(weapon['range']) + '"')
             else:
                 pdf.drawString(startX + offsetX[1], startY + offsetY, "-")
 
-            pdf.drawString(startX + offsetX[2], startY +
-                           offsetY, weapon['attacks'])
+            pdf.drawString(startX + offsetX[2], startY + offsetY, "A" + str(weapon['attacks']))
 
             if "ap" in weapon:
                 pdf.drawString(startX + offsetX[3], startY +
-                               offsetY, weapon['ap'])
+                               offsetY, str(weapon['ap']))
             else:
                 pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
 
-            if "specialRules" in weapon:
-                pdf.drawString(startX + offsetX[4], startY + offsetY,
-                               ", ".join(weapon['specialRules']))
+            if "specialRules" in weapon and len(weapon['specialRules']) > 0:
+                label = []
+                for specialRule in weapon['specialRules']:
+                    label.append(str(specialRule['label']))
+
+                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             else:
                 pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
 
             offsetY -= 8
-            font = "regular"
 
-        if len(unit['equipment']) > 0:
+        if 'equipment' in unit and len(unit['equipment']) > 0:
             headers = {'name': 'Equipment', 'specialRules': ['']}
             unit['equipment'].insert(0, headers)
             font = "bold"
             for equipment in unit['equipment']:
                 pdf.setFont(font, 5)
                 pdf.setFillColorRGB(0, 0, 0)
-                pdf.drawString(startX + offsetX[0],
-                               startY + offsetY, equipment['name'])
-                pdf.drawString(startX + offsetX[4], startY + offsetY,
-                               ", ".join(equipment['specialRules']))
+                pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
+                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(equipment['specialRules']))
                 offsetY -= 8
                 font = "regular"
 
         pdf.showPage()
-    pdf.save()
+    try:
+        pdf.save()
+    except Exception as ex:
+        print("Error PDF save failed")
+        print(str(ex))
 
 
-def parseArmyTextList():
-    print("Enter Army list from 'Share as Text', complete input with two new lines")
-    armyListText = readMultipleLines()
+def parseArmyTextList(armyListText):
     armyData = {}
 
     length = len(armyListText[0])
     if (length > 6 and armyListText[0][0] == "+" and armyListText[0][1] == "+" and armyListText[0][2] == " " and armyListText[0][length - 3] == " " and armyListText[0][length - 2] == "+" and armyListText[0][length - 1] == "+"):
         armyData['listName'] = armyListText[0].rstrip(" ++").lstrip("++ ")
     else:
-        print("No Army Data!")
-        sys.exit(1)
+        print("Error No valid army data found!")
+        return False
 
     unit = False
     armyData['units'] = []
@@ -303,6 +390,7 @@ def parseArmyTextList():
                 unitData['points'] = data[1].strip(" ")
                 unitData['specialRules'] = []
                 unitData['equipment'] = []
+                unitData['id'] = f'{x}'
                 for specialRules in data[2].split(","):
                     if re.match(r'^\s?(\dx\s|Scopes)', specialRules):
                         regExMatch = re.search(
@@ -310,13 +398,13 @@ def parseArmyTextList():
                         unitData['equipment'].append(
                             {'name': regExMatch.group(2).strip(" "), 'specialRules': regExMatch.group(4).split(",")})
                     else:
-                        unitData['specialRules'].append(specialRules)
+                        unitData['specialRules'].append({'label': specialRules})
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
-                unitData['unitCount'] = regExMatch[0][1]
-                unitData['quality'] = regExMatch[0][2]
-                unitData['defense'] = regExMatch[0][3]
+                unitData['size'] = int(regExMatch[0][1])
+                unitData['quality'] = int(regExMatch[0][2])
+                unitData['defense'] = int(regExMatch[0][3])
             elif unit == True:
                 parts = armyListText[x].strip(" ").split(" ")
                 parts = list(armyListText[x].strip(" "))
@@ -344,26 +432,34 @@ def parseArmyTextList():
 
                 for weapon in weapons:
                     regExMatch = re.search(
-                        r"([^(]+)(\()(.*)(\))", weapon.strip(" "))
+                        r"(\d+x)?([^(]+)(\()(.*)(\))", weapon.strip(" "))
                     weaponData = {}
-                    weaponData['name'] = regExMatch.group(1)
-                    weaponRules = regExMatch.group(3).split(",")
+                    weaponData['name'] = regExMatch.group(2)
+                    weaponData['count'] = regExMatch.group(1)
+                    if weaponData['count'] == None:
+                        weaponData['count'] = 1
+                    else:
+                        weaponData['count'] = int(weaponData['count'].replace("x", ""))
+
+                    weaponRules = regExMatch.group(4).split(",")
                     for weaponRule in weaponRules:
                         weaponRule = weaponRule.strip(" ")
                         if re.match(r'\d+"', weaponRule):
-                            weaponData['range'] = weaponRule
+                            weaponData['range'] = int(
+                                weaponRule.replace('"', ''))
                         elif re.match(r'A\d+', weaponRule):
-                            weaponData['attacks'] = weaponRule
+                            weaponData['attacks'] = int(
+                                weaponRule.replace("A", ""))
                         elif re.match(r'AP\(\d+\)', weaponRule):
-                            weaponData['ap'] = weaponRule.replace(
-                                "AP(", "").replace(")", "")
+                            weaponData['ap'] = int(weaponRule.replace(
+                                "AP(", "").replace(")", ""))
                         else:
                             if not "specialRules" in weaponData:
                                 weaponData['specialRules'] = []
-                            weaponData['specialRules'].append(weaponRule)
-                    if not "weapon" in unitData:
-                        unitData['weapon'] = []
-                    unitData['weapon'].append(weaponData)
+                            weaponData['specialRules'].append({'label': weaponRule})
+                    if not "weapons" in unitData:
+                        unitData['weapons'] = []
+                    unitData['weapons'].append(weaponData)
         else:
             unit = False
             if "name" in unitData:
@@ -383,6 +479,286 @@ def readMultipleLines():
         else:
             end = 0
     return buffer
+
+
+def getUnit(unit, jsonArmyBookList):
+    if DEBUG == True:
+        print("Func: getUnit")
+    data = {}
+    for listUnit in jsonArmyBookList[unit['armyId']]['units']:
+        if (listUnit['id'] == unit['id']):
+            data['type'] = listUnit['name']
+            data['name'] = listUnit['name']
+            data['armyId'] = unit['armyId']
+            data['id'] = listUnit['id']
+            data['defense'] = listUnit['defense']
+            data['quality'] = listUnit['quality']
+            data['upgrades'] = listUnit['upgrades']
+            data['size'] = listUnit['size']
+            if "notes" in unit:
+                data['notes'] = unit['notes']
+            else:
+                data['notes'] = None
+            data['weapons'] = []
+            for equipment in listUnit['equipment']:
+                data['weapons'].append(getWeapon(equipment))
+
+            data['specialRules'] = getSpecialRules(listUnit['specialRules'])
+            data = getUnitUpgrades(unit, data, jsonArmyBookList)
+            break
+    if "customName" in unit:
+        data['name'] = unit['customName']
+
+    return data
+
+
+def getSpecialRules(data):
+    specialRules = []
+    for specialRule in data:
+        rule = specialRule
+        if specialRule['rating'] != "":
+            rule['label'] = specialRule['name'] + \
+                "(" + specialRule['rating'] + ")"
+        else:
+            rule['label'] = specialRule['name']
+
+        specialRules.append(rule)
+
+    return specialRules
+
+
+def getWeapon(data, modCount=-1):
+    if DEBUG == True:
+        print("Func: getWeapon")
+
+    weapon = {}
+    weapon['attacks'] = data['attacks']
+
+    if (modCount != -1):
+        weapon['count'] = modCount
+    else:
+        weapon['count'] = data['count']
+
+    if "name" in data:
+        weapon['name'] = data['name']
+
+    if "range" in data and data['range'] > 0:
+        weapon['range'] = data['range']
+
+    weapon['specialRules'] = getSpecialRules(data['specialRules'])
+
+    for i in range(len(weapon['specialRules'])):
+        if weapon['specialRules'][i]['key'] == "ap":
+            weapon['ap'] = weapon['specialRules'][i]['rating']
+            weapon['specialRules'].pop(i)
+            break
+
+    return weapon
+
+
+def removeWeapon(removeWeapon, count: int, weapons):
+    for remove in removeWeapon:
+        for i in range(len(weapons)):
+            if re.match(r'^' + remove.strip() + 's?$', weapons[i]['name'].strip()):
+                if (count == "any" or count == None or weapons[i]['count'] == 1):
+                    weapons.pop(i)
+                else:
+                    weapons[i]['count'] -= count
+                break
+    return weapons
+
+
+def getUnitUpgrades(unit, unitData, jsonArmyBookList):
+    if DEBUG == True:
+        print("Func: getUnitUpgrades")
+
+    for upgrade in unit['selectedUpgrades']:
+        armyId = unit['armyId']
+        upgradeId = upgrade['upgradeId']
+        optionId = upgrade['optionId']
+        for package in jsonArmyBookList[armyId]['upgradePackages']:
+            for section in package['sections']:
+                type = None
+                affects = None
+                replaceWhat = None
+                if "type" in section:
+                    type = section['type']
+                if "affects" in section:
+                    affects = section['affects']
+                if "replaceWhat" in section:
+                    replaceWhat = section['replaceWhat']
+
+                if (section['uid'] == upgradeId):
+                    for option in section['options']:
+                        if option['uid'] == optionId:
+                            for gains in option['gains']:
+                                if (gains['type'] == "ArmyBookWeapon"):
+                                    if type == "upgrade" and affects == "all":
+                                        modeCount = unitData['size']
+                                    else:
+                                        modeCount = -1
+                                    unitData['weapons'].append(getWeapon(gains, modeCount))
+                                elif gains['type'] == "ArmyBookItem":
+                                    if 'equipment' not in unitData:
+                                        unitData['equipment'] = []
+                                    unitData['equipment'].append(addEquipment(gains))
+                                elif gains['type'] == "ArmyBookRule":
+                                    unitData['specialRules'].append(getSpecialRules([gains])[0])
+                                else:
+                                    print("Error no handling for " +
+                                          gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
+
+                            if type == "replace":
+                                if (gains['type'] == "ArmyBookWeapon"):
+                                    if affects == "any":
+                                        # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
+                                        affects = 1
+
+                                    if unitData['size'] > 1:
+                                        unitData['weapons'] = mergeWeapon(unitData['weapons'])
+
+                                    unitData['weapons'] = removeWeapon(replaceWhat, affects, unitData['weapons'])
+                                else:
+                                    print(f"Unhandelt type '{type}' in unit upgrades")
+
+    return unitData
+
+
+def mergeWeapon(weapons):
+    if DEBUG == True:
+        print("Func: mergeWeapon")
+
+    mergedWeapons = []
+    for weapon in weapons:
+        add = True
+        for added in mergedWeapons:
+            if added['name'] == weapon['name']:
+                added['count'] += weapon['count']
+                add = False
+                break
+
+        if (add == True):
+            mergedWeapons.append(weapon)
+    return mergedWeapons
+
+
+def addEquipment(data):
+    equipment = {}
+    equipment['name'] = data['name']
+    equipment['specialRules'] = []
+
+    for rule in data['content']:
+        equipment['specialRules'].append(rule['label'])
+
+    return equipment
+
+
+def parseArmyJsonList(armyListJsonFile: str):
+    print("Parse army list ...")
+    armyData = {}
+    jsonArmyBookList = {}
+
+    jsonArmyList = loadJsonFile(armyListJsonFile)
+    armyData['armyId'] = jsonArmyList['armyId']
+    armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
+
+    downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
+
+    jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
+        DATAFOLDERARMYBOOK, armyData['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
+    armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
+    armyData['listPoints'] = jsonArmyList['listPoints']
+    armyData['listName'] = jsonArmyList['list']['name']
+
+    armyData['units'] = []
+    for unit in jsonArmyList['list']['units']:
+        unitData = getUnit(unit, jsonArmyBookList)
+        if unitData != {}:
+            armyData['units'].append(unitData)
+
+    return armyData
+
+
+def loadJsonFile(jsonFile: str):
+    try:
+        f = open(jsonFile, encoding="utf8")
+        file = f.read()
+        f.close()
+    except Exception as ex:
+        print("file failed to open " + jsonFile)
+        print(ex)
+        sys.exit(1)
+
+    try:
+        jsonObj = json.loads(file)
+    except json.decoder.JSONDecodeError as ex:
+        print(file + " Json is not valid!")
+        print(ex)
+        sys.exit(1)
+    except Exception as ex:
+        print("Unhandeld Exception")
+        print(ex)
+        sys.exit(1)
+    return jsonObj
+
+
+def getGameSystemId(gameSystem: str):
+    if (gameSystem == "gf"):
+        return 2
+    elif (gameSystem == "gff"):
+        return 3
+    elif (gameSystem == "aof"):
+        return 4
+    elif (gameSystem == "aofs"):
+        return 5
+    elif (gameSystem == "aofr"):
+        return 6
+    else:
+        return 0
+
+
+def downloadArmyBook(id: str, gameSystemId):
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
+    download = True
+    if not os.path.exists(DATAFOLDERARMYBOOK):
+        try:
+            os.makedirs(DATAFOLDERARMYBOOK)
+        except Exception as ex:
+            print("Error data folder creation failed")
+            print(ex)
+            return False
+
+    # download only when older than 1 day
+    if os.path.exists(armyBookJsonFile):
+        if time.time() - os.stat(armyBookJsonFile)[stat.ST_MTIME] < 86400:
+            download = False
+
+    if (download == True):
+        try:
+            print("Download army book ...")
+            urllib.request.urlretrieve(
+                "https://army-forge-studio.onepagerules.com/api/army-books/" + str(id) + "~" + str(gameSystemId) + "?armyForge=true", armyBookJsonFile)
+        except Exception as ex:
+            print("Error download of army book failed")
+            print(ex)
+            return False
+
+    if not os.path.exists(armyBookJsonFile):
+        print("Error no aramy book for " + id)
+        return False
+
+    return True
+
+
+def saveDictToJson(dictData, file):
+    try:
+        with open(file, 'w') as fp:
+            fp.write(json.dumps(dictData, indent=4))
+    except Exception as ex:
+        print("Error saving dict to json")
+        print(ex)
+        return False
+    return True
 
 
 if __name__ == "__main__":

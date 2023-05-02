@@ -1,0 +1,305 @@
+{
+    "gameSystem": "gf",
+    "armyId": "oqnnu0gk8q6hyyny",
+    "armyIds": [
+        "oqnnu0gk8q6hyyny"
+    ],
+    "armyFaction": "Prime Brothers",
+    "armyName": "Prime Brothers",
+    "modified": "2023-05-02T12:49:10.038Z",
+    "saveVersion": 3,
+    "listPoints": 370,
+    "list": {
+        "id": "18qhWQdV",
+        "key": "LJmRGakDW4hPC4DMs3PEO",
+        "name": "Testing Liste one",
+        "units": [
+            {
+                "id": "81WTJ34",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Red Squad",
+                "selectionId": "XknZW",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "lwF6XZiSt",
+                        "upgradeId": "ar5sR",
+                        "optionId": "wyKaPTZ"
+                    },
+                    {
+                        "instanceId": "qvREBMHyr",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "1WDIXQpnc",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "ah7TNmHkM",
+                        "upgradeId": "vIcBJVF",
+                        "optionId": "lCeyzzU"
+                    },
+                    {
+                        "instanceId": "ORg4jaLz4",
+                        "upgradeId": "Fyjqd",
+                        "optionId": "dOV9k"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ],
+        "points": 370,
+        "pointsLimit": 2000,
+        "creationTime": "1683031659823",
+        "campaignMode": false,
+        "competitive": true,
+        "gameSystem": "gf",
+        "selectedUnitId": "XknZW",
+        "unitPreview": null,
+        "undoUnitRemove": [
+            {
+                "id": "qGGJpGt",
+                "cost": 55,
+                "name": "Elite Raider",
+                "size": 1,
+                "defense": 3,
+                "quality": 4,
+                "upgrades": [
+                    "A1",
+                    "C1",
+                    "qIWMF"
+                ],
+                "equipment": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "specialRules": [
+                    {
+                        "key": "fearless",
+                        "name": "Fearless",
+                        "rating": ""
+                    },
+                    {
+                        "key": "furious",
+                        "name": "Furious",
+                        "rating": "",
+                        "additional": false
+                    },
+                    {
+                        "key": "hero",
+                        "name": "Hero",
+                        "rating": ""
+                    },
+                    {
+                        "key": "strider",
+                        "name": "Strider",
+                        "rating": ""
+                    },
+                    {
+                        "key": "tough",
+                        "name": "Tough",
+                        "rating": "3"
+                    }
+                ],
+                "disabledUpgradeSections": [],
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "baxq67VsH",
+                        "upgrade": {
+                            "id": "eBvto_s",
+                            "uid": "BCvkhSe",
+                            "type": "upgrade",
+                            "label": "Upgrade with one",
+                            "options": null,
+                            "isHeroUpgrade": true,
+                            "parentPackageUid": "C1",
+                            "select": 1,
+                            "isCommandGroup": false
+                        },
+                        "option": {
+                            "uid": "D3Dqx6h",
+                            "cost": 25,
+                            "type": "ArmyBookUpgradeOption",
+                            "gains": [
+                                {
+                                    "name": "Archivist",
+                                    "type": "ArmyBookItem",
+                                    "label": "Archivist (Psychic(1))",
+                                    "content": [
+                                        {
+                                            "key": "psychic",
+                                            "name": "Psychic",
+                                            "type": "ArmyBookRule",
+                                            "label": "Psychic(1)",
+                                            "rating": "1",
+                                            "count": 1,
+                                            "dependencies": []
+                                        }
+                                    ],
+                                    "count": 1,
+                                    "dependencies": []
+                                }
+                            ],
+                            "label": "Archivist (Psychic(1))",
+                            "isModel": false,
+                            "id": "D3Dqx6h",
+                            "parentSectionId": "BCvkhSe"
+                        }
+                    },
+                    {
+                        "instanceId": "br06Iig48",
+                        "upgrade": {
+                            "id": "3DlxLja",
+                            "uid": "BwY_m",
+                            "label": "Upgrade with one",
+                            "options": null,
+                            "parentPackageUid": "qIWMF",
+                            "type": "upgrade",
+                            "select": 1,
+                            "isCommandGroup": false
+                        },
+                        "option": {
+                            "uid": "THdrOeG",
+                            "cost": 10,
+                            "type": "ArmyBookUpgradeOption",
+                            "gains": [
+                                {
+                                    "name": "Orbital Drop",
+                                    "type": "ArmyBookItem",
+                                    "label": "Orbital Drop (Ambush)",
+                                    "content": [
+                                        {
+                                            "key": "ambush",
+                                            "name": "Ambush",
+                                            "type": "ArmyBookRule",
+                                            "label": "Ambush",
+                                            "modify": false,
+                                            "rating": "",
+                                            "count": 1,
+                                            "dependencies": []
+                                        }
+                                    ],
+                                    "count": 1,
+                                    "dependencies": []
+                                }
+                            ],
+                            "label": "Orbital Drop (Ambush)",
+                            "isModel": false,
+                            "id": "THdrOeG",
+                            "parentSectionId": "BwY_m"
+                        }
+                    }
+                ],
+                "sortId": 1,
+                "selectionId": "EDcoi",
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null,
+                "loadout": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "name": "Archivist",
+                        "type": "ArmyBookItem",
+                        "label": "Archivist (Psychic(1))",
+                        "content": [
+                            {
+                                "key": "psychic",
+                                "name": "Psychic",
+                                "type": "ArmyBookRule",
+                                "label": "Psychic(1)",
+                                "rating": "1",
+                                "count": 1,
+                                "dependencies": []
+                            }
+                        ],
+                        "count": 1,
+                        "dependencies": [],
+                        "isModel": false
+                    },
+                    {
+                        "name": "Orbital Drop",
+                        "type": "ArmyBookItem",
+                        "label": "Orbital Drop (Ambush)",
+                        "content": [
+                            {
+                                "key": "ambush",
+                                "name": "Ambush",
+                                "type": "ArmyBookRule",
+                                "label": "Ambush",
+                                "modify": false,
+                                "rating": "",
+                                "count": 1,
+                                "dependencies": []
+                            }
+                        ],
+                        "count": 1,
+                        "dependencies": [],
+                        "isModel": false
+                    }
+                ]
+            }
+        ]
+    },
+    "favourite": false
+}
