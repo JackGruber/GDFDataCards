@@ -41,3 +41,12 @@ CCW (A1), Plasma Rifle (24", A1, AP(4))
 
 Sniper [1] Q5+ D5+ | 45pts | Scout, Stealth
 CCW (A1), Sniper Rifle (30", A1, AP(1), Sniper)
+
+Aggro Squad [3] Q3+ D2+ | 320pts | Fearless, Tough(3)
+3x Dual Energy Fists (A4, AP(4)), 3x Twin Fist-Pistols (12", A4)
+
+Prime ATV [1] Q3+ D2+ | 255pts | Fast, Fearless, Scout, Strider, Tough(6)
+Heavy Fusion Rifle (18", A1, AP(4), Deadly(6)), Twin Auto-Rifles (18", A4)
+
+Attack Speeder [1] Q3+ D2+ | 385pts | Ambush, Fast, Fearless, Impact(6), Strider, Tough(9)
+Fusion Destroyer (12", A2, AP(4), Deadly(3)), Twin Strike Missiles (18", A2, AP(3), Deadly(3))
