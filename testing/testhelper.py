@@ -3,6 +3,7 @@ import sys
 import json
 
 TESTDIR = os.path.dirname(__file__)
+TESTDATADIR = os.path.join(TESTDIR, 'testdata')
 
 
 def readJsonFile(file):
