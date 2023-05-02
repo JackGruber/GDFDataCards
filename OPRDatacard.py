@@ -569,12 +569,30 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     if affects == "any":
                                         # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
                                         affects = 1
-
+                                    unitData['weapons'] = mergeWeapon(unitData['weapons'])
                                     unitData['weapons'] = removeWeapon(replaceWhat, affects, unitData['weapons'])
                                 else:
                                     print(f"Unhandelt type '{type}' in unit upgrades")
 
     return unitData
+
+
+def mergeWeapon(weapons):
+    if DEBUG == True:
+        print("Func: mergeWeapon")
+
+    mergedWeapons = []
+    for weapon in weapons:
+        add = True
+        for added in mergedWeapons:
+            if added['name'] == weapon['name']:
+                added['count'] += weapon['count']
+                add = False
+                break
+
+        if (add == True):
+            mergedWeapons.append(weapon)
+    return mergedWeapons
 
 
 def addEquipment(data):
