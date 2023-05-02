@@ -289,8 +289,13 @@ def createDataCard(units):
             pdf.setFont("regular", 5)
             pdf.setFillColorRGB(0, 0, 0)
 
+            if weapon['count'] > 1:
+                weaponLabel = str(weapon['count']) + "x " + weapon['name']
+            else:
+                weaponLabel = weapon['name']
+
             pdf.drawString(startX + offsetX[0],
-                           startY + offsetY, weapon['name'])
+                           startY + offsetY, weaponLabel)
 
             if "range" in weapon:
                 pdf.drawString(startX + offsetX[1], startY + offsetY, str(weapon['range']) + '"')
