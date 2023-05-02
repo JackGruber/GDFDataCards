@@ -559,9 +559,12 @@ def parseArmyJsonList(armyListJsonFile: str):
 
     jsonArmyList = loadJsonFile(armyListJsonFile)
     armyData['armyId'] = jsonArmyList['armyId']
-    downloadArmyBook(armyData['armyId'])
+    armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
+
+    downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
+
     jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
-        DATAFOLDERARMYBOOK, armyData['armyId'] + ".json"))
+        DATAFOLDERARMYBOOK, armyData['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
     armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
     armyData['listPoints'] = jsonArmyList['listPoints']
     armyData['listName'] = jsonArmyList['list']['name']
@@ -600,8 +603,23 @@ def loadJsonFile(jsonFile: str):
     return jsonObj
 
 
-def downloadArmyBook(id: str):
-    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, id + ".json")
+def getGameSystemId(gameSystem: str):
+    if (gameSystem == "gf"):
+        return 2
+    elif (gameSystem == "gff"):
+        return 3
+    elif (gameSystem == "aof"):
+        return 4
+    elif (gameSystem == "aofs"):
+        return 5
+    elif (gameSystem == "aofr"):
+        return 6
+    else:
+        return 0
+
+
+def downloadArmyBook(id: str, gameSystemId):
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
     download = True
     if not os.path.exists(DATAFOLDERARMYBOOK):
         try:
@@ -620,7 +638,7 @@ def downloadArmyBook(id: str):
         try:
             print("Download army book ...")
             urllib.request.urlretrieve(
-                "https://army-forge-studio.onepagerules.com/api/army-books/" + id + "~3?armyForge=true", armyBookJsonFile)
+                "https://army-forge-studio.onepagerules.com/api/army-books/" + str(id) + "~" + str(gameSystemId) + "?armyForge=true", armyBookJsonFile)
         except Exception as ex:
             print("Error download of army book failed")
             print(ex)
