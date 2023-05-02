@@ -99,22 +99,22 @@ def test_getUnitUpgrades():
     book = {}
     book['TestArmyId'] = armyBookHdf
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": []}
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'weapons': []}, book)
-    assert result == {'weapons': []}, "No upgrades"
+    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
+    assert result == {'size': 1, 'weapons': []}, "No upgrades"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}]}
-    expected = {'weapons': [{'attacks': 1, 'count': 1,
-                             'name': 'Heavy Pistol', 'range': 12, 'specialRules': [], 'ap': '1'}]}
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'weapons': []}, book)
+    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1,
+                                        'name': 'Heavy Pistol', 'range': 12, 'specialRules': [], 'ap': '1'}]}
+    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
     assert result == expected, "Upgrade Heavy Pistol"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [
+    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [
     ], 'ap': '4'}], 'equipment': [{'name': 'Forward Observer', 'specialRules': ['Take Aim']}]}
 
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'weapons': []}, book)
+    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
     assert result == expected, "3 Upgrades to (Heavy Pistol, than to Plasma and Take Aim)"
 
 
