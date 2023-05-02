@@ -54,24 +54,25 @@ def Main(typeJson, armyFile, debugOutput):
     DEBUG = debugOutput
     createFolderStructure()
     army = None
-    if(typeJson == True):
-        if(armyFile == None):
+    if (typeJson == True):
+        if (armyFile == None):
             armyFile = fileSelectDialog()
 
         if armyFile != None and armyFile != "":
             army = parseArmyJsonList(armyFile)
     else:
-        if(armyFile != None):
+        if (armyFile != None):
             txtData = readTxtFile(armyFile)
         else:
             print("Enter Army list from 'Share as Text', complete input with two new lines")
             txtData = readMultipleLines()
 
         army = parseArmyTextList(txtData)
-    
+
     if army != None:
         createDataCard(army['units'])
         openFile(DATACARDPDF)
+
 
 def readTxtFile(file):
     try:
@@ -82,9 +83,11 @@ def readTxtFile(file):
         print("Error Reading test txt file " + str(ex))
     return txtData
 
+
 def fileSelectDialog():
     Tk().withdraw()
     return askopenfilename()
+
 
 def createFolderStructure():
     if not os.path.exists(DATAFOLDER):
