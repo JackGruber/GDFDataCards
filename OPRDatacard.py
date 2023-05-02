@@ -206,14 +206,25 @@ def createDataCard(units):
                        (height/2)-1, ", ".join(specialRules))
 
         # Image box
-        unitImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
-        unitImage = os.path.join(IMAGEFOLDER, unitImage)
-        if os.path.exists(unitImage + ".jpg"):
-            unitImage = unitImage + ".jpg"
-        elif os.path.exists(unitImage + ".jpeg"):
-            unitImage = unitImage + ".jpeg"
-        elif os.path.exists(unitImage + ".png"):
-            unitImage = unitImage + ".png"
+        if 'type' in unit:
+            unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
+            unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
+
+        unitNameImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
+        unitNameImage = os.path.join(IMAGEFOLDER, unitNameImage)
+
+        if os.path.exists(unitNameImage + ".jpg"):
+            unitImage = unitNameImage + ".jpg"
+        elif os.path.exists(unitNameImage + ".jpeg"):
+            unitImage = unitNameImage + ".jpeg"
+        elif os.path.exists(unitNameImage + ".png"):
+            unitImage = unitNameImage + ".png"
+        elif os.path.exists(unitTypeImage + ".jpg"):
+            unitImage = unitTypeImage + ".jpg"
+        elif os.path.exists(unitTypeImage + ".jpeg"):
+            unitImage = unitTypeImage + ".jpeg"
+        elif os.path.exists(unitTypeImage + ".png"):
+            unitImage = unitTypeImage + ".png"
         else:
             unitImage = None
 
