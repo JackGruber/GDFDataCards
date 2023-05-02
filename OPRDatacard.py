@@ -148,6 +148,8 @@ def createDataCard(units):
     pdf.setTitle("GDF data card")
 
     for unit in units:
+        print("  ", unit['name'], "(", unit['id'], ")")
+
         # Card Box
         topClearance = 10
         bottomClearance = 10
