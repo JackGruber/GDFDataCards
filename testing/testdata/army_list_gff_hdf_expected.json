@@ -1,0 +1,385 @@
+{
+    "armyId": "z65fgu0l29i4lnlu",
+    "gameSystemId": 3,
+    "armyName": "Human Defense Force",
+    "listPoints": 300,
+    "listName": "300pt - HDF",
+    "units": [
+        {
+            "type": "Storm Leader",
+            "name": "Storm Leader",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "dwJg2Bu",
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "B1",
+                "C1",
+                "cMlno"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "hero",
+                    "name": "Hero",
+                    "rating": "",
+                    "label": "Hero"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                },
+                {
+                    "key": "strider",
+                    "name": "Strider",
+                    "rating": "",
+                    "label": "Strider"
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Forward Observer",
+                    "specialRules": [
+                        "Take Aim"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Sniper",
+            "name": "Sniper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "95wirM-",
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Sniper Rifle",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "sniper",
+                            "name": "Sniper",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Sniper"
+                        }
+                    ],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "scout",
+                    "name": "Scout",
+                    "rating": "",
+                    "label": "Scout"
+                },
+                {
+                    "key": "stealth",
+                    "name": "Stealth",
+                    "rating": "",
+                    "label": "Stealth"
+                }
+            ]
+        },
+        {
+            "type": "Special Weapon",
+            "name": "Special Weapon",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SG9cgFZ",
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 6,
+                    "count": 1,
+                    "name": "Flamethrower",
+                    "range": 12,
+                    "specialRules": []
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Storm Trooper",
+            "name": "Storm Trooper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "Xuu-drz",
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "B1",
+                "D1",
+                "I1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Shred Rifle",
+                    "range": 18,
+                    "specialRules": [
+                        {
+                            "key": "rending",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending",
+                            "rating": ""
+                        }
+                    ]
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Energy Fist",
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "strider",
+                    "name": "Strider",
+                    "rating": "",
+                    "label": "Strider"
+                }
+            ]
+        },
+        {
+            "type": "Storm Trooper",
+            "name": "Storm Trooper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "Xuu-drz",
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "B1",
+                "D1",
+                "I1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "strider",
+                    "name": "Strider",
+                    "rating": "",
+                    "label": "Strider"
+                }
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "D1",
+                "H1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                }
+            ],
+            "specialRules": [],
+            "equipment": [
+                {
+                    "name": "Demo Charges",
+                    "specialRules": [
+                        "AP(4) in melee"
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "D1",
+                "H1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                }
+            ],
+            "specialRules": []
+        },
+        {
+            "type": "Special Weapon",
+            "name": "Special Weapon",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SG9cgFZ",
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Grenade Launcher",
+                    "range": 24,
+                    "specialRules": [
+                        {
+                            "key": "blast",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "label": "Blast(3)",
+                            "modify": false,
+                            "rating": "3"
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "D1",
+                "H1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                }
+            ],
+            "specialRules": []
+        }
+    ]
+}
