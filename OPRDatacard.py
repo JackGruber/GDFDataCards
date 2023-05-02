@@ -269,8 +269,10 @@ def createDataCard(units):
 
         # Unit Name
         parts = unit['name'].split(" ")
+        if (unit['size'] > 1):
+            parts.append("[" + str(unit['size']) + "]")
         nameLines = []
-        maxLineCahrs = 20
+        maxLineCahrs = 21
         lineParts = []
         for part in parts:
             if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
