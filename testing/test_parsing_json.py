@@ -6,7 +6,7 @@ import testhelper
 sys.path.append(os.path.join(testhelper.TESTDIR, '..'))
 import OPRDatacard  # nopep8
 
-armyBookHdf = testhelper.readJsonFile(os.path.join(testhelper.TESTDIR, 'armybook_hdf.json'))
+armyBookHdf = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'armybook_hdf_3.json'))
 
 
 def test_addEquipment():
