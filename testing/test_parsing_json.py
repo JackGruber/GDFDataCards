@@ -149,3 +149,16 @@ def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
     assert result == expected
+
+
+def test_gff_prime_brothers():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
+    expected = testhelper.readJsonFile(os.path.join(
+        testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
+    assert result == expected
+
+
+def test_gf_pb():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
+    assert result == expected
