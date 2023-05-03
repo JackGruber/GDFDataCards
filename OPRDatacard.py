@@ -177,7 +177,7 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         startY = dataCardParameters['pdfSize'][1] - 45 - woundsSize
         for rule in unit['specialRules']:
             if (rule['key'] == "tough"):
-                tough = int(rule['rating'])
+                tough = int(rule['rating']) - 1
 
         pdf.setLineJoin(1)
         pdf.setFillColorRGB(0.5, 0.5, 0.5)
