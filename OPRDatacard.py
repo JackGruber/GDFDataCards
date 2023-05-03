@@ -729,6 +729,7 @@ def parseArmyJsonList(armyListJsonFile: str):
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
 
     downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
+    downloadCommonRules(armyData['gameSystemId'])
 
     jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
         DATAFOLDERARMYBOOK, armyData['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
@@ -784,33 +785,50 @@ def getGameSystemId(gameSystem: str):
 
 
 def downloadArmyBook(id: str, gameSystemId):
+    print("Check/download army book ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
-    download = True
-    if not os.path.exists(DATAFOLDERARMYBOOK):
-        try:
-            os.makedirs(DATAFOLDERARMYBOOK)
-        except Exception as ex:
-            print("Error data folder creation failed")
-            print(ex)
-            return False
+    url = "https://army-forge-studio.onepagerules.com/api/army-books/" + \
+        str(id) + "~" + str(gameSystemId) + "?armyForge=true"
+    return downloadJson(url, armyBookJsonFile)
 
+
+def downloadCommonRules(gameSystemId):
+    print("Check/download common rules ...")
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
+    url = "https://army-forge-studio.onepagerules.com/api/public/game-systems"
+    if (gameSystemId == 2):
+        url = url + "/grimdark-future/common-rules"
+    elif (gameSystemId == 3):
+        url = url + "/grimdark-future-firefight/common-rules"
+    elif (gameSystemId == 4):
+        url = url + "/age-of-fantasy/common-rules"
+    elif (gameSystemId == 5):
+        url = url + "/age-of-fantasy-skirmish/common-rules"
+    elif (gameSystemId == 6):
+        url = url + "/age-of-fantasy-regiments/common-rules"
+    else:
+        return
+    return downloadJson(url, armyBookJsonFile)
+
+
+def downloadJson(url, file):
     # download only when older than 1 day
-    if os.path.exists(armyBookJsonFile):
-        if time.time() - os.stat(armyBookJsonFile)[stat.ST_MTIME] < 86400:
+    download = True
+    if os.path.exists(file):
+        if time.time() - os.stat(file)[stat.ST_MTIME] < 86400:
             download = False
 
     if (download == True):
         try:
-            print("Download army book ...")
-            urllib.request.urlretrieve(
-                "https://army-forge-studio.onepagerules.com/api/army-books/" + str(id) + "~" + str(gameSystemId) + "?armyForge=true", armyBookJsonFile)
+            print("Download file")
+            urllib.request.urlretrieve(url, file)
         except Exception as ex:
-            print("Error download of army book failed")
+            print("Error failed")
             print(ex)
             return False
 
-    if not os.path.exists(armyBookJsonFile):
-        print("Error no aramy book for " + id)
+    if not os.path.exists(file):
+        print("No json data found " + id)
         return False
 
     return True
