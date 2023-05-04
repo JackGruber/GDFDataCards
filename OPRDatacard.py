@@ -230,6 +230,7 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
 
 
 def dataCardUnitImage(pdf, dataCardParameters, unit):
+    unitTypeImage = "invalidname"
     if 'type' in unit:
         unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
         unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
@@ -243,11 +244,11 @@ def dataCardUnitImage(pdf, dataCardParameters, unit):
         unitImage = unitNameImage + ".jpeg"
     elif os.path.exists(unitNameImage + ".png"):
         unitImage = unitNameImage + ".png"
-    elif os.path.exists(unitTypeImage + ".jpg"):
+    elif 'type' in unit and os.path.exists(unitTypeImage + ".jpg"):
         unitImage = unitTypeImage + ".jpg"
-    elif os.path.exists(unitTypeImage + ".jpeg"):
+    elif 'type' in unit and os.path.exists(unitTypeImage + ".jpeg"):
         unitImage = unitTypeImage + ".jpeg"
-    elif os.path.exists(unitTypeImage + ".png"):
+    elif 'type' in unit and os.path.exists(unitTypeImage + ".png"):
         unitImage = unitTypeImage + ".png"
     else:
         unitImage = None
