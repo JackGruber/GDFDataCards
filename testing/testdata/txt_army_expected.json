@@ -9,16 +9,16 @@
             "points": "75pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Hero",
-                    "key": " hero"
+                    "label": "Hero",
+                    "key": "hero"
                 },
                 {
-                    "label": " Tough(3)",
-                    "key": " tough",
+                    "label": "Tough(3)",
+                    "key": "tough",
                     "rating": "3"
                 }
             ],
@@ -30,12 +30,12 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Heavy Rifle ",
+                    "name": "Heavy Rifle",
                     "count": 1,
                     "range": 24,
                     "attacks": 1,
@@ -47,23 +47,26 @@
             "points": "40pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Scout",
-                    "key": " scout"
+                    "label": "Scout",
+                    "key": "scout"
                 },
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 }
             ],
             "equipment": [
                 {
                     "name": "Scopes",
                     "specialRules": [
-                        "Sniper"
+                        {
+                            "label": "Sniper",
+                            "key": "sniper"
+                        }
                     ]
                 }
             ],
@@ -74,12 +77,12 @@
             "defense": 3,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Marksman Carbine ",
+                    "name": "Marksman Carbine",
                     "count": 1,
                     "range": 18,
                     "attacks": 1,
@@ -96,8 +99,8 @@
             "points": "40pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 }
             ],
             "equipment": [],
@@ -108,12 +111,12 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 3
                 },
                 {
-                    "name": "Plasma Pistol ",
+                    "name": "Plasma Pistol",
                     "count": 1,
                     "range": 12,
                     "attacks": 1,
@@ -125,8 +128,8 @@
             "points": "50pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 }
             ],
             "equipment": [],
@@ -137,18 +140,18 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "Auto-Rifle ",
+                    "name": "Auto-Rifle",
                     "count": 1,
                     "range": 18,
                     "attacks": 2
                 },
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Grenade-Mod ",
+                    "name": "Grenade-Mod",
                     "count": 1,
                     "range": 12,
                     "attacks": 1,
@@ -166,8 +169,8 @@
             "points": "35pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 }
             ],
             "equipment": [],
@@ -178,12 +181,12 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Heavy Rifle ",
+                    "name": "Heavy Rifle",
                     "count": 1,
                     "range": 24,
                     "attacks": 1,
@@ -195,16 +198,16 @@
             "points": "60pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Scout",
-                    "key": " scout"
+                    "label": "Scout",
+                    "key": "scout"
                 },
                 {
-                    "label": " Stealth",
-                    "key": " stealth"
+                    "label": "Stealth",
+                    "key": "stealth"
                 }
             ],
             "equipment": [],
@@ -215,12 +218,12 @@
             "defense": 3,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Sniper Rifle ",
+                    "name": "Sniper Rifle",
                     "count": 1,
                     "range": 30,
                     "attacks": 1,
@@ -238,24 +241,27 @@
             "points": "85pts",
             "specialRules": [
                 {
-                    "label": " Hero",
-                    "key": " hero"
+                    "label": "Hero",
+                    "key": "hero"
                 },
                 {
-                    "label": " Tough(3)",
-                    "key": " tough",
+                    "label": "Tough(3)",
+                    "key": "tough",
                     "rating": "3"
                 },
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 }
             ],
             "equipment": [
                 {
                     "name": "Forward Observer",
                     "specialRules": [
-                        "Take Aim"
+                        {
+                            "label": "Take Aim",
+                            "key": "take aim"
+                        }
                     ]
                 }
             ],
@@ -266,12 +272,12 @@
             "defense": 4,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 2
                 },
                 {
-                    "name": "Plasma Pistol ",
+                    "name": "Plasma Pistol",
                     "count": 1,
                     "range": 12,
                     "attacks": 1,
@@ -286,7 +292,11 @@
                 {
                     "name": "Demo Charges",
                     "specialRules": [
-                        "AP(4) in melee"
+                        {
+                            "label": "AP(4) in melee",
+                            "key": "ap",
+                            "rating": "4"
+                        }
                     ]
                 }
             ],
@@ -297,12 +307,12 @@
             "defense": 5,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Rifle ",
+                    "name": "Rifle",
                     "count": 1,
                     "range": 24,
                     "attacks": 1
@@ -311,12 +321,7 @@
         },
         {
             "points": "15pts",
-            "specialRules": [
-                {
-                    "label": " ",
-                    "key": " "
-                }
-            ],
+            "specialRules": [],
             "equipment": [],
             "id": "26",
             "name": "2x Veteran",
@@ -325,12 +330,12 @@
             "defense": 5,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Rifle ",
+                    "name": "Rifle",
                     "count": 1,
                     "range": 24,
                     "attacks": 1
@@ -341,8 +346,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Relentless",
-                    "key": " relentless"
+                    "label": "Relentless",
+                    "key": "relentless"
                 }
             ],
             "equipment": [],
@@ -353,12 +358,12 @@
             "defense": 5,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Flamethrower ",
+                    "name": "Flamethrower",
                     "count": 1,
                     "range": 12,
                     "attacks": 6
@@ -369,8 +374,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Relentless",
-                    "key": " relentless"
+                    "label": "Relentless",
+                    "key": "relentless"
                 }
             ],
             "equipment": [],
@@ -381,12 +386,12 @@
             "defense": 5,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Grenade Launcher ",
+                    "name": "Grenade Launcher",
                     "count": 1,
                     "range": 24,
                     "attacks": 1,
@@ -404,8 +409,8 @@
             "points": "45pts",
             "specialRules": [
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 }
             ],
             "equipment": [],
@@ -416,13 +421,13 @@
             "defense": 4,
             "weapons": [
                 {
-                    "name": "Energy Fist ",
+                    "name": "Energy Fist",
                     "count": 1,
                     "attacks": 2,
                     "ap": 4
                 },
                 {
-                    "name": "Shred Rifle ",
+                    "name": "Shred Rifle",
                     "count": 1,
                     "range": 18,
                     "attacks": 3,
@@ -439,8 +444,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 }
             ],
             "equipment": [],
@@ -451,12 +456,12 @@
             "defense": 4,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Plasma Rifle ",
+                    "name": "Plasma Rifle",
                     "count": 1,
                     "range": 24,
                     "attacks": 1,
@@ -468,12 +473,12 @@
             "points": "45pts",
             "specialRules": [
                 {
-                    "label": " Scout",
-                    "key": " scout"
+                    "label": "Scout",
+                    "key": "scout"
                 },
                 {
-                    "label": " Stealth",
-                    "key": " stealth"
+                    "label": "Stealth",
+                    "key": "stealth"
                 }
             ],
             "equipment": [],
@@ -484,12 +489,12 @@
             "defense": 5,
             "weapons": [
                 {
-                    "name": "CCW ",
+                    "name": "CCW",
                     "count": 1,
                     "attacks": 1
                 },
                 {
-                    "name": "Sniper Rifle ",
+                    "name": "Sniper Rifle",
                     "count": 1,
                     "range": 30,
                     "attacks": 1,
@@ -507,12 +512,12 @@
             "points": "320pts",
             "specialRules": [
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Tough(3)",
-                    "key": " tough",
+                    "label": "Tough(3)",
+                    "key": "tough",
                     "rating": "3"
                 }
             ],
@@ -524,13 +529,13 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": " Dual Energy Fists ",
+                    "name": "Dual Energy Fists",
                     "count": 3,
                     "attacks": 4,
                     "ap": 4
                 },
                 {
-                    "name": " Twin Fist-Pistols ",
+                    "name": "Twin Fist-Pistols",
                     "count": 3,
                     "range": 12,
                     "attacks": 4
@@ -541,24 +546,24 @@
             "points": "255pts",
             "specialRules": [
                 {
-                    "label": " Fast",
-                    "key": " fast"
+                    "label": "Fast",
+                    "key": "fast"
                 },
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Scout",
-                    "key": " scout"
+                    "label": "Scout",
+                    "key": "scout"
                 },
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 },
                 {
-                    "label": " Tough(6)",
-                    "key": " tough",
+                    "label": "Tough(6)",
+                    "key": "tough",
                     "rating": "6"
                 }
             ],
@@ -570,7 +575,7 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "Heavy Fusion Rifle ",
+                    "name": "Heavy Fusion Rifle",
                     "count": 1,
                     "range": 18,
                     "attacks": 1,
@@ -584,7 +589,7 @@
                     ]
                 },
                 {
-                    "name": "Twin Auto-Rifles ",
+                    "name": "Twin Auto-Rifles",
                     "count": 1,
                     "range": 18,
                     "attacks": 4
@@ -595,29 +600,29 @@
             "points": "385pts",
             "specialRules": [
                 {
-                    "label": " Ambush",
-                    "key": " ambush"
+                    "label": "Ambush",
+                    "key": "ambush"
                 },
                 {
-                    "label": " Fast",
-                    "key": " fast"
+                    "label": "Fast",
+                    "key": "fast"
                 },
                 {
-                    "label": " Fearless",
-                    "key": " fearless"
+                    "label": "Fearless",
+                    "key": "fearless"
                 },
                 {
-                    "label": " Impact(6)",
-                    "key": " impact",
+                    "label": "Impact(6)",
+                    "key": "impact",
                     "rating": "6"
                 },
                 {
-                    "label": " Strider",
-                    "key": " strider"
+                    "label": "Strider",
+                    "key": "strider"
                 },
                 {
-                    "label": " Tough(9)",
-                    "key": " tough",
+                    "label": "Tough(9)",
+                    "key": "tough",
                     "rating": "9"
                 }
             ],
@@ -629,7 +634,7 @@
             "defense": 2,
             "weapons": [
                 {
-                    "name": "Fusion Destroyer ",
+                    "name": "Fusion Destroyer",
                     "count": 1,
                     "range": 12,
                     "attacks": 2,
@@ -643,7 +648,7 @@
                     ]
                 },
                 {
-                    "name": "Twin Strike Missiles ",
+                    "name": "Twin Strike Missiles",
                     "count": 1,
                     "range": 18,
                     "attacks": 2,
@@ -655,6 +660,74 @@
                             "rating": "3"
                         }
                     ]
+                }
+            ]
+        },
+        {
+            "points": "75pts",
+            "specialRules": [
+                {
+                    "label": "Fearless",
+                    "key": "fearless"
+                },
+                {
+                    "label": "Hero",
+                    "key": "hero"
+                },
+                {
+                    "label": "Tough(3)",
+                    "key": "tough",
+                    "rating": "3"
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Feudal Steed",
+                    "specialRules": [
+                        {
+                            "label": "Fast",
+                            "key": "fast"
+                        },
+                        {
+                            "label": " Impact(1)",
+                            "key": " impact",
+                            "rating": "1"
+                        }
+                    ]
+                },
+                {
+                    "name": "Strategist",
+                    "specialRules": [
+                        {
+                            "label": "Ballistics Console",
+                            "key": "ballistics console"
+                        }
+                    ]
+                }
+            ],
+            "id": "53",
+            "name": "Thaddeus Taho",
+            "size": 1,
+            "quality": 4,
+            "defense": 4,
+            "weapons": [
+                {
+                    "name": "Energy Sword",
+                    "count": 1,
+                    "attacks": 2,
+                    "ap": 1,
+                    "specialRules": [
+                        {
+                            "label": "Rending",
+                            "key": "rending"
+                        }
+                    ]
+                },
+                {
+                    "name": "Rifle",
+                    "count": 1,
+                    "range": 24,
+                    "attacks": 1
                 }
             ]
         }

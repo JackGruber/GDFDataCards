@@ -172,7 +172,14 @@
                 {
                     "name": "Scopes",
                     "specialRules": [
-                        "Sniper"
+                        {
+                            "key": "sniper",
+                            "name": "Sniper",
+                            "type": "ArmyBookRule",
+                            "label": "Sniper",
+                            "modify": false,
+                            "rating": ""
+                        }
                     ]
                 }
             ]

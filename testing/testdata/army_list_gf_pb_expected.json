@@ -69,7 +69,13 @@
                 {
                     "name": "Captain",
                     "specialRules": [
-                        "Battle Rites"
+                        {
+                            "key": "battle-rites",
+                            "name": "Battle Rites",
+                            "type": "ArmyBookRule",
+                            "label": "Battle Rites",
+                            "rating": ""
+                        }
                     ]
                 }
             ]

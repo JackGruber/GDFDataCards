@@ -396,16 +396,22 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
         offsetY -= 8
 
     if 'equipment' in unit and len(unit['equipment']) > 0:
-        headers = {'name': 'Equipment', 'specialRules': ['']}
-        unit['equipment'].insert(0, headers)
-        font = "bold"
+        pdf.setFont("bold", 5)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawString(startX + offsetX[0], startY + offsetY, "Equipment")
+        offsetY -= 8
+
         for equipment in unit['equipment']:
-            pdf.setFont(font, 5)
+            pdf.setFont("regular", 5)
             pdf.setFillColorRGB(0, 0, 0)
             pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
-            pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(equipment['specialRules']))
+            label = []
+            for specialRule in equipment['specialRules']:
+                label.append(str(specialRule['label']))
+
+            pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             offsetY -= 8
-            font = "regular"
+
 
 
 def getPdfFileName(armyName):
@@ -484,6 +490,27 @@ def getTxtSpecialRule(txt):
     return rule
 
 
+def getRulesFromTxt(data):
+    parts = list(data.strip(" "))
+    rules = []
+    extract = []
+    bracket = 0
+    for i in range(len(parts)):
+        if (parts[i] == "("):
+            bracket += 1
+        elif (parts[i] == ")"):
+            bracket -= 1
+        if ((parts[i] == "," and bracket == 0) or i == len(parts) - 1):
+            if i == len(parts) - 1:
+                extract.append(parts[i])
+            rules.append(''.join(extract).strip())
+            extract = []
+        else:
+            extract.append(parts[i])
+
+    return rules
+
+
 def parseArmyTextList(armyListText):
     armyData = {}
 
@@ -514,14 +541,19 @@ def parseArmyTextList(armyListText):
                 unitData['specialRules'] = []
                 unitData['equipment'] = []
                 unitData['id'] = f'{x}'
-                for specialRules in data[2].split(","):
-                    if re.match(r'^\s?(\dx\s|Scopes)', specialRules):
-                        regExMatch = re.search(
-                            r"(\dx)?([^(]+)(\()(.*)(\))", specialRules.strip(" "))
-                        unitData['equipment'].append(
-                            {'name': regExMatch.group(2).strip(" "), 'specialRules': regExMatch.group(4).split(",")})
+                rules = getRulesFromTxt(data[2])
+                for rule in rules:
+                    if re.search(r'(?is)\([A-Z]+', rule.strip()):
+                        regExMatch = re.search(r"(?is)(\dx)?([^(]+)(\()(.*)(\))", rule.strip(" "))
+                        equipment = {}
+                        equipment['name'] = regExMatch.group(2).strip()
+                        equipment['specialRules'] = []
+                        print(regExMatch.group(4).split(","))
+                        for equipmentRule in regExMatch.group(4).split(","):
+                            equipment['specialRules'].append(getTxtSpecialRule(equipmentRule))
+                        unitData['equipment'].append(equipment)
                     else:
-                        unitData['specialRules'].append(getTxtSpecialRule(specialRules))
+                        unitData['specialRules'].append(getTxtSpecialRule(rule))
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
@@ -557,7 +589,7 @@ def parseArmyTextList(armyListText):
                     regExMatch = re.search(
                         r"(\d+x)?([^(]+)(\()(.*)(\))", weapon.strip(" "))
                     weaponData = {}
-                    weaponData['name'] = regExMatch.group(2)
+                    weaponData['name'] = regExMatch.group(2).strip()
                     weaponData['count'] = regExMatch.group(1)
                     if weaponData['count'] == None:
                         weaponData['count'] = 1
@@ -755,10 +787,7 @@ def mergeWeapon(weapons):
 def addEquipment(data):
     equipment = {}
     equipment['name'] = data['name']
-    equipment['specialRules'] = []
-
-    for rule in data['content']:
-        equipment['specialRules'].append(rule['label'])
+    equipment['specialRules'] = getSpecialRules(data['content'])
 
     return equipment
 
