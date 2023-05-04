@@ -9,13 +9,17 @@
             "points": "75pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Hero"
+                    "label": " Hero",
+                    "key": " hero"
                 },
                 {
-                    "label": " Tough(3)"
+                    "label": " Tough(3)",
+                    "key": " tough",
+                    "rating": "3"
                 }
             ],
             "equipment": [],
@@ -43,13 +47,16 @@
             "points": "40pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Scout"
+                    "label": " Scout",
+                    "key": " scout"
                 },
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 }
             ],
             "equipment": [
@@ -78,7 +85,8 @@
                     "attacks": 1,
                     "specialRules": [
                         {
-                            "label": "Rending"
+                            "label": "Rending",
+                            "key": "rending"
                         }
                     ]
                 }
@@ -88,7 +96,8 @@
             "points": "40pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 }
             ],
             "equipment": [],
@@ -116,7 +125,8 @@
             "points": "50pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 }
             ],
             "equipment": [],
@@ -144,7 +154,9 @@
                     "attacks": 1,
                     "specialRules": [
                         {
-                            "label": "Blast(3)"
+                            "label": "Blast(3)",
+                            "key": "blast",
+                            "rating": "3"
                         }
                     ]
                 }
@@ -154,7 +166,8 @@
             "points": "35pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 }
             ],
             "equipment": [],
@@ -182,13 +195,16 @@
             "points": "60pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Scout"
+                    "label": " Scout",
+                    "key": " scout"
                 },
                 {
-                    "label": " Stealth"
+                    "label": " Stealth",
+                    "key": " stealth"
                 }
             ],
             "equipment": [],
@@ -211,7 +227,8 @@
                     "ap": 1,
                     "specialRules": [
                         {
-                            "label": "Sniper"
+                            "label": "Sniper",
+                            "key": "sniper"
                         }
                     ]
                 }
@@ -221,13 +238,17 @@
             "points": "85pts",
             "specialRules": [
                 {
-                    "label": " Hero"
+                    "label": " Hero",
+                    "key": " hero"
                 },
                 {
-                    "label": " Tough(3)"
+                    "label": " Tough(3)",
+                    "key": " tough",
+                    "rating": "3"
                 },
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 }
             ],
             "equipment": [
@@ -292,7 +313,8 @@
             "points": "15pts",
             "specialRules": [
                 {
-                    "label": " "
+                    "label": " ",
+                    "key": " "
                 }
             ],
             "equipment": [],
@@ -319,7 +341,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Relentless"
+                    "label": " Relentless",
+                    "key": " relentless"
                 }
             ],
             "equipment": [],
@@ -346,7 +369,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Relentless"
+                    "label": " Relentless",
+                    "key": " relentless"
                 }
             ],
             "equipment": [],
@@ -368,7 +392,9 @@
                     "attacks": 1,
                     "specialRules": [
                         {
-                            "label": "Blast(3)"
+                            "label": "Blast(3)",
+                            "key": "blast",
+                            "rating": "3"
                         }
                     ]
                 }
@@ -378,7 +404,8 @@
             "points": "45pts",
             "specialRules": [
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 }
             ],
             "equipment": [],
@@ -401,7 +428,8 @@
                     "attacks": 3,
                     "specialRules": [
                         {
-                            "label": "Rending"
+                            "label": "Rending",
+                            "key": "rending"
                         }
                     ]
                 }
@@ -411,7 +439,8 @@
             "points": "25pts",
             "specialRules": [
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 }
             ],
             "equipment": [],
@@ -439,10 +468,12 @@
             "points": "45pts",
             "specialRules": [
                 {
-                    "label": " Scout"
+                    "label": " Scout",
+                    "key": " scout"
                 },
                 {
-                    "label": " Stealth"
+                    "label": " Stealth",
+                    "key": " stealth"
                 }
             ],
             "equipment": [],
@@ -465,7 +496,8 @@
                     "ap": 1,
                     "specialRules": [
                         {
-                            "label": "Sniper"
+                            "label": "Sniper",
+                            "key": "sniper"
                         }
                     ]
                 }
@@ -475,10 +507,13 @@
             "points": "320pts",
             "specialRules": [
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Tough(3)"
+                    "label": " Tough(3)",
+                    "key": " tough",
+                    "rating": "3"
                 }
             ],
             "equipment": [],
@@ -506,19 +541,25 @@
             "points": "255pts",
             "specialRules": [
                 {
-                    "label": " Fast"
+                    "label": " Fast",
+                    "key": " fast"
                 },
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Scout"
+                    "label": " Scout",
+                    "key": " scout"
                 },
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 },
                 {
-                    "label": " Tough(6)"
+                    "label": " Tough(6)",
+                    "key": " tough",
+                    "rating": "6"
                 }
             ],
             "equipment": [],
@@ -536,7 +577,9 @@
                     "ap": 4,
                     "specialRules": [
                         {
-                            "label": "Deadly(6)"
+                            "label": "Deadly(6)",
+                            "key": "deadly",
+                            "rating": "6"
                         }
                     ]
                 },
@@ -552,22 +595,30 @@
             "points": "385pts",
             "specialRules": [
                 {
-                    "label": " Ambush"
+                    "label": " Ambush",
+                    "key": " ambush"
                 },
                 {
-                    "label": " Fast"
+                    "label": " Fast",
+                    "key": " fast"
                 },
                 {
-                    "label": " Fearless"
+                    "label": " Fearless",
+                    "key": " fearless"
                 },
                 {
-                    "label": " Impact(6)"
+                    "label": " Impact(6)",
+                    "key": " impact",
+                    "rating": "6"
                 },
                 {
-                    "label": " Strider"
+                    "label": " Strider",
+                    "key": " strider"
                 },
                 {
-                    "label": " Tough(9)"
+                    "label": " Tough(9)",
+                    "key": " tough",
+                    "rating": "9"
                 }
             ],
             "equipment": [],
@@ -585,7 +636,9 @@
                     "ap": 4,
                     "specialRules": [
                         {
-                            "label": "Deadly(3)"
+                            "label": "Deadly(3)",
+                            "key": "deadly",
+                            "rating": "3"
                         }
                     ]
                 },
@@ -597,7 +650,9 @@
                     "ap": 3,
                     "specialRules": [
                         {
-                            "label": "Deadly(3)"
+                            "label": "Deadly(3)",
+                            "key": "deadly",
+                            "rating": "3"
                         }
                     ]
                 }

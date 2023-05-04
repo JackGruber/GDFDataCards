@@ -471,6 +471,19 @@ def createDataCard(army):
         return None
 
 
+def getTxtSpecialRule(txt):
+    rule = {}
+    rule['label'] = txt
+
+    if "(" in txt:
+        data = txt.split("(")
+        rule['key'] = data[0].lower()
+        rule['rating'] = re.sub(r'(?is)([^\d])', '', data[1])
+    else:
+        rule['key'] = txt.lower()
+    return rule
+
+
 def parseArmyTextList(armyListText):
     armyData = {}
 
@@ -508,7 +521,7 @@ def parseArmyTextList(armyListText):
                         unitData['equipment'].append(
                             {'name': regExMatch.group(2).strip(" "), 'specialRules': regExMatch.group(4).split(",")})
                     else:
-                        unitData['specialRules'].append({'label': specialRules})
+                        unitData['specialRules'].append(getTxtSpecialRule(specialRules))
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
@@ -566,7 +579,7 @@ def parseArmyTextList(armyListText):
                         else:
                             if not "specialRules" in weaponData:
                                 weaponData['specialRules'] = []
-                            weaponData['specialRules'].append({'label': weaponRule})
+                            weaponData['specialRules'].append(getTxtSpecialRule(weaponRule))
                     if not "weapons" in unitData:
                         unitData['weapons'] = []
                     unitData['weapons'].append(weaponData)
