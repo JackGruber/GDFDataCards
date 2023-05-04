@@ -433,7 +433,7 @@ def dataCardUnitCommonRules(pdf, dataCardParameters, army):
                     commonRules.append(rule['key'])
     commonRules = list(dict.fromkeys(commonRules))
 
-    loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + army['gameSystemId'] + ".json"))
+    loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
 
 
 def getPdfFileName(armyName):
