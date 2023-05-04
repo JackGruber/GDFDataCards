@@ -413,6 +413,9 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             offsetY -= 8
 
 
+def dataCardUnitCommonRules(pdf, dataCardParameters, unit, army):
+    pass
+
 
 def getPdfFileName(armyName):
     pdfName = re.sub(r'(?is)([^\w])', '_', armyName.lower())
@@ -561,29 +564,7 @@ def parseArmyTextList(armyListText):
                 unitData['quality'] = int(regExMatch[0][2])
                 unitData['defense'] = int(regExMatch[0][3])
             elif unit == True:
-                parts = armyListText[x].strip(" ").split(" ")
-                parts = list(armyListText[x].strip(" "))
-
-                weapons = []
-                weaponExtract = []
-                bracket = 0
-                weaponRule = False
-                for part in parts:
-                    if (part == "("):
-                        bracket += 1
-                        weaponRule = True
-                    elif (part == ")"):
-                        bracket -= 1
-
-                    if (part == "," and len(weaponExtract) == 0):
-                        continue
-
-                    weaponExtract.append(part)
-
-                    if (weaponRule == True and bracket == 0):
-                        weapons.append(''.join(weaponExtract).strip())
-                        weaponExtract = []
-                        weaponRule = False
+                weapons = getRulesFromTxt(armyListText[x].strip(" "))
 
                 for weapon in weapons:
                     regExMatch = re.search(
