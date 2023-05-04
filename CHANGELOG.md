@@ -6,6 +6,7 @@
 - Add wound counter for GFF
 - Add auto detect json or txt list
 - Removed console input
+- Store PDF file with army name
 
 ## v0.5.0 (2023-04-30)
 

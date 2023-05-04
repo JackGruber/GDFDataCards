@@ -27,7 +27,7 @@ elif __file__:
 DATAFOLDER = os.path.join(BASEPATH, "data")
 DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
-DATACARDPDF = os.path.join(DATAFOLDER, "datacard.pdf")
+DATACARDFOLDER = os.path.join(DATAFOLDER, "datacards")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 DEBUG = False
 
@@ -76,8 +76,8 @@ def Main(forceTypeJson, armyFile, debugOutput):
         if (DEBUG == True):
             saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
 
-        createDataCard(army)
-        openFile(DATACARDPDF)
+        pdfFile = createDataCard(army)
+        openFile(pdfFile)
 
 
 def isFileTypeJson(file):
@@ -133,6 +133,14 @@ def createFolderStructure():
             os.makedirs(IMAGEFOLDER)
         except Exception as ex:
             print("image folder creation failed")
+            print(ex)
+            sys.exit(1)
+
+    if not os.path.exists(DATACARDFOLDER):
+        try:
+            os.makedirs(DATACARDFOLDER)
+        except Exception as ex:
+            print("datacard folder creation failed")
             print(ex)
             sys.exit(1)
 
@@ -400,6 +408,19 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             font = "regular"
 
 
+def getPdfFileName(armyName):
+    pdfName = re.sub(r'(?is)([^\w])', '_', armyName.lower())
+    pdfName = re.sub(r'(?is)(_+)', '_', pdfName)
+    pdfFile = os.path.join(DATACARDFOLDER, pdfName)
+
+    if os.path.exists(pdfFile + ".pdf"):
+        nr = 1
+        while (os.path.exists(pdfFile + "_" + str(nr) + ".pdf")):
+            nr += 1
+        pdfFile = pdfFile + "_" + str(nr)
+    return pdfFile + ".pdf"
+
+
 def createDataCard(army):
     print("Create datacards ...")
     try:
@@ -421,12 +442,12 @@ def createDataCard(army):
     }
 
     # creating a pdf object
-    pdf = canvas.Canvas(DATACARDPDF, pagesize=dataCardParameters['pdfSize'])
+    pdfFile = getPdfFileName(army['listName'])
+    pdf = canvas.Canvas(pdfFile, pagesize=dataCardParameters['pdfSize'])
     pdf.setTitle("GDF data card")
 
     for unit in army['units']:
         print("  ", unit['name'], "(", unit['id'], ")")
-
         dataCardBoarderFrame(pdf, dataCardParameters)
         dataCardUnitType(pdf, dataCardParameters, unit)
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
@@ -437,11 +458,17 @@ def createDataCard(army):
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
 
         pdf.showPage()
+
+    dataCardBoarderFrame(pdf, dataCardParameters)
+    dataCardUnitCommonRules(pdf, dataCardParameters, unit, army)
+    pdf.showPage()
     try:
         pdf.save()
+        return pdfFile
     except Exception as ex:
         print("Error PDF save failed")
         print(str(ex))
+        return None
 
 
 def parseArmyTextList(armyListText):
