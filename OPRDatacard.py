@@ -413,8 +413,24 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             offsetY -= 8
 
 
-def dataCardUnitCommonRules(pdf, dataCardParameters, unit, army):
-    pass
+def dataCardUnitCommonRules(pdf, dataCardParameters, army):
+    commonRules = []
+
+    for unit in army['units']:
+        for rule in unit['specialRules']:
+            commonRules.append(rule['key'])
+
+        for weapon in unit['weapons']:
+            for rule in weapon['specialRules']:
+                commonRules.append(rule['key'])
+
+        if 'equipment' in unit:
+            for equipment in unit['equipment']:
+                for rule in equipment['specialRules']:
+                    commonRules.append(rule['key'])
+    commonRules = list(dict.fromkeys(commonRules))
+
+    loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + army['gameSystemId'] + ".json"))
 
 
 def getPdfFileName(armyName):
@@ -469,7 +485,7 @@ def createDataCard(army):
         pdf.showPage()
 
     dataCardBoarderFrame(pdf, dataCardParameters)
-    dataCardUnitCommonRules(pdf, dataCardParameters, unit, army)
+    dataCardUnitCommonRules(pdf, dataCardParameters, army)
     pdf.showPage()
     try:
         pdf.save()
