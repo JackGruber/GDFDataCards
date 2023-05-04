@@ -1,1 +1,407 @@
-{"gameSystem":"gf","armyId":"oqnnu0gk8q6hyyny","armyIds":["oqnnu0gk8q6hyyny"],"armyFaction":"Prime Brothers","armyName":"Prime Brothers","modified":"2023-05-02T09:45:09.074Z","saveVersion":3,"listPoints":2000,"list":{"id":"18qhWQdV","key":"LJmRGakDW4hPC4DMs3PEO","name":"Testing Liste","units":[{"id":"Z2WiRfh","armyId":"oqnnu0gk8q6hyyny","customName":"Prime Leader alias Master","selectionId":"2vAmz","selectedUpgrades":[{"instanceId":"CQmVsvLfs","upgradeId":"BCvkhSe","optionId":"fwO6jFd"},{"instanceId":"8n2-0mcgf","upgradeId":"MovgoCq","optionId":"NAzSrGO"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"YQGLAAj","armyId":"oqnnu0gk8q6hyyny","selectionId":"PxnMi","selectedUpgrades":[{"instanceId":"tn791RhYC","upgradeId":"uTKvirx","optionId":"raxBZDD"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"VZ7HCmt","armyId":"oqnnu0gk8q6hyyny","selectionId":"NBsjG","selectedUpgrades":[{"instanceId":"nNa__HgOo","upgradeId":"WCoSz98","optionId":"VV9C8"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"81WTJ34","armyId":"oqnnu0gk8q6hyyny","selectionId":"XknZW","selectedUpgrades":[{"instanceId":"6D1D-eUXe","upgradeId":"ar5sR","optionId":"wyKaPTZ"},{"instanceId":"y0bB0OYPD","upgradeId":"tbNwc","optionId":"uNapO"},{"instanceId":"Ag36KSEt0","upgradeId":"tbNwc","optionId":"uNapO"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"PoRVpWT","armyId":"oqnnu0gk8q6hyyny","selectionId":"cDUkt","selectedUpgrades":[{"instanceId":"CTgWMVWrB","upgradeId":"QVDSnps","optionId":"bqqWG"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"mIz9reK","armyId":"oqnnu0gk8q6hyyny","selectionId":"WwWKQ","selectedUpgrades":[],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"meWSgTo","armyId":"oqnnu0gk8q6hyyny","selectionId":"MbnTS","selectedUpgrades":[{"instanceId":"z9NE2swuh","upgradeId":"vIcBJVF","optionId":"lCeyzzU"}],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null},{"id":"Fz19CEf","armyId":"oqnnu0gk8q6hyyny","selectionId":"nd0l8","selectedUpgrades":[],"combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null}],"points":2000,"pointsLimit":2000,"creationTime":"1683015573860","campaignMode":false,"competitive":true,"gameSystem":"gf","selectedUnitId":"PxnMi","unitPreview":null,"undoUnitRemove":[{"id":"qGGJpGt","cost":55,"name":"Elite Raider","size":1,"defense":3,"quality":4,"upgrades":["A1","C1","qIWMF"],"equipment":[{"id":"UIP8k","name":"CCW","label":"CCW","attacks":3,"specialRules":[],"count":1,"originalCount":1,"type":"ArmyBookWeapon"},{"id":"Wjypj","name":"Heavy Pistol","label":"Heavy Pistol","range":12,"attacks":1,"specialRules":[{"key":"ap","name":"AP","rating":"1","modify":false}],"count":1,"originalCount":1,"type":"ArmyBookWeapon"}],"specialRules":[{"key":"fearless","name":"Fearless","rating":""},{"key":"furious","name":"Furious","rating":"","additional":false},{"key":"hero","name":"Hero","rating":""},{"key":"strider","name":"Strider","rating":""},{"key":"tough","name":"Tough","rating":"3"}],"disabledUpgradeSections":[],"armyId":"oqnnu0gk8q6hyyny","selectedUpgrades":[{"instanceId":"baxq67VsH","upgrade":{"id":"eBvto_s","uid":"BCvkhSe","type":"upgrade","label":"Upgrade with one","options":null,"isHeroUpgrade":true,"parentPackageUid":"C1","select":1,"isCommandGroup":false},"option":{"uid":"D3Dqx6h","cost":25,"type":"ArmyBookUpgradeOption","gains":[{"name":"Archivist","type":"ArmyBookItem","label":"Archivist (Psychic(1))","content":[{"key":"psychic","name":"Psychic","type":"ArmyBookRule","label":"Psychic(1)","rating":"1","count":1,"dependencies":[]}],"count":1,"dependencies":[]}],"label":"Archivist (Psychic(1))","isModel":false,"id":"D3Dqx6h","parentSectionId":"BCvkhSe"}},{"instanceId":"br06Iig48","upgrade":{"id":"3DlxLja","uid":"BwY_m","label":"Upgrade with one","options":null,"parentPackageUid":"qIWMF","type":"upgrade","select":1,"isCommandGroup":false},"option":{"uid":"THdrOeG","cost":10,"type":"ArmyBookUpgradeOption","gains":[{"name":"Orbital Drop","type":"ArmyBookItem","label":"Orbital Drop (Ambush)","content":[{"key":"ambush","name":"Ambush","type":"ArmyBookRule","label":"Ambush","modify":false,"rating":"","count":1,"dependencies":[]}],"count":1,"dependencies":[]}],"label":"Orbital Drop (Ambush)","isModel":false,"id":"THdrOeG","parentSectionId":"BwY_m"}}],"sortId":1,"selectionId":"EDcoi","combined":false,"joinToUnit":null,"xp":0,"traits":[],"notes":null,"loadout":[{"id":"UIP8k","name":"CCW","label":"CCW","attacks":3,"specialRules":[],"count":1,"originalCount":1,"type":"ArmyBookWeapon"},{"id":"Wjypj","name":"Heavy Pistol","label":"Heavy Pistol","range":12,"attacks":1,"specialRules":[{"key":"ap","name":"AP","rating":"1","modify":false}],"count":1,"originalCount":1,"type":"ArmyBookWeapon"},{"name":"Archivist","type":"ArmyBookItem","label":"Archivist (Psychic(1))","content":[{"key":"psychic","name":"Psychic","type":"ArmyBookRule","label":"Psychic(1)","rating":"1","count":1,"dependencies":[]}],"count":1,"dependencies":[],"isModel":false},{"name":"Orbital Drop","type":"ArmyBookItem","label":"Orbital Drop (Ambush)","content":[{"key":"ambush","name":"Ambush","type":"ArmyBookRule","label":"Ambush","modify":false,"rating":"","count":1,"dependencies":[]}],"count":1,"dependencies":[],"isModel":false}]}]},"favourite":false}
+{
+    "gameSystem": "gf",
+    "armyId": "oqnnu0gk8q6hyyny",
+    "armyIds": [
+        "oqnnu0gk8q6hyyny"
+    ],
+    "armyFaction": "Prime Brothers",
+    "armyName": "Prime Brothers",
+    "modified": "2023-05-02T09:45:09.074Z",
+    "saveVersion": 3,
+    "listPoints": 2000,
+    "list": {
+        "id": "18qhWQdV",
+        "key": "LJmRGakDW4hPC4DMs3PEO",
+        "name": "Testing Liste",
+        "units": [
+            {
+                "id": "Z2WiRfh",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Prime Leader alias Master",
+                "selectionId": "2vAmz",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "CQmVsvLfs",
+                        "upgradeId": "BCvkhSe",
+                        "optionId": "fwO6jFd"
+                    },
+                    {
+                        "instanceId": "8n2-0mcgf",
+                        "upgradeId": "MovgoCq",
+                        "optionId": "NAzSrGO"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "YQGLAAj",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "PxnMi",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "tn791RhYC",
+                        "upgradeId": "uTKvirx",
+                        "optionId": "raxBZDD"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "VZ7HCmt",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "NBsjG",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "nNa__HgOo",
+                        "upgradeId": "WCoSz98",
+                        "optionId": "VV9C8"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "81WTJ34",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "XknZW",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "6D1D-eUXe",
+                        "upgradeId": "ar5sR",
+                        "optionId": "wyKaPTZ"
+                    },
+                    {
+                        "instanceId": "y0bB0OYPD",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "Ag36KSEt0",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "PoRVpWT",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "cDUkt",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "CTgWMVWrB",
+                        "upgradeId": "QVDSnps",
+                        "optionId": "bqqWG"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "mIz9reK",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "WwWKQ",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "meWSgTo",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "MbnTS",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "z9NE2swuh",
+                        "upgradeId": "vIcBJVF",
+                        "optionId": "lCeyzzU"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Fz19CEf",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "nd0l8",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ],
+        "points": 2000,
+        "pointsLimit": 2000,
+        "creationTime": "1683015573860",
+        "campaignMode": false,
+        "competitive": true,
+        "gameSystem": "gf",
+        "selectedUnitId": "PxnMi",
+        "unitPreview": null,
+        "undoUnitRemove": [
+            {
+                "id": "qGGJpGt",
+                "cost": 55,
+                "name": "Elite Raider",
+                "size": 1,
+                "defense": 3,
+                "quality": 4,
+                "upgrades": [
+                    "A1",
+                    "C1",
+                    "qIWMF"
+                ],
+                "equipment": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "specialRules": [
+                    {
+                        "key": "fearless",
+                        "name": "Fearless",
+                        "rating": ""
+                    },
+                    {
+                        "key": "furious",
+                        "name": "Furious",
+                        "rating": "",
+                        "additional": false
+                    },
+                    {
+                        "key": "hero",
+                        "name": "Hero",
+                        "rating": ""
+                    },
+                    {
+                        "key": "strider",
+                        "name": "Strider",
+                        "rating": ""
+                    },
+                    {
+                        "key": "tough",
+                        "name": "Tough",
+                        "rating": "3"
+                    }
+                ],
+                "disabledUpgradeSections": [],
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "baxq67VsH",
+                        "upgrade": {
+                            "id": "eBvto_s",
+                            "uid": "BCvkhSe",
+                            "type": "upgrade",
+                            "label": "Upgrade with one",
+                            "options": null,
+                            "isHeroUpgrade": true,
+                            "parentPackageUid": "C1",
+                            "select": 1,
+                            "isCommandGroup": false
+                        },
+                        "option": {
+                            "uid": "D3Dqx6h",
+                            "cost": 25,
+                            "type": "ArmyBookUpgradeOption",
+                            "gains": [
+                                {
+                                    "name": "Archivist",
+                                    "type": "ArmyBookItem",
+                                    "label": "Archivist (Psychic(1))",
+                                    "content": [
+                                        {
+                                            "key": "psychic",
+                                            "name": "Psychic",
+                                            "type": "ArmyBookRule",
+                                            "label": "Psychic(1)",
+                                            "rating": "1",
+                                            "count": 1,
+                                            "dependencies": []
+                                        }
+                                    ],
+                                    "count": 1,
+                                    "dependencies": []
+                                }
+                            ],
+                            "label": "Archivist (Psychic(1))",
+                            "isModel": false,
+                            "id": "D3Dqx6h",
+                            "parentSectionId": "BCvkhSe"
+                        }
+                    },
+                    {
+                        "instanceId": "br06Iig48",
+                        "upgrade": {
+                            "id": "3DlxLja",
+                            "uid": "BwY_m",
+                            "label": "Upgrade with one",
+                            "options": null,
+                            "parentPackageUid": "qIWMF",
+                            "type": "upgrade",
+                            "select": 1,
+                            "isCommandGroup": false
+                        },
+                        "option": {
+                            "uid": "THdrOeG",
+                            "cost": 10,
+                            "type": "ArmyBookUpgradeOption",
+                            "gains": [
+                                {
+                                    "name": "Orbital Drop",
+                                    "type": "ArmyBookItem",
+                                    "label": "Orbital Drop (Ambush)",
+                                    "content": [
+                                        {
+                                            "key": "ambush",
+                                            "name": "Ambush",
+                                            "type": "ArmyBookRule",
+                                            "label": "Ambush",
+                                            "modify": false,
+                                            "rating": "",
+                                            "count": 1,
+                                            "dependencies": []
+                                        }
+                                    ],
+                                    "count": 1,
+                                    "dependencies": []
+                                }
+                            ],
+                            "label": "Orbital Drop (Ambush)",
+                            "isModel": false,
+                            "id": "THdrOeG",
+                            "parentSectionId": "BwY_m"
+                        }
+                    }
+                ],
+                "sortId": 1,
+                "selectionId": "EDcoi",
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null,
+                "loadout": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "name": "Archivist",
+                        "type": "ArmyBookItem",
+                        "label": "Archivist (Psychic(1))",
+                        "content": [
+                            {
+                                "key": "psychic",
+                                "name": "Psychic",
+                                "type": "ArmyBookRule",
+                                "label": "Psychic(1)",
+                                "rating": "1",
+                                "count": 1,
+                                "dependencies": []
+                            }
+                        ],
+                        "count": 1,
+                        "dependencies": [],
+                        "isModel": false
+                    },
+                    {
+                        "name": "Orbital Drop",
+                        "type": "ArmyBookItem",
+                        "label": "Orbital Drop (Ambush)",
+                        "content": [
+                            {
+                                "key": "ambush",
+                                "name": "Ambush",
+                                "type": "ArmyBookRule",
+                                "label": "Ambush",
+                                "modify": false,
+                                "rating": "",
+                                "count": 1,
+                                "dependencies": []
+                            }
+                        ],
+                        "count": 1,
+                        "dependencies": [],
+                        "isModel": false
+                    }
+                ]
+            }
+        ]
+    },
+    "favourite": false
+}
