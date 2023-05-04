@@ -16,6 +16,7 @@ import re
 import click
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
+import pathlib
 
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
@@ -33,9 +34,10 @@ DEBUG = False
 
 @click.command()
 @click.option(
-    "--json / --txt",
-    "typeJson",
-    default=True,
+    "--json",
+    "forceTypeJson",
+    is_flag=True,
+    default=False,
     required=False
 )
 @click.option(
@@ -49,32 +51,41 @@ DEBUG = False
     default=False,
     required=False
 )
-def Main(typeJson, armyFile, debugOutput):
+def Main(forceTypeJson, armyFile, debugOutput):
     global DEBUG
     DEBUG = debugOutput
     createFolderStructure()
+
+    if (armyFile == None):
+        armyFile = fileSelectDialog()
+
+    if armyFile == None or armyFile == "":
+        print("No army file selected")
+        sys.exit(1)
+
+    typeJson = isFileTypeJson(armyFile)
     army = None
-    if (typeJson == True):
-        if (armyFile == None):
-            armyFile = fileSelectDialog()
-
-        if armyFile != None and armyFile != "":
-            army = parseArmyJsonList(armyFile)
+    if (typeJson == True or forceTypeJson == True):
+        print("Parse json army file")
+        army = parseArmyJsonList(armyFile)
     else:
-        if (armyFile != None):
-            txtData = readTxtFile(armyFile)
-        else:
-            print("Enter Army list from 'Share as Text', complete input with two new lines")
-            txtData = readMultipleLines()
-
+        print("Parse txt army file")
+        txtData = readTxtFile(armyFile)
         army = parseArmyTextList(txtData)
-
     if army != None and army != False:
         if (DEBUG == True):
             saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
 
         createDataCard(army)
         openFile(DATACARDPDF)
+
+
+def isFileTypeJson(file):
+    if file != None and file != "":
+        suffixes = pathlib.Path(file).suffixes
+        if (suffixes[len(suffixes) - 1].lower() == ".json"):
+            return True
+    return False
 
 
 def readTxtFile(file):
@@ -168,7 +179,6 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
 
 
 def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
-    # Wounds
     if 'gameSystem' in army and army['gameSystem'] == "gff":
         woundsSize = 8
         wounds = 5
@@ -441,7 +451,7 @@ def parseArmyTextList(armyListText):
     if (length > 6 and armyListText[0][0] == "+" and armyListText[0][1] == "+" and armyListText[0][2] == " " and armyListText[0][length - 3] == " " and armyListText[0][length - 2] == "+" and armyListText[0][length - 1] == "+"):
         armyData['listName'] = armyListText[0].rstrip(" ++").lstrip("++ ")
     else:
-        print("Error No valid army data found!")
+        print("Error no valid army data found!")
         return False
 
     unit = False
@@ -532,19 +542,6 @@ def parseArmyTextList(armyListText):
                 armyData['units'].append(unitData)
             unitData = {}
     return armyData
-
-
-def readMultipleLines():
-    buffer = []
-    end = 0
-    while end < 2:
-        line = sys.stdin.readline()
-        buffer.append(line.rstrip("\n"))
-        if (line == "\n"):
-            end += 1
-        else:
-            end = 0
-    return buffer
 
 
 def getUnit(unit, jsonArmyBookList):
