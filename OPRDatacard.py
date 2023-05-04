@@ -17,6 +17,8 @@ import click
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 import pathlib
+import requests
+import zipfile
 
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
@@ -55,6 +57,7 @@ def Main(forceTypeJson, armyFile, debugOutput):
     global DEBUG
     DEBUG = debugOutput
     createFolderStructure()
+    checkFonts()
 
     if (armyFile == None):
         armyFile = fileSelectDialog()
@@ -915,6 +918,37 @@ def saveDictToJson(dictData, file):
         return False
     return True
 
+
+def checkFonts():
+    font1 = os.path.join(FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")
+    font2 = os.path.join(FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")
+
+    if not os.path.exists(font1) or not os.path.exists(font2):
+        print("Download font ...")
+
+        url = "https://raw.githubusercontent.com/JackGruber/OPRDataCards/master/rosa-sans.zip"
+        zipFile = os.path.join(FONTFOLDER, "rosa-sans.zip")
+        if downloadFile(url, zipFile) == True:
+            print ("Unzip fonts ...")
+            with zipfile.ZipFile(zipFile, 'r') as zipRef:
+                zipRef.extractall(os.path.join(FONTFOLDER, "rosa-sans"))
+
+def downloadFile(url, dstFile):
+    try:
+        r = requests.get(url, stream = True)
+        if r.status_code == 200:
+            with open(dstFile, "wb") as file:
+                for chunk in r.iter_content(chunk_size = 1024):
+                    if chunk:
+                        file.write(chunk)
+            return True
+        else:
+            print("Error font download failed")
+            return False
+    except Exception as ex:
+        print("Error font download failed")
+        print(ex)
+        return False
 
 if __name__ == "__main__":
     Main()

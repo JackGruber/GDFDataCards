@@ -6,13 +6,14 @@ Tool to create PDF data cards for Onepagerules (GF, GFF, AOF, AOFS and AOFR).
 
 ## Preperation
 
-### Windows
+### Use with python
+
+- Download `OPRDatacard.py`
+
+### Use as exe (Windows)
 
 - Download GDFDataCards from [release](https://github.com/JackGruber/OPRDataCards/releases) page
 - Store `GDFDataCards.exe` in a folder
-- Create a subfolder `font` where `GDFDataCards.exe` is located
-- Download [Rosa Sans](https://fontlibrary.org/en/font/rosa-sans) Font
-- Unzip font and store the `*.ttf` files it in `fonts\rosa-sans`
 
 ## Usage
 
