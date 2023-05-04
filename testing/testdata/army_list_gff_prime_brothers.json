@@ -1,0 +1,236 @@
+{
+    "gameSystem": "gff",
+    "armyId": "oqnnu0gk8q6hyyny",
+    "armyIds": [
+        "oqnnu0gk8q6hyyny"
+    ],
+    "armyFaction": "Prime Brothers",
+    "armyName": "Prime Brothers",
+    "modified": "2023-05-02T20:16:50.564Z",
+    "saveVersion": 3,
+    "listPoints": 300,
+    "list": {
+        "id": "k-3BLwFU",
+        "key": "uccsWgJpi6oI6UelDeJYc",
+        "name": "FF  - 300pt - Prime Brothers",
+        "units": [
+            {
+                "id": "0PbBL8m",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Kasz Daeraq",
+                "selectionId": "yY6hO",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "PoRVpWT",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Korves Sevovax",
+                "selectionId": "FkP8K",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "JMrKS3ZlO",
+                        "upgradeId": "QVDSnps",
+                        "optionId": "bqqWG"
+                    },
+                    {
+                        "instanceId": "UNsQBJoEF",
+                        "upgradeId": "_4gaBfU",
+                        "optionId": "MX1K8N1"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "meWSgTo",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Moranis Coreck",
+                "selectionId": "dxn2t",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "F0lnO4TfG",
+                        "upgradeId": "yUrGsDr",
+                        "optionId": "B4FS3"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "hvNiOwU",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Corveve Aasil",
+                "selectionId": "tHM_J",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "stm0TUltP",
+                        "upgradeId": "5vRO_TO",
+                        "optionId": "IQcoGXv"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "PoRVpWT",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Breed Sevarus",
+                "selectionId": "S0pf6",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Z2WiRfh",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "customName": "Raquilon Zandtus",
+                "selectionId": "ISvb7",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ],
+        "points": 300,
+        "pointsLimit": 300,
+        "creationTime": "1683057696142",
+        "campaignMode": false,
+        "competitive": true,
+        "gameSystem": "gff",
+        "unitPreview": null,
+        "selectedUnitId": null,
+        "undoUnitRemove": [
+            {
+                "id": "qGGJpGt",
+                "cost": 55,
+                "name": "Elite Raider",
+                "size": 1,
+                "defense": 3,
+                "quality": 4,
+                "upgrades": [
+                    "A1",
+                    "C1",
+                    "qIWMF"
+                ],
+                "equipment": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "specialRules": [
+                    {
+                        "key": "fearless",
+                        "name": "Fearless",
+                        "rating": ""
+                    },
+                    {
+                        "key": "furious",
+                        "name": "Furious",
+                        "rating": "",
+                        "additional": false
+                    },
+                    {
+                        "key": "hero",
+                        "name": "Hero",
+                        "rating": ""
+                    },
+                    {
+                        "key": "strider",
+                        "name": "Strider",
+                        "rating": ""
+                    },
+                    {
+                        "key": "tough",
+                        "name": "Tough",
+                        "rating": "3"
+                    }
+                ],
+                "disabledUpgradeSections": [],
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectedUpgrades": [],
+                "sortId": 1,
+                "selectionId": "PHWGi",
+                "combined": false,
+                "joinToUnit": null,
+                "loadout": [
+                    {
+                        "id": "UIP8k",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 3,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "Wjypj",
+                        "name": "Heavy Pistol",
+                        "label": "Heavy Pistol",
+                        "range": 12,
+                        "attacks": 1,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    },
+    "favourite": false
+}

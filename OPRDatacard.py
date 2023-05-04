@@ -138,6 +138,260 @@ def openFile(filePath):
         subprocess.call(('xdg-open', filePath))
 
 
+def dataCardBoarderFrame(pdf, dataCardParameters):
+    pdf.setStrokeColorRGB(dataCardParameters['lineColor'][0],
+                          dataCardParameters['lineColor'][1], dataCardParameters['lineColor'][2])
+    path = pdf.beginPath()
+    path.moveTo(0 + dataCardParameters['sideClearance'], 0 + dataCardParameters['bottomClearance'])
+    path.lineTo(0 + dataCardParameters['sideClearance'],
+                dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'])
+    path.lineTo(dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'],
+                dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'])
+    path.lineTo(dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'],
+                0 + dataCardParameters['bottomClearance'])
+    path.close()
+    pdf.setLineJoin(1)
+    pdf.drawPath(path, stroke=1, fill=0)
+
+
+def dataCardUnitType(pdf, dataCardParameters, unit):
+    # Unit type
+    pdf.line(dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 45,
+             dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 45)
+    smallInfo = []
+    if (unit['size'] > 1):
+        smallInfo.append(str(unit['size']) + "x")
+
+    if 'type' in unit and unit['name'] != unit['type']:
+        smallInfo.append(unit['type'])
+
+    pdf.setFont('regular', 5)
+    pdf.setFillColorRGB(0, 0, 0)
+    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 44, " ".join(smallInfo))
+
+
+def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
+    # Wounds
+    if 'gameSystem' in army and army['gameSystem'] == "gff":
+        woundsSize = 8
+        wounds = 5
+        tough = 0
+        startX = 2
+        startY = dataCardParameters['pdfSize'][1] - 45 - woundsSize
+        for rule in unit['specialRules']:
+            if (rule['key'] == "tough"):
+                tough = int(rule['rating'])
+
+        pdf.setLineJoin(1)
+        pdf.setFillColorRGB(0.5, 0.5, 0.5)
+        path = pdf.beginPath()
+        path.moveTo(startX, startY)
+        path.lineTo(startX + (woundsSize * tough), startY)
+        path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
+        path.lineTo(startX, startY + woundsSize)
+        path.close()
+        pdf.drawPath(path, stroke=1, fill=0)
+
+        path = pdf.beginPath()
+        path.moveTo(startX + (woundsSize * tough), startY)
+        path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY)
+        path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY + woundsSize)
+        path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
+
+        path.close()
+        pdf.drawPath(path, stroke=1, fill=1)
+
+        for i in range(wounds + tough):
+            pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
+
+
+def dataCardUnitRules(pdf, dataCardParameters, unit):
+    pdf.setStrokeColorRGB(dataCardParameters['lineColor'][0],
+                          dataCardParameters['lineColor'][1], dataCardParameters['lineColor'][2])
+    pdf.setFillColorRGB(1, 1, 1)
+    path = pdf.beginPath()
+    sideClearance = 20
+    sideClearance = 20
+    height = 10
+    bottomClearance = 5
+    path.moveTo(0 + sideClearance, 0 + bottomClearance)
+    path.lineTo(dataCardParameters['pdfSize'][0] - sideClearance, 0 + bottomClearance)
+    path.lineTo(dataCardParameters['pdfSize'][0] - sideClearance,
+                0 + bottomClearance + height)
+    path.lineTo(0 + sideClearance, 0 + bottomClearance + height)
+    path.close()
+    pdf.setLineJoin(1)
+    pdf.drawPath(path, stroke=1, fill=1)
+    pdf.setFont('bold', 4)
+    pdf.setFillColorRGB(0, 0, 0)
+
+    specialRules = []
+    for rule in unit['specialRules']:
+        specialRules.append(rule['label'])
+    pdf.drawString(sideClearance+2, bottomClearance +
+                   (height/2)-1, ", ".join(specialRules))
+
+
+def dataCardUnitImage(pdf, dataCardParameters, unit):
+    if 'type' in unit:
+        unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
+        unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
+
+    unitNameImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
+    unitNameImage = os.path.join(IMAGEFOLDER, unitNameImage)
+
+    if os.path.exists(unitNameImage + ".jpg"):
+        unitImage = unitNameImage + ".jpg"
+    elif os.path.exists(unitNameImage + ".jpeg"):
+        unitImage = unitNameImage + ".jpeg"
+    elif os.path.exists(unitNameImage + ".png"):
+        unitImage = unitNameImage + ".png"
+    elif os.path.exists(unitTypeImage + ".jpg"):
+        unitImage = unitTypeImage + ".jpg"
+    elif os.path.exists(unitTypeImage + ".jpeg"):
+        unitImage = unitTypeImage + ".jpeg"
+    elif os.path.exists(unitTypeImage + ".png"):
+        unitImage = unitTypeImage + ".png"
+    else:
+        unitImage = None
+
+    if (unitImage != None):
+        with Image.open(unitImage) as img:
+            img.load()
+            imgSize = img.size
+            draw = ImageDraw.Draw(img)
+            draw.polygon(((0, 0), (imgSize[0]/2, imgSize[1]),
+                          (0, imgSize[1])), fill=(0, 255, 0))
+            draw.polygon(((imgSize[0], 0), (imgSize[0]/2, imgSize[1]),
+                          (imgSize[0], imgSize[1])), fill=(0, 255, 0))
+            imageBuffer = io.BytesIO()
+            img.save(imageBuffer, "png")
+            imageBuffer.seek(0)
+
+    edgeLength = 60
+    offsetTop = 2
+    offsetRight = 35
+    triangle = [
+        [dataCardParameters['pdfSize'][0] - edgeLength - offsetRight,
+            dataCardParameters['pdfSize'][1] - offsetTop],
+        [dataCardParameters['pdfSize'][0] - offsetRight, dataCardParameters['pdfSize'][1] - offsetTop],
+        [dataCardParameters['pdfSize'][0] - (edgeLength/2) - offsetRight,
+         dataCardParameters['pdfSize'][1] - offsetTop - edgeLength]
+    ]
+
+    pdf.setStrokeColorRGB(dataCardParameters['lineColor'][0],
+                          dataCardParameters['lineColor'][1], dataCardParameters['lineColor'][2])
+    if (unitImage != None):
+        pdf.drawImage(utils.ImageReader(imageBuffer), dataCardParameters['pdfSize'][0] - offsetRight - edgeLength,
+                      dataCardParameters['pdfSize'][1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
+        fillPath = 0
+    else:
+        fillPath = 1
+    path = pdf.beginPath()
+    path.moveTo(triangle[0][0], triangle[0][1])
+    path.lineTo(triangle[1][0], triangle[1][1])
+    path.lineTo(triangle[2][0], triangle[2][1])
+    path.close()
+    pdf.setLineJoin(1)
+    pdf.drawPath(path, stroke=1, fill=fillPath)
+
+
+def dataCardUnitName(pdf, dataCardParameters, unit):
+    # Unit Name
+    parts = unit['name'].split(" ")
+    nameLines = []
+    maxLineCahrs = 21
+    lineParts = []
+    for part in parts:
+        if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
+            nameLines.append(" ".join(lineParts))
+            lineParts = []
+        lineParts.append(part)
+    nameLines.append(" ".join(lineParts))
+
+    pdf.setFont('bold', 10)
+    pdf.setFillColorRGB(0, 0, 0)
+    offset = 0
+    for line in nameLines:
+        pdf.drawString(5, dataCardParameters['pdfSize'][1] - 25 - offset, line)
+        offset += 8
+
+
+def dataCardUnitSkills(pdf, dataCardParameters, unit):
+    startX = dataCardParameters['pdfSize'][0] - 25
+    startY = dataCardParameters['pdfSize'][1] - 20
+    lineHight = 5
+    pdf.setFont('bold', lineHight)
+    pdf.setFillColorRGB(0, 0, 0)
+    pdf.drawCentredString(startX, startY, "Quality")
+    pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
+    pdf.setFont('regular', 5)
+    pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*4), str(unit["defense"]) + "+")
+
+
+def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
+    # Weapon
+    startX = 5
+    startY = dataCardParameters['pdfSize'][1] - 70
+    offsetX = [0, 70, 90, 115, 130]
+    offsetY = 0
+    headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
+    for i in range(len(headers)):
+        pdf.setFont("bold", 5)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
+    offsetY -= 8
+
+    for weapon in unit['weapons']:
+        pdf.setFont("regular", 5)
+        pdf.setFillColorRGB(0, 0, 0)
+
+        if weapon['count'] > 1:
+            weaponLabel = str(weapon['count']) + "x " + weapon['name']
+        else:
+            weaponLabel = weapon['name']
+
+        pdf.drawString(startX + offsetX[0],
+                       startY + offsetY, weaponLabel)
+
+        if "range" in weapon:
+            pdf.drawString(startX + offsetX[1], startY + offsetY, str(weapon['range']) + '"')
+        else:
+            pdf.drawString(startX + offsetX[1], startY + offsetY, "-")
+
+        pdf.drawString(startX + offsetX[2], startY + offsetY, "A" + str(weapon['attacks']))
+
+        if "ap" in weapon:
+            pdf.drawString(startX + offsetX[3], startY +
+                           offsetY, str(weapon['ap']))
+        else:
+            pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
+
+        if "specialRules" in weapon and len(weapon['specialRules']) > 0:
+            label = []
+            for specialRule in weapon['specialRules']:
+                label.append(str(specialRule['label']))
+
+            pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
+        else:
+            pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
+
+        offsetY -= 8
+
+    if 'equipment' in unit and len(unit['equipment']) > 0:
+        headers = {'name': 'Equipment', 'specialRules': ['']}
+        unit['equipment'].insert(0, headers)
+        font = "bold"
+        for equipment in unit['equipment']:
+            pdf.setFont(font, 5)
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
+            pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(equipment['specialRules']))
+            offsetY -= 8
+            font = "regular"
+
+
 def createDataCard(army):
     print("Create datacards ...")
     try:
@@ -150,255 +404,29 @@ def createDataCard(army):
         print(ex)
         sys.exit(1)
 
-    datacardSize = (200.0, 130.0)
-    lineColor = [1.00, 0.55, 0.10]
+    dataCardParameters = {
+        'pdfSize': (200.0, 130.0),
+        'lineColor': [1.00, 0.55, 0.10],
+        'topClearance': 10,
+        'bottomClearance': 10,
+        'sideClearance': 2,
+    }
+
     # creating a pdf object
-    pdf = canvas.Canvas(DATACARDPDF, pagesize=datacardSize)
+    pdf = canvas.Canvas(DATACARDPDF, pagesize=dataCardParameters['pdfSize'])
     pdf.setTitle("GDF data card")
 
     for unit in army['units']:
         print("  ", unit['name'], "(", unit['id'], ")")
 
-        # Card Box
-        topClearance = 10
-        bottomClearance = 10
-        sideClearance = 2
-        pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
-        path = pdf.beginPath()
-        path.moveTo(0 + sideClearance, 0 + bottomClearance)
-        path.lineTo(0 + sideClearance, datacardSize[1] - topClearance)
-        path.lineTo(datacardSize[0] - sideClearance,
-                    datacardSize[1] - topClearance)
-        path.lineTo(datacardSize[0] - sideClearance,
-                    0 + bottomClearance)
-        path.close()
-        pdf.setLineJoin(1)
-        pdf.drawPath(path, stroke=1, fill=0)
-
-        # Unit type
-        pdf.line(sideClearance, datacardSize[1] - 45,
-                 datacardSize[0]-sideClearance, datacardSize[1] - 45)
-        smallInfo = []
-        if (unit['size'] > 1):
-            smallInfo.append(str(unit['size']) + "x")
-
-        if 'type' in unit and unit['name'] != unit['type']:
-            smallInfo.append(unit['type'])
-
-        pdf.setFont('regular', 5)
-        pdf.setFillColorRGB(0, 0, 0)
-        pdf.drawString(5, datacardSize[1] - 44, " ".join(smallInfo))
-
-        # Wounds
-        if 'gameSystem' in army and army['gameSystem'] == "gff":
-            woundsSize = 8
-            wounds = 5
-            tough = 0
-            startX = 2
-            startY = datacardSize[1] - 45 - woundsSize
-            for rule in unit['specialRules']:
-                if (rule['key'] == "tough"):
-                    tough = int(rule['rating'])
-
-            pdf.setLineJoin(1)
-            pdf.setFillColorRGB(0.5, 0.5, 0.5)
-            path = pdf.beginPath()
-            path.moveTo(startX, startY)
-            path.lineTo(startX + (woundsSize * tough), startY)
-            path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
-            path.lineTo(startX, startY + woundsSize)
-            path.close()
-            pdf.drawPath(path, stroke=1, fill=0)
-
-            path = pdf.beginPath()
-            path.moveTo(startX + (woundsSize * tough), startY)
-            path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY)
-            path.lineTo(startX + (woundsSize * tough) + (woundsSize * wounds), startY + woundsSize)
-            path.lineTo(startX + (woundsSize * tough), startY + woundsSize)
-
-            path.close()
-            pdf.drawPath(path, stroke=1, fill=1)
-
-            for i in range(wounds + tough):
-                pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
-
-        # Bottom Info Box
-        pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
-        pdf.setFillColorRGB(1, 1, 1)
-        path = pdf.beginPath()
-        sideClearance = 20
-        sideClearance = 20
-        height = 10
-        bottomClearance = 5
-        path.moveTo(0 + sideClearance, 0 + bottomClearance)
-        path.lineTo(datacardSize[0] - sideClearance, 0 + bottomClearance)
-        path.lineTo(datacardSize[0] - sideClearance,
-                    0 + bottomClearance + height)
-        path.lineTo(0 + sideClearance, 0 + bottomClearance + height)
-        path.close()
-        pdf.setLineJoin(1)
-        pdf.drawPath(path, stroke=1, fill=1)
-        pdf.setFont('bold', 4)
-        pdf.setFillColorRGB(0, 0, 0)
-
-        specialRules = []
-        for rule in unit['specialRules']:
-            specialRules.append(rule['label'])
-        pdf.drawString(sideClearance+2, bottomClearance +
-                       (height/2)-1, ", ".join(specialRules))
-
-        # Image box
-        if 'type' in unit:
-            unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
-            unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
-
-        unitNameImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
-        unitNameImage = os.path.join(IMAGEFOLDER, unitNameImage)
-
-        if os.path.exists(unitNameImage + ".jpg"):
-            unitImage = unitNameImage + ".jpg"
-        elif os.path.exists(unitNameImage + ".jpeg"):
-            unitImage = unitNameImage + ".jpeg"
-        elif os.path.exists(unitNameImage + ".png"):
-            unitImage = unitNameImage + ".png"
-        elif os.path.exists(unitTypeImage + ".jpg"):
-            unitImage = unitTypeImage + ".jpg"
-        elif os.path.exists(unitTypeImage + ".jpeg"):
-            unitImage = unitTypeImage + ".jpeg"
-        elif os.path.exists(unitTypeImage + ".png"):
-            unitImage = unitTypeImage + ".png"
-        else:
-            unitImage = None
-
-        if (unitImage != None):
-            with Image.open(unitImage) as img:
-                img.load()
-                imgSize = img.size
-                draw = ImageDraw.Draw(img)
-                draw.polygon(((0, 0), (imgSize[0]/2, imgSize[1]),
-                              (0, imgSize[1])), fill=(0, 255, 0))
-                draw.polygon(((imgSize[0], 0), (imgSize[0]/2, imgSize[1]),
-                              (imgSize[0], imgSize[1])), fill=(0, 255, 0))
-                imageBuffer = io.BytesIO()
-                img.save(imageBuffer, "png")
-                imageBuffer.seek(0)
-
-        edgeLength = 60
-        offsetTop = 2
-        offsetRight = 35
-        triangle = [
-            [datacardSize[0] - edgeLength - offsetRight,
-                datacardSize[1] - offsetTop],
-            [datacardSize[0] - offsetRight, datacardSize[1] - offsetTop],
-            [datacardSize[0] - (edgeLength/2) - offsetRight,
-             datacardSize[1] - offsetTop - edgeLength]
-        ]
-
-        pdf.setStrokeColorRGB(lineColor[0], lineColor[1], lineColor[2])
-        if (unitImage != None):
-            pdf.drawImage(utils.ImageReader(imageBuffer), datacardSize[0] - offsetRight - edgeLength,
-                          datacardSize[1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
-            fillPath = 0
-        else:
-            fillPath = 1
-        path = pdf.beginPath()
-        path.moveTo(triangle[0][0], triangle[0][1])
-        path.lineTo(triangle[1][0], triangle[1][1])
-        path.lineTo(triangle[2][0], triangle[2][1])
-        path.close()
-        pdf.setLineJoin(1)
-        pdf.drawPath(path, stroke=1, fill=fillPath)
-
-        # Unit Name
-        parts = unit['name'].split(" ")
-        nameLines = []
-        maxLineCahrs = 21
-        lineParts = []
-        for part in parts:
-            if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
-                nameLines.append(" ".join(lineParts))
-                lineParts = []
-            lineParts.append(part)
-        nameLines.append(" ".join(lineParts))
-
-        pdf.setFont('bold', 10)
-        pdf.setFillColorRGB(0, 0, 0)
-        offset = 0
-        for line in nameLines:
-            pdf.drawString(5, datacardSize[1] - 25 - offset, line)
-            offset += 8
-
-        # Skills
-        startX = datacardSize[0] - 25
-        startY = datacardSize[1] - 20
-        lineHight = 5
-        pdf.setFont('bold', lineHight)
-        pdf.setFillColorRGB(0, 0, 0)
-        pdf.drawCentredString(startX, startY, "Quality")
-        pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
-        pdf.setFont('regular', 5)
-        pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
-        pdf.drawCentredString(startX, startY - (lineHight*4), str(unit["defense"]) + "+")
-
-        # Weapon
-        startX = 5
-        startY = datacardSize[1] - 70
-        offsetX = [0, 70, 90, 115, 130]
-        offsetY = 0
-        headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
-        for i in range(len(headers)):
-            pdf.setFont("bold", 5)
-            pdf.setFillColorRGB(0, 0, 0)
-            pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
-        offsetY -= 8
-
-        for weapon in unit['weapons']:
-            pdf.setFont("regular", 5)
-            pdf.setFillColorRGB(0, 0, 0)
-
-            if weapon['count'] > 1:
-                weaponLabel = str(weapon['count']) + "x " + weapon['name']
-            else:
-                weaponLabel = weapon['name']
-
-            pdf.drawString(startX + offsetX[0],
-                           startY + offsetY, weaponLabel)
-
-            if "range" in weapon:
-                pdf.drawString(startX + offsetX[1], startY + offsetY, str(weapon['range']) + '"')
-            else:
-                pdf.drawString(startX + offsetX[1], startY + offsetY, "-")
-
-            pdf.drawString(startX + offsetX[2], startY + offsetY, "A" + str(weapon['attacks']))
-
-            if "ap" in weapon:
-                pdf.drawString(startX + offsetX[3], startY +
-                               offsetY, str(weapon['ap']))
-            else:
-                pdf.drawString(startX + offsetX[3], startY + offsetY, "-")
-
-            if "specialRules" in weapon and len(weapon['specialRules']) > 0:
-                label = []
-                for specialRule in weapon['specialRules']:
-                    label.append(str(specialRule['label']))
-
-                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
-            else:
-                pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
-
-            offsetY -= 8
-
-        if 'equipment' in unit and len(unit['equipment']) > 0:
-            headers = {'name': 'Equipment', 'specialRules': ['']}
-            unit['equipment'].insert(0, headers)
-            font = "bold"
-            for equipment in unit['equipment']:
-                pdf.setFont(font, 5)
-                pdf.setFillColorRGB(0, 0, 0)
-                pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
-                pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(equipment['specialRules']))
-                offsetY -= 8
-                font = "regular"
+        dataCardBoarderFrame(pdf, dataCardParameters)
+        dataCardUnitType(pdf, dataCardParameters, unit)
+        dataCardUnitWounds(pdf, dataCardParameters, unit, army)
+        dataCardUnitRules(pdf, dataCardParameters, unit)
+        dataCardUnitImage(pdf, dataCardParameters, unit)
+        dataCardUnitName(pdf, dataCardParameters, unit)
+        dataCardUnitSkills(pdf, dataCardParameters, unit)
+        dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
 
         pdf.showPage()
     try:
@@ -704,6 +732,7 @@ def parseArmyJsonList(armyListJsonFile: str):
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
 
     downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
+    downloadCommonRules(armyData['gameSystemId'])
 
     jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
         DATAFOLDERARMYBOOK, armyData['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
@@ -759,33 +788,50 @@ def getGameSystemId(gameSystem: str):
 
 
 def downloadArmyBook(id: str, gameSystemId):
+    print("Check/download army book ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
-    download = True
-    if not os.path.exists(DATAFOLDERARMYBOOK):
-        try:
-            os.makedirs(DATAFOLDERARMYBOOK)
-        except Exception as ex:
-            print("Error data folder creation failed")
-            print(ex)
-            return False
+    url = "https://army-forge-studio.onepagerules.com/api/army-books/" + \
+        str(id) + "~" + str(gameSystemId) + "?armyForge=true"
+    return downloadJson(url, armyBookJsonFile)
 
+
+def downloadCommonRules(gameSystemId):
+    print("Check/download common rules ...")
+    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
+    url = "https://army-forge-studio.onepagerules.com/api/public/game-systems"
+    if (gameSystemId == 2):
+        url = url + "/grimdark-future/common-rules"
+    elif (gameSystemId == 3):
+        url = url + "/grimdark-future-firefight/common-rules"
+    elif (gameSystemId == 4):
+        url = url + "/age-of-fantasy/common-rules"
+    elif (gameSystemId == 5):
+        url = url + "/age-of-fantasy-skirmish/common-rules"
+    elif (gameSystemId == 6):
+        url = url + "/age-of-fantasy-regiments/common-rules"
+    else:
+        return
+    return downloadJson(url, armyBookJsonFile)
+
+
+def downloadJson(url, file):
     # download only when older than 1 day
-    if os.path.exists(armyBookJsonFile):
-        if time.time() - os.stat(armyBookJsonFile)[stat.ST_MTIME] < 86400:
+    download = True
+    if os.path.exists(file):
+        if time.time() - os.stat(file)[stat.ST_MTIME] < 86400:
             download = False
 
     if (download == True):
         try:
-            print("Download army book ...")
-            urllib.request.urlretrieve(
-                "https://army-forge-studio.onepagerules.com/api/army-books/" + str(id) + "~" + str(gameSystemId) + "?armyForge=true", armyBookJsonFile)
+            print("Download file")
+            urllib.request.urlretrieve(url, file)
         except Exception as ex:
-            print("Error download of army book failed")
+            print("Error failed")
             print(ex)
             return False
 
-    if not os.path.exists(armyBookJsonFile):
-        print("Error no aramy book for " + id)
+    if not os.path.exists(file):
+        print("No json data found " + id)
         return False
 
     return True

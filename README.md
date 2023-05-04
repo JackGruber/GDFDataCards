@@ -2,7 +2,7 @@
 
 Tool to create PDF data cards for Onepagerules (GF, GFF, AOF, AOFS and AOFR).
 
-<img src="img/datacard.png">
+<img src="img/datacard.gif">
 
 ## Preperation
 
