@@ -1,5 +1,9 @@
 {
-    "listName": "300pt - PB - Prime Brothers [GFF 300pts]",
+    "parser": "txt",
+    "listName": "300pt - PB - Prime Brothers",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "listPoints": 300,
     "units": [
         {
             "points": "75pts",

@@ -476,7 +476,14 @@ def parseArmyTextList(armyListText):
 
     length = len(armyListText[0])
     if (length > 6 and armyListText[0][0] == "+" and armyListText[0][1] == "+" and armyListText[0][2] == " " and armyListText[0][length - 3] == " " and armyListText[0][length - 2] == "+" and armyListText[0][length - 1] == "+"):
-        armyData['listName'] = armyListText[0].rstrip(" ++").lstrip("++ ")
+        armyData['parser'] = "txt"
+
+        data = armyListText[0].rstrip(" ++").lstrip("++ ").split("[")
+        armyData['listName'] = data[0].strip()
+        data = data[1].split(" ")
+        armyData['gameSystem'] = data[0].lower()
+        armyData['gameSystemId'] = getGameSystemId(armyData['gameSystem'])
+        armyData['listPoints'] = int(re.sub(r'(?is)([^\d])', '', data[1]))
     else:
         print("Error no valid army data found!")
         return False
