@@ -438,29 +438,30 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     spells = False
     ruleDescriptions = []
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
-    armyRules = loadJsonFile(os.path.join(
-        DATAFOLDERARMYBOOK, army['armyId'] + "_" + str(army['gameSystemId']) + ".json"))
+
     for rule in rules:
         for common in commonRules:
             if common['name'].lower() == rule.lower():
                 ruleDescriptions.append({'name': common['name'], 'description': common['description']})
-
             if common['name'].lower() == "psychic":
                 spells = True
 
-    for rule in rules:
-        for armyRule in armyRules['specialRules']:
-            if armyRule['name'].lower() == rule.lower():
-                ruleDescriptions.append({'name': armyRule['name'], 'description': common['description']})
+    if 'armyId' in army:
+        armyRules = loadJsonFile(os.path.join(
+            DATAFOLDERARMYBOOK, army['armyId'] + "_" + str(army['gameSystemId']) + ".json"))
+        for rule in rules:
+            for armyRule in armyRules['specialRules']:
+                if armyRule['name'].lower() == rule.lower():
+                    ruleDescriptions.append({'name': armyRule['name'], 'description': common['description']})
 
-            if armyRule['name'].lower() == "psychic":
-                spells = True
+                if armyRule['name'].lower() == "psychic":
+                    spells = True
 
-    if spells == True:
-        ruleDescriptions.append({'name': "Spells", 'description': ''})
-        for spell in armyRules['spells']:
-            ruleDescriptions.append({'name': spell['name'], 'description': str(
-                spell['threshold']) + '+ ' + spell['effect']})
+        if spells == True:
+            ruleDescriptions.append({'name': "Spells", 'description': ''})
+            for spell in armyRules['spells']:
+                ruleDescriptions.append({'name': spell['name'], 'description': str(
+                    spell['threshold']) + '+ ' + spell['effect']})
 
     dataCardBoarderFrame(pdf, dataCardParameters)
 
