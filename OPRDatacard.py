@@ -571,7 +571,6 @@ def parseArmyTextList(armyListText):
                         equipment = {}
                         equipment['name'] = regExMatch.group(2).strip()
                         equipment['specialRules'] = []
-                        print(regExMatch.group(4).split(","))
                         for equipmentRule in regExMatch.group(4).split(","):
                             equipment['specialRules'].append(getTxtSpecialRule(equipmentRule))
                         unitData['equipment'].append(equipment)
@@ -930,16 +929,17 @@ def checkFonts():
         url = "https://raw.githubusercontent.com/JackGruber/OPRDataCards/master/rosa-sans.zip"
         zipFile = os.path.join(FONTFOLDER, "rosa-sans.zip")
         if downloadFile(url, zipFile) == True:
-            print ("Unzip fonts ...")
+            print("Unzip fonts ...")
             with zipfile.ZipFile(zipFile, 'r') as zipRef:
                 zipRef.extractall(os.path.join(FONTFOLDER, "rosa-sans"))
 
+
 def downloadFile(url, dstFile):
     try:
-        r = requests.get(url, stream = True)
+        r = requests.get(url, stream=True)
         if r.status_code == 200:
             with open(dstFile, "wb") as file:
-                for chunk in r.iter_content(chunk_size = 1024):
+                for chunk in r.iter_content(chunk_size=1024):
                     if chunk:
                         file.write(chunk)
             return True
@@ -950,6 +950,7 @@ def downloadFile(url, dstFile):
         print("Error font download failed")
         print(ex)
         return False
+
 
 if __name__ == "__main__":
     Main()
