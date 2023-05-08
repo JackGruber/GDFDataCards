@@ -184,14 +184,14 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
     if 'type' in unit and unit['name'] != unit['type']:
         smallInfo.append(unit['type'])
 
-    pdf.setFont('regular', 5)
+    pdf.setFont('regular', 8)
     pdf.setFillColorRGB(0, 0, 0)
     pdf.drawString(5, dataCardParameters['pdfSize'][1] - 44, " ".join(smallInfo))
 
 
 def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
     if 'gameSystem' in army and army['gameSystem'] == "gff":
-        woundsSize = 8
+        woundsSize = 12
         wounds = 5
         tough = 0
         startX = 2
@@ -240,14 +240,14 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
     path.close()
     pdf.setLineJoin(1)
     pdf.drawPath(path, stroke=1, fill=1)
-    pdf.setFont('bold', 4)
+    pdf.setFont('bold', 7)
     pdf.setFillColorRGB(0, 0, 0)
 
     specialRules = []
     for rule in unit['specialRules']:
         specialRules.append(rule['label'])
     pdf.drawString(sideClearance+2, bottomClearance +
-                   (height/2)-1, ", ".join(specialRules))
+                   (height/2)-2, ", ".join(specialRules))
 
 
 def dataCardUnitImage(pdf, dataCardParameters, unit):
@@ -287,9 +287,9 @@ def dataCardUnitImage(pdf, dataCardParameters, unit):
             img.save(imageBuffer, "png")
             imageBuffer.seek(0)
 
-    edgeLength = 60
+    edgeLength = 65
     offsetTop = 2
-    offsetRight = 35
+    offsetRight = 40
     triangle = [
         [dataCardParameters['pdfSize'][0] - edgeLength - offsetRight,
             dataCardParameters['pdfSize'][1] - offsetTop],
@@ -328,7 +328,7 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
         lineParts.append(part)
     nameLines.append(" ".join(lineParts))
 
-    pdf.setFont('bold', 10)
+    pdf.setFont('bold', 14)
     pdf.setFillColorRGB(0, 0, 0)
     offset = 0
     for line in nameLines:
@@ -338,32 +338,32 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
 
 def dataCardUnitSkills(pdf, dataCardParameters, unit):
     startX = dataCardParameters['pdfSize'][0] - 25
-    startY = dataCardParameters['pdfSize'][1] - 20
-    lineHight = 5
-    pdf.setFont('bold', lineHight)
+    startY = dataCardParameters['pdfSize'][1] - 18
+    lineHight = 8
+    pdf.setFont('bold', 8)
     pdf.setFillColorRGB(0, 0, 0)
     pdf.drawCentredString(startX, startY, "Quality")
-    pdf.drawCentredString(startX, startY - (lineHight*3), "Defense")
-    pdf.setFont('regular', 5)
+    pdf.drawCentredString(startX, startY - (lineHight*2), "Defense")
+    pdf.setFont('regular', 8)
     pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
-    pdf.drawCentredString(startX, startY - (lineHight*4), str(unit["defense"]) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*3), str(unit["defense"]) + "+")
 
 
 def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
     # Weapon
     startX = 5
     startY = dataCardParameters['pdfSize'][1] - 70
-    offsetX = [0, 70, 90, 115, 130]
+    offsetX = [0, 80, 110, 150, 170]
     offsetY = 0
     headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
     for i in range(len(headers)):
-        pdf.setFont("bold", 5)
+        pdf.setFont("bold", 8)
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
-    offsetY -= 8
+    offsetY -= 10
 
     for weapon in unit['weapons']:
-        pdf.setFont("regular", 5)
+        pdf.setFont("regular", 8)
         pdf.setFillColorRGB(0, 0, 0)
 
         if weapon['count'] > 1:
@@ -396,16 +396,16 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
         else:
             pdf.drawString(startX + offsetX[4], startY + offsetY, "-")
 
-        offsetY -= 8
+        offsetY -= 10
 
     if 'equipment' in unit and len(unit['equipment']) > 0:
-        pdf.setFont("bold", 5)
+        pdf.setFont("bold", 8)
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(startX + offsetX[0], startY + offsetY, "Equipment")
-        offsetY -= 8
+        offsetY -= 10
 
         for equipment in unit['equipment']:
-            pdf.setFont("regular", 5)
+            pdf.setFont("regular", 8)
             pdf.setFillColorRGB(0, 0, 0)
             pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
             label = []
@@ -413,7 +413,7 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
                 label.append(str(specialRule['label']))
 
             pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
-            offsetY -= 8
+            offsetY -= 10
 
 
 def dataCardUnitCommonRules(pdf, dataCardParameters, army):
@@ -463,7 +463,7 @@ def createDataCard(army):
         sys.exit(1)
 
     dataCardParameters = {
-        'pdfSize': (200.0, 130.0),
+        'pdfSize': (300.0, 200.0),
         'lineColor': [1.00, 0.55, 0.10],
         'topClearance': 10,
         'bottomClearance': 10,
