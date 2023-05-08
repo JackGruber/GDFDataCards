@@ -352,18 +352,18 @@ def dataCardUnitSkills(pdf, dataCardParameters, unit):
 def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
     # Weapon
     startX = 5
-    startY = dataCardParameters['pdfSize'][1] - 70
-    offsetX = [0, 80, 110, 150, 170]
+    startY = dataCardParameters['pdfSize'][1] - 75
+    offsetX = [0, 100, 140, 190, 220]
     offsetY = 0
     headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
     for i in range(len(headers)):
-        pdf.setFont("bold", 8)
+        pdf.setFont("bold", 9)
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(startX + offsetX[i], startY + offsetY, headers[i])
     offsetY -= 10
 
     for weapon in unit['weapons']:
-        pdf.setFont("regular", 8)
+        pdf.setFont("regular", 9)
         pdf.setFillColorRGB(0, 0, 0)
 
         if weapon['count'] > 1:
@@ -399,13 +399,15 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
         offsetY -= 10
 
     if 'equipment' in unit and len(unit['equipment']) > 0:
-        pdf.setFont("bold", 8)
+        offsetY -= 2
+
+        pdf.setFont("bold", 9)
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(startX + offsetX[0], startY + offsetY, "Equipment")
         offsetY -= 10
 
         for equipment in unit['equipment']:
-            pdf.setFont("regular", 8)
+            pdf.setFont("regular", 9)
             pdf.setFillColorRGB(0, 0, 0)
             pdf.drawString(startX + offsetX[0], startY + offsetY, equipment['name'])
             label = []
