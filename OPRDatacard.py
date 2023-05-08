@@ -319,10 +319,10 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
     # Unit Name
     parts = unit['name'].split(" ")
     nameLines = []
-    maxLineCahrs = 25
+    maxLineChars = 25
     lineParts = []
     for part in parts:
-        if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
+        if len(" ".join(lineParts)) + len(part) > maxLineChars:
             nameLines.append(" ".join(lineParts))
             lineParts = []
         lineParts.append(part)
