@@ -175,8 +175,8 @@ def dataCardBoarderFrame(pdf, dataCardParameters):
 
 def dataCardUnitType(pdf, dataCardParameters, unit):
     # Unit type
-    pdf.line(dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 45,
-             dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 45)
+    pdf.line(dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 50,
+             dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 50)
     smallInfo = []
     if (unit['size'] > 1):
         smallInfo.append(str(unit['size']) + "x")
@@ -186,7 +186,7 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
 
     pdf.setFont('regular', 8)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 44, " ".join(smallInfo))
+    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 49, " ".join(smallInfo))
 
 
 def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
@@ -195,7 +195,7 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         wounds = 5
         tough = 0
         startX = 2
-        startY = dataCardParameters['pdfSize'][1] - 45 - woundsSize
+        startY = dataCardParameters['pdfSize'][1] - 50 - woundsSize
         for rule in unit['specialRules']:
             if (rule['key'] == "tough"):
                 tough = int(rule['rating']) - 1
@@ -319,7 +319,7 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
     # Unit Name
     parts = unit['name'].split(" ")
     nameLines = []
-    maxLineCahrs = 21
+    maxLineCahrs = 25
     lineParts = []
     for part in parts:
         if len(" ".join(lineParts)) + len(part) > maxLineCahrs:
@@ -333,12 +333,12 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
     offset = 0
     for line in nameLines:
         pdf.drawString(5, dataCardParameters['pdfSize'][1] - 25 - offset, line)
-        offset += 8
+        offset += 12
 
 
 def dataCardUnitSkills(pdf, dataCardParameters, unit):
     startX = dataCardParameters['pdfSize'][0] - 25
-    startY = dataCardParameters['pdfSize'][1] - 18
+    startY = dataCardParameters['pdfSize'][1] - 21
     lineHight = 8
     pdf.setFont('bold', 8)
     pdf.setFillColorRGB(0, 0, 0)
@@ -353,7 +353,7 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
     # Weapon
     startX = 5
     startY = dataCardParameters['pdfSize'][1] - 75
-    offsetX = [0, 100, 140, 190, 220]
+    offsetX = [0, 100, 140, 180, 200]
     offsetY = 0
     headers = ['Weapon', 'Range', 'Attacks', 'AP', 'Special rules']
     for i in range(len(headers)):
