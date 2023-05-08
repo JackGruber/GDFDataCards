@@ -1,5 +1,6 @@
 {
     "armyId": "oqnnu0gk8q6hyyny",
+    "gameSystem": "gf",
     "gameSystemId": 2,
     "armyName": "Prime Brothers",
     "listPoints": 2000,
@@ -68,7 +69,13 @@
                 {
                     "name": "Captain",
                     "specialRules": [
-                        "Battle Rites"
+                        {
+                            "key": "battle-rites",
+                            "name": "Battle Rites",
+                            "type": "ArmyBookRule",
+                            "label": "Battle Rites",
+                            "rating": ""
+                        }
                     ]
                 }
             ]

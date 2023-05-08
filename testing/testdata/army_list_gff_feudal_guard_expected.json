@@ -1,0 +1,462 @@
+{
+    "armyId": "w15ncjbqsqk3tcet",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyName": "Feudal Guard",
+    "listPoints": 300,
+    "listName": "GFF - 300pt - Feudal Guard",
+    "units": [
+        {
+            "type": "Feudal Leader",
+            "name": "Thaddeus Taho",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "tHC6KYN",
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Energy Sword",
+                    "specialRules": [
+                        {
+                            "key": "rending",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending",
+                            "rating": ""
+                        }
+                    ],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "hero",
+                    "name": "Hero",
+                    "rating": "",
+                    "label": "Hero"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Feudal Steed",
+                    "specialRules": [
+                        {
+                            "key": "fast",
+                            "name": "Fast",
+                            "type": "ArmyBookRule",
+                            "label": "Fast",
+                            "modify": false,
+                            "rating": ""
+                        },
+                        {
+                            "key": "impact",
+                            "name": "Impact",
+                            "type": "ArmyBookRule",
+                            "label": "Impact(1)",
+                            "modify": false,
+                            "rating": "1"
+                        }
+                    ]
+                },
+                {
+                    "name": "Strategist",
+                    "specialRules": [
+                        {
+                            "key": "ballistics console",
+                            "name": "Ballistics Console",
+                            "type": "ArmyBookRule",
+                            "label": "Ballistics Console",
+                            "modify": false,
+                            "rating": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Feudal Sniper",
+            "name": "Catiel Dakk",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "Jw0Fw2y",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Sniper Rifle",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "sniper",
+                            "name": "Sniper",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Sniper"
+                        }
+                    ],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "scout",
+                    "name": "Scout",
+                    "rating": "",
+                    "label": "Scout"
+                },
+                {
+                    "key": "stealth",
+                    "name": "Stealth",
+                    "rating": "",
+                    "label": "Stealth"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Elite",
+            "name": "Obed Gungrund",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "6RHfsg7",
+            "defense": 3,
+            "quality": 4,
+            "upgrades": [
+                "B1",
+                "D1",
+                "I1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Shred Rifle",
+                    "range": 18,
+                    "specialRules": [
+                        {
+                            "key": "rending",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending",
+                            "rating": ""
+                        }
+                    ]
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Energy Fist",
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Specialist",
+            "name": "Smuge Horthrik",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "d_dzOfJ",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Specialist",
+            "name": "Luther Tezlom",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "d_dzOfJ",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 6,
+                    "count": 1,
+                    "name": "Flamethrower",
+                    "range": 12,
+                    "specialRules": []
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Specialist",
+            "name": "Caleb Greer",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "d_dzOfJ",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Grenade Launcher",
+                    "range": 24,
+                    "specialRules": [
+                        {
+                            "key": "blast",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "label": "Blast(3)",
+                            "modify": false,
+                            "rating": "3"
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Emil Eredal",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Bayonets",
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Seth Hagail",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Bayonets",
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Titus Nathode",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Bayonets",
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ]
+        }
+    ]
+}

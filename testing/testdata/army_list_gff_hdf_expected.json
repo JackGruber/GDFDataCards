@@ -1,5 +1,6 @@
 {
     "armyId": "z65fgu0l29i4lnlu",
+    "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Human Defense Force",
     "listPoints": 300,
@@ -59,7 +60,14 @@
                 {
                     "name": "Forward Observer",
                     "specialRules": [
-                        "Take Aim"
+                        {
+                            "key": "take aim",
+                            "name": "Take Aim",
+                            "type": "ArmyBookRule",
+                            "label": "Take Aim",
+                            "modify": false,
+                            "rating": ""
+                        }
                     ]
                 }
             ]
@@ -269,7 +277,15 @@
                 {
                     "name": "Demo Charges",
                     "specialRules": [
-                        "AP(4) in melee"
+                        {
+                            "key": "ap",
+                            "name": "AP",
+                            "type": "ArmyBookRule",
+                            "label": "AP(4)",
+                            "modify": false,
+                            "rating": "4",
+                            "condition": "in melee"
+                        }
                     ]
                 }
             ]

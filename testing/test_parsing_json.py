@@ -13,7 +13,16 @@ def test_addEquipment():
     upgrade = armyBookHdf["upgradePackages"][2]["sections"][0]["options"][3]
 
     result = OPRDatacard.addEquipment(upgrade['gains'][0])
-    expected = {'name': 'Forward Observer', 'specialRules': ['Take Aim']}
+    print(result)
+    expected = {'name': 'Forward Observer', 'specialRules': [
+        {'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}
+
+    assert result['name'] == "Forward Observer"
+    assert len(result['specialRules']) == 1
+    assert result['specialRules'][0]['key'] == "take aim"
+    assert result['specialRules'][0]['name'] == "Take Aim"
+    assert result['specialRules'][0]['label'] == "Take Aim"
+    assert type(result['specialRules'][0]['rating']) == str
     assert result == expected
 
 
@@ -111,10 +120,11 @@ def test_getUnitUpgrades():
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [
-    ], 'ap': '4'}], 'equipment': [{'name': 'Forward Observer', 'specialRules': ['Take Aim']}]}
+    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [], 'ap': '4'}], 'equipment': [
+        {'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
 
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
+    print(result)
     assert result == expected, "3 Upgrades to (Heavy Pistol, than to Plasma and Take Aim)"
 
 
@@ -148,4 +158,17 @@ def test_gff_hdf():
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
+    assert result == expected
+
+
+def test_gff_prime_brothers():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
+    expected = testhelper.readJsonFile(os.path.join(
+        testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
+    assert result == expected
+
+
+def test_gf_pb():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
     assert result == expected

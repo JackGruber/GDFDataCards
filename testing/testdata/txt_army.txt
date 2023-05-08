@@ -50,3 +50,6 @@ Heavy Fusion Rifle (18", A1, AP(4), Deadly(6)), Twin Auto-Rifles (18", A4)
 
 Attack Speeder [1] Q3+ D2+ | 385pts | Ambush, Fast, Fearless, Impact(6), Strider, Tough(9)
 Fusion Destroyer (12", A2, AP(4), Deadly(3)), Twin Strike Missiles (18", A2, AP(3), Deadly(3))
+
+Thaddeus Taho [1] Q4+ D4+ | 75pts | Fearless, Hero, Tough(3), 1x Feudal Steed(Fast, Impact(1)), 1x Strategist(Ballistics Console)
+Energy Sword (A2, AP(1), Rending), Rifle (24", A1)
