@@ -418,25 +418,90 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             offsetY -= 10
 
 
-def dataCardUnitCommonRules(pdf, dataCardParameters, army):
-    commonRules = []
-
+def dataCardRuleInfo(pdf, dataCardParameters, army):
+    rules = []
     for unit in army['units']:
         for rule in unit['specialRules']:
-            commonRules.append(rule['key'])
+            rules.append(rule['key'])
 
         for weapon in unit['weapons']:
             if 'specialRules' in weapon:
                 for rule in weapon['specialRules']:
-                    commonRules.append(rule['key'])
+                    rules.append(rule['key'])
 
         if 'equipment' in unit:
             for equipment in unit['equipment']:
                 for rule in equipment['specialRules']:
-                    commonRules.append(rule['key'])
-    commonRules = list(dict.fromkeys(commonRules))
+                    rules.append(rule['key'])
+    rules = list(dict.fromkeys(rules))
 
-    loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
+    spells = False
+    ruleDescriptions = []
+    commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
+    armyRules = loadJsonFile(os.path.join(
+        DATAFOLDERARMYBOOK, army['armyId'] + "_" + str(army['gameSystemId']) + ".json"))
+    for rule in rules:
+        for common in commonRules:
+            if common['name'].lower() == rule.lower():
+                ruleDescriptions.append({'name': common['name'], 'description': common['description']})
+
+            if common['name'].lower() == "psychic":
+                spells = True
+
+    for rule in rules:
+        for armyRule in armyRules['specialRules']:
+            if armyRule['name'].lower() == rule.lower():
+                ruleDescriptions.append({'name': armyRule['name'], 'description': common['description']})
+
+            if armyRule['name'].lower() == "psychic":
+                spells = True
+
+    if spells == True:
+        ruleDescriptions.append({'name': "Spells", 'description': ''})
+        for spell in armyRules['spells']:
+            ruleDescriptions.append({'name': spell['name'], 'description': str(
+                spell['threshold']) + '+ ' + spell['effect']})
+
+    dataCardBoarderFrame(pdf, dataCardParameters)
+
+    startX = dataCardParameters['sideClearance'] + 2
+    startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
+    offsetY = 0
+    fontSize = 7
+    for rule in ruleDescriptions:
+        offsetXName = pdf.stringWidth(rule['name'] + ": ", "bold", fontSize)
+
+        parts = rule['description'].split(" ")
+        lines = []
+        lineParts = []
+        offsetXCalc = offsetXName
+        for part in parts:
+            if startX + offsetXCalc + pdf.stringWidth(" ".join(lineParts), "regular", fontSize) + pdf.stringWidth(" ".join(part), "regular", fontSize) > dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance']:
+                lines.append(" ".join(lineParts))
+                lineParts = []
+                offsetXCalc = 0
+            lineParts.append(part)
+        lines.append(" ".join(lineParts))
+
+        if startY - (len(lines)*fontSize) + offsetY < dataCardParameters['bottomClearance']:
+            pdf.showPage()
+            dataCardBoarderFrame(pdf, dataCardParameters)
+            offsetY = 0
+
+        # Name
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.setFont("bold", fontSize)
+        pdf.drawString(startX, startY + offsetY, rule['name'] + ": ")
+
+        # Description
+        pdf.setFont("regular", fontSize)
+        pdf.setFillColorRGB(0, 0, 0)
+        for line in lines:
+            pdf.drawString(startX + offsetXName, startY + offsetY, line)
+            offsetY -= fontSize
+            offsetXName = 0
+        offsetY -= 3
+    pdf.showPage()
 
 
 def getPdfFileName(armyName):
@@ -489,10 +554,8 @@ def createDataCard(army):
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
 
         pdf.showPage()
+    dataCardRuleInfo(pdf, dataCardParameters, army)
 
-    dataCardBoarderFrame(pdf, dataCardParameters)
-    dataCardUnitCommonRules(pdf, dataCardParameters, army)
-    pdf.showPage()
     try:
         pdf.save()
         return pdfFile
