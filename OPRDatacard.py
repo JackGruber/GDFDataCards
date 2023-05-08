@@ -424,8 +424,9 @@ def dataCardUnitCommonRules(pdf, dataCardParameters, army):
             commonRules.append(rule['key'])
 
         for weapon in unit['weapons']:
-            for rule in weapon['specialRules']:
-                commonRules.append(rule['key'])
+            if 'specialRules' in weapon:
+                for rule in weapon['specialRules']:
+                    commonRules.append(rule['key'])
 
         if 'equipment' in unit:
             for equipment in unit['equipment']:
