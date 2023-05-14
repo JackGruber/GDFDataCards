@@ -437,6 +437,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
 
     spells = False
     ruleDescriptions = []
+    downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
 
     for rule in rules:
