@@ -186,7 +186,7 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
 
     pdf.setFont('regular', 8)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 49, " ".join(smallInfo))
+    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 47, " ".join(smallInfo))
 
 
 def dataCardUnitWounds(pdf, dataCardParameters, unit, army):

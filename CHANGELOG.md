@@ -2,6 +2,7 @@
 
 - Fix: Download common rules for txt import on data card creation
 - Fix: Some special rules were printed incorrectly
+- Fix: Letters of the unity type were written in the line
 
 ## v0.6.0 (2023-08-08)
 
