@@ -1,5 +1,7 @@
 # Changelog
 
+## not released
+
 ## v0.6.1 (2023-05-14)
 
 - Fix: Download common rules for txt import on data card creation
