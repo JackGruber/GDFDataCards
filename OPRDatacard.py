@@ -186,7 +186,7 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
 
     pdf.setFont('regular', 8)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 49, " ".join(smallInfo))
+    pdf.drawString(5, dataCardParameters['pdfSize'][1] - 47, " ".join(smallInfo))
 
 
 def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
@@ -434,9 +434,9 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
                 for rule in equipment['specialRules']:
                     rules.append(rule['key'])
     rules = list(dict.fromkeys(rules))
-
     spells = False
     ruleDescriptions = []
+    downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
 
     for rule in rules:
@@ -452,8 +452,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
         for rule in rules:
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
-                    ruleDescriptions.append({'name': armyRule['name'], 'description': common['description']})
-
+                    ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
+                    
                 if armyRule['name'].lower() == "psychic":
                     spells = True
 
