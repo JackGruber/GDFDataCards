@@ -1,6 +1,7 @@
 # Changelog
 
 - Fix: Download common rules for txt import on data card creation
+- Fix: Some special rules were printed incorrectly
 
 ## v0.6.0 (2023-08-08)
 

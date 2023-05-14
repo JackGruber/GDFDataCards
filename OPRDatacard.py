@@ -434,7 +434,6 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
                 for rule in equipment['specialRules']:
                     rules.append(rule['key'])
     rules = list(dict.fromkeys(rules))
-
     spells = False
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
@@ -453,8 +452,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
         for rule in rules:
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
-                    ruleDescriptions.append({'name': armyRule['name'], 'description': common['description']})
-
+                    ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
+                    
                 if armyRule['name'].lower() == "psychic":
                     spells = True
 
