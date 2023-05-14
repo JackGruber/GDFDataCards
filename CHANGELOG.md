@@ -1,5 +1,7 @@
 # Changelog
 
+- Fix: Download common rules for txt import on data card creation
+
 ## v0.6.0 (2023-08-08)
 
 - Download font automatically
