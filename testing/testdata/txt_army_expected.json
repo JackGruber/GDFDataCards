@@ -6,7 +6,7 @@
     "listPoints": 300,
     "units": [
         {
-            "points": "75pts",
+            "cost": "75",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -44,7 +44,7 @@
             ]
         },
         {
-            "points": "40pts",
+            "cost": "40",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -96,7 +96,7 @@
             ]
         },
         {
-            "points": "40pts",
+            "cost": "40",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -125,7 +125,7 @@
             ]
         },
         {
-            "points": "50pts",
+            "cost": "50",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -166,7 +166,7 @@
             ]
         },
         {
-            "points": "35pts",
+            "cost": "35",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -195,7 +195,7 @@
             ]
         },
         {
-            "points": "60pts",
+            "cost": "60",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -238,7 +238,7 @@
             ]
         },
         {
-            "points": "85pts",
+            "cost": "85",
             "specialRules": [
                 {
                     "label": "Hero",
@@ -286,7 +286,7 @@
             ]
         },
         {
-            "points": "20pts",
+            "cost": "20",
             "specialRules": [],
             "equipment": [
                 {
@@ -320,7 +320,7 @@
             ]
         },
         {
-            "points": "15pts",
+            "cost": "15",
             "specialRules": [],
             "equipment": [],
             "id": "26",
@@ -343,7 +343,7 @@
             ]
         },
         {
-            "points": "25pts",
+            "cost": "25",
             "specialRules": [
                 {
                     "label": "Relentless",
@@ -371,7 +371,7 @@
             ]
         },
         {
-            "points": "25pts",
+            "cost": "25",
             "specialRules": [
                 {
                     "label": "Relentless",
@@ -406,7 +406,7 @@
             ]
         },
         {
-            "points": "45pts",
+            "cost": "45",
             "specialRules": [
                 {
                     "label": "Strider",
@@ -441,7 +441,7 @@
             ]
         },
         {
-            "points": "25pts",
+            "cost": "25",
             "specialRules": [
                 {
                     "label": "Strider",
@@ -470,7 +470,7 @@
             ]
         },
         {
-            "points": "45pts",
+            "cost": "45",
             "specialRules": [
                 {
                     "label": "Scout",
@@ -509,7 +509,7 @@
             ]
         },
         {
-            "points": "320pts",
+            "cost": "320",
             "specialRules": [
                 {
                     "label": "Fearless",
@@ -543,7 +543,7 @@
             ]
         },
         {
-            "points": "255pts",
+            "cost": "255",
             "specialRules": [
                 {
                     "label": "Fast",
@@ -597,7 +597,7 @@
             ]
         },
         {
-            "points": "385pts",
+            "cost": "385",
             "specialRules": [
                 {
                     "label": "Ambush",
@@ -664,7 +664,7 @@
             ]
         },
         {
-            "points": "75pts",
+            "cost": "75",
             "specialRules": [
                 {
                     "label": "Fearless",

@@ -453,7 +453,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
                     ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
-                    
+
                 if armyRule['name'].lower() == "psychic":
                     spells = True
 
@@ -626,7 +626,7 @@ def parseArmyTextList(armyListText):
                 unitData = {}
                 unit = True
                 data = armyListText[x].split("|")
-                unitData['points'] = data[1].strip(" ")
+                unitData['cost'] = re.sub(r'[^\d]', '', data[1].strip(" "), )
                 unitData['specialRules'] = []
                 unitData['equipment'] = []
                 unitData['id'] = f'{x}'
@@ -699,6 +699,7 @@ def getUnit(unit, jsonArmyBookList):
             data['name'] = listUnit['name']
             data['armyId'] = unit['armyId']
             data['id'] = listUnit['id']
+            data['cost'] = listUnit['cost']
             data['defense'] = listUnit['defense']
             data['quality'] = listUnit['quality']
             data['upgrades'] = listUnit['upgrades']
@@ -799,6 +800,11 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                 if (section['uid'] == upgradeId):
                     for option in section['options']:
                         if option['uid'] == optionId:
+
+                            if ('upgradeCost' not in unitData):
+                                unitData['upgradeCost'] = []
+                            unitData['upgradeCost'].append(option['cost'])
+
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
                                     if type == "upgrade" and affects == "all":
