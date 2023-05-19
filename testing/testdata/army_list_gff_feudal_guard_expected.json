@@ -11,6 +11,7 @@
             "name": "Thaddeus Taho",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "tHC6KYN",
+            "cost": 40,
             "defense": 4,
             "quality": 4,
             "upgrades": [
@@ -63,6 +64,11 @@
                     "label": "Tough(3)"
                 }
             ],
+            "upgradeCost": [
+                10,
+                20,
+                5
+            ],
             "equipment": [
                 {
                     "name": "Feudal Steed",
@@ -105,6 +111,7 @@
             "name": "Catiel Dakk",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "Jw0Fw2y",
+            "cost": 45,
             "defense": 4,
             "quality": 5,
             "upgrades": [],
@@ -160,6 +167,7 @@
             "name": "Obed Gungrund",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "6RHfsg7",
+            "cost": 25,
             "defense": 3,
             "quality": 4,
             "upgrades": [
@@ -200,6 +208,10 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                10,
+                15
             ]
         },
         {
@@ -207,6 +219,7 @@
             "name": "Smuge Horthrik",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "d_dzOfJ",
+            "cost": 20,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -251,6 +264,7 @@
             "name": "Luther Tezlom",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "d_dzOfJ",
+            "cost": 20,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -287,6 +301,9 @@
                     "rating": "",
                     "label": "Relentless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -294,6 +311,7 @@
             "name": "Caleb Greer",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "d_dzOfJ",
+            "cost": 20,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -339,6 +357,9 @@
                     "rating": "",
                     "label": "Relentless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -346,6 +367,7 @@
             "name": "Emil Eredal",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "FwOWLvi",
+            "cost": 15,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -378,6 +400,9 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -385,6 +410,7 @@
             "name": "Seth Hagail",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "FwOWLvi",
+            "cost": 15,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -417,6 +443,9 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -424,6 +453,7 @@
             "name": "Titus Nathode",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "FwOWLvi",
+            "cost": 15,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -456,6 +486,9 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         }
     ]

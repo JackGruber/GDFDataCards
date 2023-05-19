@@ -11,6 +11,7 @@
             "name": "Kasz Daeraq",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "0PbBL8m",
+            "cost": 60,
             "defense": 3,
             "quality": 3,
             "upgrades": [],
@@ -66,6 +67,7 @@
             "name": "Korves Sevovax",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "PoRVpWT",
+            "cost": 35,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -111,6 +113,10 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                5,
+                10
             ]
         },
         {
@@ -118,6 +124,7 @@
             "name": "Moranis Coreck",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "meWSgTo",
+            "cost": 30,
             "defense": 3,
             "quality": 4,
             "upgrades": [
@@ -168,6 +175,9 @@
                     "label": "Strider"
                 }
             ],
+            "upgradeCost": [
+                10
+            ],
             "equipment": [
                 {
                     "name": "Scopes",
@@ -189,6 +199,7 @@
             "name": "Corveve Aasil",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "hvNiOwU",
+            "cost": 35,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -220,6 +231,9 @@
                     "rating": "",
                     "label": "Fearless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -227,6 +241,7 @@
             "name": "Breed Sevarus",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "PoRVpWT",
+            "cost": 35,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -265,6 +280,7 @@
             "name": "Raquilon Zandtus",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "Z2WiRfh",
+            "cost": 75,
             "defense": 2,
             "quality": 3,
             "upgrades": [
