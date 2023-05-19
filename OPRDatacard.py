@@ -250,7 +250,6 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
     pdf.setFillColorRGB(1, 1, 1)
     path = pdf.beginPath()
     sideClearance = 20
-    sideClearance = 20
     height = 10
     bottomClearance = 5
     path.moveTo(0 + sideClearance, 0 + bottomClearance)
