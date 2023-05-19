@@ -173,6 +173,27 @@ def dataCardBoarderFrame(pdf, dataCardParameters):
     pdf.drawPath(path, stroke=1, fill=0)
 
 
+def dataCardUnitPoints(pdf, dataCardParameters, unit):
+    if 'cost' in unit:
+        startX = (dataCardParameters['pdfSize'][0] / 2) + 35
+        startY = dataCardParameters['pdfSize'][1] - 47
+        pdf.setFont('regular', 8)
+        pdf.setFillColorRGB(0, 0, 0)
+
+        cost = unit['cost']
+        if 'upgradeCost' in unit:
+            for addCost in unit['upgradeCost']:
+                cost += addCost
+
+        sideClearance = 20
+        bottomClearance = 5
+        height = 10
+        pdf.setFont('regular', 7)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawRightString(dataCardParameters['pdfSize'][0] - 22, bottomClearance +
+                            (height/2)-2, str(cost) + " pt")
+
+
 def dataCardUnitType(pdf, dataCardParameters, unit):
     # Unit type
     pdf.line(dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 50,
@@ -549,6 +570,7 @@ def createDataCard(army):
         dataCardUnitType(pdf, dataCardParameters, unit)
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
         dataCardUnitRules(pdf, dataCardParameters, unit)
+        dataCardUnitPoints(pdf, dataCardParameters, unit)
         dataCardUnitImage(pdf, dataCardParameters, unit)
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
