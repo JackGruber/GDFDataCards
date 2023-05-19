@@ -2,6 +2,8 @@
 
 ## not released
 
+- Fix: Output spells only for army with psychic
+
 ## v0.6.2 (2023-05-19)
 
 - Add: Unit Cost/Points

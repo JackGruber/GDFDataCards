@@ -459,13 +459,12 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
-
     for rule in rules:
         for common in commonRules:
             if common['name'].lower() == rule.lower():
                 ruleDescriptions.append({'name': common['name'], 'description': common['description']})
-            if common['name'].lower() == "psychic":
-                spells = True
+                if common['name'].lower() == "psychic":
+                    spells = True
 
     if 'armyId' in army:
         armyRules = loadJsonFile(os.path.join(
@@ -474,9 +473,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
                     ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
-
-                if armyRule['name'].lower() == "psychic":
-                    spells = True
+                    if armyRule['name'].lower() == "psychic":
+                        spells = True
 
         if spells == True:
             ruleDescriptions.append({'name': "Spells", 'description': ''})
