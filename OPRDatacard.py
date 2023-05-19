@@ -333,6 +333,7 @@ def dataCardUnitImage(pdf, dataCardParameters, unit):
     path.lineTo(triangle[2][0], triangle[2][1])
     path.close()
     pdf.setLineJoin(1)
+    pdf.setFillColorRGB(0.7, 0.7, 0.7)
     pdf.drawPath(path, stroke=1, fill=fillPath)
 
 
