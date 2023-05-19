@@ -2,6 +2,8 @@
 
 ## not released
 
+## v0.6.2 (2023-05-19)
+
 - Add: Unit Cost/Points
 
 ## v0.6.1 (2023-05-14)
