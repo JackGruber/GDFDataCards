@@ -2,6 +2,8 @@
 
 ## not released
 
+## v0.6.3 (2023-05-19)
+
 - Fix: Output spells only for army with psychic
 
 ## v0.6.2 (2023-05-19)
