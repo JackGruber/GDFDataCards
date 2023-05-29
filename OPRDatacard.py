@@ -240,8 +240,17 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         path.close()
         pdf.drawPath(path, stroke=1, fill=1)
 
+        w6 = 5
         for i in range(wounds + tough):
             pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
+            pdf.setFillColorRGB(1, 1, 1)
+
+            if (i < tough):
+                text = "-"
+            else:
+                text = str(w6) + "+"
+                w6 -= 1
+            pdf.drawCentredString(startX + (woundsSize*i) + (woundsSize/2), startY + (woundsSize/2) - 3, text)
 
 
 def dataCardUnitRules(pdf, dataCardParameters, unit):
