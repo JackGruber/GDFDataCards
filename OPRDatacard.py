@@ -455,7 +455,6 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
                 for rule in equipment['specialRules']:
                     rules.append(rule['name'])
     rules = list(dict.fromkeys(rules))
-    print(rules)
     spells = False
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
