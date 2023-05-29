@@ -788,7 +788,9 @@ def getWeapon(data, modCount=-1):
 def removeWeapon(removeWeapon, count: int, weapons):
     for remove in removeWeapon:
         for i in range(len(weapons)):
-            if re.match(r'^' + remove.strip() + 's?$', weapons[i]['name'].strip()):
+            remove = remove.strip()
+            group = [remove, remove + "s", remove[:-1]]
+            if re.match(r'^(' + "|".join(group) + ')$', weapons[i]['name'].strip()):
                 if (count == "any" or count == None or weapons[i]['count'] == 1):
                     weapons.pop(i)
                 else:

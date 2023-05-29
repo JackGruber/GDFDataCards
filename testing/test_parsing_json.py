@@ -97,6 +97,9 @@ def test_removeWeapon():
             {'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
                 'name': 'Heavy Pistol', 'count': 1}, {'name': 'CCWs', 'count': 1}
         ]},
+        {'remove': ['Heavy Pistols', 'CCW'], 'count': 1, 'expected': [
+            {'name': 'Heavy Rifle', 'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 1}
+        ]},
     ]
 
     for test in testCases:
@@ -169,4 +172,10 @@ def test_gff_prime_brothers():
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
+    assert result == expected
+
+
+def test_gff_hb():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb_expected.json'))
     assert result == expected
