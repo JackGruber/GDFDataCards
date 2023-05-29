@@ -3,6 +3,7 @@
 ## not released
 
 - Fix: Weapons were not removed for upgrades if they are stored as plural
+- Fix: #3 Missing equipment in rule overview
 
 ## v0.6.3 (2023-05-19)
 

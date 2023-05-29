@@ -443,18 +443,19 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = []
     for unit in army['units']:
         for rule in unit['specialRules']:
-            rules.append(rule['key'])
+            rules.append(rule['name'])
 
         for weapon in unit['weapons']:
             if 'specialRules' in weapon:
                 for rule in weapon['specialRules']:
-                    rules.append(rule['key'])
+                    rules.append(rule['name'])
 
         if 'equipment' in unit:
             for equipment in unit['equipment']:
                 for rule in equipment['specialRules']:
-                    rules.append(rule['key'])
+                    rules.append(rule['name'])
     rules = list(dict.fromkeys(rules))
+    print(rules)
     spells = False
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
