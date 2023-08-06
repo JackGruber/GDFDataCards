@@ -11,6 +11,7 @@
             "name": "Storm Leader",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "dwJg2Bu",
+            "cost": 45,
             "defense": 4,
             "quality": 4,
             "upgrades": [
@@ -56,6 +57,11 @@
                     "label": "Strider"
                 }
             ],
+            "upgradeCost": [
+                0,
+                5,
+                35
+            ],
             "equipment": [
                 {
                     "name": "Forward Observer",
@@ -77,6 +83,7 @@
             "name": "Red Sniper",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "95wirM-",
+            "cost": 45,
             "defense": 5,
             "quality": 5,
             "upgrades": [],
@@ -126,6 +133,7 @@
             "name": "Special Weapon",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "SG9cgFZ",
+            "cost": 20,
             "defense": 5,
             "quality": 5,
             "upgrades": [
@@ -155,6 +163,9 @@
                     "rating": "",
                     "label": "Relentless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -162,6 +173,7 @@
             "name": "Storm Trooper",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "Xuu-drz",
+            "cost": 20,
             "defense": 4,
             "quality": 4,
             "upgrades": [
@@ -202,6 +214,10 @@
                     "rating": "",
                     "label": "Strider"
                 }
+            ],
+            "upgradeCost": [
+                10,
+                15
             ]
         },
         {
@@ -209,6 +225,7 @@
             "name": "Storm Trooper",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "Xuu-drz",
+            "cost": 20,
             "defense": 4,
             "quality": 4,
             "upgrades": [
@@ -241,6 +258,9 @@
                     "rating": "",
                     "label": "Strider"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -248,6 +268,7 @@
             "name": "Veteran",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "SScXOqX",
+            "cost": 15,
             "defense": 5,
             "quality": 4,
             "upgrades": [
@@ -273,6 +294,9 @@
                 }
             ],
             "specialRules": [],
+            "upgradeCost": [
+                5
+            ],
             "equipment": [
                 {
                     "name": "Demo Charges",
@@ -295,6 +319,7 @@
             "name": "Veteran",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "SScXOqX",
+            "cost": 15,
             "defense": 5,
             "quality": 4,
             "upgrades": [
@@ -326,6 +351,7 @@
             "name": "Special Weapon",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "SG9cgFZ",
+            "cost": 20,
             "defense": 5,
             "quality": 5,
             "upgrades": [
@@ -364,6 +390,9 @@
                     "rating": "",
                     "label": "Relentless"
                 }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -371,6 +400,7 @@
             "name": "Veteran",
             "armyId": "z65fgu0l29i4lnlu",
             "id": "SScXOqX",
+            "cost": 15,
             "defense": 5,
             "quality": 4,
             "upgrades": [

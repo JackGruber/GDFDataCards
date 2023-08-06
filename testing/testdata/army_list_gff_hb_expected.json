@@ -1,0 +1,266 @@
+{
+    "armyId": "7o6om21wxlvvy3hq",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyName": "Havoc Brothers",
+    "listPoints": 300,
+    "listName": "Havoc Brothers",
+    "units": [
+        {
+            "type": "Havoc Champion",
+            "name": "Havoc Champion",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "eD_a0Ea",
+            "cost": 50,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "B1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": "4"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "hero",
+                    "name": "Hero",
+                    "rating": "",
+                    "label": "Hero"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                }
+            ],
+            "upgradeCost": [
+                35,
+                5,
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Havoc Lord",
+                    "specialRules": [
+                        {
+                            "key": "dark-tactics",
+                            "name": "Dark Tactics",
+                            "type": "ArmyBookRule",
+                            "label": "Dark Tactics",
+                            "rating": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Havoc Brother",
+            "name": "Havoc Brother",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "xikokQS",
+            "cost": 25,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": []
+        },
+        {
+            "type": "Havoc Brother",
+            "name": "Havoc Brother",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "xikokQS",
+            "cost": 25,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": []
+        },
+        {
+            "type": "Havoc Brother",
+            "name": "Havoc Brother",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "xikokQS",
+            "cost": 25,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": []
+        },
+        {
+            "type": "Havoc Support",
+            "name": "Havoc Support",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "jINKf6R",
+            "cost": 65,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "F1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Autocannon",
+                    "range": 36,
+                    "specialRules": [],
+                    "ap": "2"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ],
+            "upgradeCost": [
+                25
+            ]
+        },
+        {
+            "type": "Talon Raptor",
+            "name": "Talon Raptor",
+            "armyId": "7o6om21wxlvvy3hq",
+            "id": "1qSAYjr",
+            "cost": 35,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "I1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 4,
+                    "count": 1,
+                    "name": "Dual Energy Claws",
+                    "specialRules": [
+                        {
+                            "key": "rending",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending",
+                            "rating": ""
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "ambush",
+                    "name": "Ambush",
+                    "rating": "",
+                    "label": "Ambush"
+                },
+                {
+                    "key": "furious",
+                    "name": "Furious",
+                    "rating": "",
+                    "label": "Furious"
+                },
+                {
+                    "key": "flying",
+                    "name": "Flying",
+                    "rating": "",
+                    "label": "Flying"
+                }
+            ],
+            "upgradeCost": [
+                10
+            ]
+        }
+    ]
+}

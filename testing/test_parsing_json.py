@@ -97,6 +97,9 @@ def test_removeWeapon():
             {'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
                 'name': 'Heavy Pistol', 'count': 1}, {'name': 'CCWs', 'count': 1}
         ]},
+        {'remove': ['Heavy Pistols', 'CCW'], 'count': 1, 'expected': [
+            {'name': 'Heavy Rifle', 'count': 1}, {'name': 'CCWs', 'count': 1}, {'name': 'Grenades', 'count': 1}
+        ]},
     ]
 
     for test in testCases:
@@ -113,18 +116,16 @@ def test_getUnitUpgrades():
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1,
-                                        'name': 'Heavy Pistol', 'range': 12, 'specialRules': [], 'ap': '1'}]}
+    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Heavy Pistol',
+                                        'range': 12, 'specialRules': [], 'ap': '1'}], 'upgradeCost': [0]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
     assert result == expected, "Upgrade Heavy Pistol"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
         {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [], 'ap': '4'}], 'equipment': [
+    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [], 'ap': '4'}], 'upgradeCost': [0, 5, 35], 'equipment': [
         {'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
-
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    print(result)
     assert result == expected, "3 Upgrades to (Heavy Pistol, than to Plasma and Take Aim)"
 
 
@@ -147,28 +148,59 @@ def test_unitWithManyUpgrades():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gff_hdf():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gff_prime_brothers():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
     expected = testhelper.readJsonFile(os.path.join(
         testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
     assert result == expected
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
+
+def test_gff_hb():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb_expected.json'))
+    assert result == expected
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"

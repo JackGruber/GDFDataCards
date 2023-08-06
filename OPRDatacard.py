@@ -173,6 +173,27 @@ def dataCardBoarderFrame(pdf, dataCardParameters):
     pdf.drawPath(path, stroke=1, fill=0)
 
 
+def dataCardUnitPoints(pdf, dataCardParameters, unit):
+    if 'cost' in unit:
+        startX = (dataCardParameters['pdfSize'][0] / 2) + 35
+        startY = dataCardParameters['pdfSize'][1] - 47
+        pdf.setFont('regular', 8)
+        pdf.setFillColorRGB(0, 0, 0)
+
+        cost = unit['cost']
+        if 'upgradeCost' in unit:
+            for addCost in unit['upgradeCost']:
+                cost += addCost
+
+        sideClearance = 20
+        bottomClearance = 5
+        height = 10
+        pdf.setFont('regular', 7)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawRightString(dataCardParameters['pdfSize'][0] - 22, bottomClearance +
+                            (height/2)-2, str(cost) + " pt")
+
+
 def dataCardUnitType(pdf, dataCardParameters, unit):
     # Unit type
     pdf.line(dataCardParameters['sideClearance'], dataCardParameters['pdfSize'][1] - 50,
@@ -219,8 +240,17 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         path.close()
         pdf.drawPath(path, stroke=1, fill=1)
 
+        w6 = 5
         for i in range(wounds + tough):
             pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
+            pdf.setFillColorRGB(1, 1, 1)
+
+            if (i < tough):
+                text = "-"
+            else:
+                text = str(w6) + "+"
+                w6 -= 1
+            pdf.drawCentredString(startX + (woundsSize*i) + (woundsSize/2), startY + (woundsSize/2) - 3, text)
 
 
 def dataCardUnitRules(pdf, dataCardParameters, unit):
@@ -228,7 +258,6 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
                           dataCardParameters['lineColor'][1], dataCardParameters['lineColor'][2])
     pdf.setFillColorRGB(1, 1, 1)
     path = pdf.beginPath()
-    sideClearance = 20
     sideClearance = 20
     height = 10
     bottomClearance = 5
@@ -312,6 +341,7 @@ def dataCardUnitImage(pdf, dataCardParameters, unit):
     path.lineTo(triangle[2][0], triangle[2][1])
     path.close()
     pdf.setLineJoin(1)
+    pdf.setFillColorRGB(0.7, 0.7, 0.7)
     pdf.drawPath(path, stroke=1, fill=fillPath)
 
 
@@ -417,34 +447,70 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             offsetY -= 10
 
+def unitOverview(pdf, dataCardParameters, army):
+    startX = dataCardParameters['sideClearance'] + 2
+    startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
+    offsetY = 0
+    fontSize = 7
+
+    lines = []
+    for unit in army['units']:
+        if('type' not in unit):
+            unitInfo = unit['name']
+        elif(unit['type'] != unit['name']):
+            unitInfo = unit['name'] + " (" + unit['type'] + ")"
+        else:
+            unitInfo = unit['type']
+
+        unitInfo += " [" + str(unit['size']) + "]"
+        unitInfo += " -" + str(unit['cost']) + " pts"
+        lines.append(unitInfo)
+
+    pdf.setFont("bold", fontSize)
+    pdf.setFillColorRGB(0, 0, 0)
+    pdf.drawString(startX, startY + offsetY, army['listName'] + " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts") 
+    offsetY -= 15
+
+    for line in lines:
+        pdf.setFont("regular", fontSize)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawString(startX, startY + offsetY, line) 
+        offsetY -= 10
+        if startY + offsetY < dataCardParameters['bottomClearance']:
+            dataCardBoarderFrame(pdf, dataCardParameters)
+            pdf.showPage()
+            offsetY = 0
+
+    dataCardBoarderFrame(pdf, dataCardParameters)
+    pdf.showPage()
+
 
 def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = []
     for unit in army['units']:
         for rule in unit['specialRules']:
-            rules.append(rule['key'])
+            rules.append(rule['name'])
 
         for weapon in unit['weapons']:
             if 'specialRules' in weapon:
                 for rule in weapon['specialRules']:
-                    rules.append(rule['key'])
+                    rules.append(rule['name'])
 
         if 'equipment' in unit:
             for equipment in unit['equipment']:
                 for rule in equipment['specialRules']:
-                    rules.append(rule['key'])
+                    rules.append(rule['name'])
     rules = list(dict.fromkeys(rules))
     spells = False
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
-
     for rule in rules:
         for common in commonRules:
             if common['name'].lower() == rule.lower():
                 ruleDescriptions.append({'name': common['name'], 'description': common['description']})
-            if common['name'].lower() == "psychic":
-                spells = True
+                if common['name'].lower() == "psychic":
+                    spells = True
 
     if 'armyId' in army:
         armyRules = loadJsonFile(os.path.join(
@@ -453,9 +519,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
                     ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
-                    
-                if armyRule['name'].lower() == "psychic":
-                    spells = True
+                    if armyRule['name'].lower() == "psychic":
+                        spells = True
 
         if spells == True:
             ruleDescriptions.append({'name': "Spells", 'description': ''})
@@ -549,6 +614,7 @@ def createDataCard(army):
         dataCardUnitType(pdf, dataCardParameters, unit)
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
         dataCardUnitRules(pdf, dataCardParameters, unit)
+        dataCardUnitPoints(pdf, dataCardParameters, unit)
         dataCardUnitImage(pdf, dataCardParameters, unit)
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
@@ -556,6 +622,7 @@ def createDataCard(army):
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
+    unitOverview(pdf, dataCardParameters, army)
 
     try:
         pdf.save()
@@ -573,9 +640,11 @@ def getTxtSpecialRule(txt):
     if "(" in txt:
         data = txt.split("(")
         rule['key'] = data[0].lower()
+        rule['name'] = data[0]
         rule['rating'] = re.sub(r'(?is)([^\d])', '', data[1])
     else:
         rule['key'] = txt.lower()
+        rule['name'] = txt
     return rule
 
 
@@ -608,7 +677,11 @@ def parseArmyTextList(armyListText):
         armyData['parser'] = "txt"
 
         data = armyListText[0].rstrip(" ++").lstrip("++ ").split("[")
-        armyData['listName'] = data[0].strip()
+        tmp = data[0].strip().split("-")
+        armyData['armyName'] = tmp[len(tmp) -1].strip()
+        tmp.pop(len(tmp) -1)
+        armyData['listName'] = "-".join(tmp).strip()
+
         data = data[1].split(" ")
         armyData['gameSystem'] = data[0].lower()
         armyData['gameSystemId'] = getGameSystemId(armyData['gameSystem'])
@@ -626,7 +699,7 @@ def parseArmyTextList(armyListText):
                 unitData = {}
                 unit = True
                 data = armyListText[x].split("|")
-                unitData['points'] = data[1].strip(" ")
+                unitData['cost'] = re.sub(r'[^\d]', '', data[1].strip(" "), )
                 unitData['specialRules'] = []
                 unitData['equipment'] = []
                 unitData['id'] = f'{x}'
@@ -699,6 +772,7 @@ def getUnit(unit, jsonArmyBookList):
             data['name'] = listUnit['name']
             data['armyId'] = unit['armyId']
             data['id'] = listUnit['id']
+            data['cost'] = listUnit['cost']
             data['defense'] = listUnit['defense']
             data['quality'] = listUnit['quality']
             data['upgrades'] = listUnit['upgrades']
@@ -767,7 +841,9 @@ def getWeapon(data, modCount=-1):
 def removeWeapon(removeWeapon, count: int, weapons):
     for remove in removeWeapon:
         for i in range(len(weapons)):
-            if re.match(r'^' + remove.strip() + 's?$', weapons[i]['name'].strip()):
+            remove = remove.strip()
+            group = [remove, remove + "s", remove[:-1]]
+            if re.match(r'^(' + "|".join(group) + ')$', weapons[i]['name'].strip()):
                 if (count == "any" or count == None or weapons[i]['count'] == 1):
                     weapons.pop(i)
                 else:
@@ -799,6 +875,11 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                 if (section['uid'] == upgradeId):
                     for option in section['options']:
                         if option['uid'] == optionId:
+
+                            if ('upgradeCost' not in unitData):
+                                unitData['upgradeCost'] = []
+                            unitData['upgradeCost'].append(option['cost'])
+
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
                                     if type == "upgrade" and affects == "all":

@@ -1,0 +1,212 @@
+{
+    "gameSystem": "gff",
+    "armyId": "7o6om21wxlvvy3hq",
+    "armyIds": [
+        "7o6om21wxlvvy3hq"
+    ],
+    "armyFaction": "Havoc Brothers",
+    "armyName": "Havoc Brothers",
+    "modified": "2023-05-29T12:45:16.200Z",
+    "saveVersion": 3,
+    "listPoints": 300,
+    "list": {
+        "id": "Px5Sfdtf",
+        "key": "01vnHI6QWHzg5yPEps9P8",
+        "name": "Havoc Brothers",
+        "units": [
+            {
+                "id": "eD_a0Ea",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "LijrQ",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "J8Z84gqyG",
+                        "upgradeId": "R3s-sc-",
+                        "optionId": "q5BXAEy"
+                    },
+                    {
+                        "instanceId": "2BydmJ5Mo",
+                        "upgradeId": "-2GgkX2",
+                        "optionId": "qIHT5"
+                    },
+                    {
+                        "instanceId": "9qhvwCU2d",
+                        "upgradeId": "0tRGmMk",
+                        "optionId": "36K0S"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "xikokQS",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "CxnJo",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "xikokQS",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "M-xYD",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "xikokQS",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "YzC2r",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "jINKf6R",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "HnWIF",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "wchzl1pY3",
+                        "upgradeId": "JxBta2M",
+                        "optionId": "QvzQzfr"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "1qSAYjr",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "O6T3E",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "lHHC6M0eG",
+                        "upgradeId": "si4nIKu",
+                        "optionId": "_U8-2MK"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ],
+        "points": 300,
+        "pointsLimit": 300,
+        "creationTime": "1685364025629",
+        "campaignMode": false,
+        "competitive": true,
+        "gameSystem": "gff",
+        "selectedUnitId": "LijrQ",
+        "unitPreview": null,
+        "undoUnitRemove": [
+            {
+                "id": "jINKf6R",
+                "cost": 65,
+                "name": "Havoc Support",
+                "size": 1,
+                "defense": 3,
+                "quality": 3,
+                "upgrades": [
+                    "F1"
+                ],
+                "equipment": [
+                    {
+                        "id": "TLV3p",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 1,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "y5U0c",
+                        "label": "Heavy Machinegun",
+                        "range": 30,
+                        "attacks": 3,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "name": "Heavy Machinegun",
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "specialRules": [
+                    {
+                        "key": "relentless",
+                        "name": "Relentless",
+                        "rating": ""
+                    }
+                ],
+                "disabledUpgradeSections": [],
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectedUpgrades": [],
+                "sortId": 6,
+                "loadout": [
+                    {
+                        "id": "TLV3p",
+                        "name": "CCW",
+                        "label": "CCW",
+                        "attacks": 1,
+                        "specialRules": [],
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    },
+                    {
+                        "id": "y5U0c",
+                        "label": "Heavy Machinegun",
+                        "range": 30,
+                        "attacks": 3,
+                        "specialRules": [
+                            {
+                                "key": "ap",
+                                "name": "AP",
+                                "rating": "1",
+                                "modify": false
+                            }
+                        ],
+                        "name": "Heavy Machinegun",
+                        "count": 1,
+                        "originalCount": 1,
+                        "type": "ArmyBookWeapon"
+                    }
+                ],
+                "selectionId": "NuTT1",
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    },
+    "favourite": false
+}
