@@ -223,7 +223,6 @@
             "defense": 4,
             "quality": 5,
             "upgrades": [
-                "A1",
                 "G1"
             ],
             "size": 1,
@@ -268,7 +267,6 @@
             "defense": 4,
             "quality": 5,
             "upgrades": [
-                "A1",
                 "G1"
             ],
             "size": 1,
@@ -315,7 +313,6 @@
             "defense": 4,
             "quality": 5,
             "upgrades": [
-                "A1",
                 "G1"
             ],
             "size": 1,
