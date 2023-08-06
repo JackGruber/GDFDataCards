@@ -455,8 +455,10 @@ def unitOverview(pdf, dataCardParameters, army):
 
     lines = []
     for unit in army['units']:
-        if(unit['type'] != unit['name']):
-            unitInfo = unit['name'] + " (" +unit['type']+ ")"
+        if('type' not in unit):
+            unitInfo = unit['name']
+        elif(unit['type'] != unit['name']):
+            unitInfo = unit['name'] + " (" + unit['type'] + ")"
         else:
             unitInfo = unit['type']
 
@@ -466,7 +468,7 @@ def unitOverview(pdf, dataCardParameters, army):
 
     pdf.setFont("bold", fontSize)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(startX, startY + offsetY, army['armyName'] + " - " + str(army['listPoints']) + " pts") 
+    pdf.drawString(startX, startY + offsetY, army['listName'] + " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts") 
     offsetY -= 15
 
     for line in lines:
