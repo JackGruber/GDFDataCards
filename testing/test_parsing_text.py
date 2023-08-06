@@ -12,7 +12,11 @@ def test_parseArmyTextList():
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'txt_army_expected.json'))
     result = OPRDatacard.parseArmyTextList(armyList)
     assert result == expected, "Parsed Armylist is wrong"
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def readArmyTxt(file):
     try:
@@ -23,3 +27,4 @@ def readArmyTxt(file):
         assert False, "Error Reading test txt file " + str(ex)
 
     return armyList
+

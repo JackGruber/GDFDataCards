@@ -148,34 +148,59 @@ def test_unitWithManyUpgrades():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gff_hdf():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gff_prime_brothers():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
     expected = testhelper.readJsonFile(os.path.join(
         testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gf_pb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
     assert result == expected
-
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
 
 def test_gff_hb():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb_expected.json'))
     assert result == expected
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"
