@@ -1,6 +1,7 @@
 {
     "parser": "txt",
-    "listName": "300pt - PB - Prime Brothers",
+    "armyName": "Prime Brothers",
+    "listName": "300pt - PB",
     "gameSystem": "gff",
     "gameSystemId": 3,
     "listPoints": 300,
@@ -10,15 +11,18 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Hero",
-                    "key": "hero"
+                    "key": "hero",
+                    "name": "Hero"
                 },
                 {
                     "label": "Tough(3)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "3"
                 }
             ],
@@ -48,15 +52,18 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Scout",
-                    "key": "scout"
+                    "key": "scout",
+                    "name": "Scout"
                 },
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 }
             ],
             "equipment": [
@@ -65,7 +72,8 @@
                     "specialRules": [
                         {
                             "label": "Sniper",
-                            "key": "sniper"
+                            "key": "sniper",
+                            "name": "Sniper"
                         }
                     ]
                 }
@@ -89,7 +97,8 @@
                     "specialRules": [
                         {
                             "label": "Rending",
-                            "key": "rending"
+                            "key": "rending",
+                            "name": "Rending"
                         }
                     ]
                 }
@@ -100,7 +109,8 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 }
             ],
             "equipment": [],
@@ -129,7 +139,8 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 }
             ],
             "equipment": [],
@@ -159,6 +170,7 @@
                         {
                             "label": "Blast(3)",
                             "key": "blast",
+                            "name": "Blast",
                             "rating": "3"
                         }
                     ]
@@ -170,7 +182,8 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 }
             ],
             "equipment": [],
@@ -199,15 +212,18 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Scout",
-                    "key": "scout"
+                    "key": "scout",
+                    "name": "Scout"
                 },
                 {
                     "label": "Stealth",
-                    "key": "stealth"
+                    "key": "stealth",
+                    "name": "Stealth"
                 }
             ],
             "equipment": [],
@@ -231,7 +247,8 @@
                     "specialRules": [
                         {
                             "label": "Sniper",
-                            "key": "sniper"
+                            "key": "sniper",
+                            "name": "Sniper"
                         }
                     ]
                 }
@@ -242,16 +259,19 @@
             "specialRules": [
                 {
                     "label": "Hero",
-                    "key": "hero"
+                    "key": "hero",
+                    "name": "Hero"
                 },
                 {
                     "label": "Tough(3)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "3"
                 },
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 }
             ],
             "equipment": [
@@ -260,7 +280,8 @@
                     "specialRules": [
                         {
                             "label": "Take Aim",
-                            "key": "take aim"
+                            "key": "take aim",
+                            "name": "Take Aim"
                         }
                     ]
                 }
@@ -295,6 +316,7 @@
                         {
                             "label": "AP(4) in melee",
                             "key": "ap",
+                            "name": "AP",
                             "rating": "4"
                         }
                     ]
@@ -347,7 +369,8 @@
             "specialRules": [
                 {
                     "label": "Relentless",
-                    "key": "relentless"
+                    "key": "relentless",
+                    "name": "Relentless"
                 }
             ],
             "equipment": [],
@@ -375,7 +398,8 @@
             "specialRules": [
                 {
                     "label": "Relentless",
-                    "key": "relentless"
+                    "key": "relentless",
+                    "name": "Relentless"
                 }
             ],
             "equipment": [],
@@ -399,6 +423,7 @@
                         {
                             "label": "Blast(3)",
                             "key": "blast",
+                            "name": "Blast",
                             "rating": "3"
                         }
                     ]
@@ -410,7 +435,8 @@
             "specialRules": [
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 }
             ],
             "equipment": [],
@@ -434,7 +460,8 @@
                     "specialRules": [
                         {
                             "label": "Rending",
-                            "key": "rending"
+                            "key": "rending",
+                            "name": "Rending"
                         }
                     ]
                 }
@@ -445,7 +472,8 @@
             "specialRules": [
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 }
             ],
             "equipment": [],
@@ -474,11 +502,13 @@
             "specialRules": [
                 {
                     "label": "Scout",
-                    "key": "scout"
+                    "key": "scout",
+                    "name": "Scout"
                 },
                 {
                     "label": "Stealth",
-                    "key": "stealth"
+                    "key": "stealth",
+                    "name": "Stealth"
                 }
             ],
             "equipment": [],
@@ -502,7 +532,8 @@
                     "specialRules": [
                         {
                             "label": "Sniper",
-                            "key": "sniper"
+                            "key": "sniper",
+                            "name": "Sniper"
                         }
                     ]
                 }
@@ -513,11 +544,13 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Tough(3)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "3"
                 }
             ],
@@ -547,23 +580,28 @@
             "specialRules": [
                 {
                     "label": "Fast",
-                    "key": "fast"
+                    "key": "fast",
+                    "name": "Fast"
                 },
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Scout",
-                    "key": "scout"
+                    "key": "scout",
+                    "name": "Scout"
                 },
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 },
                 {
                     "label": "Tough(6)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "6"
                 }
             ],
@@ -584,6 +622,7 @@
                         {
                             "label": "Deadly(6)",
                             "key": "deadly",
+                            "name": "Deadly",
                             "rating": "6"
                         }
                     ]
@@ -601,28 +640,34 @@
             "specialRules": [
                 {
                     "label": "Ambush",
-                    "key": "ambush"
+                    "key": "ambush",
+                    "name": "Ambush"
                 },
                 {
                     "label": "Fast",
-                    "key": "fast"
+                    "key": "fast",
+                    "name": "Fast"
                 },
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Impact(6)",
                     "key": "impact",
+                    "name": "Impact",
                     "rating": "6"
                 },
                 {
                     "label": "Strider",
-                    "key": "strider"
+                    "key": "strider",
+                    "name": "Strider"
                 },
                 {
                     "label": "Tough(9)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "9"
                 }
             ],
@@ -643,6 +688,7 @@
                         {
                             "label": "Deadly(3)",
                             "key": "deadly",
+                            "name": "Deadly",
                             "rating": "3"
                         }
                     ]
@@ -657,6 +703,7 @@
                         {
                             "label": "Deadly(3)",
                             "key": "deadly",
+                            "name": "Deadly",
                             "rating": "3"
                         }
                     ]
@@ -668,15 +715,18 @@
             "specialRules": [
                 {
                     "label": "Fearless",
-                    "key": "fearless"
+                    "key": "fearless",
+                    "name": "Fearless"
                 },
                 {
                     "label": "Hero",
-                    "key": "hero"
+                    "key": "hero",
+                    "name": "Hero"
                 },
                 {
                     "label": "Tough(3)",
                     "key": "tough",
+                    "name": "Tough",
                     "rating": "3"
                 }
             ],
@@ -686,11 +736,13 @@
                     "specialRules": [
                         {
                             "label": "Fast",
-                            "key": "fast"
+                            "key": "fast",
+                            "name": "Fast"
                         },
                         {
                             "label": " Impact(1)",
                             "key": " impact",
+                            "name": " Impact",
                             "rating": "1"
                         }
                     ]
@@ -700,7 +752,8 @@
                     "specialRules": [
                         {
                             "label": "Ballistics Console",
-                            "key": "ballistics console"
+                            "key": "ballistics console",
+                            "name": "Ballistics Console"
                         }
                     ]
                 }
@@ -719,7 +772,8 @@
                     "specialRules": [
                         {
                             "label": "Rending",
-                            "key": "rending"
+                            "key": "rending",
+                            "name": "Rending"
                         }
                     ]
                 },

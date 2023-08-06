@@ -640,9 +640,11 @@ def getTxtSpecialRule(txt):
     if "(" in txt:
         data = txt.split("(")
         rule['key'] = data[0].lower()
+        rule['name'] = data[0]
         rule['rating'] = re.sub(r'(?is)([^\d])', '', data[1])
     else:
         rule['key'] = txt.lower()
+        rule['name'] = txt
     return rule
 
 
@@ -675,7 +677,11 @@ def parseArmyTextList(armyListText):
         armyData['parser'] = "txt"
 
         data = armyListText[0].rstrip(" ++").lstrip("++ ").split("[")
-        armyData['listName'] = data[0].strip()
+        tmp = data[0].strip().split("-")
+        armyData['armyName'] = tmp[len(tmp) -1].strip()
+        tmp.pop(len(tmp) -1)
+        armyData['listName'] = "-".join(tmp).strip()
+
         data = data[1].split(" ")
         armyData['gameSystem'] = data[0].lower()
         armyData['gameSystemId'] = getGameSystemId(armyData['gameSystem'])
