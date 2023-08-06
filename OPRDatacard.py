@@ -447,6 +447,41 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             offsetY -= 10
 
+def unitOverview(pdf, dataCardParameters, army):
+    startX = dataCardParameters['sideClearance'] + 2
+    startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
+    offsetY = 0
+    fontSize = 7
+
+    lines = []
+    for unit in army['units']:
+        if(unit['type'] != unit['name']):
+            unitInfo = unit['name'] + " (" +unit['type']+ ")"
+        else:
+            unitInfo = unit['type']
+
+        unitInfo += " [" + str(unit['size']) + "]"
+        unitInfo += " -" + str(unit['cost']) + " pts"
+        lines.append(unitInfo)
+
+    pdf.setFont("bold", fontSize)
+    pdf.setFillColorRGB(0, 0, 0)
+    pdf.drawString(startX, startY + offsetY, army['armyName'] + " - " + str(army['listPoints']) + " pts") 
+    offsetY -= 15
+
+    for line in lines:
+        pdf.setFont("regular", fontSize)
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.drawString(startX, startY + offsetY, line) 
+        offsetY -= 10
+        if startY + offsetY < dataCardParameters['bottomClearance']:
+            dataCardBoarderFrame(pdf, dataCardParameters)
+            pdf.showPage()
+            offsetY = 0
+
+    dataCardBoarderFrame(pdf, dataCardParameters)
+    pdf.showPage()
+
 
 def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = []
@@ -585,6 +620,7 @@ def createDataCard(army):
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
+    unitOverview(pdf, dataCardParameters, army)
 
     try:
         pdf.save()
