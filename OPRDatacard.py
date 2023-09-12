@@ -800,7 +800,7 @@ def getSpecialRules(data):
         rule = specialRule
         if specialRule['rating'] != "":
             rule['label'] = specialRule['name'] + \
-                "(" + specialRule['rating'] + ")"
+                "(" + str(specialRule['rating']) + ")"
         else:
             rule['label'] = specialRule['name']
 
