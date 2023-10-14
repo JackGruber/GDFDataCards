@@ -830,7 +830,7 @@ def getWeapon(data, modCount=-1):
     weapon['specialRules'] = getSpecialRules(data['specialRules'])
 
     for i in range(len(weapon['specialRules'])):
-        if weapon['specialRules'][i]['key'] == "ap":
+        if weapon['specialRules'][i]['name'].lower() == "ap":
             weapon['ap'] = weapon['specialRules'][i]['rating']
             weapon['specialRules'].pop(i)
             break
