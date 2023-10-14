@@ -864,15 +864,15 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
         optionId = upgrade['optionId']
         for package in jsonArmyBookList[armyId]['upgradePackages']:
             for section in package['sections']:
-                type = None
+                variant = None
                 affects = None
-                replaceWhat = None
-                if "type" in section:
-                    type = section['type']
+                targets = None
+                if "variant" in section:
+                    variant = section['variant']
                 if "affects" in section:
                     affects = section['affects']
-                if "replaceWhat" in section:
-                    replaceWhat = section['replaceWhat']
+                if "targets" in section:
+                    targets = section['targets']
 
                 if (section['uid'] == upgradeId):
                     for option in section['options']:
@@ -884,7 +884,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    if type == "upgrade" and affects == "all":
+                                    if variant == "upgrade" and affects and affects['type'] == "all":
                                         modeCount = unitData['size']
                                     else:
                                         modeCount = -1
@@ -899,18 +899,22 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     print("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
 
-                            if type == "replace":
+                            if variant == "replace":
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    if affects == "any":
+                                    if affects and affects['type'] == "any":
                                         # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
-                                        affects = 1
+                                        affectsValue = 1
+                                    elif affects and affects['type'] == "exactly":
+                                        affectsValue = affects['value']
+                                    elif affects is None:
+                                        affectsValue = 999
 
                                     if unitData['size'] > 1:
                                         unitData['weapons'] = mergeWeapon(unitData['weapons'])
 
-                                    unitData['weapons'] = removeWeapon(replaceWhat, affects, unitData['weapons'])
+                                    unitData['weapons'] = removeWeapon(targets, affectsValue, unitData['weapons'])
                                 else:
-                                    print(f"Unhandelt type '{type}' in unit upgrades")
+                                    print(f"Unhandelt type '{variant}' in unit upgrades")
 
     return unitData
 
