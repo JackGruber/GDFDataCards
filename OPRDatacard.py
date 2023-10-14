@@ -447,6 +447,7 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             offsetY -= 10
 
+
 def unitOverview(pdf, dataCardParameters, army):
     startX = dataCardParameters['sideClearance'] + 2
     startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
@@ -455,9 +456,9 @@ def unitOverview(pdf, dataCardParameters, army):
 
     lines = []
     for unit in army['units']:
-        if('type' not in unit):
+        if ('type' not in unit):
             unitInfo = unit['name']
-        elif(unit['type'] != unit['name']):
+        elif (unit['type'] != unit['name']):
             unitInfo = unit['name'] + " (" + unit['type'] + ")"
         else:
             unitInfo = unit['type']
@@ -468,13 +469,14 @@ def unitOverview(pdf, dataCardParameters, army):
 
     pdf.setFont("bold", fontSize)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(startX, startY + offsetY, army['listName'] + " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts") 
+    pdf.drawString(startX, startY + offsetY, army['listName'] +
+                   " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts")
     offsetY -= 15
 
     for line in lines:
         pdf.setFont("regular", fontSize)
         pdf.setFillColorRGB(0, 0, 0)
-        pdf.drawString(startX, startY + offsetY, line) 
+        pdf.drawString(startX, startY + offsetY, line)
         offsetY -= 10
         if startY + offsetY < dataCardParameters['bottomClearance']:
             dataCardBoarderFrame(pdf, dataCardParameters)
@@ -678,8 +680,8 @@ def parseArmyTextList(armyListText):
 
         data = armyListText[0].rstrip(" ++").lstrip("++ ").split("[")
         tmp = data[0].strip().split("-")
-        armyData['armyName'] = tmp[len(tmp) -1].strip()
-        tmp.pop(len(tmp) -1)
+        armyData['armyName'] = tmp[len(tmp) - 1].strip()
+        tmp.pop(len(tmp) - 1)
         armyData['listName'] = "-".join(tmp).strip()
 
         data = data[1].split(" ")
