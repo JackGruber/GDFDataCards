@@ -6,9 +6,9 @@
     ],
     "armyFaction": null,
     "armyName": "Feudal Guard",
-    "modified": "2023-05-03T19:05:52.792Z",
+    "modified": "2023-10-14T06:33:05.377Z",
     "saveVersion": 3,
-    "listPoints": 300,
+    "listPoints": 345,
     "list": {
         "id": "PRQ6SPGN",
         "key": "-kGOMuHPvk8UbVHyDdiRR",
@@ -21,19 +21,14 @@
                 "selectionId": "uLjiE",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "lx5YsU-6A",
-                        "upgradeId": "pjihave",
-                        "optionId": "4-qyejQ"
-                    },
-                    {
-                        "instanceId": "gL-haORRv",
-                        "upgradeId": "hwwOKuH",
-                        "optionId": "4dRjB"
-                    },
-                    {
-                        "instanceId": "apoe649RI",
+                        "instanceId": "M2tjqNhmC",
                         "upgradeId": "MVOkO8_",
                         "optionId": "CmNu66X"
+                    },
+                    {
+                        "instanceId": "b07cgjELE",
+                        "upgradeId": "hwwOKuH",
+                        "optionId": "4dRjB"
                     }
                 ],
                 "combined": false,
@@ -61,12 +56,12 @@
                 "selectionId": "2MMCE",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "87Kug_xRd",
+                        "instanceId": "UzVogSfEY",
                         "upgradeId": "atyqrYm",
                         "optionId": "7Vyuew9"
                     },
                     {
-                        "instanceId": "AOfE0uGCC",
+                        "instanceId": "74ri4rUyC",
                         "upgradeId": "krgPQCw",
                         "optionId": "FutUcB1"
                     }
@@ -96,7 +91,7 @@
                 "selectionId": "qUnsp",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "LEe7fAY9h",
+                        "instanceId": "dcQ91FxF1",
                         "upgradeId": "lL1tV-x",
                         "optionId": "o4uNh"
                     }
@@ -114,7 +109,7 @@
                 "selectionId": "KQq1g",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "rOXp3Kau9",
+                        "instanceId": "jzYpS7eny",
                         "upgradeId": "lL1tV-x",
                         "optionId": "C1LTuRB"
                     }
@@ -132,7 +127,7 @@
                 "selectionId": "tKNgn",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "q16f_N7h2",
+                        "instanceId": "lCaAlqWIe",
                         "upgradeId": "_S-A6la",
                         "optionId": "TYTb9hz"
                     }
@@ -150,7 +145,7 @@
                 "selectionId": "iaYoF",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "XshFjgsVr",
+                        "instanceId": "5JpnVkVZj",
                         "upgradeId": "_S-A6la",
                         "optionId": "TYTb9hz"
                     }
@@ -168,7 +163,7 @@
                 "selectionId": "fBr2g",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "KgH-xn2pj",
+                        "instanceId": "K9nZXND_o",
                         "upgradeId": "_S-A6la",
                         "optionId": "TYTb9hz"
                     }
@@ -180,14 +175,14 @@
                 "notes": null
             }
         ],
-        "points": 300,
+        "points": 345,
         "pointsLimit": 300,
-        "creationTime": "1683140535758",
+        "creationTime": "1697265145038",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
         "unitPreview": null,
-        "selectedUnitId": "LrZnW",
+        "selectedUnitId": "uLjiE",
         "undoUnitRemove": [
             {
                 "id": "FwOWLvi",
@@ -265,7 +260,14 @@
                 "traits": [],
                 "notes": null
             }
-        ]
+        ],
+        "modified": "2023-10-14T06:33:05.377Z"
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "armyId": "w15ncjbqsqk3tcet",
+            "version": "3.0.0"
+        }
+    ]
 }

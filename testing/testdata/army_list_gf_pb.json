@@ -6,9 +6,9 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2023-05-02T09:45:09.074Z",
+    "modified": "2023-10-14T06:27:52.273Z",
     "saveVersion": 3,
-    "listPoints": 2000,
+    "listPoints": 1985,
     "list": {
         "id": "18qhWQdV",
         "key": "LJmRGakDW4hPC4DMs3PEO",
@@ -21,12 +21,12 @@
                 "selectionId": "2vAmz",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "CQmVsvLfs",
+                        "instanceId": "hHfbrTq_w",
                         "upgradeId": "BCvkhSe",
                         "optionId": "fwO6jFd"
                     },
                     {
-                        "instanceId": "8n2-0mcgf",
+                        "instanceId": "PwBUrCNdn",
                         "upgradeId": "MovgoCq",
                         "optionId": "NAzSrGO"
                     }
@@ -43,7 +43,7 @@
                 "selectionId": "PxnMi",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "tn791RhYC",
+                        "instanceId": "phFtwwPHJ",
                         "upgradeId": "uTKvirx",
                         "optionId": "raxBZDD"
                     }
@@ -60,7 +60,7 @@
                 "selectionId": "NBsjG",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "nNa__HgOo",
+                        "instanceId": "p82ht4tmN",
                         "upgradeId": "WCoSz98",
                         "optionId": "VV9C8"
                     }
@@ -77,17 +77,17 @@
                 "selectionId": "XknZW",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "6D1D-eUXe",
+                        "instanceId": "dgkQ0N5xq",
                         "upgradeId": "ar5sR",
                         "optionId": "wyKaPTZ"
                     },
                     {
-                        "instanceId": "y0bB0OYPD",
+                        "instanceId": "J7v5vpp6W",
                         "upgradeId": "tbNwc",
                         "optionId": "uNapO"
                     },
                     {
-                        "instanceId": "Ag36KSEt0",
+                        "instanceId": "g7ItjIsyI",
                         "upgradeId": "tbNwc",
                         "optionId": "uNapO"
                     }
@@ -102,13 +102,7 @@
                 "id": "PoRVpWT",
                 "armyId": "oqnnu0gk8q6hyyny",
                 "selectionId": "cDUkt",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "CTgWMVWrB",
-                        "upgradeId": "QVDSnps",
-                        "optionId": "bqqWG"
-                    }
-                ],
+                "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,
@@ -132,7 +126,7 @@
                 "selectionId": "MbnTS",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "z9NE2swuh",
+                        "instanceId": "gXXzna3P_",
                         "upgradeId": "vIcBJVF",
                         "optionId": "lCeyzzU"
                     }
@@ -155,9 +149,9 @@
                 "notes": null
             }
         ],
-        "points": 2000,
+        "points": 1985,
         "pointsLimit": 2000,
-        "creationTime": "1683015573860",
+        "creationTime": "1697264654917",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gf",
@@ -401,7 +395,14 @@
                     }
                 ]
             }
-        ]
+        ],
+        "modified": "2023-10-14T06:27:52.274Z"
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "armyId": "oqnnu0gk8q6hyyny",
+            "version": "3.1.0"
+        }
+    ]
 }

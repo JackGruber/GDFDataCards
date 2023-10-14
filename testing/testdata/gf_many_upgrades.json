@@ -6,9 +6,9 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2023-05-02T12:49:10.038Z",
+    "modified": "2023-10-14T06:38:22.569Z",
     "saveVersion": 3,
-    "listPoints": 370,
+    "listPoints": 320,
     "list": {
         "id": "18qhWQdV",
         "key": "LJmRGakDW4hPC4DMs3PEO",
@@ -21,29 +21,29 @@
                 "selectionId": "XknZW",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "lwF6XZiSt",
-                        "upgradeId": "ar5sR",
-                        "optionId": "wyKaPTZ"
-                    },
-                    {
-                        "instanceId": "qvREBMHyr",
+                        "instanceId": "11MtVITj9",
                         "upgradeId": "tbNwc",
                         "optionId": "uNapO"
                     },
                     {
-                        "instanceId": "1WDIXQpnc",
+                        "instanceId": "VDcecZb8w",
                         "upgradeId": "tbNwc",
                         "optionId": "uNapO"
                     },
                     {
-                        "instanceId": "ah7TNmHkM",
+                        "instanceId": "rvgIuR4Pp",
                         "upgradeId": "vIcBJVF",
                         "optionId": "lCeyzzU"
                     },
                     {
-                        "instanceId": "ORg4jaLz4",
+                        "instanceId": "9GadCDAFQ",
                         "upgradeId": "Fyjqd",
                         "optionId": "dOV9k"
+                    },
+                    {
+                        "instanceId": "ajoIfX1Sw",
+                        "upgradeId": "ar5sR",
+                        "optionId": "wyKaPTZ"
                     }
                 ],
                 "combined": false,
@@ -53,9 +53,9 @@
                 "notes": null
             }
         ],
-        "points": 370,
+        "points": 320,
         "pointsLimit": 2000,
-        "creationTime": "1683031659823",
+        "creationTime": "1697265485567",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gf",
@@ -299,7 +299,14 @@
                     }
                 ]
             }
-        ]
+        ],
+        "modified": "2023-10-14T06:38:22.569Z"
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "armyId": "oqnnu0gk8q6hyyny",
+            "version": "3.1.0"
+        }
+    ]
 }

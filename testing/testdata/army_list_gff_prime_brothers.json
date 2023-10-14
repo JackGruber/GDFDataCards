@@ -6,9 +6,9 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2023-05-02T20:16:50.564Z",
+    "modified": "2023-10-14T06:37:07.889Z",
     "saveVersion": 3,
-    "listPoints": 300,
+    "listPoints": 285,
     "list": {
         "id": "k-3BLwFU",
         "key": "uccsWgJpi6oI6UelDeJYc",
@@ -31,18 +31,7 @@
                 "armyId": "oqnnu0gk8q6hyyny",
                 "customName": "Korves Sevovax",
                 "selectionId": "FkP8K",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "JMrKS3ZlO",
-                        "upgradeId": "QVDSnps",
-                        "optionId": "bqqWG"
-                    },
-                    {
-                        "instanceId": "UNsQBJoEF",
-                        "upgradeId": "_4gaBfU",
-                        "optionId": "MX1K8N1"
-                    }
-                ],
+                "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,
@@ -56,7 +45,7 @@
                 "selectionId": "dxn2t",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "F0lnO4TfG",
+                        "instanceId": "B4R3gQe-3",
                         "upgradeId": "yUrGsDr",
                         "optionId": "B4FS3"
                     }
@@ -74,7 +63,7 @@
                 "selectionId": "tHM_J",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "stm0TUltP",
+                        "instanceId": "XrBW8ogNC",
                         "upgradeId": "5vRO_TO",
                         "optionId": "IQcoGXv"
                     }
@@ -110,14 +99,14 @@
                 "notes": null
             }
         ],
-        "points": 300,
+        "points": 285,
         "pointsLimit": 300,
-        "creationTime": "1683057696142",
+        "creationTime": "1697265415258",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
         "unitPreview": null,
-        "selectedUnitId": null,
+        "selectedUnitId": "ISvb7",
         "undoUnitRemove": [
             {
                 "id": "qGGJpGt",
@@ -230,7 +219,14 @@
                 "traits": [],
                 "notes": null
             }
-        ]
+        ],
+        "modified": "2023-10-14T06:37:07.889Z"
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "armyId": "oqnnu0gk8q6hyyny",
+            "version": "3.1.0"
+        }
+    ]
 }

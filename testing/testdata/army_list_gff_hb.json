@@ -6,9 +6,9 @@
     ],
     "armyFaction": "Havoc Brothers",
     "armyName": "Havoc Brothers",
-    "modified": "2023-05-29T12:45:16.200Z",
+    "modified": "2023-10-14T06:34:24.041Z",
     "saveVersion": 3,
-    "listPoints": 300,
+    "listPoints": 305,
     "list": {
         "id": "Px5Sfdtf",
         "key": "01vnHI6QWHzg5yPEps9P8",
@@ -20,19 +20,19 @@
                 "selectionId": "LijrQ",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "J8Z84gqyG",
-                        "upgradeId": "R3s-sc-",
-                        "optionId": "q5BXAEy"
-                    },
-                    {
-                        "instanceId": "2BydmJ5Mo",
+                        "instanceId": "1h7qVUA5j",
                         "upgradeId": "-2GgkX2",
                         "optionId": "qIHT5"
                     },
                     {
-                        "instanceId": "9qhvwCU2d",
+                        "instanceId": "DCyRK_sFO",
                         "upgradeId": "0tRGmMk",
                         "optionId": "36K0S"
+                    },
+                    {
+                        "instanceId": "m6M0Ox1n4",
+                        "upgradeId": "R3s-sc-",
+                        "optionId": "q5BXAEy"
                     }
                 ],
                 "combined": false,
@@ -80,7 +80,7 @@
                 "selectionId": "HnWIF",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "wchzl1pY3",
+                        "instanceId": "zaS_i09Zs",
                         "upgradeId": "JxBta2M",
                         "optionId": "QvzQzfr"
                     }
@@ -95,13 +95,7 @@
                 "id": "1qSAYjr",
                 "armyId": "7o6om21wxlvvy3hq",
                 "selectionId": "O6T3E",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "lHHC6M0eG",
-                        "upgradeId": "si4nIKu",
-                        "optionId": "_U8-2MK"
-                    }
-                ],
+                "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,
@@ -109,9 +103,9 @@
                 "notes": null
             }
         ],
-        "points": 300,
+        "points": 305,
         "pointsLimit": 300,
-        "creationTime": "1685364025629",
+        "creationTime": "1697265248512",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
@@ -206,7 +200,14 @@
                 "traits": [],
                 "notes": null
             }
-        ]
+        ],
+        "modified": "2023-10-14T06:34:24.041Z"
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "armyId": "7o6om21wxlvvy3hq",
+            "version": "3.1.0"
+        }
+    ]
 }
