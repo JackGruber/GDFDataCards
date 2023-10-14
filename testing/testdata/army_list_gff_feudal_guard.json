@@ -6,27 +6,22 @@
     ],
     "armyFaction": null,
     "armyName": "Feudal Guard",
-    "modified": "2023-10-14T06:33:05.377Z",
+    "modified": "2023-10-14T14:03:18.032Z",
     "saveVersion": 3,
-    "listPoints": 345,
+    "listPoints": 300,
     "list": {
-        "id": "PRQ6SPGN",
-        "key": "-kGOMuHPvk8UbVHyDdiRR",
+        "id": "PPNsnnuESGQT",
+        "key": "vYgfnOncVcnY0sIqJFpAl",
         "name": "GFF - 300pt - Feudal Guard",
         "units": [
             {
                 "id": "tHC6KYN",
                 "armyId": "w15ncjbqsqk3tcet",
                 "customName": "Thaddeus Taho",
-                "selectionId": "uLjiE",
+                "selectionId": "x7AyJ",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "M2tjqNhmC",
-                        "upgradeId": "MVOkO8_",
-                        "optionId": "CmNu66X"
-                    },
-                    {
-                        "instanceId": "b07cgjELE",
+                        "instanceId": "qVbKNgJfv",
                         "upgradeId": "hwwOKuH",
                         "optionId": "4dRjB"
                     }
@@ -38,32 +33,14 @@
                 "notes": null
             },
             {
-                "id": "Jw0Fw2y",
+                "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Catiel Dakk",
-                "selectionId": "LrZnW",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "6RHfsg7",
-                "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Obed Gungrund",
-                "selectionId": "2MMCE",
+                "selectionId": "8fj2L",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "UzVogSfEY",
-                        "upgradeId": "atyqrYm",
-                        "optionId": "7Vyuew9"
-                    },
-                    {
-                        "instanceId": "74ri4rUyC",
-                        "upgradeId": "krgPQCw",
-                        "optionId": "FutUcB1"
+                        "instanceId": "1ZqSe5Ea2",
+                        "upgradeId": "_S-A6la",
+                        "optionId": "TYTb9hz"
                     }
                 ],
                 "combined": false,
@@ -73,10 +50,70 @@
                 "notes": null
             },
             {
-                "id": "d_dzOfJ",
+                "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Smuge Horthrik",
-                "selectionId": "v0GpZ",
+                "selectionId": "oSkFi",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "-jawmxpNO",
+                        "upgradeId": "_S-A6la",
+                        "optionId": "TYTb9hz"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "FwOWLvi",
+                "armyId": "w15ncjbqsqk3tcet",
+                "selectionId": "NMTGR",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "FqWVdk3Do",
+                        "upgradeId": "grFpVZT",
+                        "optionId": "7GLon"
+                    },
+                    {
+                        "instanceId": "4u4aL9O1X",
+                        "upgradeId": "MVOkO8_",
+                        "optionId": "CmNu66X"
+                    },
+                    {
+                        "instanceId": "q9MaVtlCN",
+                        "upgradeId": "zRVAQ0X",
+                        "optionId": "G8JH-Ru"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "6RHfsg7",
+                "armyId": "w15ncjbqsqk3tcet",
+                "selectionId": "LclG0",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "DOy4vGFYn",
+                        "upgradeId": "atyqrYm",
+                        "optionId": "7Vyuew9"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Jw0Fw2y",
+                "armyId": "w15ncjbqsqk3tcet",
+                "selectionId": "_sItY",
                 "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
@@ -87,11 +124,10 @@
             {
                 "id": "d_dzOfJ",
                 "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Luther Tezlom",
-                "selectionId": "qUnsp",
+                "selectionId": "M3u94",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "dcQ91FxF1",
+                        "instanceId": "1wYqMGBwx",
                         "upgradeId": "lL1tV-x",
                         "optionId": "o4uNh"
                     }
@@ -105,67 +141,12 @@
             {
                 "id": "d_dzOfJ",
                 "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Caleb Greer",
-                "selectionId": "KQq1g",
+                "selectionId": "qMct0",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "jzYpS7eny",
+                        "instanceId": "32fW4PCs3",
                         "upgradeId": "lL1tV-x",
-                        "optionId": "C1LTuRB"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Emil Eredal",
-                "selectionId": "tKNgn",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "lCaAlqWIe",
-                        "upgradeId": "_S-A6la",
-                        "optionId": "TYTb9hz"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Seth Hagail",
-                "selectionId": "iaYoF",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "5JpnVkVZj",
-                        "upgradeId": "_S-A6la",
-                        "optionId": "TYTb9hz"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Titus Nathode",
-                "selectionId": "fBr2g",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "K9nZXND_o",
-                        "upgradeId": "_S-A6la",
-                        "optionId": "TYTb9hz"
+                        "optionId": "xuPcQ7J"
                     }
                 ],
                 "combined": false,
@@ -175,99 +156,22 @@
                 "notes": null
             }
         ],
-        "points": 345,
+        "points": 300,
         "pointsLimit": 300,
-        "creationTime": "1697265145038",
+        "creationTime": "1697291976257",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
-        "unitPreview": null,
-        "selectedUnitId": "uLjiE",
-        "undoUnitRemove": [
-            {
-                "id": "FwOWLvi",
-                "cost": 15,
-                "name": "Feudal Guardsman",
-                "size": 1,
-                "defense": 4,
-                "quality": 5,
-                "upgrades": [
-                    "A1",
-                    "D1",
-                    "E1"
-                ],
-                "equipment": [
-                    {
-                        "id": "G-0bc",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "zYmz6",
-                        "name": "Rifle",
-                        "label": "Rifle",
-                        "range": 24,
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "specialRules": [
-                    {
-                        "key": "fearless",
-                        "name": "Fearless",
-                        "rating": ""
-                    }
-                ],
-                "disabledUpgradeSections": [],
-                "armyId": "w15ncjbqsqk3tcet",
-                "selectedUpgrades": [],
-                "sortId": 2,
-                "selectionId": "LBX49",
-                "combined": false,
-                "joinToUnit": null,
-                "loadout": [
-                    {
-                        "id": "G-0bc",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "zYmz6",
-                        "name": "Rifle",
-                        "label": "Rifle",
-                        "range": 24,
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            }
-        ],
-        "modified": "2023-10-14T06:33:05.377Z"
+        "isCloud": false,
+        "modified": "2023-10-14T14:03:18.032Z",
+        "selectedUnitId": "NMTGR",
+        "unitPreview": null
     },
     "favourite": false,
     "armyVersions": [
         {
-            "armyId": "w15ncjbqsqk3tcet",
-            "version": "3.0.0"
+            "version": "3.0.0",
+            "armyId": "w15ncjbqsqk3tcet"
         }
     ]
 }

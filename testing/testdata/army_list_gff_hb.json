@@ -6,33 +6,28 @@
     ],
     "armyFaction": "Havoc Brothers",
     "armyName": "Havoc Brothers",
-    "modified": "2023-10-14T06:34:24.041Z",
+    "modified": "2023-10-14T14:08:20.537Z",
     "saveVersion": 3,
-    "listPoints": 305,
+    "listPoints": 355,
     "list": {
-        "id": "Px5Sfdtf",
-        "key": "01vnHI6QWHzg5yPEps9P8",
+        "id": "5T4cqnTuKwjb",
+        "key": "St6f1fZOtKGS4siAkEYW1",
         "name": "Havoc Brothers",
         "units": [
             {
                 "id": "eD_a0Ea",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "LijrQ",
+                "selectionId": "H9fO_",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "1h7qVUA5j",
+                        "instanceId": "86habNwuo",
                         "upgradeId": "-2GgkX2",
                         "optionId": "qIHT5"
                     },
                     {
-                        "instanceId": "DCyRK_sFO",
+                        "instanceId": "taUXMZ4vw",
                         "upgradeId": "0tRGmMk",
                         "optionId": "36K0S"
-                    },
-                    {
-                        "instanceId": "m6M0Ox1n4",
-                        "upgradeId": "R3s-sc-",
-                        "optionId": "q5BXAEy"
                     }
                 ],
                 "combined": false,
@@ -44,45 +39,51 @@
             {
                 "id": "xikokQS",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "CxnJo",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "xikokQS",
-                "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "M-xYD",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "xikokQS",
-                "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "YzC2r",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "jINKf6R",
-                "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "HnWIF",
+                "selectionId": "vz8nE",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "zaS_i09Zs",
-                        "upgradeId": "JxBta2M",
-                        "optionId": "QvzQzfr"
+                        "instanceId": "q9_FwvnHy",
+                        "upgradeId": "rEpQY",
+                        "optionId": "0T8PD"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "xikokQS",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "TpVQG",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "4UdZt1hHo",
+                        "upgradeId": "QTmuVej",
+                        "optionId": "nCZWTYA"
+                    },
+                    {
+                        "instanceId": "OT_NP0FjM",
+                        "upgradeId": "xP8BcAh",
+                        "optionId": "kfTmc"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "xikokQS",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "unCyi",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "15-q9Pihb",
+                        "upgradeId": "hxSNT2U",
+                        "optionId": "vr-bWni"
                     }
                 ],
                 "combined": false,
@@ -94,8 +95,58 @@
             {
                 "id": "1qSAYjr",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "O6T3E",
-                "selectedUpgrades": [],
+                "selectionId": "4hKlI",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "kCho6vj4u",
+                        "upgradeId": "si4nIKu",
+                        "optionId": "sLxt1"
+                    },
+                    {
+                        "instanceId": "O1ZLDLmtC",
+                        "upgradeId": "SUZEDSC",
+                        "optionId": "54D3Rtp"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "QpNjo9z",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "Dq_qQ",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "xGGZq-ne7",
+                        "upgradeId": "DwZ_3PT",
+                        "optionId": "ri_BjYQ"
+                    },
+                    {
+                        "instanceId": "2rTRbvex6",
+                        "upgradeId": "kwOteGj",
+                        "optionId": "0B4im"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "jINKf6R",
+                "armyId": "7o6om21wxlvvy3hq",
+                "selectionId": "aYiie",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "i2kDf7kFX",
+                        "upgradeId": "JxBta2M",
+                        "optionId": "MDL9FMa"
+                    }
+                ],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,
@@ -103,111 +154,22 @@
                 "notes": null
             }
         ],
-        "points": 305,
+        "points": 355,
         "pointsLimit": 300,
-        "creationTime": "1697265248512",
+        "creationTime": "1697292381623",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
-        "selectedUnitId": "LijrQ",
-        "unitPreview": null,
-        "undoUnitRemove": [
-            {
-                "id": "jINKf6R",
-                "cost": 65,
-                "name": "Havoc Support",
-                "size": 1,
-                "defense": 3,
-                "quality": 3,
-                "upgrades": [
-                    "F1"
-                ],
-                "equipment": [
-                    {
-                        "id": "TLV3p",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "y5U0c",
-                        "label": "Heavy Machinegun",
-                        "range": 30,
-                        "attacks": 3,
-                        "specialRules": [
-                            {
-                                "key": "ap",
-                                "name": "AP",
-                                "rating": "1",
-                                "modify": false
-                            }
-                        ],
-                        "name": "Heavy Machinegun",
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "specialRules": [
-                    {
-                        "key": "relentless",
-                        "name": "Relentless",
-                        "rating": ""
-                    }
-                ],
-                "disabledUpgradeSections": [],
-                "armyId": "7o6om21wxlvvy3hq",
-                "selectedUpgrades": [],
-                "sortId": 6,
-                "loadout": [
-                    {
-                        "id": "TLV3p",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 1,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "y5U0c",
-                        "label": "Heavy Machinegun",
-                        "range": 30,
-                        "attacks": 3,
-                        "specialRules": [
-                            {
-                                "key": "ap",
-                                "name": "AP",
-                                "rating": "1",
-                                "modify": false
-                            }
-                        ],
-                        "name": "Heavy Machinegun",
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "selectionId": "NuTT1",
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            }
-        ],
-        "modified": "2023-10-14T06:34:24.041Z"
+        "isCloud": false,
+        "modified": "2023-10-14T14:08:20.537Z",
+        "selectedUnitId": "aYiie",
+        "unitPreview": null
     },
     "favourite": false,
     "armyVersions": [
         {
-            "armyId": "7o6om21wxlvvy3hq",
-            "version": "3.1.0"
+            "version": "3.1.0",
+            "armyId": "7o6om21wxlvvy3hq"
         }
     ]
 }
