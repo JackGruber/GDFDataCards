@@ -44,17 +44,30 @@ def test_addEquipment():
 
 def test_getSpecialRules_Weapons():
     testCases = [
-        {'unit': 0, 'equipment': 1, 'expected': []},
-        {'unit': 1, 'equipment': 1, 'expected': [
-            {'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}]},
-        {'unit': 8, 'equipment': 1, 'expected': [{'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {
-            'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}]},
-    ]
-    for test in testCases:
-        rules = armyBookHdf["units"][test['unit']]["equipment"][test['equipment']]['specialRules']
-        result = OPRDatacard.getSpecialRules(rules)
-        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
+        {'unit': 'Company Leader', 'equipment': 'Master Rifle', 
+            'expected': []},
+        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
+            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}]},
+        {'unit': 'Cavalry', 'equipment': 'Hunting Lance', 
+            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}, {'key': 'lance', 'name': 'Lance', 'rating': '', 'modify': False, 'label': 'Lance'}]},
 
+    ]
+
+    units = armyBookHdf["units"]
+    
+    for test in testCases:
+        specialRules = None
+        for unit in units:
+            if unit['name'].lower() == test['unit'].lower():
+                for equipment in unit['equipment']:
+                    if equipment['name'].lower() == test['equipment'].lower():
+                        specialRules = equipment['specialRules']
+                        break
+            if specialRules is not None:
+                break
+        
+        result = OPRDatacard.getSpecialRules(specialRules)
+        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
 
 def test_getWeapon():
     testCases = [
