@@ -3,15 +3,15 @@
     "gameSystem": "gf",
     "gameSystemId": 2,
     "armyName": "Prime Brothers",
-    "listPoints": 370,
-    "listName": "Testing Liste one",
+    "listPoints": 320,
+    "listName": "Prime Brothers",
     "units": [
         {
             "type": "Desolator Squad",
-            "name": "Red Squad",
+            "name": "Desolator Squad",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "81WTJ34",
-            "cost": 230,
+            "cost": 210,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -22,17 +22,34 @@
             "notes": null,
             "weapons": [
                 {
-                    "attacks": 2,
+                    "attacks": 1,
                     "count": 5,
-                    "name": "CCWs",
+                    "name": "CCW",
                     "specialRules": []
                 },
                 {
                     "attacks": 2,
                     "count": 2,
-                    "name": "HE-Launchers",
+                    "name": "HE-Launcher",
                     "range": 30,
                     "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 2,
+                    "name": "AT-Launcher",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "lock-on",
+                            "name": "Lock-On",
+                            "type": "ArmyBookRule",
+                            "label": "Lock-On",
+                            "modify": false,
+                            "rating": ""
+                        }
+                    ],
+                    "ap": "2"
                 },
                 {
                     "attacks": 1,
@@ -60,26 +77,9 @@
                 },
                 {
                     "attacks": 1,
-                    "count": 2,
-                    "name": "AT-Launcher",
-                    "range": 30,
-                    "specialRules": [
-                        {
-                            "key": "lock-on",
-                            "name": "Lock-On",
-                            "type": "ArmyBookRule",
-                            "label": "Lock-On",
-                            "modify": false,
-                            "rating": ""
-                        }
-                    ],
-                    "ap": "2"
-                },
-                {
-                    "attacks": 1,
                     "count": 5,
-                    "name": "Mini-GLs",
-                    "range": 24,
+                    "name": "Mini-GL",
+                    "range": 18,
                     "specialRules": [
                         {
                             "key": "indirect",
@@ -109,11 +109,11 @@
                 }
             ],
             "upgradeCost": [
+                5,
+                5,
                 20,
-                5,
-                5,
-                55,
-                55
+                50,
+                30
             ]
         }
     ]

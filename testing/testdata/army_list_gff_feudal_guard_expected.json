@@ -7,16 +7,81 @@
     "listName": "GFF - 300pt - Feudal Guard",
     "units": [
         {
-            "type": "Feudal Leader",
+            "type": "Feudal Captain",
             "name": "Thaddeus Taho",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "tHC6KYN",
-            "cost": 40,
+            "cost": 50,
             "defense": 4,
             "quality": 4,
             "upgrades": [
+                "C1",
+                "gcZIg"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": "2",
+                    "count": 1,
+                    "name": "Cpt. Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "specialRules": [
+                {
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "name": "Hero",
+                    "rating": "",
+                    "label": "Hero"
+                },
+                {
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                }
+            ],
+            "upgradeCost": [
+                50
+            ],
+            "equipment": [
+                {
+                    "name": "Strategist",
+                    "specialRules": [
+                        {
+                            "name": "Ballistics Console",
+                            "type": "ArmyBookRule",
+                            "label": "Ballistics Console",
+                            "modify": false,
+                            "rating": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Feudal Guardsman",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "cost": 15,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
                 "A1",
-                "C1"
+                "D1",
+                "E1"
             ],
             "size": 1,
             "notes": null,
@@ -26,6 +91,90 @@
                     "count": 1,
                     "name": "Rifle",
                     "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Bayonet",
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Feudal Guardsman",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "cost": 15,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Bayonet",
+                    "specialRules": [],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ]
+        },
+        {
+            "type": "Feudal Guardsman",
+            "name": "Feudal Guardsman",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "cost": 15,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Sgt. Pistol",
+                    "range": 12,
                     "specialRules": []
                 },
                 {
@@ -46,72 +195,79 @@
             ],
             "specialRules": [
                 {
-                    "key": "fearless",
                     "name": "Fearless",
                     "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "hero",
-                    "name": "Hero",
+                    "name": "Field Radio",
+                    "type": "ArmyBookRule",
+                    "label": "Field Radio",
                     "rating": "",
-                    "label": "Hero"
-                },
-                {
-                    "key": "tough",
-                    "name": "Tough",
-                    "rating": "3",
-                    "label": "Tough(3)"
+                    "count": 1
                 }
             ],
             "upgradeCost": [
-                10,
-                20,
+                0,
+                5,
                 5
+            ]
+        },
+        {
+            "type": "Feudal Elite",
+            "name": "Feudal Elite",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "6RHfsg7",
+            "cost": 25,
+            "defense": 3,
+            "quality": 4,
+            "upgrades": [
+                "B1",
+                "D1",
+                "I1"
             ],
-            "equipment": [
+            "size": 1,
+            "notes": null,
+            "weapons": [
                 {
-                    "name": "Feudal Steed",
-                    "specialRules": [
-                        {
-                            "key": "fast",
-                            "name": "Fast",
-                            "type": "ArmyBookRule",
-                            "label": "Fast",
-                            "modify": false,
-                            "rating": ""
-                        },
-                        {
-                            "key": "impact",
-                            "name": "Impact",
-                            "type": "ArmyBookRule",
-                            "label": "Impact(1)",
-                            "modify": false,
-                            "rating": "1"
-                        }
-                    ]
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
                 },
                 {
-                    "name": "Strategist",
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Shred Rifle",
+                    "range": 18,
                     "specialRules": [
                         {
-                            "key": "ballistics console",
-                            "name": "Ballistics Console",
+                            "key": "rending",
+                            "name": "Rending",
                             "type": "ArmyBookRule",
-                            "label": "Ballistics Console",
-                            "modify": false,
+                            "label": "Rending",
                             "rating": ""
                         }
                     ]
                 }
+            ],
+            "specialRules": [
+                {
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                }
+            ],
+            "upgradeCost": [
+                5
             ]
         },
         {
             "type": "Feudal Sniper",
-            "name": "Catiel Dakk",
+            "name": "Feudal Sniper",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "Jw0Fw2y",
-            "cost": 45,
+            "cost": 50,
             "defense": 4,
             "quality": 5,
             "upgrades": [],
@@ -131,11 +287,11 @@
                     "range": 30,
                     "specialRules": [
                         {
-                            "key": "sniper",
-                            "name": "Sniper",
+                            "key": "reliable",
+                            "name": "Reliable",
                             "rating": "",
                             "modify": false,
-                            "label": "Sniper"
+                            "label": "Reliable"
                         }
                     ],
                     "ap": "1"
@@ -143,19 +299,16 @@
             ],
             "specialRules": [
                 {
-                    "key": "fearless",
                     "name": "Fearless",
                     "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "scout",
                     "name": "Scout",
                     "rating": "",
                     "label": "Scout"
                 },
                 {
-                    "key": "stealth",
                     "name": "Stealth",
                     "rating": "",
                     "label": "Stealth"
@@ -163,23 +316,85 @@
             ]
         },
         {
-            "type": "Feudal Elite",
-            "name": "Obed Gungrund",
+            "type": "Feudal Specialist",
+            "name": "Feudal Specialist",
             "armyId": "w15ncjbqsqk3tcet",
-            "id": "6RHfsg7",
+            "id": "d_dzOfJ",
             "cost": 25,
-            "defense": 3,
-            "quality": 4,
+            "defense": 4,
+            "quality": 5,
             "upgrades": [
-                "B1",
-                "D1",
-                "I1"
+                "G1"
             ],
             "size": 1,
             "notes": null,
             "weapons": [
                 {
-                    "attacks": 3,
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Flamer",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "label": "Blast(3)",
+                            "modify": false,
+                            "rating": 3
+                        },
+                        {
+                            "name": "Reliable",
+                            "type": "ArmyBookRule",
+                            "label": "Reliable",
+                            "modify": false
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "name": "Relentless",
+                    "rating": "",
+                    "label": "Relentless"
+                }
+            ],
+            "upgradeCost": [
+                10
+            ]
+        },
+        {
+            "type": "Feudal Specialist",
+            "name": "Feudal Specialist",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "d_dzOfJ",
+            "cost": 25,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
                     "count": 1,
                     "name": "Shred Rifle",
                     "range": 18,
@@ -192,300 +407,22 @@
                             "rating": ""
                         }
                     ]
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Energy Fist",
-                    "specialRules": [],
-                    "ap": "4"
                 }
             ],
             "specialRules": [
                 {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                10,
-                15
-            ]
-        },
-        {
-            "type": "Feudal Specialist",
-            "name": "Smuge Horthrik",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "d_dzOfJ",
-            "cost": 20,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Plasma Rifle",
-                    "range": 24,
-                    "specialRules": [],
-                    "ap": "4"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
                     "name": "Fearless",
                     "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ]
-        },
-        {
-            "type": "Feudal Specialist",
-            "name": "Luther Tezlom",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "d_dzOfJ",
-            "cost": 20,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 6,
-                    "count": 1,
-                    "name": "Flamethrower",
-                    "range": 12,
-                    "specialRules": []
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "key": "relentless",
                     "name": "Relentless",
                     "rating": "",
                     "label": "Relentless"
                 }
             ],
             "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Specialist",
-            "name": "Caleb Greer",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "d_dzOfJ",
-            "cost": 20,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Grenade Launcher",
-                    "range": 24,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "type": "ArmyBookRule",
-                            "label": "Blast(3)",
-                            "modify": false,
-                            "rating": "3"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Emil Eredal",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Bayonets",
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Seth Hagail",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Bayonets",
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Titus Nathode",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Bayonets",
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
+                -5
             ]
         }
     ]
