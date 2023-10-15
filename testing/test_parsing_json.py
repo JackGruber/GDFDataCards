@@ -10,12 +10,28 @@ armyBookHdf = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army
 
 
 def test_addEquipment():
-    upgrade = armyBookHdf["upgradePackages"][2]["sections"][0]["options"][3]
+    upgrade = armyBookHdf["upgradePackages"][0]["sections"][0]["options"][0]
+    upgrade = "Forward Observer"
 
-    result = OPRDatacard.addEquipment(upgrade['gains'][0])
-    print(result)
-    expected = {'name': 'Forward Observer', 'specialRules': [
-        {'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}
+    for upgradePackages in armyBookHdf["upgradePackages"]:
+        for section in upgradePackages['sections']:
+            for option in section['options']:
+                if option['gains'][0]['name'].lower() == upgrade.lower():
+                    gains = option['gains'][0]
+                    break
+
+    result = OPRDatacard.addEquipment(gains)
+    expected = {'name': 'Forward Observer', 
+                    'specialRules': [
+                        {'key': 'take aim', 
+                        'name': 'Take Aim', 
+                        'type': 'ArmyBookRule', 
+                        'label': 'Take Aim', 
+                        'modify': False, 
+                        'rating': ''
+                        }
+                    ]
+                }
 
     assert result['name'] == "Forward Observer"
     assert len(result['specialRules']) == 1
