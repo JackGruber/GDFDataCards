@@ -71,24 +71,28 @@ def test_getSpecialRules_Weapons():
 
 def test_getWeapon():
     testCases = [
-        {'unit': 0, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Rifle', 'range': 24, 'specialRules': [], 'count': 1}},
-        {'unit': 1, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Heavy Rifle',
-                                                 'range': 24, 'specialRules': [], 'ap': '1', 'count': 1}},
-        {'unit': 4, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Plasma Rifle',
-                                                 'range': 24, 'specialRules': [], 'ap': '4', 'count': 1}},
-        {'unit': 8, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mortar', 'range': 30, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}], 'count': 1}},
-        {'unit': 9, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Sniper Rifle', 'range': 30, 'specialRules': [
-            {'key': 'sniper', 'name': 'Sniper', 'rating': '', 'modify': False, 'label': 'Sniper'}], 'ap': '1', 'count': 1}},
-        {'unit': 10, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mini GL', 'range': 18, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}], 'count': 1}},
+        {'unit': 'Company Leader', 'equipment': 'CCW', 
+            'expected': {'attacks': 1, 'count': 1, 'name': 'CCW', 'specialRules': []}},
+        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
+            'expected': {'attacks': 2, 'count': 1, 'name': 'Master Heavy Rifle', 'range': 24, 'specialRules': [], 'ap': '1'}},
+        {'unit': 'Special Weapon', 'equipment': 'Grenade Launcher', 
+            'expected': {'attacks': 1, 'count': 1, 'name': 'Grenade Launcher', 'range': 24, 'specialRules': [{'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}]}},
     ]
 
+    units = armyBookHdf["units"]
     for test in testCases:
-        weapon = armyBookHdf["units"][test['unit']]["equipment"][test['equipment']]
+        weapon = None
+        for unit in units:
+            if unit['name'].lower() == test['unit'].lower():
+                for equipment in unit['equipment']:
+                    if equipment['name'].lower() == test['equipment'].lower():
+                        weapon = equipment
+                        break
+            if weapon is not None:
+                break
+
         result = OPRDatacard.getWeapon(weapon)
         assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
-
 
 def test_removeWeapon():
     weapons = [{'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
