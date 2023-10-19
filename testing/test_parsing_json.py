@@ -147,19 +147,18 @@ def test_getUnitUpgrades():
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
     assert result == {'size': 1, 'weapons': []}, "No upgrades"
 
-    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
-        {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Heavy Pistol',
-                                        'range': 12, 'specialRules': [], 'ap': '1'}], 'upgradeCost': [0]}
+    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [{ "instanceId": "8E9g2SWmn", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"},]}
+    expected = {'size': 1, 'weapons': [], 'upgradeCost': [50], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "Upgrade Heavy Pistol"
+    assert result == expected, "One Upgrade"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
-        {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [], 'ap': '4'}], 'upgradeCost': [0, 5, 35], 'equipment': [
-        {'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
+                    {"instanceId": "8E9g2SWmn","upgradeId": "r5XpHsA","optionId": "8reDsp0"},
+                    {"instanceId": "rA1CrnoXB","upgradeId": "F8Om0","optionId": "6omIv"},
+                    {"instanceId": "TAXwR2a7W","upgradeId": "O0U5OGl","optionId": "yKOK0P1"}]}
+    expected = {'size': 1, 'weapons': [{'attacks': 2, 'count': 1, 'name': 'Energy Fist', 'specialRules': [], 'ap': 4}], 'upgradeCost': [50, 5, 15], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}, {'name': 'Heavy Armor', 'specialRules': [{'name': 'Defense', 'type': 'ArmyBookRule', 'label': 'Defense(1)', 'modify': True, 'rating': 1}]}]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "3 Upgrades to (Heavy Pistol, than to Plasma and Take Aim)"
+    assert result == expected, "3 Upgrades"
 
 
 def test_getUnit():
