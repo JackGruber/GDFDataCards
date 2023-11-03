@@ -766,7 +766,7 @@ def parseArmyTextList(armyListText):
 
 def getUnit(unit, jsonArmyBookList):
     if DEBUG == True:
-        print("Func: getUnit")
+        print("    Func: getUnit")
     data = {}
     for listUnit in jsonArmyBookList[unit['armyId']]['units']:
         if (listUnit['id'] == unit['id']):
@@ -813,7 +813,7 @@ def getSpecialRules(data):
 
 def getWeapon(data, modCount=-1):
     if DEBUG == True:
-        print("Func: getWeapon")
+        print("    Func: getWeapon")
 
     weapon = {}
     weapon['attacks'] = data['attacks']
@@ -856,7 +856,7 @@ def removeWeapon(removeWeapon, count: int, weapons):
 
 def getUnitUpgrades(unit, unitData, jsonArmyBookList):
     if DEBUG == True:
-        print("Func: getUnitUpgrades")
+        print("    Func: getUnitUpgrades")
 
     for upgrade in unit['selectedUpgrades']:
         armyId = unit['armyId']
@@ -921,7 +921,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
 def mergeWeapon(weapons):
     if DEBUG == True:
-        print("Func: mergeWeapon")
+        print("    Func: mergeWeapon")
 
     mergedWeapons = []
     for weapon in weapons:
@@ -967,6 +967,7 @@ def parseArmyJsonList(armyListJsonFile: str):
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
         unitData = getUnit(unit, jsonArmyBookList)
+        print(" ", unitData['name'], "(", unitData['id'], ")")
         if unitData != {}:
             armyData['units'].append(unitData)
 
