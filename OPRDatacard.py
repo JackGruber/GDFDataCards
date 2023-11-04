@@ -892,9 +892,25 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                         modeCount = -1
                                     unitData['weapons'].append(getWeapon(gains, modeCount))
                                 elif gains['type'] == "ArmyBookItem":
-                                    if 'equipment' not in unitData:
-                                        unitData['equipment'] = []
-                                    unitData['equipment'].append(addEquipment(gains))
+                                    if len(gains['content']) == 1:
+                                        if 'equipment' not in unitData:
+                                            unitData['equipment'] = []
+                                        unitData['equipment'].append(addEquipment(gains))
+                                    else:
+                                        if 'equipment' not in unitData:
+                                            unitData['equipment'] = []
+                                        unitData['equipment'].append(addEquipment(gains, False))
+
+                                        for gain in gains['content']:
+                                            if gain['type'] == "ArmyBookItem":
+                                                if 'equipment' not in unitData:
+                                                    unitData['equipment'] = []
+                                                unitData['equipment'].append(addEquipment(gains))
+                                            elif gain['type'] == "ArmyBookWeapon":
+                                                unitData['weapons'].append(getWeapon(gain,1))
+                                            elif gain['type'] == "ArmyBookRule":
+                                                print(gain)
+                                                unitData['specialRules'].append(getSpecialRules([gain])[0])
                                 elif gains['type'] == "ArmyBookRule":
                                     unitData['specialRules'].append(getSpecialRules([gains])[0])
                                 else:
@@ -902,7 +918,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
 
                             if variant == "replace":
-                                if (gains['type'] == "ArmyBookWeapon"):
+                                if (gains['type'] == "ArmyBookWeapon" or gains['type'] == "ArmyBookItem"):
                                     if affects and affects['type'] == "any":
                                         # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
                                         affectsValue = 1
@@ -939,10 +955,13 @@ def mergeWeapon(weapons):
     return mergedWeapons
 
 
-def addEquipment(data):
+def addEquipment(data, specialRules = True):
     equipment = {}
     equipment['name'] = data['name']
-    equipment['specialRules'] = getSpecialRules(data['content'])
+    if specialRules == True:
+        equipment['specialRules'] = getSpecialRules(data['content'])
+    else:
+        equipment['specialRules'] = []
 
     return equipment
 

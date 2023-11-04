@@ -102,18 +102,37 @@
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
+                    "name": "Missile Launcher",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "name": "Deadly",
+                            "rating": 3,
+                            "label": "Deadly(3)"
+                        },
+                        {
+                            "name": "Lock-On",
+                            "label": "Lock-On"
+                        }
+                    ],
+                    "ap": 2
                 },
                 {
-                    "attacks": 1,
+                    "attacks": 2,
                     "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
+                    "name": "Crew",
                     "specialRules": []
                 }
             ],
             "specialRules": [
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "type": "ArmyBookRule",
+                    "label": "Tough(3)",
+                    "modify": false,
+                    "rating": "3"
+                },
                 {
                     "key": "medical-training",
                     "name": "Medical Training",
@@ -131,48 +150,7 @@
             "equipment": [
                 {
                     "name": "Weapon Team",
-                    "specialRules": [
-                        {
-                            "id": "dn0IBXYw",
-                            "name": "Missile Launcher",
-                            "type": "ArmyBookWeapon",
-                            "label": "Missile Launcher",
-                            "range": 30,
-                            "attacks": 1,
-                            "weaponId": "dn0IBXYw",
-                            "specialRules": [
-                                {
-                                    "name": "AP",
-                                    "rating": 2
-                                },
-                                {
-                                    "name": "Deadly",
-                                    "rating": 3
-                                },
-                                {
-                                    "name": "Lock-On"
-                                }
-                            ]
-                        },
-                        {
-                            "id": "iPNVsjGB",
-                            "name": "Crew",
-                            "type": "ArmyBookWeapon",
-                            "label": "Crew",
-                            "range": 0,
-                            "attacks": 2,
-                            "weaponId": "uGIqWrDI",
-                            "specialRules": []
-                        },
-                        {
-                            "key": "tough",
-                            "name": "Tough",
-                            "type": "ArmyBookRule",
-                            "label": "Tough(3)",
-                            "modify": false,
-                            "rating": "3"
-                        }
-                    ]
+                    "specialRules": []
                 },
                 {
                     "name": "Recon Kits",
