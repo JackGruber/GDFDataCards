@@ -841,6 +841,8 @@ def getWeapon(data, modCount=-1):
 
 
 def removeWeapon(removeWeapon, count: int, weapons):
+    if DEBUG == True:
+        print("    Func: removeWeapon", removeWeapon)
     for remove in removeWeapon:
         for i in range(len(weapons)):
             remove = remove.strip()
@@ -966,8 +968,8 @@ def parseArmyJsonList(armyListJsonFile: str):
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
+        print("  Unit ID:" + unit['id'])
         unitData = getUnit(unit, jsonArmyBookList)
-        print(" ", unitData['name'], "(", unitData['id'], ")")
         if unitData != {}:
             armyData['units'].append(unitData)
 
