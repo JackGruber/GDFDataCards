@@ -916,7 +916,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                                     unitData['weapons'] = removeWeapon(targets, affectsValue, unitData['weapons'])
                                 else:
-                                    print(f"Unhandelt type '{variant}' in unit upgrades")
+                                    print(f"Unhandelt type '{gains['type']}' in unit upgrades")
 
     return unitData
 
