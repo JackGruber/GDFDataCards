@@ -6,59 +6,33 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2023-05-02T20:16:50.564Z",
+    "modified": "2023-10-14T14:12:01.653Z",
     "saveVersion": 3,
-    "listPoints": 300,
+    "listPoints": 350,
     "list": {
-        "id": "k-3BLwFU",
-        "key": "uccsWgJpi6oI6UelDeJYc",
-        "name": "FF  - 300pt - Prime Brothers",
+        "id": "UH-dFYSwXVZi",
+        "key": "3gLSbzEApWjwko4cWvWzy",
+        "name": "Prime Brothers",
         "units": [
             {
-                "id": "0PbBL8m",
+                "id": "Z2WiRfh",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Kasz Daeraq",
-                "selectionId": "yY6hO",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "PoRVpWT",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Korves Sevovax",
-                "selectionId": "FkP8K",
+                "selectionId": "8hK_N",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "JMrKS3ZlO",
-                        "upgradeId": "QVDSnps",
-                        "optionId": "bqqWG"
+                        "instanceId": "AcNhrecuJ",
+                        "upgradeId": "BCvkhSe",
+                        "optionId": "fwO6jFd"
                     },
                     {
-                        "instanceId": "UNsQBJoEF",
-                        "upgradeId": "_4gaBfU",
-                        "optionId": "MX1K8N1"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "meWSgTo",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Moranis Coreck",
-                "selectionId": "dxn2t",
-                "selectedUpgrades": [
+                        "instanceId": "WD2CyBmQF",
+                        "upgradeId": "MovgoCq",
+                        "optionId": "d6wOTSF"
+                    },
                     {
-                        "instanceId": "F0lnO4TfG",
-                        "upgradeId": "yUrGsDr",
-                        "optionId": "B4FS3"
+                        "instanceId": "W9QLUGgl_",
+                        "upgradeId": "80QB0Hq",
+                        "optionId": "cd-2wsN"
                     }
                 ],
                 "combined": false,
@@ -70,13 +44,17 @@
             {
                 "id": "hvNiOwU",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Corveve Aasil",
-                "selectionId": "tHM_J",
+                "selectionId": "Q7qdQ",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "stm0TUltP",
-                        "upgradeId": "5vRO_TO",
-                        "optionId": "IQcoGXv"
+                        "instanceId": "A_NOsLoyO",
+                        "upgradeId": "qDSztwg",
+                        "optionId": "m9jFfBF"
+                    },
+                    {
+                        "instanceId": "Hm7SLybjg",
+                        "upgradeId": "8l4r8",
+                        "optionId": "kaY44"
                     }
                 ],
                 "combined": false,
@@ -86,10 +64,9 @@
                 "notes": null
             },
             {
-                "id": "PoRVpWT",
+                "id": "NeuN0Gx",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Breed Sevarus",
-                "selectionId": "S0pf6",
+                "selectionId": "kmMjq",
                 "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
@@ -98,11 +75,16 @@
                 "notes": null
             },
             {
-                "id": "Z2WiRfh",
+                "id": "0PbBL8m",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "customName": "Raquilon Zandtus",
-                "selectionId": "ISvb7",
-                "selectedUpgrades": [],
+                "selectionId": "z_4pO",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "bFPv-yqRX",
+                        "upgradeId": "rH5Mlxw",
+                        "optionId": "Fj2ZT9R"
+                    }
+                ],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,
@@ -110,127 +92,22 @@
                 "notes": null
             }
         ],
-        "points": 300,
+        "points": 350,
         "pointsLimit": 300,
-        "creationTime": "1683057696142",
+        "creationTime": "1697292673994",
         "campaignMode": false,
         "competitive": true,
         "gameSystem": "gff",
-        "unitPreview": null,
-        "selectedUnitId": null,
-        "undoUnitRemove": [
-            {
-                "id": "qGGJpGt",
-                "cost": 55,
-                "name": "Elite Raider",
-                "size": 1,
-                "defense": 3,
-                "quality": 4,
-                "upgrades": [
-                    "A1",
-                    "C1",
-                    "qIWMF"
-                ],
-                "equipment": [
-                    {
-                        "id": "UIP8k",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 3,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "Wjypj",
-                        "name": "Heavy Pistol",
-                        "label": "Heavy Pistol",
-                        "range": 12,
-                        "attacks": 1,
-                        "specialRules": [
-                            {
-                                "key": "ap",
-                                "name": "AP",
-                                "rating": "1",
-                                "modify": false
-                            }
-                        ],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "specialRules": [
-                    {
-                        "key": "fearless",
-                        "name": "Fearless",
-                        "rating": ""
-                    },
-                    {
-                        "key": "furious",
-                        "name": "Furious",
-                        "rating": "",
-                        "additional": false
-                    },
-                    {
-                        "key": "hero",
-                        "name": "Hero",
-                        "rating": ""
-                    },
-                    {
-                        "key": "strider",
-                        "name": "Strider",
-                        "rating": ""
-                    },
-                    {
-                        "key": "tough",
-                        "name": "Tough",
-                        "rating": "3"
-                    }
-                ],
-                "disabledUpgradeSections": [],
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectedUpgrades": [],
-                "sortId": 1,
-                "selectionId": "PHWGi",
-                "combined": false,
-                "joinToUnit": null,
-                "loadout": [
-                    {
-                        "id": "UIP8k",
-                        "name": "CCW",
-                        "label": "CCW",
-                        "attacks": 3,
-                        "specialRules": [],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    },
-                    {
-                        "id": "Wjypj",
-                        "name": "Heavy Pistol",
-                        "label": "Heavy Pistol",
-                        "range": 12,
-                        "attacks": 1,
-                        "specialRules": [
-                            {
-                                "key": "ap",
-                                "name": "AP",
-                                "rating": "1",
-                                "modify": false
-                            }
-                        ],
-                        "count": 1,
-                        "originalCount": 1,
-                        "type": "ArmyBookWeapon"
-                    }
-                ],
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            }
-        ]
+        "isCloud": false,
+        "modified": "2023-10-14T14:12:01.653Z",
+        "selectedUnitId": "z_4pO",
+        "unitPreview": null
     },
-    "favourite": false
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.1.0",
+            "armyId": "oqnnu0gk8q6hyyny"
+        }
+    ]
 }

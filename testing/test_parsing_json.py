@@ -10,12 +10,28 @@ armyBookHdf = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army
 
 
 def test_addEquipment():
-    upgrade = armyBookHdf["upgradePackages"][2]["sections"][0]["options"][3]
+    upgrade = armyBookHdf["upgradePackages"][0]["sections"][0]["options"][0]
+    upgrade = "Forward Observer"
 
-    result = OPRDatacard.addEquipment(upgrade['gains'][0])
-    print(result)
-    expected = {'name': 'Forward Observer', 'specialRules': [
-        {'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}
+    for upgradePackages in armyBookHdf["upgradePackages"]:
+        for section in upgradePackages['sections']:
+            for option in section['options']:
+                if option['gains'][0]['name'].lower() == upgrade.lower():
+                    gains = option['gains'][0]
+                    break
+
+    result = OPRDatacard.addEquipment(gains)
+    expected = {'name': 'Forward Observer', 
+                    'specialRules': [
+                        {'key': 'take aim', 
+                        'name': 'Take Aim', 
+                        'type': 'ArmyBookRule', 
+                        'label': 'Take Aim', 
+                        'modify': False, 
+                        'rating': ''
+                        }
+                    ]
+                }
 
     assert result['name'] == "Forward Observer"
     assert len(result['specialRules']) == 1
@@ -28,38 +44,55 @@ def test_addEquipment():
 
 def test_getSpecialRules_Weapons():
     testCases = [
-        {'unit': 0, 'equipment': 1, 'expected': []},
-        {'unit': 1, 'equipment': 1, 'expected': [
-            {'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}]},
-        {'unit': 8, 'equipment': 1, 'expected': [{'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {
-            'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}]},
-    ]
-    for test in testCases:
-        rules = armyBookHdf["units"][test['unit']]["equipment"][test['equipment']]['specialRules']
-        result = OPRDatacard.getSpecialRules(rules)
-        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
+        {'unit': 'Company Leader', 'equipment': 'Master Rifle', 
+            'expected': []},
+        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
+            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}]},
+        {'unit': 'Cavalry', 'equipment': 'Hunting Lance', 
+            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}, {'key': 'lance', 'name': 'Lance', 'rating': '', 'modify': False, 'label': 'Lance'}]},
 
+    ]
+
+    units = armyBookHdf["units"]
+    
+    for test in testCases:
+        specialRules = None
+        for unit in units:
+            if unit['name'].lower() == test['unit'].lower():
+                for equipment in unit['equipment']:
+                    if equipment['name'].lower() == test['equipment'].lower():
+                        specialRules = equipment['specialRules']
+                        break
+            if specialRules is not None:
+                break
+        
+        result = OPRDatacard.getSpecialRules(specialRules)
+        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
 
 def test_getWeapon():
     testCases = [
-        {'unit': 0, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Rifle', 'range': 24, 'specialRules': [], 'count': 1}},
-        {'unit': 1, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Heavy Rifle',
-                                                 'range': 24, 'specialRules': [], 'ap': '1', 'count': 1}},
-        {'unit': 4, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Plasma Rifle',
-                                                 'range': 24, 'specialRules': [], 'ap': '4', 'count': 1}},
-        {'unit': 8, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mortar', 'range': 30, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}, {'key': 'indirect', 'name': 'Indirect', 'rating': '', 'modify': False, 'label': 'Indirect'}], 'count': 1}},
-        {'unit': 9, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Sniper Rifle', 'range': 30, 'specialRules': [
-            {'key': 'sniper', 'name': 'Sniper', 'rating': '', 'modify': False, 'label': 'Sniper'}], 'ap': '1', 'count': 1}},
-        {'unit': 10, 'equipment': 1, 'expected': {'attacks': 1, 'name': 'Mini GL', 'range': 18, 'specialRules': [
-            {'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}], 'count': 1}},
+        {'unit': 'Company Leader', 'equipment': 'CCW', 
+            'expected': {'attacks': 1, 'count': 1, 'name': 'CCW', 'specialRules': []}},
+        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
+            'expected': {'attacks': 2, 'count': 1, 'name': 'Master Heavy Rifle', 'range': 24, 'specialRules': [], 'ap': '1'}},
+        {'unit': 'Special Weapon', 'equipment': 'Grenade Launcher', 
+            'expected': {'attacks': 1, 'count': 1, 'name': 'Grenade Launcher', 'range': 24, 'specialRules': [{'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}]}},
     ]
 
+    units = armyBookHdf["units"]
     for test in testCases:
-        weapon = armyBookHdf["units"][test['unit']]["equipment"][test['equipment']]
+        weapon = None
+        for unit in units:
+            if unit['name'].lower() == test['unit'].lower():
+                for equipment in unit['equipment']:
+                    if equipment['name'].lower() == test['equipment'].lower():
+                        weapon = equipment
+                        break
+            if weapon is not None:
+                break
+
         result = OPRDatacard.getWeapon(weapon)
         assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
-
 
 def test_removeWeapon():
     weapons = [{'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
@@ -114,19 +147,18 @@ def test_getUnitUpgrades():
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
     assert result == {'size': 1, 'weapons': []}, "No upgrades"
 
-    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
-        {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Heavy Pistol',
-                                        'range': 12, 'specialRules': [], 'ap': '1'}], 'upgradeCost': [0]}
+    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [{ "instanceId": "8E9g2SWmn", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"},]}
+    expected = {'size': 1, 'weapons': [], 'upgradeCost': [50], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "Upgrade Heavy Pistol"
+    assert result == expected, "One Upgrade"
 
     unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
-        {"instanceId": "oM5IcF6CY", "upgradeId": "biu0sem", "optionId": "uG08OTq"}, {"instanceId": "QrSaPfNsR", "upgradeId": "KLO_Oyg", "optionId": "8TLlvtc"}, {"instanceId": "29BbXH9Me", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 1, 'count': 1, 'name': 'Plasma Pistol', 'range': 12, 'specialRules': [], 'ap': '4'}], 'upgradeCost': [0, 5, 35], 'equipment': [
-        {'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
+                    {"instanceId": "8E9g2SWmn","upgradeId": "r5XpHsA","optionId": "8reDsp0"},
+                    {"instanceId": "rA1CrnoXB","upgradeId": "F8Om0","optionId": "6omIv"},
+                    {"instanceId": "TAXwR2a7W","upgradeId": "O0U5OGl","optionId": "yKOK0P1"}]}
+    expected = {'size': 1, 'weapons': [{'attacks': 2, 'count': 1, 'name': 'Energy Fist', 'specialRules': [], 'ap': 4}], 'upgradeCost': [50, 5, 15], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}, {'name': 'Heavy Armor', 'specialRules': [{'name': 'Defense', 'type': 'ArmyBookRule', 'label': 'Defense(1)', 'modify': True, 'rating': 1}]}]}
     result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "3 Upgrades to (Heavy Pistol, than to Plasma and Take Aim)"
+    assert result == expected, "3 Upgrades"
 
 
 def test_getUnit():

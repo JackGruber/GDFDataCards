@@ -1,5 +1,7 @@
 # Changelog
 
+# not released
+
 ## v1.0.0 (2023-08-06)
 
 - Fix: Weapons were not removed for upgrades if they are stored as plural

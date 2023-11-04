@@ -218,7 +218,7 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         startX = 2
         startY = dataCardParameters['pdfSize'][1] - 50 - woundsSize
         for rule in unit['specialRules']:
-            if (rule['key'] == "tough"):
+            if (rule['name'].lower() == "tough"):
                 tough = int(rule['rating']) - 1
 
         pdf.setLineJoin(1)
@@ -447,6 +447,7 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
             pdf.drawString(startX + offsetX[4], startY + offsetY, ", ".join(label))
             offsetY -= 10
 
+
 def unitOverview(pdf, dataCardParameters, army):
     startX = dataCardParameters['sideClearance'] + 2
     startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
@@ -455,9 +456,9 @@ def unitOverview(pdf, dataCardParameters, army):
 
     lines = []
     for unit in army['units']:
-        if('type' not in unit):
+        if ('type' not in unit):
             unitInfo = unit['name']
-        elif(unit['type'] != unit['name']):
+        elif (unit['type'] != unit['name']):
             unitInfo = unit['name'] + " (" + unit['type'] + ")"
         else:
             unitInfo = unit['type']
@@ -468,13 +469,14 @@ def unitOverview(pdf, dataCardParameters, army):
 
     pdf.setFont("bold", fontSize)
     pdf.setFillColorRGB(0, 0, 0)
-    pdf.drawString(startX, startY + offsetY, army['listName'] + " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts") 
+    pdf.drawString(startX, startY + offsetY, army['listName'] +
+                   " [" + army['armyName'] + "] - " + str(army['listPoints']) + " pts")
     offsetY -= 15
 
     for line in lines:
         pdf.setFont("regular", fontSize)
         pdf.setFillColorRGB(0, 0, 0)
-        pdf.drawString(startX, startY + offsetY, line) 
+        pdf.drawString(startX, startY + offsetY, line)
         offsetY -= 10
         if startY + offsetY < dataCardParameters['bottomClearance']:
             dataCardBoarderFrame(pdf, dataCardParameters)
@@ -678,8 +680,8 @@ def parseArmyTextList(armyListText):
 
         data = armyListText[0].rstrip(" ++").lstrip("++ ").split("[")
         tmp = data[0].strip().split("-")
-        armyData['armyName'] = tmp[len(tmp) -1].strip()
-        tmp.pop(len(tmp) -1)
+        armyData['armyName'] = tmp[len(tmp) - 1].strip()
+        tmp.pop(len(tmp) - 1)
         armyData['listName'] = "-".join(tmp).strip()
 
         data = data[1].split(" ")
@@ -764,7 +766,7 @@ def parseArmyTextList(armyListText):
 
 def getUnit(unit, jsonArmyBookList):
     if DEBUG == True:
-        print("Func: getUnit")
+        print("    Func: getUnit")
     data = {}
     for listUnit in jsonArmyBookList[unit['armyId']]['units']:
         if (listUnit['id'] == unit['id']):
@@ -798,9 +800,9 @@ def getSpecialRules(data):
     specialRules = []
     for specialRule in data:
         rule = specialRule
-        if specialRule['rating'] != "":
+        if 'rating' in specialRule and specialRule['rating'] != '':
             rule['label'] = specialRule['name'] + \
-                "(" + specialRule['rating'] + ")"
+                "(" + str(specialRule['rating']) + ")"
         else:
             rule['label'] = specialRule['name']
 
@@ -811,7 +813,7 @@ def getSpecialRules(data):
 
 def getWeapon(data, modCount=-1):
     if DEBUG == True:
-        print("Func: getWeapon")
+        print("    Func: getWeapon")
 
     weapon = {}
     weapon['attacks'] = data['attacks']
@@ -830,7 +832,7 @@ def getWeapon(data, modCount=-1):
     weapon['specialRules'] = getSpecialRules(data['specialRules'])
 
     for i in range(len(weapon['specialRules'])):
-        if weapon['specialRules'][i]['key'] == "ap":
+        if weapon['specialRules'][i]['name'].lower() == "ap":
             weapon['ap'] = weapon['specialRules'][i]['rating']
             weapon['specialRules'].pop(i)
             break
@@ -839,6 +841,8 @@ def getWeapon(data, modCount=-1):
 
 
 def removeWeapon(removeWeapon, count: int, weapons):
+    if DEBUG == True:
+        print("    Func: removeWeapon", removeWeapon)
     for remove in removeWeapon:
         for i in range(len(weapons)):
             remove = remove.strip()
@@ -854,7 +858,7 @@ def removeWeapon(removeWeapon, count: int, weapons):
 
 def getUnitUpgrades(unit, unitData, jsonArmyBookList):
     if DEBUG == True:
-        print("Func: getUnitUpgrades")
+        print("    Func: getUnitUpgrades")
 
     for upgrade in unit['selectedUpgrades']:
         armyId = unit['armyId']
@@ -862,15 +866,15 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
         optionId = upgrade['optionId']
         for package in jsonArmyBookList[armyId]['upgradePackages']:
             for section in package['sections']:
-                type = None
+                variant = None
                 affects = None
-                replaceWhat = None
-                if "type" in section:
-                    type = section['type']
+                targets = None
+                if "variant" in section:
+                    variant = section['variant']
                 if "affects" in section:
                     affects = section['affects']
-                if "replaceWhat" in section:
-                    replaceWhat = section['replaceWhat']
+                if "targets" in section:
+                    targets = section['targets']
 
                 if (section['uid'] == upgradeId):
                     for option in section['options']:
@@ -882,46 +886,66 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    if type == "upgrade" and affects == "all":
+                                    if variant == "upgrade" and affects and affects['type'] == "all":
                                         modeCount = unitData['size']
                                     else:
                                         modeCount = -1
                                     unitData['weapons'].append(getWeapon(gains, modeCount))
                                 elif gains['type'] == "ArmyBookItem":
-                                    if 'equipment' not in unitData:
-                                        unitData['equipment'] = []
-                                    unitData['equipment'].append(addEquipment(gains))
+                                    if len(gains['content']) == 1:
+                                        if 'equipment' not in unitData:
+                                            unitData['equipment'] = []
+                                        unitData['equipment'].append(addEquipment(gains))
+                                    else:
+                                        if 'equipment' not in unitData:
+                                            unitData['equipment'] = []
+                                        unitData['equipment'].append(addEquipment(gains, False))
+
+                                        for gain in gains['content']:
+                                            if gain['type'] == "ArmyBookItem":
+                                                if 'equipment' not in unitData:
+                                                    unitData['equipment'] = []
+                                                unitData['equipment'].append(addEquipment(gains))
+                                            elif gain['type'] == "ArmyBookWeapon":
+                                                unitData['weapons'].append(getWeapon(gain,1))
+                                            elif gain['type'] == "ArmyBookRule":
+                                                print(gain)
+                                                unitData['specialRules'].append(getSpecialRules([gain])[0])
                                 elif gains['type'] == "ArmyBookRule":
                                     unitData['specialRules'].append(getSpecialRules([gains])[0])
                                 else:
                                     print("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
 
-                            if type == "replace":
-                                if (gains['type'] == "ArmyBookWeapon"):
-                                    if affects == "any":
+                            if variant == "replace":
+                                if (gains['type'] == "ArmyBookWeapon" or gains['type'] == "ArmyBookItem"):
+                                    if affects and affects['type'] == "any":
                                         # Not sure, but by Desolator Squad HE-Launchers missing during upgrade uNapO (Replace any HE-Launcher), workarround set affects to 1
-                                        affects = 1
+                                        affectsValue = 1
+                                    elif affects and affects['type'] == "exactly":
+                                        affectsValue = affects['value']
+                                    elif affects is None:
+                                        affectsValue = 999
 
                                     if unitData['size'] > 1:
                                         unitData['weapons'] = mergeWeapon(unitData['weapons'])
 
-                                    unitData['weapons'] = removeWeapon(replaceWhat, affects, unitData['weapons'])
+                                    unitData['weapons'] = removeWeapon(targets, affectsValue, unitData['weapons'])
                                 else:
-                                    print(f"Unhandelt type '{type}' in unit upgrades")
+                                    print(f"Unhandelt type '{gains['type']}' in unit upgrades")
 
     return unitData
 
 
 def mergeWeapon(weapons):
     if DEBUG == True:
-        print("Func: mergeWeapon")
+        print("    Func: mergeWeapon")
 
     mergedWeapons = []
     for weapon in weapons:
         add = True
         for added in mergedWeapons:
-            if added['name'] == weapon['name']:
+            if added['name'] == weapon['name'] and added['attacks'] == weapon['attacks'] and added['ap'] == weapon['ap']:
                 added['count'] += weapon['count']
                 add = False
                 break
@@ -931,10 +955,13 @@ def mergeWeapon(weapons):
     return mergedWeapons
 
 
-def addEquipment(data):
+def addEquipment(data, specialRules = True):
     equipment = {}
     equipment['name'] = data['name']
-    equipment['specialRules'] = getSpecialRules(data['content'])
+    if specialRules == True:
+        equipment['specialRules'] = getSpecialRules(data['content'])
+    else:
+        equipment['specialRules'] = []
 
     return equipment
 
@@ -960,6 +987,7 @@ def parseArmyJsonList(armyListJsonFile: str):
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
+        print("  Unit ID:" + unit['id'])
         unitData = getUnit(unit, jsonArmyBookList)
         if unitData != {}:
             armyData['units'].append(unitData)

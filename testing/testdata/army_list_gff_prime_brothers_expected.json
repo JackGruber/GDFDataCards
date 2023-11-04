@@ -3,281 +3,12 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Prime Brothers",
-    "listPoints": 300,
-    "listName": "FF  - 300pt - Prime Brothers",
+    "listPoints": 350,
+    "listName": "Prime Brothers",
     "units": [
         {
-            "type": "Eliminator",
-            "name": "Kasz Daeraq",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "0PbBL8m",
-            "cost": 60,
-            "defense": 3,
-            "quality": 3,
-            "upgrades": [],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Sniper Rifle",
-                    "range": 30,
-                    "specialRules": [
-                        {
-                            "key": "sniper",
-                            "name": "Sniper",
-                            "rating": "",
-                            "modify": false,
-                            "label": "Sniper"
-                        }
-                    ],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "key": "scout",
-                    "name": "Scout",
-                    "rating": "",
-                    "label": "Scout"
-                },
-                {
-                    "key": "stealth",
-                    "name": "Stealth",
-                    "rating": "",
-                    "label": "Stealth"
-                }
-            ]
-        },
-        {
-            "type": "Prime Brother",
-            "name": "Korves Sevovax",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "PoRVpWT",
-            "cost": 35,
-            "defense": 2,
-            "quality": 3,
-            "upgrades": [
-                "A1",
-                "H1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Auto-Rifle",
-                    "range": 18,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Grenade-Mod",
-                    "range": 12,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "type": "ArmyBookRule",
-                            "label": "Blast(3)",
-                            "rating": "3"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5,
-                10
-            ]
-        },
-        {
-            "type": "Infiltrator",
-            "name": "Moranis Coreck",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "meWSgTo",
-            "cost": 30,
-            "defense": 3,
-            "quality": 4,
-            "upgrades": [
-                "F1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Marksman Carbine",
-                    "range": 18,
-                    "specialRules": [
-                        {
-                            "key": "rending",
-                            "name": "Rending",
-                            "rating": "",
-                            "modify": false,
-                            "label": "Rending"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "key": "scout",
-                    "name": "Scout",
-                    "rating": "",
-                    "label": "Scout"
-                },
-                {
-                    "key": "strider",
-                    "name": "Strider",
-                    "rating": "",
-                    "label": "Strider"
-                }
-            ],
-            "upgradeCost": [
-                10
-            ],
-            "equipment": [
-                {
-                    "name": "Scopes",
-                    "specialRules": [
-                        {
-                            "key": "sniper",
-                            "name": "Sniper",
-                            "type": "ArmyBookRule",
-                            "label": "Sniper",
-                            "modify": false,
-                            "rating": ""
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "Assault Prime Brother",
-            "name": "Corveve Aasil",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "hvNiOwU",
-            "cost": 35,
-            "defense": 2,
-            "quality": 3,
-            "upgrades": [
-                "G1",
-                "A1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 3,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Plasma Pistol",
-                    "range": 12,
-                    "specialRules": [],
-                    "ap": "4"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Prime Brother",
-            "name": "Breed Sevarus",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "PoRVpWT",
-            "cost": 35,
-            "defense": 2,
-            "quality": 3,
-            "upgrades": [
-                "A1",
-                "H1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Heavy Rifle",
-                    "range": 24,
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ]
-        },
-        {
             "type": "Prime Master",
-            "name": "Raquilon Zandtus",
+            "name": "Prime Master",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "Z2WiRfh",
             "cost": 75,
@@ -294,16 +25,23 @@
                 {
                     "attacks": 2,
                     "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
+                    "name": "Master Heavy Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": "1"
                 },
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "Heavy Rifle",
-                    "range": 24,
-                    "specialRules": [],
-                    "ap": "1"
+                    "name": "Relic Sword",
+                    "specialRules": [
+                        {
+                            "name": "Deadly",
+                            "rating": 3,
+                            "label": "Deadly(3)"
+                        }
+                    ],
+                    "ap": 2
                 }
             ],
             "specialRules": [
@@ -325,6 +63,219 @@
                     "rating": "3",
                     "label": "Tough(3)"
                 }
+            ],
+            "upgradeCost": [
+                50,
+                15,
+                10
+            ],
+            "equipment": [
+                {
+                    "name": "Captain",
+                    "specialRules": [
+                        {
+                            "key": "battle-rites",
+                            "name": "Battle Rites",
+                            "type": "ArmyBookRule",
+                            "label": "Battle Rites",
+                            "rating": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Combat Shield",
+                    "specialRules": [
+                        {
+                            "key": "heavy shield",
+                            "name": "Heavy Shield",
+                            "type": "ArmyBookRule",
+                            "label": "Heavy Shield",
+                            "modify": false
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Assault Prime Brother",
+            "name": "Assault Prime Brother",
+            "armyId": "oqnnu0gk8q6hyyny",
+            "id": "hvNiOwU",
+            "cost": 30,
+            "defense": 2,
+            "quality": 3,
+            "upgrades": [
+                "D1",
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": "1"
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Energy Hammer",
+                    "specialRules": [
+                        {
+                            "name": "Blast",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "veteran-infantry",
+                    "name": "Veteran Infantry",
+                    "type": "ArmyBookRule",
+                    "label": "Veteran Infantry",
+                    "rating": "",
+                    "count": 1
+                }
+            ],
+            "upgradeCost": [
+                10,
+                5
+            ]
+        },
+        {
+            "type": "Infernal",
+            "name": "Infernal",
+            "armyId": "oqnnu0gk8q6hyyny",
+            "id": "NeuN0Gx",
+            "cost": 40,
+            "defense": 2,
+            "quality": 3,
+            "upgrades": [],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Flamer",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "key": "blast",
+                            "name": "Blast",
+                            "rating": "3",
+                            "modify": false,
+                            "label": "Blast(3)"
+                        },
+                        {
+                            "key": "reliable",
+                            "name": "Reliable",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Reliable"
+                        }
+                    ]
+                }
+            ],
+            "specialRules": [
+                {
+                    "id": 65,
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": 74,
+                    "key": "relentless",
+                    "name": "Relentless",
+                    "label": "Relentless"
+                }
+            ]
+        },
+        {
+            "type": "Eliminator",
+            "name": "Eliminator",
+            "armyId": "oqnnu0gk8q6hyyny",
+            "id": "0PbBL8m",
+            "cost": 60,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "K1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Laser Sniper Rifle",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "deadly",
+                            "name": "Deadly",
+                            "type": "ArmyBookRule",
+                            "label": "Deadly(3)",
+                            "modify": false,
+                            "rating": 3
+                        },
+                        {
+                            "key": "reliable",
+                            "name": "Reliable",
+                            "type": "ArmyBookRule",
+                            "label": "Reliable",
+                            "modify": false
+                        }
+                    ],
+                    "ap": 2
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "fearless",
+                    "name": "Fearless",
+                    "rating": "",
+                    "label": "Fearless"
+                },
+                {
+                    "key": "scout",
+                    "name": "Scout",
+                    "rating": "",
+                    "label": "Scout"
+                },
+                {
+                    "key": "stealth",
+                    "name": "Stealth",
+                    "rating": "",
+                    "label": "Stealth"
+                }
+            ],
+            "upgradeCost": [
+                55
             ]
         }
     ]
