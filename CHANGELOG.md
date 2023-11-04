@@ -1,6 +1,10 @@
 # Changelog
 
-# not released
+## not released
+
+## v1.1.0 (2023-11-04)
+
+- Customizations for the new ArmyBook App Version of OPR
 
 ## v1.0.0 (2023-08-06)
 
