@@ -241,7 +241,7 @@
             "weapons": [
                 {
                     "attacks": 1,
-                    "count": 3,
+                    "count": 2,
                     "name": "CCW",
                     "specialRules": []
                 },
@@ -265,6 +265,12 @@
                     "count": 1,
                     "name": "Pistol",
                     "range": 12,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
                     "specialRules": []
                 }
             ],
