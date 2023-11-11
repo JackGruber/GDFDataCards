@@ -945,10 +945,11 @@ def mergeWeapon(weapons):
     for weapon in weapons:
         add = True
         for added in mergedWeapons:
-            if added['name'] == weapon['name'] and added['attacks'] == weapon['attacks'] and added['ap'] == weapon['ap']:
-                added['count'] += weapon['count']
-                add = False
-                break
+            if added['name'] == weapon['name'] and added['attacks'] == weapon['attacks']:
+                if 'ap' not in added or 'ap' in added and added['ap'] == weapon['ap']:
+                    added['count'] += weapon['count']
+                    add = False
+                    break
 
         if (add == True):
             mergedWeapons.append(weapon)
