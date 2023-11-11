@@ -2,6 +2,8 @@
 
 ## not released
 
+## v1.1.1 (2023-11-11)
+
 - Fix: With weapon upgrades and no AP
 - Add: Images can now be configured via Json confiuration file 
 
