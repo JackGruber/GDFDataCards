@@ -27,11 +27,5 @@ Tool to create PDF data cards for Onepagerules (GF, GFF, AOF, AOFS and AOFR).
 
 ## Images on Datacard
 
-To add images to the datacards place the images with the `Unit Name` or unit `type` name in the folder `data\images`. Replace everything except letters and numbers from the Unit name / type with `_` in the file name.
-
-Examples:
-
-|Unit name|Filename|
-|---|---|
-|Storm Leader|Storm_Leader.png|
-|Thaddeus_Taho|Thaddeus_Taho.jpg|
+To add images to the datacards edit the `data\images\images.json` file.
+The first matching entry is used for the image.

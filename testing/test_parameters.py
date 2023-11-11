@@ -10,7 +10,7 @@ import OPRDatacard  # nopep8
 
 def test_noParameterJsonSelected():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList', return_value={'units': ["data"]}) as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog', return_value="file.json") as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -19,7 +19,7 @@ def test_noParameterJsonSelected():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main)
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert mock_fileSelectDialog.called
         assert mock_parseArmyJsonList.called
         assert mock_createDataCard.called
@@ -30,7 +30,7 @@ def test_noParameterJsonSelected():
 
 def test_forceJson():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList', return_value={'units': ["data"]}) as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog', return_value="file.???") as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -39,7 +39,7 @@ def test_forceJson():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main, ['--json'])
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert mock_fileSelectDialog.called
         assert mock_parseArmyJsonList.called
         assert mock_createDataCard.called
@@ -50,7 +50,7 @@ def test_forceJson():
 
 def test_noParameterTxtSelected():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList') as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog', return_value="file.txt") as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -60,7 +60,7 @@ def test_noParameterTxtSelected():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main)
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert mock_fileSelectDialog.called
         assert not mock_parseArmyJsonList.called
         assert mock_createDataCard.called
@@ -72,7 +72,7 @@ def test_noParameterTxtSelected():
 
 def test_FileJson():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList', return_value={'units': ["data"]}) as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog') as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -81,7 +81,7 @@ def test_FileJson():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main, ["-f", "file.json"])
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert not mock_fileSelectDialog.called
         assert mock_parseArmyJsonList.called
         assert mock_createDataCard.called
@@ -92,7 +92,7 @@ def test_FileJson():
 
 def test_FileDataForceJson():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList', return_value={'units': ["data"]}) as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog') as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -101,7 +101,7 @@ def test_FileDataForceJson():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main, ["-f", "file.data", "--json"])
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert not mock_fileSelectDialog.called
         assert mock_parseArmyJsonList.called
         assert mock_createDataCard.called
@@ -112,7 +112,7 @@ def test_FileDataForceJson():
 
 def test_FileTxt():
     with (
-        patch('OPRDatacard.createFolderStructure') as mock_createFolderStructure,
+        patch('OPRDatacard.createStructure') as mock_createStructure,
         patch('OPRDatacard.parseArmyJsonList') as mock_parseArmyJsonList,
         patch('OPRDatacard.fileSelectDialog') as mock_fileSelectDialog,
         patch('OPRDatacard.createDataCard') as mock_createDataCard,
@@ -122,7 +122,7 @@ def test_FileTxt():
     ):
         runner = CliRunner()
         result = runner.invoke(OPRDatacard.Main, ["-f", "file.txt"])
-        assert mock_createFolderStructure.called
+        assert mock_createStructure.called
         assert not mock_fileSelectDialog.called
         assert not mock_parseArmyJsonList.called
         assert mock_createDataCard.called
