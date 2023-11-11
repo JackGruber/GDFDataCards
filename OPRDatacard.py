@@ -31,6 +31,7 @@ DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
 FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDFOLDER = os.path.join(DATAFOLDER, "datacards")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
+IMAGEJSON = os.path.join(IMAGEFOLDER, "images.json")
 DEBUG = False
 
 
@@ -56,7 +57,7 @@ DEBUG = False
 def Main(forceTypeJson, armyFile, debugOutput):
     global DEBUG
     DEBUG = debugOutput
-    createFolderStructure()
+    createStructure()
     checkFonts()
 
     if (armyFile == None):
@@ -106,7 +107,7 @@ def fileSelectDialog():
     return askopenfilename()
 
 
-def createFolderStructure():
+def createStructure():
     if not os.path.exists(DATAFOLDER):
         try:
             os.makedirs(DATAFOLDER)
@@ -146,6 +147,35 @@ def createFolderStructure():
             print("datacard folder creation failed")
             print(ex)
             sys.exit(1)
+
+    if not os.path.exists(IMAGEJSON):
+        example = [
+            {
+                'listName': '*',
+                'armyFaction': 'Human Defense Force',
+                'unitType': 'Company Leader',
+                'unitName': '*',
+                'weaponOrEquipment': "*",
+                'image': 'example.jpg',
+            },
+            {
+                'listName': '*',
+                'armyFaction': '*',
+                'unitType': '*',
+                'unitName': 'Herg Alasem',
+                'weaponOrEquipment': "*",
+                'image': 'example.jpg',
+            },
+            {
+                'listName': '*',
+                'armyFaction': '*',
+                'unitType': 'Storm Trooper',
+                'unitName': '*',
+                'weaponOrEquipment': "Flamer",
+                'image': 'example.jpg',
+            },
+        ]
+        saveDictToJson(example, os.path.join(IMAGEJSON))
 
 
 def openFile(filePath):
@@ -279,29 +309,32 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
                    (height/2)-2, ", ".join(specialRules))
 
 
-def dataCardUnitImage(pdf, dataCardParameters, unit):
-    unitTypeImage = "invalidname"
-    if 'type' in unit:
-        unitTypeImage = re.sub(r'(?is)([^\w])', '_', unit['type'].lower())
-        unitTypeImage = os.path.join(IMAGEFOLDER, unitTypeImage)
+def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
+    imageInfos = loadJsonFile(IMAGEJSON)
 
-    unitNameImage = re.sub(r'(?is)([^\w])', '_', unit['name'].lower())
-    unitNameImage = os.path.join(IMAGEFOLDER, unitNameImage)
+    unitImage = None
+    for imageInfo in imageInfos:
+        if imageInfo['unitName'] == "*" or re.search(r'(?is)' + imageInfo['unitName'], unit['name'].strip()):
+            if imageInfo['unitType'] == "*" or re.search(r'(?is)' + imageInfo['unitType'], unit['type'].strip()):
+                if imageInfo['listName'] == "*" or re.search(r'(?is)' + imageInfo['listName'], listName.strip()):
+                    if imageInfo['armyFaction'] == "*" or re.search(r'(?is)' + imageInfo['armyFaction'], armyFaction.strip()):
+                        if imageInfo['weaponOrEquipment'] == "*":
+                            unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                        else:
+                            for weapon in unit['weapons']:
+                                if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], weapon['name'].strip()):
+                                    unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
 
-    if os.path.exists(unitNameImage + ".jpg"):
-        unitImage = unitNameImage + ".jpg"
-    elif os.path.exists(unitNameImage + ".jpeg"):
-        unitImage = unitNameImage + ".jpeg"
-    elif os.path.exists(unitNameImage + ".png"):
-        unitImage = unitNameImage + ".png"
-    elif 'type' in unit and os.path.exists(unitTypeImage + ".jpg"):
-        unitImage = unitTypeImage + ".jpg"
-    elif 'type' in unit and os.path.exists(unitTypeImage + ".jpeg"):
-        unitImage = unitTypeImage + ".jpeg"
-    elif 'type' in unit and os.path.exists(unitTypeImage + ".png"):
-        unitImage = unitTypeImage + ".png"
-    else:
-        unitImage = None
+                            if 'equipment' in unit:
+                                for equipment in unit['equipment']:
+                                    if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], equipment['name'].strip()):
+                                        unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+
+                        if unitImage is not None:
+                            unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                            if not os.path.exists(unitImage):
+                                unitImage = None
+                            break
 
     if (unitImage != None):
         with Image.open(unitImage) as img:
@@ -617,7 +650,7 @@ def createDataCard(army):
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
         dataCardUnitRules(pdf, dataCardParameters, unit)
         dataCardUnitPoints(pdf, dataCardParameters, unit)
-        dataCardUnitImage(pdf, dataCardParameters, unit)
+        dataCardUnitImage(pdf, dataCardParameters, unit, army['listName'], army['armyName'])
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
@@ -720,6 +753,7 @@ def parseArmyTextList(armyListText):
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]
+                unitData['type'] = ""
                 unitData['size'] = int(regExMatch[0][1])
                 unitData['quality'] = int(regExMatch[0][2])
                 unitData['defense'] = int(regExMatch[0][3])
