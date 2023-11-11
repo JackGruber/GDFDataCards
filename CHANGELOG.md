@@ -2,6 +2,9 @@
 
 ## not released
 
+- Fix: With weapon upgrades and no AP
+- Add: Images can now be configured via Json confiuration file 
+
 ## v1.1.0 (2023-11-04)
 
 - Customizations for the new ArmyBook App Version of OPR
