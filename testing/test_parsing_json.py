@@ -217,7 +217,7 @@ def test_gff_prime_brothers():
     except Exception:
         assert False, "Error in createDataCard"
 
-def test_gf_pb():
+def test_gff_deudak_guard():
     result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
     expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
     assert result == expected
