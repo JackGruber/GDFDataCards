@@ -1,0 +1,63 @@
+{
+    "armyId": "4k5amkxoybdiqotm",
+    "gameSystem": "gf",
+    "gameSystemId": 2,
+    "armyName": "Robot Legions",
+    "listPoints": 110,
+    "listName": "Necrons Combat Patrol 1.2k",
+    "units": [
+        {
+            "type": "Warriors",
+            "name": "Necronkrieger",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "njiIkJi",
+            "cost": 115,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1"
+            ],
+            "size": 5,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "Reaper Rifle",
+                    "range": 18,
+                    "specialRules": [],
+                    "ap": "2"
+                }
+            ],
+            "specialRules": [
+                {
+                    "id": 582,
+                    "key": "robot",
+                    "name": "Robot",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "slow",
+                    "name": "Slow",
+                    "rating": "",
+                    "label": "Slow"
+                }
+            ],
+            "upgradeCost": [
+                -5
+            ]
+        }
+    ]
+}
