@@ -1079,19 +1079,7 @@ def downloadArmyBook(id: str, gameSystemId):
 def downloadCommonRules(gameSystemId):
     print("Check/download common rules ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
-    url = "https://army-forge-studio.onepagerules.com/api/public/game-systems"
-    if (gameSystemId == 2):
-        url = url + "/grimdark-future/common-rules"
-    elif (gameSystemId == 3):
-        url = url + "/grimdark-future-firefight/common-rules"
-    elif (gameSystemId == 4):
-        url = url + "/age-of-fantasy/common-rules"
-    elif (gameSystemId == 5):
-        url = url + "/age-of-fantasy-skirmish/common-rules"
-    elif (gameSystemId == 6):
-        url = url + "/age-of-fantasy-regiments/common-rules"
-    else:
-        return
+    url = "https://army-forge.onepagerules.com/api/afs/common-rules?gameSystem=" + str(gameSystemId)
     return downloadJson(url, armyBookJsonFile)
 
 
