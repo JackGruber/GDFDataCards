@@ -4,6 +4,7 @@
 
 - Fix: New common rules URL
 - Add: Validate supported version
+- Fix: Replace all option under certain circumstances
 
 ## v1.1.1 (2023-11-11)
 

@@ -1,0 +1,347 @@
+{
+    "armyId": "4k5amkxoybdiqotm",
+    "gameSystem": "gf",
+    "gameSystemId": 2,
+    "armyName": "Robot Legions",
+    "listPoints": 1205,
+    "listName": "Necrons Combat Patrol 1.2k",
+    "units": [
+        {
+            "type": "Annihilator Lord",
+            "name": "Hochlord Oltyx, mit Tachyonenpfeil",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "y8xIlHV",
+            "cost": 150,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1",
+                "C1",
+                "D1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Doom Scythe",
+                    "specialRules": [
+                        {
+                            "name": "Deadly",
+                            "rating": 3,
+                            "label": "Deadly(3)"
+                        }
+                    ],
+                    "ap": 2
+                },
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Wrist-Laser",
+                    "range": 18,
+                    "specialRules": [],
+                    "ap": "3"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "ambush",
+                    "name": "Ambush",
+                    "rating": "",
+                    "label": "Ambush"
+                },
+                {
+                    "key": "hero",
+                    "name": "Hero",
+                    "rating": "",
+                    "label": "Hero"
+                },
+                {
+                    "key": "robot",
+                    "name": "Robot",
+                    "rating": "",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "strider",
+                    "name": "Strider",
+                    "rating": "",
+                    "label": "Strider"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "6",
+                    "label": "Tough(6)"
+                }
+            ],
+            "upgradeCost": [
+                40,
+                10,
+                35
+            ],
+            "equipment": [
+                {
+                    "name": "Technomancer",
+                    "specialRules": [
+                        {
+                            "key": "caster",
+                            "name": "Caster",
+                            "type": "ArmyBookRule",
+                            "label": "Caster(2)",
+                            "rating": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Annihilators",
+            "name": "Skorpekh-Destruktoren",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "IMHCbyw",
+            "cost": 280,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "L1"
+            ],
+            "size": 3,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 4,
+                    "count": 3,
+                    "name": "Dual Hyper Swords",
+                    "specialRules": [
+                        {
+                            "key": "rending",
+                            "name": "Rending",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Rending"
+                        }
+                    ],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "ambush",
+                    "name": "Ambush",
+                    "rating": "",
+                    "label": "Ambush"
+                },
+                {
+                    "key": "robot",
+                    "name": "Robot",
+                    "rating": "",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "strider",
+                    "name": "Strider",
+                    "rating": "",
+                    "label": "Strider"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                }
+            ]
+        },
+        {
+            "type": "Doom Fighter",
+            "name": "Kanoptech-Dominatorschreiter",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "xRIfeJR",
+            "cost": 470,
+            "defense": 2,
+            "quality": 3,
+            "upgrades": [],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 6,
+                    "count": 1,
+                    "name": "Doom Ray",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "lock-on",
+                            "name": "Lock-On",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Lock-On"
+                        }
+                    ],
+                    "ap": "4"
+                },
+                {
+                    "attacks": 6,
+                    "count": 1,
+                    "name": "Twin Flux Cannon",
+                    "range": 24,
+                    "specialRules": [
+                        {
+                            "key": "flux",
+                            "name": "Flux",
+                            "rating": "",
+                            "modify": false,
+                            "label": "Flux"
+                        }
+                    ],
+                    "ap": "1"
+                }
+            ],
+            "specialRules": [
+                {
+                    "key": "aircraft",
+                    "name": "Aircraft",
+                    "rating": "",
+                    "label": "Aircraft"
+                },
+                {
+                    "key": "robot",
+                    "name": "Robot",
+                    "rating": "",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "tough",
+                    "name": "Tough",
+                    "rating": "6",
+                    "label": "Tough(6)"
+                }
+            ]
+        },
+        {
+            "type": "Warriors",
+            "name": "Necronkrieger",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "njiIkJi",
+            "cost": 115,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1"
+            ],
+            "size": 5,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "Reaper Rifle",
+                    "range": 18,
+                    "specialRules": [],
+                    "ap": "2"
+                }
+            ],
+            "specialRules": [
+                {
+                    "id": 582,
+                    "key": "robot",
+                    "name": "Robot",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "slow",
+                    "name": "Slow",
+                    "rating": "",
+                    "label": "Slow"
+                }
+            ],
+            "upgradeCost": [
+                -5
+            ]
+        },
+        {
+            "type": "Warriors",
+            "name": "Necronkrieger",
+            "armyId": "4k5amkxoybdiqotm",
+            "id": "njiIkJi",
+            "cost": 115,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1"
+            ],
+            "size": 5,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 5,
+                    "name": "Reaper Rifle",
+                    "range": 18,
+                    "specialRules": [],
+                    "ap": "2"
+                }
+            ],
+            "specialRules": [
+                {
+                    "id": 582,
+                    "key": "robot",
+                    "name": "Robot",
+                    "label": "Robot"
+                },
+                {
+                    "id": 964,
+                    "key": "self-repair",
+                    "name": "Self-Repair",
+                    "label": "Self-Repair"
+                },
+                {
+                    "key": "slow",
+                    "name": "Slow",
+                    "rating": "",
+                    "label": "Slow"
+                }
+            ],
+            "upgradeCost": [
+                -5
+            ]
+        }
+    ]
+}

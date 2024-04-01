@@ -236,3 +236,13 @@ def test_gff_hb():
         assert True
     except Exception:
         assert False, "Error in createDataCard"
+
+def test_gf_rl():
+    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_rl.json'))
+    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_rl_expected.json'))
+    assert result == expected
+    try:
+        OPRDatacard.createDataCard(result)
+        assert True
+    except Exception:
+        assert False, "Error in createDataCard"

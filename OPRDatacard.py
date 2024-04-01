@@ -893,6 +893,8 @@ def removeWeapon(removeWeapon, count: int, weapons):
                     weapons.pop(i)
                 else:
                     weapons[i]['count'] -= count
+                    if weapons[i]['count'] <= 0:
+                        weapons.pop(i)
                 break
     return weapons
 
@@ -927,7 +929,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
-                                    if variant == "upgrade" and affects and affects['type'] == "all":
+                                    if variant in ("upgrade", "replace") and affects and affects['type'] == "all":
                                         modeCount = unitData['size']
                                     else:
                                         modeCount = -1
@@ -965,6 +967,8 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                         affectsValue = 1
                                     elif affects and affects['type'] == "exactly":
                                         affectsValue = affects['value']
+                                    elif affects and affects['type'] == "all":
+                                        affectsValue = None
                                     elif affects is None:
                                         affectsValue = 999
 
