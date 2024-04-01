@@ -2,12 +2,13 @@
 
 ## not released
 
+- Fix: New common rules URL
 - Add: Validate supported version
 
 ## v1.1.1 (2023-11-11)
 
 - Fix: With weapon upgrades and no AP
-- Add: Images can now be configured via Json confiuration file 
+- Add: Images can now be configured via Json confiuration file
 
 ## v1.1.0 (2023-11-04)
 
