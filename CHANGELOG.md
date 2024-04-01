@@ -2,6 +2,8 @@
 
 ## not released
 
+- Add: Validate supported version
+
 ## v1.1.1 (2023-11-11)
 
 - Fix: With weapon upgrades and no AP

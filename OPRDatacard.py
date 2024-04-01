@@ -54,7 +54,14 @@ DEBUG = False
     default=False,
     required=False
 )
-def Main(forceTypeJson, armyFile, debugOutput):
+@click.option(
+    "--validate / --no-validate",
+    "validateVersion",
+    default=True,
+    required=False
+)
+
+def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
     global DEBUG
     DEBUG = debugOutput
     createStructure()
@@ -71,7 +78,7 @@ def Main(forceTypeJson, armyFile, debugOutput):
     army = None
     if (typeJson == True or forceTypeJson == True):
         print("Parse json army file")
-        army = parseArmyJsonList(armyFile)
+        army = parseArmyJsonList(armyFile, validateVersion)
     else:
         print("Parse txt army file")
         txtData = readTxtFile(armyFile)
@@ -1001,7 +1008,7 @@ def addEquipment(data, specialRules = True):
     return equipment
 
 
-def parseArmyJsonList(armyListJsonFile: str):
+def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     print("Parse army list ...")
     armyData = {}
     jsonArmyBookList = {}
@@ -1019,6 +1026,11 @@ def parseArmyJsonList(armyListJsonFile: str):
     armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
     armyData['listPoints'] = jsonArmyList['listPoints']
     armyData['listName'] = jsonArmyList['list']['name']
+
+    versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList[armyData['armyId']])
+    if (validateVersion and not versionCheck):
+        print("Verison missmatch not supported")
+        sys.exit(1)
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
@@ -1149,6 +1161,20 @@ def downloadFile(url, dstFile):
         print(ex)
         return False
 
+def checkArmyVersions(armyJson, armyBookJson):
+    try:
+        armyVersion = armyJson["armyVersions"][0]["version"]
+        bookVersion = armyBookJson["versionString"]
+    except Exception as ex:
+        print("Error on checkArmyVersions")
+        print(ex)
+        return False
+    
+    if str(armyVersion) == str(bookVersion):
+        return True
+    else:
+        print(f"Error: Army version {armyVersion} don't match ArmyBook version {bookVersion}")
+        return False
 
 if __name__ == "__main__":
     Main()
