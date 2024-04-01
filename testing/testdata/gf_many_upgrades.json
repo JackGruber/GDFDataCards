@@ -1,4 +1,5 @@
 {
+    "id": "PBJIbTjbQb9m",
     "gameSystem": "gf",
     "armyId": "oqnnu0gk8q6hyyny",
     "armyIds": [
@@ -6,41 +7,59 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2023-10-14T14:14:34.556Z",
+    "modified": "2024-04-01T18:03:10.657Z",
     "saveVersion": 3,
-    "listPoints": 320,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.2.0",
+            "armyId": "oqnnu0gk8q6hyyny"
+        }
+    ],
+    "listPoints": 285,
     "list": {
-        "id": "fl12ugW8LuCj",
-        "key": "K9LuxDOiIyQnAgELILbyg",
+        "id": "PBJIbTjbQb9m",
+        "key": "BqSHHgU838apps0WiBUkL",
         "name": "Prime Brothers",
+        "description": "",
+        "pointsLimit": 2000,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gf",
+        "isCloud": false,
+        "modified": "2024-04-01T18:03:10.658Z",
+        "cloudModified": null,
+        "activationCount": 1,
+        "modelCount": 5,
         "units": [
             {
                 "id": "81WTJ34",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "NB4RO",
+                "selectionId": "O8JFx",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "N0Crq0mRH",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
-                    },
-                    {
-                        "instanceId": "XvFQeTXgL",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
-                    },
-                    {
-                        "instanceId": "g0P3kNn7E",
+                        "instanceId": "tcq4TA2Ax",
                         "upgradeId": "ar5sR",
                         "optionId": "wyKaPTZ"
                     },
                     {
-                        "instanceId": "zrlZZhGGD",
+                        "instanceId": "_Fwk3C6YA",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "-oGFLnBhT",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "sOYy-x6yu",
                         "upgradeId": "Fyjqd",
                         "optionId": "dOV9k"
                     },
                     {
-                        "instanceId": "4dpJj7PyO",
+                        "instanceId": "NPJ-j3DoH",
                         "upgradeId": "vIcBJVF",
                         "optionId": "lCeyzzU"
                     }
@@ -51,23 +70,6 @@
                 "traits": [],
                 "notes": null
             }
-        ],
-        "points": 320,
-        "pointsLimit": 2000,
-        "creationTime": "1697292854749",
-        "campaignMode": false,
-        "competitive": true,
-        "gameSystem": "gf",
-        "isCloud": false,
-        "modified": "2023-10-14T14:14:34.556Z",
-        "selectedUnitId": "NB4RO",
-        "unitPreview": null
-    },
-    "favourite": false,
-    "armyVersions": [
-        {
-            "version": "3.1.0",
-            "armyId": "oqnnu0gk8q6hyyny"
-        }
-    ]
+        ]
+    }
 }

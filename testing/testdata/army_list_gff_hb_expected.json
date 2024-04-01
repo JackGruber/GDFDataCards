@@ -3,7 +3,7 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Havoc Brothers",
-    "listPoints": 355,
+    "listPoints": 250,
     "listName": "Havoc Brothers",
     "units": [
         {
@@ -121,18 +121,8 @@
                     "specialRules": []
                 }
             ],
-            "specialRules": [
-                {
-                    "key": "chosen-veteran",
-                    "name": "Chosen Veteran",
-                    "type": "ArmyBookRule",
-                    "label": "Chosen Veteran",
-                    "rating": "",
-                    "count": 1
-                }
-            ],
+            "specialRules": [],
             "upgradeCost": [
-                10,
                 0
             ]
         },
@@ -152,23 +142,24 @@
             "notes": null,
             "weapons": [
                 {
-                    "attacks": 1,
+                    "attacks": 2,
                     "count": 1,
-                    "name": "CCW",
+                    "name": "Sgt. Hand Weapon",
                     "specialRules": []
                 },
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "Plasma Rifle",
-                    "range": 24,
+                    "name": "Plasma Pistol",
+                    "range": 12,
                     "specialRules": [],
                     "ap": 4
                 }
             ],
             "specialRules": [],
             "upgradeCost": [
-                10
+                0,
+                5
             ]
         },
         {
@@ -241,13 +232,13 @@
             "weapons": [
                 {
                     "attacks": 1,
-                    "count": 2,
+                    "count": 3,
                     "name": "CCW",
                     "specialRules": []
                 },
                 {
                     "attacks": 1,
-                    "count": 1,
+                    "count": 2,
                     "name": "Rifle",
                     "range": 24,
                     "specialRules": []
@@ -259,72 +250,11 @@
                     "range": 12,
                     "specialRules": [],
                     "ap": 1
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Pistol",
-                    "range": 12,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
                 }
             ],
             "specialRules": [],
             "upgradeCost": [
-                5,
-                0
-            ]
-        },
-        {
-            "type": "Havoc Support",
-            "name": "Havoc Support",
-            "armyId": "7o6om21wxlvvy3hq",
-            "id": "jINKf6R",
-            "cost": 70,
-            "defense": 3,
-            "quality": 3,
-            "upgrades": [
-                "F1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Laser Cannon",
-                    "range": 36,
-                    "specialRules": [
-                        {
-                            "name": "Deadly",
-                            "rating": 3,
-                            "label": "Deadly(3)"
-                        }
-                    ],
-                    "ap": 3
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ],
-            "upgradeCost": [
-                20
+                5
             ]
         }
     ]

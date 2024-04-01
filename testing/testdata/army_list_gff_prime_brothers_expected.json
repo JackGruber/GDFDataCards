@@ -3,7 +3,7 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Prime Brothers",
-    "listPoints": 350,
+    "listPoints": 310,
     "listName": "Prime Brothers",
     "units": [
         {
@@ -65,9 +65,9 @@
                 }
             ],
             "upgradeCost": [
-                50,
-                15,
-                10
+                25,
+                10,
+                15
             ],
             "equipment": [
                 {
@@ -149,8 +149,8 @@
                 }
             ],
             "upgradeCost": [
-                10,
-                5
+                5,
+                10
             ]
         },
         {
@@ -214,7 +214,7 @@
             "name": "Eliminator",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "0PbBL8m",
-            "cost": 60,
+            "cost": 45,
             "defense": 3,
             "quality": 3,
             "upgrades": [

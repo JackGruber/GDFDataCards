@@ -3,12 +3,12 @@
     "gameSystem": "gf",
     "gameSystemId": 2,
     "armyName": "Prime Brothers",
-    "listPoints": 1990,
-    "listName": "Testing Liste",
+    "listPoints": 1985,
+    "listName": "Prime Brothers",
     "units": [
         {
             "type": "Prime Master",
-            "name": "Prime Leader alias Master",
+            "name": "Prime Master",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "Z2WiRfh",
             "cost": 75,
@@ -64,8 +64,8 @@
                 }
             ],
             "upgradeCost": [
-                50,
-                5
+                5,
+                50
             ],
             "equipment": [
                 {
@@ -87,7 +87,7 @@
             "name": "Infiltration Squad",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "meWSgTo",
-            "cost": 120,
+            "cost": 125,
             "defense": 3,
             "quality": 4,
             "upgrades": [
@@ -271,8 +271,8 @@
             ],
             "upgradeCost": [
                 5,
-                5,
-                20
+                20,
+                5
             ]
         },
         {
@@ -280,7 +280,7 @@
             "name": "Aggro Squad",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "Fz19CEf",
-            "cost": 345,
+            "cost": 335,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -297,7 +297,7 @@
                     "ap": "4"
                 },
                 {
-                    "attacks": 4,
+                    "attacks": 3,
                     "count": 2,
                     "name": "Twin Fist-Flamers",
                     "range": 6,
@@ -312,7 +312,7 @@
                     ]
                 },
                 {
-                    "attacks": 4,
+                    "attacks": 3,
                     "count": 1,
                     "name": "Twin Fist-Pistols",
                     "range": 12,

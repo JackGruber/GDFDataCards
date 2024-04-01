@@ -1,4 +1,5 @@
 {
+    "id": "C3avVckCXuVE",
     "gameSystem": "gff",
     "armyId": "7o6om21wxlvvy3hq",
     "armyIds": [
@@ -6,26 +7,44 @@
     ],
     "armyFaction": "Havoc Brothers",
     "armyName": "Havoc Brothers",
-    "modified": "2023-10-14T14:08:20.537Z",
+    "modified": "2024-04-01T18:00:11.870Z",
     "saveVersion": 3,
-    "listPoints": 355,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.2.0",
+            "armyId": "7o6om21wxlvvy3hq"
+        }
+    ],
+    "listPoints": 250,
     "list": {
-        "id": "5T4cqnTuKwjb",
-        "key": "St6f1fZOtKGS4siAkEYW1",
+        "id": "C3avVckCXuVE",
+        "key": "MVeQOp55pDIavcmk578GU",
         "name": "Havoc Brothers",
+        "description": "",
+        "pointsLimit": 300,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gff",
+        "isCloud": false,
+        "modified": "2024-04-01T18:00:11.871Z",
+        "cloudModified": null,
+        "activationCount": 6,
+        "modelCount": 8,
         "units": [
             {
                 "id": "eD_a0Ea",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "H9fO_",
+                "selectionId": "0WG2S",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "86habNwuo",
+                        "instanceId": "VRI6uIAJL",
                         "upgradeId": "-2GgkX2",
                         "optionId": "qIHT5"
                     },
                     {
-                        "instanceId": "taUXMZ4vw",
+                        "instanceId": "rMaVHIHA8",
                         "upgradeId": "0tRGmMk",
                         "optionId": "36K0S"
                     }
@@ -39,10 +58,10 @@
             {
                 "id": "xikokQS",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "vz8nE",
+                "selectionId": "8stIS",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "q9_FwvnHy",
+                        "instanceId": "hX3Af6a9p",
                         "upgradeId": "rEpQY",
                         "optionId": "0T8PD"
                     }
@@ -56,15 +75,10 @@
             {
                 "id": "xikokQS",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "TpVQG",
+                "selectionId": "L_jeE",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "4UdZt1hHo",
-                        "upgradeId": "QTmuVej",
-                        "optionId": "nCZWTYA"
-                    },
-                    {
-                        "instanceId": "OT_NP0FjM",
+                        "instanceId": "-8zg1baOT",
                         "upgradeId": "xP8BcAh",
                         "optionId": "kfTmc"
                     }
@@ -78,12 +92,17 @@
             {
                 "id": "xikokQS",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "unCyi",
+                "selectionId": "AVhQ0",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "15-q9Pihb",
-                        "upgradeId": "hxSNT2U",
-                        "optionId": "vr-bWni"
+                        "instanceId": "eV8ka-7Op",
+                        "upgradeId": "rEpQY",
+                        "optionId": "0T8PD"
+                    },
+                    {
+                        "instanceId": "UXwV7sSaS",
+                        "upgradeId": "wV05G",
+                        "optionId": "hlgbk"
                     }
                 ],
                 "combined": false,
@@ -95,15 +114,15 @@
             {
                 "id": "1qSAYjr",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "4hKlI",
+                "selectionId": "jNfW1",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "kCho6vj4u",
+                        "instanceId": "02tIS_EO4",
                         "upgradeId": "si4nIKu",
                         "optionId": "sLxt1"
                     },
                     {
-                        "instanceId": "O1ZLDLmtC",
+                        "instanceId": "_cgNVeZel",
                         "upgradeId": "SUZEDSC",
                         "optionId": "54D3Rtp"
                     }
@@ -117,34 +136,12 @@
             {
                 "id": "QpNjo9z",
                 "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "Dq_qQ",
+                "selectionId": "zPElN",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "xGGZq-ne7",
+                        "instanceId": "k-d2qB7AX",
                         "upgradeId": "DwZ_3PT",
                         "optionId": "ri_BjYQ"
-                    },
-                    {
-                        "instanceId": "2rTRbvex6",
-                        "upgradeId": "kwOteGj",
-                        "optionId": "0B4im"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "jINKf6R",
-                "armyId": "7o6om21wxlvvy3hq",
-                "selectionId": "aYiie",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "i2kDf7kFX",
-                        "upgradeId": "JxBta2M",
-                        "optionId": "MDL9FMa"
                     }
                 ],
                 "combined": false,
@@ -153,23 +150,6 @@
                 "traits": [],
                 "notes": null
             }
-        ],
-        "points": 355,
-        "pointsLimit": 300,
-        "creationTime": "1697292381623",
-        "campaignMode": false,
-        "competitive": true,
-        "gameSystem": "gff",
-        "isCloud": false,
-        "modified": "2023-10-14T14:08:20.537Z",
-        "selectedUnitId": "aYiie",
-        "unitPreview": null
-    },
-    "favourite": false,
-    "armyVersions": [
-        {
-            "version": "3.1.0",
-            "armyId": "7o6om21wxlvvy3hq"
-        }
-    ]
+        ]
+    }
 }

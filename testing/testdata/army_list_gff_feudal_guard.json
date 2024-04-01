@@ -1,4 +1,5 @@
 {
+    "id": "G7kbUa9YgmOp",
     "gameSystem": "gff",
     "armyId": "w15ncjbqsqk3tcet",
     "armyIds": [
@@ -6,22 +7,39 @@
     ],
     "armyFaction": null,
     "armyName": "Feudal Guard",
-    "modified": "2023-10-14T14:03:18.032Z",
+    "modified": "2024-04-01T18:20:48.369Z",
     "saveVersion": 3,
-    "listPoints": 300,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.2.2",
+            "armyId": "w15ncjbqsqk3tcet"
+        }
+    ],
+    "listPoints": 270,
     "list": {
-        "id": "PPNsnnuESGQT",
-        "key": "vYgfnOncVcnY0sIqJFpAl",
-        "name": "GFF - 300pt - Feudal Guard",
+        "id": "G7kbUa9YgmOp",
+        "key": "SgZ_y7kWg-ujkAT78DE7e",
+        "name": "Feudal Guard",
+        "description": "",
+        "pointsLimit": 300,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gff",
+        "isCloud": false,
+        "modified": "2024-04-01T18:20:48.369Z",
+        "cloudModified": null,
+        "activationCount": 8,
+        "modelCount": 8,
         "units": [
             {
                 "id": "tHC6KYN",
                 "armyId": "w15ncjbqsqk3tcet",
-                "customName": "Thaddeus Taho",
-                "selectionId": "x7AyJ",
+                "selectionId": "SikYB",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "qVbKNgJfv",
+                        "instanceId": "V428trXG4",
                         "upgradeId": "hwwOKuH",
                         "optionId": "4dRjB"
                     }
@@ -35,10 +53,10 @@
             {
                 "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "8fj2L",
+                "selectionId": "FtI-L",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "1ZqSe5Ea2",
+                        "instanceId": "oahuTpL_d",
                         "upgradeId": "_S-A6la",
                         "optionId": "TYTb9hz"
                     }
@@ -52,10 +70,10 @@
             {
                 "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "oSkFi",
+                "selectionId": "NX1m1",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "-jawmxpNO",
+                        "instanceId": "f51UhHN5h",
                         "upgradeId": "_S-A6la",
                         "optionId": "TYTb9hz"
                     }
@@ -69,22 +87,17 @@
             {
                 "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "NMTGR",
+                "selectionId": "NdxL6",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "FqWVdk3Do",
+                        "instanceId": "8T0hb7_7c",
                         "upgradeId": "grFpVZT",
                         "optionId": "7GLon"
                     },
                     {
-                        "instanceId": "4u4aL9O1X",
+                        "instanceId": "DrHvL_mtI",
                         "upgradeId": "MVOkO8_",
                         "optionId": "CmNu66X"
-                    },
-                    {
-                        "instanceId": "q9MaVtlCN",
-                        "upgradeId": "zRVAQ0X",
-                        "optionId": "G8JH-Ru"
                     }
                 ],
                 "combined": false,
@@ -96,10 +109,10 @@
             {
                 "id": "6RHfsg7",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "LclG0",
+                "selectionId": "dlImz",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "DOy4vGFYn",
+                        "instanceId": "CRTNgy57q",
                         "upgradeId": "atyqrYm",
                         "optionId": "7Vyuew9"
                     }
@@ -113,7 +126,7 @@
             {
                 "id": "Jw0Fw2y",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "_sItY",
+                "selectionId": "E_EMU",
                 "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
@@ -124,10 +137,10 @@
             {
                 "id": "d_dzOfJ",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "M3u94",
+                "selectionId": "JijRt",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "1wYqMGBwx",
+                        "instanceId": "Ri49zbqzl",
                         "upgradeId": "lL1tV-x",
                         "optionId": "o4uNh"
                     }
@@ -141,10 +154,10 @@
             {
                 "id": "d_dzOfJ",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "qMct0",
+                "selectionId": "ukJsn",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "32fW4PCs3",
+                        "instanceId": "OhOz_BCB_",
                         "upgradeId": "lL1tV-x",
                         "optionId": "xuPcQ7J"
                     }
@@ -155,23 +168,6 @@
                 "traits": [],
                 "notes": null
             }
-        ],
-        "points": 300,
-        "pointsLimit": 300,
-        "creationTime": "1697291976257",
-        "campaignMode": false,
-        "competitive": true,
-        "gameSystem": "gff",
-        "isCloud": false,
-        "modified": "2023-10-14T14:03:18.032Z",
-        "selectedUnitId": "NMTGR",
-        "unitPreview": null
-    },
-    "favourite": false,
-    "armyVersions": [
-        {
-            "version": "3.0.0",
-            "armyId": "w15ncjbqsqk3tcet"
-        }
-    ]
+        ]
+    }
 }

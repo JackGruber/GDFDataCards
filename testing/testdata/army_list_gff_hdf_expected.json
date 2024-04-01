@@ -3,7 +3,7 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Human Defense Force",
-    "listPoints": 335,
+    "listPoints": 300,
     "listName": "Human Defense Force",
     "units": [
         {
@@ -51,9 +51,9 @@
                 }
             ],
             "upgradeCost": [
-                50,
-                5,
-                15
+                15,
+                25,
+                5
             ],
             "equipment": [
                 {
@@ -92,9 +92,9 @@
             "defense": 5,
             "quality": 4,
             "upgrades": [
-                "D1",
                 "H1",
-                "jzuNw"
+                "jzuNw",
+                "SmJiZ"
             ],
             "size": 1,
             "notes": null,
@@ -134,6 +134,7 @@
                     "rating": "3"
                 },
                 {
+                    "id": "fh8Z4sXA",
                     "key": "medical-training",
                     "name": "Medical Training",
                     "type": "ArmyBookRule",
@@ -144,25 +145,12 @@
             ],
             "upgradeCost": [
                 60,
-                5,
-                30
+                15
             ],
             "equipment": [
                 {
                     "name": "Weapon Team",
                     "specialRules": []
-                },
-                {
-                    "name": "Recon Kits",
-                    "specialRules": [
-                        {
-                            "key": "scout",
-                            "name": "Scout",
-                            "type": "ArmyBookRule",
-                            "label": "Scout",
-                            "rating": ""
-                        }
-                    ]
                 }
             ]
         },
@@ -236,7 +224,7 @@
                 }
             ],
             "upgradeCost": [
-                -5
+                5
             ]
         },
         {
@@ -349,9 +337,9 @@
             "defense": 5,
             "quality": 5,
             "upgrades": [
-                "D1",
                 "E1",
-                "jzuNw"
+                "jzuNw",
+                "SmJiZ"
             ],
             "size": 3,
             "notes": null,

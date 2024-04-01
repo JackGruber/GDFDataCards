@@ -3,12 +3,12 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Feudal Guard",
-    "listPoints": 300,
-    "listName": "GFF - 300pt - Feudal Guard",
+    "listPoints": 270,
+    "listName": "Feudal Guard",
     "units": [
         {
             "type": "Feudal Captain",
-            "name": "Thaddeus Taho",
+            "name": "Feudal Captain",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "tHC6KYN",
             "cost": 50,
@@ -53,7 +53,7 @@
                 }
             ],
             "upgradeCost": [
-                50
+                25
             ],
             "equipment": [
                 {
@@ -198,18 +198,10 @@
                     "name": "Fearless",
                     "rating": "",
                     "label": "Fearless"
-                },
-                {
-                    "name": "Field Radio",
-                    "type": "ArmyBookRule",
-                    "label": "Field Radio",
-                    "rating": "",
-                    "count": 1
                 }
             ],
             "upgradeCost": [
                 0,
-                5,
                 5
             ]
         },
@@ -267,7 +259,7 @@
             "name": "Feudal Sniper",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "Jw0Fw2y",
-            "cost": 50,
+            "cost": 40,
             "defense": 4,
             "quality": 5,
             "upgrades": [],
@@ -422,7 +414,7 @@
                 }
             ],
             "upgradeCost": [
-                -5
+                5
             ]
         }
     ]

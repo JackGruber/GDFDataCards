@@ -3,7 +3,7 @@
     "gameSystem": "gf",
     "gameSystemId": 2,
     "armyName": "Prime Brothers",
-    "listPoints": 320,
+    "listPoints": 285,
     "listName": "Prime Brothers",
     "units": [
         {
@@ -36,23 +36,6 @@
                 },
                 {
                     "attacks": 1,
-                    "count": 2,
-                    "name": "AT-Launcher",
-                    "range": 30,
-                    "specialRules": [
-                        {
-                            "key": "lock-on",
-                            "name": "Lock-On",
-                            "type": "ArmyBookRule",
-                            "label": "Lock-On",
-                            "modify": false,
-                            "rating": ""
-                        }
-                    ],
-                    "ap": "2"
-                },
-                {
-                    "attacks": 1,
                     "count": 1,
                     "name": "Vengeance HE-Launcher",
                     "range": 30,
@@ -77,6 +60,23 @@
                 },
                 {
                     "attacks": 1,
+                    "count": 2,
+                    "name": "AT-Launcher",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "key": "lock-on",
+                            "name": "Lock-On",
+                            "type": "ArmyBookRule",
+                            "label": "Lock-On",
+                            "modify": false,
+                            "rating": ""
+                        }
+                    ],
+                    "ap": "2"
+                },
+                {
+                    "attacks": 1,
                     "count": 5,
                     "name": "Mini-GL",
                     "range": 18,
@@ -88,6 +88,12 @@
                             "label": "Indirect",
                             "modify": false,
                             "rating": ""
+                        },
+                        {
+                            "name": "Limited",
+                            "type": "ArmyBookRule",
+                            "label": "Limited",
+                            "modify": false
                         }
                     ]
                 }
@@ -109,10 +115,10 @@
                 }
             ],
             "upgradeCost": [
-                5,
-                5,
                 20,
-                50,
+                5,
+                5,
+                15,
                 30
             ]
         }
