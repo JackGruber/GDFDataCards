@@ -10,7 +10,6 @@ armyBookHdf = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army
 
 
 def test_addEquipment():
-    upgrade = armyBookHdf["upgradePackages"][0]["sections"][0]["options"][0]
     upgrade = "Forward Observer"
 
     for upgradePackages in armyBookHdf["upgradePackages"]:
