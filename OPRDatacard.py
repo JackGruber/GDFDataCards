@@ -952,7 +952,6 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                             elif gain['type'] == "ArmyBookWeapon":
                                                 unitData['weapons'].append(getWeapon(gain,1))
                                             elif gain['type'] == "ArmyBookRule":
-                                                print(gain)
                                                 unitData['specialRules'].append(getSpecialRules([gain])[0])
                                 elif gains['type'] == "ArmyBookRule":
                                     unitData['specialRules'].append(getSpecialRules([gains])[0])
