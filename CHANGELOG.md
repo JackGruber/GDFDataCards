@@ -2,6 +2,8 @@
 
 ## not released
 
+- PT values wrong on unit overview #5
+
 ## v1.1.2 (2024-04-01)
 
 - Fix: New common rules URL
