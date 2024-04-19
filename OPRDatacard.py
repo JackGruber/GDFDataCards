@@ -72,7 +72,7 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
 
     if armyFile == None or armyFile == "":
         print("No army file selected")
-        sys.exit(1)
+        waitForKeyPressAndExit()
 
     typeJson = isFileTypeJson(armyFile)
     army = None
@@ -121,7 +121,7 @@ def createStructure():
         except Exception as ex:
             print("Data folder creation failed")
             print(ex)
-            sys.exit(1)
+            waitForKeyPressAndExit()
 
     if not os.path.exists(DATAFOLDERARMYBOOK):
         try:
@@ -129,7 +129,7 @@ def createStructure():
         except Exception as ex:
             print("army book folder creation failed")
             print(ex)
-            sys.exit(1)
+            waitForKeyPressAndExit()
 
     if not os.path.exists(FONTFOLDER):
         try:
@@ -137,7 +137,7 @@ def createStructure():
         except Exception as ex:
             print("font folder creation failed")
             print(ex)
-            sys.exit(1)
+            waitForKeyPressAndExit()
 
     if not os.path.exists(IMAGEFOLDER):
         try:
@@ -145,7 +145,7 @@ def createStructure():
         except Exception as ex:
             print("image folder creation failed")
             print(ex)
-            sys.exit(1)
+            waitForKeyPressAndExit()
 
     if not os.path.exists(DATACARDFOLDER):
         try:
@@ -153,7 +153,7 @@ def createStructure():
         except Exception as ex:
             print("datacard folder creation failed")
             print(ex)
-            sys.exit(1)
+            waitForKeyPressAndExit()
 
     if not os.path.exists(IMAGEJSON):
         example = [
@@ -635,7 +635,7 @@ def createDataCard(army):
     except Exception as ex:
         print("Font is missing!")
         print(ex)
-        sys.exit(1)
+        waitForKeyPressAndExit()
 
     dataCardParameters = {
         'pdfSize': (300.0, 200.0),
@@ -1033,7 +1033,7 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList[armyData['armyId']])
     if (validateVersion and not versionCheck):
         print("Verison missmatch not supported")
-        sys.exit(1)
+        waitForKeyPressAndExit()
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
@@ -1053,18 +1053,18 @@ def loadJsonFile(jsonFile: str):
     except Exception as ex:
         print("file failed to open " + jsonFile)
         print(ex)
-        sys.exit(1)
+        waitForKeyPressAndExit()
 
     try:
         jsonObj = json.loads(file)
     except json.decoder.JSONDecodeError as ex:
         print(file + " Json is not valid!")
         print(ex)
-        sys.exit(1)
+        waitForKeyPressAndExit()
     except Exception as ex:
         print("Unhandeld Exception")
         print(ex)
-        sys.exit(1)
+        waitForKeyPressAndExit()
     return jsonObj
 
 
@@ -1178,6 +1178,10 @@ def checkArmyVersions(armyJson, armyBookJson):
     else:
         print(f"Error: Army version {armyVersion} don't match ArmyBook version {bookVersion}")
         return False
+
+def waitForKeyPressAndExit():
+    input("Press Enter to continue...")
+    sys.exit(1)
 
 if __name__ == "__main__":
     Main()
