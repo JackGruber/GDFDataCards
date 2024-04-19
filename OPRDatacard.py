@@ -209,6 +209,12 @@ def dataCardBoarderFrame(pdf, dataCardParameters):
     pdf.setLineJoin(1)
     pdf.drawPath(path, stroke=1, fill=0)
 
+def getUnitCost(unit):
+    cost = unit['cost']
+    if 'upgradeCost' in unit:
+        for addCost in unit['upgradeCost']:
+            cost += addCost
+    return cost
 
 def dataCardUnitPoints(pdf, dataCardParameters, unit):
     if 'cost' in unit:
@@ -217,10 +223,7 @@ def dataCardUnitPoints(pdf, dataCardParameters, unit):
         pdf.setFont('regular', 8)
         pdf.setFillColorRGB(0, 0, 0)
 
-        cost = unit['cost']
-        if 'upgradeCost' in unit:
-            for addCost in unit['upgradeCost']:
-                cost += addCost
+        cost = getUnitCost(unit)
 
         sideClearance = 20
         bottomClearance = 5
@@ -504,7 +507,7 @@ def unitOverview(pdf, dataCardParameters, army):
             unitInfo = unit['type']
 
         unitInfo += " [" + str(unit['size']) + "]"
-        unitInfo += " -" + str(unit['cost']) + " pts"
+        unitInfo += " -" + str(getUnitCost(unit)) + " pts"
         lines.append(unitInfo)
 
     pdf.setFont("bold", fontSize)
