@@ -43,12 +43,12 @@ def test_addEquipment():
 
 def test_getSpecialRules_Weapons():
     testCases = [
-        {'unit': 'Company Leader', 'equipment': 'Master Rifle', 
+        {'unit': 'Company Leader', 'weapon': 'Master Rifle', 
             'expected': []},
-        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
-            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}]},
-        {'unit': 'Cavalry', 'equipment': 'Hunting Lance', 
-            'expected': [{'key': 'ap', 'name': 'AP', 'rating': '1', 'modify': False, 'label': 'AP(1)'}, {'key': 'lance', 'name': 'Lance', 'rating': '', 'modify': False, 'label': 'Lance'}]},
+        {'unit': 'Storm Leader', 'weapon': 'Master Heavy Pistol', 
+            'expected': [{'type': 'ArmyBookRule', 'id': '17crjK7P6_w6', 'name': 'AP', 'rating': 1, 'label': 'AP(1)'}]},
+        {'unit': 'Sniper', 'weapon': 'Sniper Rifle', 
+            'expected': [{'type': 'ArmyBookRule', 'id': '17crjK7P6_w6', 'name': 'AP', 'rating': 1, 'label': 'AP(1)'}, {'type': 'ArmyBookRule', 'id': 'Zx4mWN0SbmK8', 'name': 'Reliable', 'label': 'Reliable'}]},
 
     ]
 
@@ -58,15 +58,21 @@ def test_getSpecialRules_Weapons():
         specialRules = None
         for unit in units:
             if unit['name'].lower() == test['unit'].lower():
-                for equipment in unit['equipment']:
-                    if equipment['name'].lower() == test['equipment'].lower():
-                        specialRules = equipment['specialRules']
-                        break
+                for weapon in unit['weapons']:
+                    print(weapon['name'])
+                    if weapon['name'].lower() == test['weapon'].lower():
+                        if 'specialRules' in weapon:
+                            specialRules = weapon['specialRules']
+                            break
             if specialRules is not None:
                 break
+        if len(test['expected']) == 0:
+            assert specialRules is None, "Test for unit " + str(test['unit']) + " weapon " + str(test['weapon'])
+        else:
+            assert specialRules is not None, "Test for unit " + str(test['unit']) + " weapon " + str(test['weapon'])
+            result = OPRDatacard.getRules(specialRules)
+            assert result == test['expected'], "Test for unit " + str(test['unit']) + " weapon " + str(test['weapon'])
         
-        result = OPRDatacard.getSpecialRules(specialRules)
-        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
 
 def test_getWeapon():
     testCases = [
