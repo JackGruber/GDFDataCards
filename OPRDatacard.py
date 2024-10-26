@@ -257,7 +257,7 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         tough = 0
         startX = 2
         startY = dataCardParameters['pdfSize'][1] - 50 - woundsSize
-        for rule in unit['specialRules']:
+        for rule in unit['rules']:
             if (rule['name'].lower() == "tough"):
                 tough = int(rule['rating']) - 1
 
@@ -313,7 +313,7 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
     pdf.setFillColorRGB(0, 0, 0)
 
     specialRules = []
-    for rule in unit['specialRules']:
+    for rule in unit['rules']:
         specialRules.append(rule['label'])
     pdf.drawString(sideClearance+2, bottomClearance +
                    (height/2)-2, ", ".join(specialRules))
@@ -533,7 +533,7 @@ def unitOverview(pdf, dataCardParameters, army):
 def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = []
     for unit in army['units']:
-        for rule in unit['specialRules']:
+        for rule in unit['rules']:
             rules.append(rule['name'])
 
         for weapon in unit['weapons']:
@@ -831,7 +831,7 @@ def getUnit(unit, jsonArmyBookList):
             for equipment in listUnit['equipment']:
                 data['weapons'].append(getWeapon(equipment))
 
-            data['specialRules'] = getSpecialRules(listUnit['specialRules'])
+            data['rules'] = getRules(listUnit['rules'])
             data = getUnitUpgrades(unit, data, jsonArmyBookList)
             break
     if "customName" in unit:
@@ -840,9 +840,14 @@ def getUnit(unit, jsonArmyBookList):
     return data
 
 
-def getSpecialRules(data):
-    specialRules = []
+def getRules(data):
+    if DEBUG == True:
+        print(f'    Func: getRules')
+    rules = []
     for specialRule in data:
+        if DEBUG == True:
+            print(f'      {specialRule["name"]}')
+
         rule = specialRule
         if 'rating' in specialRule and specialRule['rating'] != '':
             rule['label'] = specialRule['name'] + \
@@ -850,9 +855,9 @@ def getSpecialRules(data):
         else:
             rule['label'] = specialRule['name']
 
-        specialRules.append(rule)
+        rules.append(rule)
 
-    return specialRules
+    return rules
 
 
 def getWeapon(data, modCount=-1):
