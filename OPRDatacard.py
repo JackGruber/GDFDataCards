@@ -551,7 +551,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
     for rule in rules:
-        for common in commonRules:
+        for common in commonRules['rules']:
             if common['name'].lower() == rule.lower():
                 ruleDescriptions.append({'name': common['name'], 'description': common['description']})
                 if common['name'].lower() == "psychic":
