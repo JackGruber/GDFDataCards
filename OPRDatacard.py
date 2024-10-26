@@ -1122,7 +1122,7 @@ def downloadJson(url, file):
             print("Download file")
             urllib.request.urlretrieve(url, file)
         except Exception as ex:
-            print("Error failed")
+            print(f'Error for {url}')
             print(ex)
             return False
 
