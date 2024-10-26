@@ -862,7 +862,7 @@ def getRules(data):
 
 def getWeapon(data, modCount=-1):
     if DEBUG == True:
-        print("    Func: getWeapon")
+        print(f'    Func: getWeapon {data["name"]}')
 
     weapon = {}
     weapon['attacks'] = data['attacks']
