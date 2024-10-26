@@ -9,7 +9,7 @@ import OPRDatacard  # nopep8
 
 def test_Ok():
     OPRDatacard.DATAFOLDERARMYBOOK = os.path.join(testhelper.TESTDIR, 'tmp', 'data')
-    result = OPRDatacard.downloadArmyBook("z65fgu0l29i4lnlu", 3)
+    result = OPRDatacard.downloadArmyBook("7oi8zeiqfamiur21", 3)
     assert result == True
 
 
