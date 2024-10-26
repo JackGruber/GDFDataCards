@@ -1035,12 +1035,12 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
 
     versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList[armyData['armyId']])
     if (validateVersion and not versionCheck):
-        print("Verison missmatch not supported")
+        print("Army Book version from JSON is different than Army Book Version from OPR Server")
         waitForKeyPressAndExit()
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
-        print("  Unit ID:" + unit['id'])
+        print(f'  Unit ID: {unit["id"]}')
         unitData = getUnit(unit, jsonArmyBookList)
         if unitData != {}:
             armyData['units'].append(unitData)
