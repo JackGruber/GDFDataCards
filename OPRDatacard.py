@@ -1089,15 +1089,15 @@ def getGameSystemId(gameSystem: str):
 def downloadArmyBook(id: str, gameSystemId):
     print("Check/download army book ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
-    url = "https://army-forge-studio.onepagerules.com/api/army-books/" + \
-        str(id) + "~" + str(gameSystemId) + "?armyForge=true"
+    url = f'https://army-forge.onepagerules.com/api/army-books/{id}?gameSystem={gameSystemId}'
+
     return downloadJson(url, armyBookJsonFile)
 
 
 def downloadCommonRules(gameSystemId):
     print("Check/download common rules ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
-    url = "https://army-forge.onepagerules.com/api/afs/common-rules?gameSystem=" + str(gameSystemId)
+    url = f'https://army-forge.onepagerules.com/api/rules/common/{gameSystemId}'
     return downloadJson(url, armyBookJsonFile)
 
 
