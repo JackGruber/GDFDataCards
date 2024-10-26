@@ -20,24 +20,10 @@ def test_addEquipment():
                     break
 
     result = OPRDatacard.addEquipment(gains)
-    expected = {'name': 'Forward Observer', 
-                    'specialRules': [
-                        {'key': 'take aim', 
-                        'name': 'Take Aim', 
-                        'type': 'ArmyBookRule', 
-                        'label': 'Take Aim', 
-                        'modify': False, 
-                        'rating': ''
-                        }
-                    ]
-                }
+    expected = {'name': 'Forward Observer', 'specialRules': [{'id': 'KskX8qPX3I8G', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim'}]}
 
     assert result['name'] == "Forward Observer"
     assert len(result['specialRules']) == 1
-    assert result['specialRules'][0]['key'] == "take aim"
-    assert result['specialRules'][0]['name'] == "Take Aim"
-    assert result['specialRules'][0]['label'] == "Take Aim"
-    assert type(result['specialRules'][0]['rating']) == str
     assert result == expected
 
 
