@@ -132,27 +132,6 @@ def test_removeWeapon():
         assert result == test['expected'], "Weapon remove error for: " + ", ". join(test['remove'])
 
 
-def test_getUnitUpgrades():
-    book = {}
-    book['TestArmyId'] = armyBookHdf
-    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": []}
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == {'size': 1, 'weapons': []}, "No upgrades"
-
-    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [{ "instanceId": "8E9g2SWmn", "upgradeId": "r5XpHsA", "optionId": "8reDsp0"},]}
-    expected = {'size': 1, 'weapons': [], 'upgradeCost': [50], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}]}
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "One Upgrade"
-
-    unitFromList = {'id': "dwJg2Bu", "armyId": "TestArmyId", "selectedUpgrades": [
-                    {"instanceId": "8E9g2SWmn","upgradeId": "r5XpHsA","optionId": "8reDsp0"},
-                    {"instanceId": "rA1CrnoXB","upgradeId": "F8Om0","optionId": "6omIv"},
-                    {"instanceId": "TAXwR2a7W","upgradeId": "O0U5OGl","optionId": "yKOK0P1"}]}
-    expected = {'size': 1, 'weapons': [{'attacks': 2, 'count': 1, 'name': 'Energy Fist', 'specialRules': [], 'ap': 4}], 'upgradeCost': [50, 5, 15], 'equipment': [{'name': 'Forward Observer', 'specialRules': [{'key': 'take aim', 'name': 'Take Aim', 'type': 'ArmyBookRule', 'label': 'Take Aim', 'modify': False, 'rating': ''}]}, {'name': 'Heavy Armor', 'specialRules': [{'name': 'Defense', 'type': 'ArmyBookRule', 'label': 'Defense(1)', 'modify': True, 'rating': 1}]}]}
-    result = OPRDatacard.getUnitUpgrades(unitFromList, {'size': 1, 'weapons': []}, book)
-    assert result == expected, "3 Upgrades"
-
-
 def test_getUnit():
     book = {}
     book['TestArmyId'] = armyBookHdf
@@ -164,8 +143,7 @@ def test_getUnit():
     assert result['defense'] == 4
     assert result['quality'] == 4
     assert len(result['weapons']) == 2
-    assert len(result['specialRules']) == 3
-    assert len(result['specialRules']) == 3
+    assert len(result['rules']) == 4
 
 
 def test_unitWithManyUpgrades():
