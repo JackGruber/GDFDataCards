@@ -62,12 +62,12 @@ def test_getSpecialRules_Weapons():
 
 def test_getWeapon():
     testCases = [
-        {'unit': 'Company Leader', 'equipment': 'CCW', 
-            'expected': {'attacks': 1, 'count': 1, 'name': 'CCW', 'specialRules': []}},
-        {'unit': 'Storm Leader', 'equipment': 'Master Heavy Rifle', 
-            'expected': {'attacks': 2, 'count': 1, 'name': 'Master Heavy Rifle', 'range': 24, 'specialRules': [], 'ap': '1'}},
-        {'unit': 'Special Weapon', 'equipment': 'Grenade Launcher', 
-            'expected': {'attacks': 1, 'count': 1, 'name': 'Grenade Launcher', 'range': 24, 'specialRules': [{'key': 'blast', 'name': 'Blast', 'rating': '3', 'modify': False, 'label': 'Blast(3)'}]}},
+        {'unit': 'Company Leader', 'weapon': 'CCW', 
+            'expected': {'attacks': 2, 'count': 1, 'name': 'CCW', 'specialRules': []}},
+        {'unit': 'OGRE Robot', 'weapon': 'OGRE Gatling Gun', 
+            'expected': {'attacks': 3, 'count': 1, 'name': 'OGRE Gatling Gun', 'range': 12, 'specialRules': [], 'ap': '1'}},
+        {'unit': 'Sapper', 'weapon': 'Grenade Launcher', 
+            'expected': {'attacks': 1, 'count': 1, 'name': 'Grenade Launcher', 'range': 24, 'specialRules': [{'type': 'ArmyBookRule', 'id': 'w_vX0mi58KKt', 'name': 'Blast', 'rating': 3, 'label': 'Blast(3)'}]}},
     ]
 
     units = armyBookHdf["units"]
@@ -75,15 +75,16 @@ def test_getWeapon():
         weapon = None
         for unit in units:
             if unit['name'].lower() == test['unit'].lower():
-                for equipment in unit['equipment']:
-                    if equipment['name'].lower() == test['equipment'].lower():
+                for equipment in unit['weapons']:
+                    if equipment['name'].lower() == test['weapon'].lower():
                         weapon = equipment
                         break
             if weapon is not None:
                 break
-
+        
+        assert weapon is not None, "Test for unit " + str(test['unit']) + " weapon " + str(test['weapon'])
         result = OPRDatacard.getWeapon(weapon)
-        assert result == test['expected'], "Test for unit " + str(test['unit']) + " equipment " + str(test['equipment'])
+        assert result == test['expected'], "Test for unit " + str(test['unit']) + " weapon " + str(test['weapon'])
 
 def test_removeWeapon():
     weapons = [{'name': 'CCW', 'count': 1}, {'name': 'Heavy Rifle', 'count': 1}, {
