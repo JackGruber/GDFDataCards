@@ -915,6 +915,10 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
         armyId = unit['armyId']
         upgradeId = upgrade['upgradeId']
         optionId = upgrade['optionId']
+
+        if DEBUG:
+            print(f'      upgradeId: {upgradeId}')
+
         for package in jsonArmyBookList[armyId]['upgradePackages']:
             for section in package['sections']:
                 variant = None
