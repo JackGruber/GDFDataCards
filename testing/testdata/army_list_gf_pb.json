@@ -1,5 +1,5 @@
 {
-    "id": "PBJIbTjbQb9m",
+    "id": "9kV66_yjpnS0",
     "gameSystem": "gf",
     "armyId": "oqnnu0gk8q6hyyny",
     "armyIds": [
@@ -7,19 +7,19 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2024-04-01T18:11:00.311Z",
+    "modified": "2024-10-27T15:35:20.024Z",
     "saveVersion": 3,
     "favourite": false,
     "armyVersions": [
         {
-            "version": "3.2.0",
+            "version": "3.4.1",
             "armyId": "oqnnu0gk8q6hyyny"
         }
     ],
-    "listPoints": 1985,
+    "listPoints": 2005,
     "list": {
-        "id": "PBJIbTjbQb9m",
-        "key": "BqSHHgU838apps0WiBUkL",
+        "id": "9kV66_yjpnS0",
+        "key": "mkutlzOGYnlZ6DsbwwwY5",
         "name": "Prime Brothers",
         "description": "",
         "pointsLimit": 2000,
@@ -28,80 +28,30 @@
         "forceOrg": true,
         "gameSystem": "gf",
         "isCloud": false,
-        "modified": "2024-04-01T18:11:00.311Z",
+        "modified": "2024-10-27T15:35:20.024Z",
         "cloudModified": null,
-        "activationCount": 8,
-        "modelCount": 24,
+        "activationCount": 6,
+        "modelCount": 12,
         "units": [
             {
-                "id": "Z2WiRfh",
+                "id": "DTrVAIo",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "zSqgp",
+                "selectionId": "28QtI",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "l7bTRGMKy",
-                        "upgradeId": "MovgoCq",
-                        "optionId": "NAzSrGO"
-                    },
-                    {
-                        "instanceId": "gI8o2Dpkd",
+                        "instanceId": "tn5OJS2O2",
                         "upgradeId": "BCvkhSe",
-                        "optionId": "fwO6jFd"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "meWSgTo",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "s8HZX",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "foQcwUXTs",
-                        "upgradeId": "vIcBJVF",
-                        "optionId": "lCeyzzU"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "PoRVpWT",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "CHiYv",
-                "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "81WTJ34",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "IoM46",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "M3r3JnQZj",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
+                        "optionId": "pKc0YNJ"
                     },
                     {
-                        "instanceId": "9wX14x5cM",
-                        "upgradeId": "ar5sR",
-                        "optionId": "wyKaPTZ"
+                        "instanceId": "iH6rKWry_",
+                        "upgradeId": "5vRO_TO",
+                        "optionId": "zoaReZv"
                     },
                     {
-                        "instanceId": "EVR2S9IHl",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
+                        "instanceId": "MUtSZyLyU",
+                        "upgradeId": "MovgoCq",
+                        "optionId": "d6wOTSF"
                     }
                 ],
                 "combined": false,
@@ -111,14 +61,44 @@
                 "notes": null
             },
             {
-                "id": "Fz19CEf",
+                "id": "jvNqUVU",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "uF5y2",
+                "selectionId": "z2cD6",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "DR7uuxmTl",
-                        "upgradeId": "SVNGXyF",
-                        "optionId": "PlFiaqs"
+                        "instanceId": "KGNIo0V1n",
+                        "upgradeId": "3WRYt",
+                        "optionId": "8_FCX"
+                    },
+                    {
+                        "instanceId": "8ELJCfhmJ",
+                        "upgradeId": "XFwqW",
+                        "optionId": "Y8lX8"
+                    },
+                    {
+                        "instanceId": "zvdeEtEVE",
+                        "upgradeId": "XFwqW",
+                        "optionId": "UjhZK"
+                    },
+                    {
+                        "instanceId": "fMiUDIvVt",
+                        "upgradeId": "XFwqW",
+                        "optionId": "78Cf1"
+                    },
+                    {
+                        "instanceId": "dZyHzdk2U",
+                        "upgradeId": "ewy_4",
+                        "optionId": "9NchP"
+                    },
+                    {
+                        "instanceId": "ttZWLb5C5",
+                        "upgradeId": "ewy_4",
+                        "optionId": "9NchP"
+                    },
+                    {
+                        "instanceId": "W-r83uzTH",
+                        "upgradeId": "ewy_4",
+                        "optionId": "9NchP"
                     }
                 ],
                 "combined": false,
@@ -128,44 +108,81 @@
                 "notes": null
             },
             {
-                "id": "mIz9reK",
+                "id": "R3-Hq1q",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "Tmi6U",
+                "selectionId": "Wm1Vr",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "18gBbo3Nj",
+                        "upgradeId": "YkWwO",
+                        "optionId": "ddMMY"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "LMIXRI1",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "dgXsw",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "TS2Gbe-Rv",
+                        "upgradeId": "Z5n2Qh7",
+                        "optionId": "iIsbKwk"
+                    },
+                    {
+                        "instanceId": "Qj9NYUmXg",
+                        "upgradeId": "qsoOx",
+                        "optionId": "u8RKr"
+                    },
+                    {
+                        "instanceId": "z-l1PNgIH",
+                        "upgradeId": "u_zsC-z",
+                        "optionId": "XK-42Q2"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "eWXrBd1",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "AVU9r",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "oxMYfZt2p",
+                        "upgradeId": "CLlyw",
+                        "optionId": "t-pes"
+                    },
+                    {
+                        "instanceId": "qgwky37fR",
+                        "upgradeId": "SN_jiM0",
+                        "optionId": "4oXpyjM"
+                    },
+                    {
+                        "instanceId": "pGsGnJuje",
+                        "upgradeId": "fkzOFG1",
+                        "optionId": "JZc_Gd3"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "u5gQQpG",
+                "armyId": "oqnnu0gk8q6hyyny",
+                "selectionId": "dbrhi",
                 "selectedUpgrades": [],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "VZ7HCmt",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "oxaBl",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "_FTdAOteo",
-                        "upgradeId": "WCoSz98",
-                        "optionId": "VV9C8"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "YQGLAAj",
-                "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "W6HwA",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "1hwWsc1Hb",
-                        "upgradeId": "uTKvirx",
-                        "optionId": "raxBZDD"
-                    }
-                ],
                 "combined": false,
                 "joinToUnit": null,
                 "xp": 0,

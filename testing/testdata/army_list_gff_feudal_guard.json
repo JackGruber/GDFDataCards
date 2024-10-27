@@ -1,5 +1,5 @@
 {
-    "id": "G7kbUa9YgmOp",
+    "id": "eU-WQZOdGpvb",
     "gameSystem": "gff",
     "armyId": "w15ncjbqsqk3tcet",
     "armyIds": [
@@ -7,7 +7,7 @@
     ],
     "armyFaction": null,
     "armyName": "Feudal Guard",
-    "modified": "2024-04-01T18:20:48.369Z",
+    "modified": "2024-10-27T15:48:03.989Z",
     "saveVersion": 3,
     "favourite": false,
     "armyVersions": [
@@ -16,10 +16,10 @@
             "armyId": "w15ncjbqsqk3tcet"
         }
     ],
-    "listPoints": 270,
+    "listPoints": 295,
     "list": {
-        "id": "G7kbUa9YgmOp",
-        "key": "SgZ_y7kWg-ujkAT78DE7e",
+        "id": "eU-WQZOdGpvb",
+        "key": "iNgMmfrf1NUiY6ReKNDSg",
         "name": "Feudal Guard",
         "description": "",
         "pointsLimit": 300,
@@ -28,93 +28,20 @@
         "forceOrg": true,
         "gameSystem": "gff",
         "isCloud": false,
-        "modified": "2024-04-01T18:20:48.369Z",
+        "modified": "2024-10-27T15:48:03.989Z",
         "cloudModified": null,
-        "activationCount": 8,
-        "modelCount": 8,
+        "activationCount": 5,
+        "modelCount": 7,
         "units": [
             {
-                "id": "tHC6KYN",
+                "id": "Tejdlmn",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "SikYB",
+                "selectionId": "ZWoN5",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "V428trXG4",
+                        "instanceId": "fL2j-t4rV",
                         "upgradeId": "hwwOKuH",
-                        "optionId": "4dRjB"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "FtI-L",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "oahuTpL_d",
-                        "upgradeId": "_S-A6la",
-                        "optionId": "TYTb9hz"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "NX1m1",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "f51UhHN5h",
-                        "upgradeId": "_S-A6la",
-                        "optionId": "TYTb9hz"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "FwOWLvi",
-                "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "NdxL6",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "8T0hb7_7c",
-                        "upgradeId": "grFpVZT",
-                        "optionId": "7GLon"
-                    },
-                    {
-                        "instanceId": "DrHvL_mtI",
-                        "upgradeId": "MVOkO8_",
-                        "optionId": "CmNu66X"
-                    }
-                ],
-                "combined": false,
-                "joinToUnit": null,
-                "xp": 0,
-                "traits": [],
-                "notes": null
-            },
-            {
-                "id": "6RHfsg7",
-                "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "dlImz",
-                "selectedUpgrades": [
-                    {
-                        "instanceId": "CRTNgy57q",
-                        "upgradeId": "atyqrYm",
-                        "optionId": "7Vyuew9"
+                        "optionId": "yyugx"
                     }
                 ],
                 "combined": false,
@@ -126,7 +53,7 @@
             {
                 "id": "Jw0Fw2y",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "E_EMU",
+                "selectionId": "4L1RL",
                 "selectedUpgrades": [],
                 "combined": false,
                 "joinToUnit": null,
@@ -135,14 +62,41 @@
                 "notes": null
             },
             {
-                "id": "d_dzOfJ",
+                "id": "FwOWLvi",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "JijRt",
+                "selectionId": "JbnWS",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "Ri49zbqzl",
-                        "upgradeId": "lL1tV-x",
-                        "optionId": "o4uNh"
+                        "instanceId": "M9yjglKmW",
+                        "upgradeId": "ylwIKLi",
+                        "optionId": "tANsN-5"
+                    },
+                    {
+                        "instanceId": "Zl9eZkyjn",
+                        "upgradeId": "zRVAQ0X",
+                        "optionId": "n1JY_dO"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "JWcThfe",
+                "armyId": "w15ncjbqsqk3tcet",
+                "selectionId": "haY4a",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "mj7O-UHJi",
+                        "upgradeId": "G3LOgRZ",
+                        "optionId": "lIDxv9-"
+                    },
+                    {
+                        "instanceId": "1CKDcGydf",
+                        "upgradeId": "lujjvqa",
+                        "optionId": "Pcvl5L3"
                     }
                 ],
                 "combined": false,
@@ -154,12 +108,12 @@
             {
                 "id": "d_dzOfJ",
                 "armyId": "w15ncjbqsqk3tcet",
-                "selectionId": "ukJsn",
+                "selectionId": "Z6lUh",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "OhOz_BCB_",
+                        "instanceId": "bo5ratdIe",
                         "upgradeId": "lL1tV-x",
-                        "optionId": "xuPcQ7J"
+                        "optionId": "o4uNh"
                     }
                 ],
                 "combined": false,

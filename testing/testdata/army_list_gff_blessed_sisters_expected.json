@@ -1,0 +1,426 @@
+{
+    "armyId": "7oi8zeiqfamiur21",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyName": "Blessed Sisters",
+    "listPoints": 300,
+    "listName": "Blessed Sisters",
+    "units": [
+        {
+            "type": "High Sister",
+            "name": "High Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "2TXWi3B",
+            "cost": 35,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "B1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Master Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                }
+            ],
+            "upgradeCost": [
+                25,
+                10
+            ],
+            "equipment": [
+                {
+                    "name": "Superior",
+                    "specialRules": [
+                        {
+                            "id": "EE80BCU66oFu",
+                            "name": "Blind Faith",
+                            "type": "ArmyBookRule",
+                            "label": "Blind Faith"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Pistoleer Sister",
+            "name": "Pistoleer Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "qgESKb_",
+            "cost": 30,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "J1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Twin Heavy Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "rules": [
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "-QJdqJEKjIpE",
+                    "name": "Flying",
+                    "label": "Flying"
+                }
+            ]
+        },
+        {
+            "type": "Assault Sister",
+            "name": "Assault Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "S9Oua8O",
+            "cost": 35,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "K1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Energy Sword",
+                    "specialRules": [
+                        {
+                            "type": "ArmyBookRule",
+                            "id": "cavWDboL4ubs",
+                            "name": "Rending",
+                            "label": "Rending"
+                        }
+                    ],
+                    "ap": 1
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": 4
+                }
+            ],
+            "rules": [
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "-QJdqJEKjIpE",
+                    "name": "Flying",
+                    "label": "Flying"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ]
+        },
+        {
+            "type": "Warrior Sister",
+            "name": "Warrior Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "0Bc4px2",
+            "cost": 25,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1",
+                "cT2sU",
+                "vo3TX"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Storm Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                }
+            ],
+            "upgradeCost": [
+                25
+            ]
+        },
+        {
+            "type": "Warrior Sister",
+            "name": "Warrior Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "0Bc4px2",
+            "cost": 25,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1",
+                "cT2sU",
+                "vo3TX"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Flamer",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        },
+                        {
+                            "id": "Zx4mWN0SbmK8",
+                            "name": "Reliable",
+                            "type": "ArmyBookRule",
+                            "label": "Reliable"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                }
+            ],
+            "upgradeCost": [
+                10
+            ]
+        },
+        {
+            "type": "Warrior Sister",
+            "name": "Warrior Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "0Bc4px2",
+            "cost": 25,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "E1",
+                "cT2sU",
+                "vo3TX"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                }
+            ]
+        },
+        {
+            "type": "Fanatic Sister",
+            "name": "Fanatic Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "R3sC7UX",
+            "cost": 20,
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "H1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": "2",
+                    "count": 1,
+                    "name": "Chainsaw Sword",
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "fpXLibfT38MT",
+                    "name": "Frenzy",
+                    "label": "Frenzy"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Flagellants",
+                    "specialRules": [
+                        {
+                            "id": "8KujvrTG8k9p",
+                            "name": "Regeneration",
+                            "type": "ArmyBookRule",
+                            "label": "Regeneration"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Fanatic Sister",
+            "name": "Fanatic Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "R3sC7UX",
+            "cost": 20,
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "H1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": "2",
+                    "count": 1,
+                    "name": "Chainsaw Sword",
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "fpXLibfT38MT",
+                    "name": "Frenzy",
+                    "label": "Frenzy"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Flagellants",
+                    "specialRules": [
+                        {
+                            "id": "8KujvrTG8k9p",
+                            "name": "Regeneration",
+                            "type": "ArmyBookRule",
+                            "label": "Regeneration"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

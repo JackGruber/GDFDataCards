@@ -3,20 +3,20 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Feudal Guard",
-    "listPoints": 270,
+    "listPoints": 295,
     "listName": "Feudal Guard",
     "units": [
         {
-            "type": "Feudal Captain",
-            "name": "Feudal Captain",
+            "type": "Elite Captain",
+            "name": "Elite Captain",
             "armyId": "w15ncjbqsqk3tcet",
-            "id": "tHC6KYN",
-            "cost": 50,
-            "defense": 4,
+            "id": "Tejdlmn",
+            "cost": 60,
+            "defense": 3,
             "quality": 4,
             "upgrades": [
                 "C1",
-                "gcZIg"
+                "9kMqi"
             ],
             "size": 1,
             "notes": null,
@@ -24,9 +24,10 @@
                 {
                     "attacks": "2",
                     "count": 1,
-                    "name": "Cpt. Rifle",
+                    "name": "Cpt. Heavy Rifle",
                     "range": 24,
-                    "specialRules": []
+                    "specialRules": [],
+                    "ap": 1
                 },
                 {
                     "attacks": 1,
@@ -35,223 +36,39 @@
                     "specialRules": []
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
+                    "id": "T08VkBuVmNZ_",
                     "name": "Hero",
-                    "rating": "",
                     "label": "Hero"
                 },
                 {
-                    "name": "Tough",
+                    "id": "a0YtInGiUDd6",
                     "rating": "3",
+                    "name": "Tough",
                     "label": "Tough(3)"
                 }
             ],
             "upgradeCost": [
-                25
+                15
             ],
             "equipment": [
                 {
-                    "name": "Strategist",
+                    "name": "Paymaster",
                     "specialRules": [
                         {
-                            "name": "Ballistics Console",
+                            "id": "bIZKJ",
                             "type": "ArmyBookRule",
-                            "label": "Ballistics Console",
-                            "modify": false,
-                            "rating": ""
+                            "name": "Deep Pockets",
+                            "label": "Deep Pockets"
                         }
                     ]
                 }
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Feudal Guardsman",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Bayonet",
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Feudal Guardsman",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Bayonet",
-                    "specialRules": [],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Feudal Guardsman",
-            "name": "Feudal Guardsman",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "FwOWLvi",
-            "cost": 15,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "A1",
-                "D1",
-                "E1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Sgt. Pistol",
-                    "range": 12,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Energy Sword",
-                    "specialRules": [
-                        {
-                            "key": "rending",
-                            "name": "Rending",
-                            "type": "ArmyBookRule",
-                            "label": "Rending",
-                            "rating": ""
-                        }
-                    ],
-                    "ap": "1"
-                }
-            ],
-            "specialRules": [
-                {
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                0,
-                5
-            ]
-        },
-        {
-            "type": "Feudal Elite",
-            "name": "Feudal Elite",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "6RHfsg7",
-            "cost": 25,
-            "defense": 3,
-            "quality": 4,
-            "upgrades": [
-                "B1",
-                "D1",
-                "I1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Shred Rifle",
-                    "range": 18,
-                    "specialRules": [
-                        {
-                            "key": "rending",
-                            "name": "Rending",
-                            "type": "ArmyBookRule",
-                            "label": "Rending",
-                            "rating": ""
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                }
-            ],
-            "upgradeCost": [
-                5
             ]
         },
         {
@@ -269,41 +86,167 @@
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
                     "name": "Sniper Rifle",
                     "range": 30,
                     "specialRules": [
                         {
-                            "key": "reliable",
+                            "type": "ArmyBookRule",
+                            "id": "Zx4mWN0SbmK8",
                             "name": "Reliable",
-                            "rating": "",
-                            "modify": false,
                             "label": "Reliable"
                         }
                     ],
-                    "ap": "1"
+                    "ap": 1
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
+                    "id": "FAMbscK5vhSu",
                     "name": "Scout",
-                    "rating": "",
                     "label": "Scout"
                 },
                 {
+                    "id": "9jyvRoBODD-O",
                     "name": "Stealth",
-                    "rating": "",
                     "label": "Stealth"
+                }
+            ]
+        },
+        {
+            "type": "Feudal Guardsmen",
+            "name": "Feudal Guardsmen",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "FwOWLvi",
+            "cost": 45,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "A1",
+                "D1",
+                "E1"
+            ],
+            "size": 3,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 2,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 3,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Shred Rifle",
+                    "range": 18,
+                    "specialRules": [
+                        {
+                            "id": "cavWDboL4ubs",
+                            "type": "ArmyBookRule",
+                            "name": "Rending",
+                            "label": "Rending"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "bLVZU4onzi2E",
+                    "type": "ArmyBookRule",
+                    "name": "Medical Training",
+                    "label": "Medical Training",
+                    "count": 1
+                }
+            ],
+            "upgradeCost": [
+                10,
+                15
+            ]
+        },
+        {
+            "type": "Feudal OGRE",
+            "name": "Feudal OGRE",
+            "armyId": "w15ncjbqsqk3tcet",
+            "id": "JWcThfe",
+            "cost": 65,
+            "defense": 3,
+            "quality": 4,
+            "upgrades": [
+                "K1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Bash",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Heavy Baton",
+                    "specialRules": [],
+                    "ap": 2
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "JoOCVPx1xT1G",
+                    "name": "Furious",
+                    "label": "Furious"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "rating": "3",
+                    "name": "Tough",
+                    "label": "Tough(3)"
+                }
+            ],
+            "upgradeCost": [
+                5,
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Combat Shields",
+                    "specialRules": [
+                        {
+                            "id": "wsqfB0fq69eG",
+                            "type": "ArmyBookRule",
+                            "name": "Shield Wall",
+                            "label": "Shield Wall"
+                        }
+                    ]
                 }
             ]
         },
@@ -312,7 +255,7 @@
             "name": "Feudal Specialist",
             "armyId": "w15ncjbqsqk3tcet",
             "id": "d_dzOfJ",
-            "cost": 25,
+            "cost": 30,
             "defense": 4,
             "quality": 5,
             "upgrades": [
@@ -334,82 +277,30 @@
                     "range": 12,
                     "specialRules": [
                         {
-                            "name": "Blast",
+                            "id": "w_vX0mi58KKt",
                             "type": "ArmyBookRule",
-                            "label": "Blast(3)",
-                            "modify": false,
-                            "rating": 3
+                            "rating": 3,
+                            "name": "Blast",
+                            "label": "Blast(3)"
                         },
                         {
+                            "id": "Zx4mWN0SbmK8",
+                            "type": "ArmyBookRule",
                             "name": "Reliable",
-                            "type": "ArmyBookRule",
-                            "label": "Reliable",
-                            "modify": false
+                            "label": "Reliable"
                         }
                     ]
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
+                    "id": "H9E9PIWpGRdw",
                     "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ],
-            "upgradeCost": [
-                10
-            ]
-        },
-        {
-            "type": "Feudal Specialist",
-            "name": "Feudal Specialist",
-            "armyId": "w15ncjbqsqk3tcet",
-            "id": "d_dzOfJ",
-            "cost": 25,
-            "defense": 4,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Shred Rifle",
-                    "range": 18,
-                    "specialRules": [
-                        {
-                            "key": "rending",
-                            "name": "Rending",
-                            "type": "ArmyBookRule",
-                            "label": "Rending",
-                            "rating": ""
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "name": "Relentless",
-                    "rating": "",
                     "label": "Relentless"
                 }
             ],

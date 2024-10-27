@@ -2,6 +2,7 @@ import os
 import sys
 import json
 import testhelper
+from unittest.mock import patch
 
 sys.path.append(os.path.join(testhelper.TESTDIR, '..'))
 import OPRDatacard  # nopep8
@@ -145,84 +146,83 @@ def test_getUnit():
     assert len(result['weapons']) == 2
     assert len(result['rules']) == 4
 
+def failTestWrongVersion():
+    assert False, "Wrong Armybook version"
 
 def test_unitWithManyUpgrades():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+        with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+            result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades.json'))
+            expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'gf_many_upgrades_expected.json'))
+            assert result == expected
+            try:
+                OPRDatacard.createDataCard(result)
+                assert True
+            except Exception:
+                assert False, "Error in createDataCard"
+
+def test_gff_blessed_sisters():
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_blessed_sisters.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_blessed_sisters_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
 
 def test_gff_hdf():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hdf_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
 
 def test_gf_pb():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_pb_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
 
 def test_gff_prime_brothers():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
-    expected = testhelper.readJsonFile(os.path.join(
-        testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_prime_brothers.json'))
+        expected = testhelper.readJsonFile(os.path.join(
+            testhelper.TESTDATADIR, 'army_list_gff_prime_brothers_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
 
-def test_gff_deudak_guard():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
-
-def test_gff_hb():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_hb_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
-
-def test_gf_rl():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_rl.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gf_rl_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+def test_gff_custom_armybook():
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'army_list_gff_feudal_guard_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
 
 def test_replace_all():
-    result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'replace_all.json'))
-    expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'replace_all_expected.json'))
-    assert result == expected
-    try:
-        OPRDatacard.createDataCard(result)
-        assert True
-    except Exception:
-        assert False, "Error in createDataCard"
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'replace_all.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'replace_all_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"

@@ -1,5 +1,5 @@
 {
-    "id": "PBJIbTjbQb9m",
+    "id": "58qDDQBrcq2E",
     "gameSystem": "gf",
     "armyId": "oqnnu0gk8q6hyyny",
     "armyIds": [
@@ -7,19 +7,19 @@
     ],
     "armyFaction": "Prime Brothers",
     "armyName": "Prime Brothers",
-    "modified": "2024-04-01T18:03:10.657Z",
+    "modified": "2024-10-27T13:48:13.179Z",
     "saveVersion": 3,
     "favourite": false,
     "armyVersions": [
         {
-            "version": "3.2.0",
+            "version": "3.4.1",
             "armyId": "oqnnu0gk8q6hyyny"
         }
     ],
-    "listPoints": 285,
+    "listPoints": 280,
     "list": {
-        "id": "PBJIbTjbQb9m",
-        "key": "BqSHHgU838apps0WiBUkL",
+        "id": "58qDDQBrcq2E",
+        "key": "c4FqO7jCLiSgNLpr_Fz9c",
         "name": "Prime Brothers",
         "description": "",
         "pointsLimit": 2000,
@@ -28,7 +28,7 @@
         "forceOrg": true,
         "gameSystem": "gf",
         "isCloud": false,
-        "modified": "2024-04-01T18:03:10.658Z",
+        "modified": "2024-10-27T13:48:13.179Z",
         "cloudModified": null,
         "activationCount": 1,
         "modelCount": 5,
@@ -36,32 +36,32 @@
             {
                 "id": "81WTJ34",
                 "armyId": "oqnnu0gk8q6hyyny",
-                "selectionId": "O8JFx",
+                "selectionId": "CsRl5",
                 "selectedUpgrades": [
                     {
-                        "instanceId": "tcq4TA2Ax",
+                        "instanceId": "d9jsxiqxw",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
+                    },
+                    {
+                        "instanceId": "S_Xql19WX",
                         "upgradeId": "ar5sR",
                         "optionId": "wyKaPTZ"
                     },
                     {
-                        "instanceId": "_Fwk3C6YA",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
-                    },
-                    {
-                        "instanceId": "-oGFLnBhT",
-                        "upgradeId": "tbNwc",
-                        "optionId": "uNapO"
-                    },
-                    {
-                        "instanceId": "sOYy-x6yu",
+                        "instanceId": "6WXjYDRjF",
                         "upgradeId": "Fyjqd",
                         "optionId": "dOV9k"
                     },
                     {
-                        "instanceId": "NPJ-j3DoH",
+                        "instanceId": "_cKuX3BfL",
                         "upgradeId": "vIcBJVF",
                         "optionId": "lCeyzzU"
+                    },
+                    {
+                        "instanceId": "iqrGvTyCV",
+                        "upgradeId": "tbNwc",
+                        "optionId": "uNapO"
                     }
                 ],
                 "combined": false,

@@ -7,324 +7,49 @@
     "listName": "Human Defense Force",
     "units": [
         {
-            "type": "Company Leader",
-            "name": "Company Leader",
+            "type": "Sniper",
+            "name": "Sniper",
             "armyId": "z65fgu0l29i4lnlu",
-            "id": "3Tk4911",
-            "cost": 40,
+            "id": "95wirM-",
+            "cost": 35,
             "defense": 5,
-            "quality": 4,
-            "upgrades": [
-                "A1",
-                "C1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Master Rifle",
-                    "range": 24,
-                    "specialRules": []
-                },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Energy Fist",
-                    "specialRules": [],
-                    "ap": 4
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "hero",
-                    "name": "Hero",
-                    "rating": "",
-                    "label": "Hero"
-                },
-                {
-                    "key": "tough",
-                    "name": "Tough",
-                    "rating": "3",
-                    "label": "Tough(3)"
-                }
-            ],
-            "upgradeCost": [
-                15,
-                25,
-                5
-            ],
-            "equipment": [
-                {
-                    "name": "Forward Observer",
-                    "specialRules": [
-                        {
-                            "key": "take aim",
-                            "name": "Take Aim",
-                            "type": "ArmyBookRule",
-                            "label": "Take Aim",
-                            "modify": false,
-                            "rating": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Heavy Armor",
-                    "specialRules": [
-                        {
-                            "name": "Defense",
-                            "type": "ArmyBookRule",
-                            "label": "Defense(1)",
-                            "modify": true,
-                            "rating": 1
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "type": "Veteran",
-            "name": "Veteran",
-            "armyId": "z65fgu0l29i4lnlu",
-            "id": "SScXOqX",
-            "cost": 15,
-            "defense": 5,
-            "quality": 4,
-            "upgrades": [
-                "H1",
-                "jzuNw",
-                "SmJiZ"
-            ],
+            "quality": 5,
+            "upgrades": [],
             "size": 1,
             "notes": null,
             "weapons": [
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "Missile Launcher",
+                    "name": "Sniper Rifle",
                     "range": 30,
                     "specialRules": [
                         {
-                            "name": "Deadly",
-                            "rating": 3,
-                            "label": "Deadly(3)"
-                        },
-                        {
-                            "name": "Lock-On",
-                            "label": "Lock-On"
+                            "type": "ArmyBookRule",
+                            "id": "Zx4mWN0SbmK8",
+                            "name": "Reliable",
+                            "label": "Reliable"
                         }
                     ],
-                    "ap": 2
+                    "ap": 1
                 },
-                {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Crew",
-                    "specialRules": []
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "tough",
-                    "name": "Tough",
-                    "type": "ArmyBookRule",
-                    "label": "Tough(3)",
-                    "modify": false,
-                    "rating": "3"
-                },
-                {
-                    "id": "fh8Z4sXA",
-                    "key": "medical-training",
-                    "name": "Medical Training",
-                    "type": "ArmyBookRule",
-                    "label": "Medical Training",
-                    "rating": "",
-                    "count": 1
-                }
-            ],
-            "upgradeCost": [
-                60,
-                15
-            ],
-            "equipment": [
-                {
-                    "name": "Weapon Team",
-                    "specialRules": []
-                }
-            ]
-        },
-        {
-            "type": "Conscripts",
-            "name": "Conscripts",
-            "armyId": "z65fgu0l29i4lnlu",
-            "id": "97ShHAa",
-            "cost": 20,
-            "defense": 5,
-            "quality": 6,
-            "upgrades": [],
-            "size": 3,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 3,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 3,
-                    "name": "Rifle",
-                    "range": 24,
-                    "specialRules": []
-                }
-            ],
-            "specialRules": []
-        },
-        {
-            "type": "Special Weapon",
-            "name": "Special Weapon",
-            "armyId": "z65fgu0l29i4lnlu",
-            "id": "SG9cgFZ",
-            "cost": 20,
-            "defense": 5,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
                 {
                     "attacks": 1,
                     "count": 1,
                     "name": "CCW",
                     "specialRules": []
+                }
+            ],
+            "rules": [
+                {
+                    "id": "FAMbscK5vhSu",
+                    "name": "Scout",
+                    "label": "Scout"
                 },
                 {
-                    "attacks": 2,
-                    "count": 1,
-                    "name": "Drum Rifle",
-                    "range": 18,
-                    "specialRules": [
-                        {
-                            "name": "Rending",
-                            "label": "Rending"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Special Weapon",
-            "name": "Special Weapon",
-            "armyId": "z65fgu0l29i4lnlu",
-            "id": "SG9cgFZ",
-            "cost": 20,
-            "defense": 5,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Flamer",
-                    "range": 12,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "type": "ArmyBookRule",
-                            "label": "Blast(3)",
-                            "modify": false,
-                            "rating": 3
-                        },
-                        {
-                            "key": "reliable",
-                            "name": "Reliable",
-                            "type": "ArmyBookRule",
-                            "label": "Reliable",
-                            "modify": false
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
-                }
-            ],
-            "upgradeCost": [
-                5
-            ]
-        },
-        {
-            "type": "Special Weapon",
-            "name": "Special Weapon",
-            "armyId": "z65fgu0l29i4lnlu",
-            "id": "SG9cgFZ",
-            "cost": 20,
-            "defense": 5,
-            "quality": 5,
-            "upgrades": [
-                "G1"
-            ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Grenade Launcher",
-                    "range": 24,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "rating": "3",
-                            "modify": false,
-                            "label": "Blast(3)"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "rating": "",
-                    "label": "Relentless"
+                    "id": "9jyvRoBODD-O",
+                    "name": "Stealth",
+                    "label": "Stealth"
                 }
             ]
         },
@@ -347,18 +72,375 @@
                 {
                     "attacks": 1,
                     "count": 3,
-                    "name": "CCW",
+                    "name": "Rifle",
+                    "range": 24,
                     "specialRules": []
                 },
                 {
                     "attacks": 1,
                     "count": 3,
-                    "name": "Rifle",
-                    "range": 24,
+                    "name": "CCW",
                     "specialRules": []
                 }
             ],
-            "specialRules": []
+            "rules": []
+        },
+        {
+            "type": "Sapper",
+            "name": "Sapper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SG9cgFZ",
+            "cost": 25,
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "G1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Flamer",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        },
+                        {
+                            "id": "Zx4mWN0SbmK8",
+                            "name": "Reliable",
+                            "type": "ArmyBookRule",
+                            "label": "Reliable"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "H9E9PIWpGRdw",
+                    "name": "Relentless",
+                    "label": "Relentless"
+                }
+            ],
+            "upgradeCost": [
+                5
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "cost": 15,
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "H1",
+                "jzuNw",
+                "SmJiZ"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Grenade Launcher",
+                    "range": 24,
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "name": "Blast",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        }
+                    ]
+                }
+            ],
+            "rules": [],
+            "upgradeCost": [
+                15
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "cost": 15,
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "H1",
+                "jzuNw",
+                "SmJiZ"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "rules": [],
+            "upgradeCost": [
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Heavy Armor",
+                    "specialRules": [
+                        {
+                            "id": "74RjQ1k41DoO",
+                            "name": "Defense",
+                            "type": "ArmyBookRule",
+                            "rating": "1",
+                            "condition": "",
+                            "label": "Defense(1)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Storm Trooper",
+            "name": "Storm Trooper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "Xuu-drz",
+            "cost": 25,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "I1",
+                "fN_Qf",
+                "SmJiZ"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Plasma Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 4
+                }
+            ],
+            "rules": [
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "JSKVyurtWIyW",
+                    "name": "Strider",
+                    "label": "Strider"
+                }
+            ],
+            "upgradeCost": [
+                10
+            ]
+        },
+        {
+            "type": "Veteran",
+            "name": "Veteran",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "SScXOqX",
+            "cost": 15,
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "H1",
+                "jzuNw",
+                "SmJiZ"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "rules": [
+                {
+                    "id": "bLVZU4onzi2E",
+                    "name": "Medical Training",
+                    "type": "ArmyBookRule",
+                    "label": "Medical Training",
+                    "count": 1
+                }
+            ],
+            "upgradeCost": [
+                15
+            ]
+        },
+        {
+            "type": "Company Leader",
+            "name": "Company Leader",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "3Tk4911",
+            "cost": 35,
+            "defense": 5,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Master Drum Pistol",
+                    "range": 9,
+                    "specialRules": [
+                        {
+                            "id": "cavWDboL4ubs",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": "3",
+                    "label": "Tough(3)"
+                }
+            ],
+            "upgradeCost": [
+                5,
+                5
+            ],
+            "equipment": [
+                {
+                    "name": "Heavy Armor",
+                    "specialRules": [
+                        {
+                            "id": "74RjQ1k41DoO",
+                            "name": "Defense",
+                            "type": "ArmyBookRule",
+                            "rating": 1,
+                            "label": "Defense(1)"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Storm Trooper",
+            "name": "Storm Trooper",
+            "armyId": "z65fgu0l29i4lnlu",
+            "id": "Xuu-drz",
+            "cost": 25,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "I1",
+                "fN_Qf",
+                "SmJiZ"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Fusion Rifle",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "id": "_mrPya5SXSqW",
+                            "name": "Deadly",
+                            "rating": 3,
+                            "label": "Deadly(3)"
+                        }
+                    ],
+                    "ap": 4
+                }
+            ],
+            "rules": [
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "JSKVyurtWIyW",
+                    "name": "Strider",
+                    "label": "Strider"
+                }
+            ],
+            "upgradeCost": [
+                15
+            ]
         }
     ]
 }

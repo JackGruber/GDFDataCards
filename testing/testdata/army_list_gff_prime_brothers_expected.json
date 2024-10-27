@@ -3,7 +3,7 @@
     "gameSystem": "gff",
     "gameSystemId": 3,
     "armyName": "Prime Brothers",
-    "listPoints": 310,
+    "listPoints": 300,
     "listName": "Prime Brothers",
     "units": [
         {
@@ -11,7 +11,7 @@
             "name": "Prime Master",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "Z2WiRfh",
-            "cost": 75,
+            "cost": 65,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -28,140 +28,76 @@
                     "name": "Master Heavy Pistol",
                     "range": 12,
                     "specialRules": [],
-                    "ap": "1"
+                    "ap": 1
                 },
                 {
-                    "attacks": 1,
+                    "attacks": 2,
                     "count": 1,
-                    "name": "Relic Sword",
+                    "name": "Energy Sword",
                     "specialRules": [
                         {
-                            "name": "Deadly",
-                            "rating": 3,
-                            "label": "Deadly(3)"
+                            "id": "cavWDboL4ubs",
+                            "name": "Rending",
+                            "type": "ArmyBookRule",
+                            "label": "Rending"
                         }
                     ],
-                    "ap": 2
+                    "ap": 1
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
-                    "key": "fearless",
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "hero",
+                    "id": "T08VkBuVmNZ_",
                     "name": "Hero",
-                    "rating": "",
                     "label": "Hero"
                 },
                 {
-                    "key": "tough",
+                    "id": "a0YtInGiUDd6",
                     "name": "Tough",
-                    "rating": "3",
+                    "rating": 3,
                     "label": "Tough(3)"
+                },
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "type": "ArmyBookRule",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "-QJdqJEKjIpE",
+                    "name": "Flying",
+                    "type": "ArmyBookRule",
+                    "label": "Flying"
                 }
             ],
             "upgradeCost": [
-                25,
-                10,
-                15
+                15,
+                5,
+                10
             ],
             "equipment": [
                 {
-                    "name": "Captain",
-                    "specialRules": [
-                        {
-                            "key": "battle-rites",
-                            "name": "Battle Rites",
-                            "type": "ArmyBookRule",
-                            "label": "Battle Rites",
-                            "rating": ""
-                        }
-                    ]
-                },
-                {
-                    "name": "Combat Shield",
-                    "specialRules": [
-                        {
-                            "key": "heavy shield",
-                            "name": "Heavy Shield",
-                            "type": "ArmyBookRule",
-                            "label": "Heavy Shield",
-                            "modify": false
-                        }
-                    ]
+                    "name": "Jetpack",
+                    "specialRules": []
                 }
             ]
         },
         {
-            "type": "Assault Prime Brother",
-            "name": "Assault Prime Brother",
+            "type": "Heavy Prime Brother",
+            "name": "Heavy Prime Brother",
             "armyId": "oqnnu0gk8q6hyyny",
-            "id": "hvNiOwU",
-            "cost": 30,
+            "id": "R3-Hq1q",
+            "cost": 85,
             "defense": 2,
             "quality": 3,
             "upgrades": [
-                "D1",
-                "G1"
+                "zXqQM"
             ],
-            "size": 1,
-            "notes": null,
-            "weapons": [
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Heavy Pistol",
-                    "range": 12,
-                    "specialRules": [],
-                    "ap": "1"
-                },
-                {
-                    "attacks": 1,
-                    "count": 1,
-                    "name": "Energy Hammer",
-                    "specialRules": [
-                        {
-                            "name": "Blast",
-                            "rating": 3,
-                            "label": "Blast(3)"
-                        }
-                    ]
-                }
-            ],
-            "specialRules": [
-                {
-                    "key": "fearless",
-                    "name": "Fearless",
-                    "rating": "",
-                    "label": "Fearless"
-                },
-                {
-                    "key": "veteran-infantry",
-                    "name": "Veteran Infantry",
-                    "type": "ArmyBookRule",
-                    "label": "Veteran Infantry",
-                    "rating": "",
-                    "count": 1
-                }
-            ],
-            "upgradeCost": [
-                5,
-                10
-            ]
-        },
-        {
-            "type": "Infernal",
-            "name": "Infernal",
-            "armyId": "oqnnu0gk8q6hyyny",
-            "id": "NeuN0Gx",
-            "cost": 40,
-            "defense": 2,
-            "quality": 3,
-            "upgrades": [],
             "size": 1,
             "notes": null,
             "weapons": [
@@ -172,41 +108,30 @@
                     "specialRules": []
                 },
                 {
-                    "attacks": 1,
+                    "attacks": 3,
                     "count": 1,
-                    "name": "Flamer",
-                    "range": 12,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "rating": "3",
-                            "modify": false,
-                            "label": "Blast(3)"
-                        },
-                        {
-                            "key": "reliable",
-                            "name": "Reliable",
-                            "rating": "",
-                            "modify": false,
-                            "label": "Reliable"
-                        }
-                    ]
+                    "name": "Grave Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
-                    "id": 65,
-                    "key": "fearless",
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
                     "label": "Fearless"
                 },
                 {
-                    "id": 74,
-                    "key": "relentless",
-                    "name": "Relentless",
-                    "label": "Relentless"
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "additional": false,
+                    "label": "Tough(3)"
                 }
+            ],
+            "upgradeCost": [
+                15
             ]
         },
         {
@@ -226,56 +151,95 @@
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "CCW",
-                    "specialRules": []
+                    "name": "Sniper Rifle",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "type": "ArmyBookRule",
+                            "id": "Zx4mWN0SbmK8",
+                            "name": "Reliable",
+                            "label": "Reliable"
+                        }
+                    ],
+                    "ap": 1
                 },
                 {
                     "attacks": 1,
                     "count": 1,
-                    "name": "Laser Sniper Rifle",
-                    "range": 30,
-                    "specialRules": [
-                        {
-                            "key": "deadly",
-                            "name": "Deadly",
-                            "type": "ArmyBookRule",
-                            "label": "Deadly(3)",
-                            "modify": false,
-                            "rating": 3
-                        },
-                        {
-                            "key": "reliable",
-                            "name": "Reliable",
-                            "type": "ArmyBookRule",
-                            "label": "Reliable",
-                            "modify": false
-                        }
-                    ],
-                    "ap": 2
+                    "name": "CCW",
+                    "specialRules": []
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
-                    "key": "fearless",
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "scout",
+                    "id": "FAMbscK5vhSu",
                     "name": "Scout",
-                    "rating": "",
                     "label": "Scout"
                 },
                 {
-                    "key": "stealth",
+                    "id": "9jyvRoBODD-O",
                     "name": "Stealth",
-                    "rating": "",
                     "label": "Stealth"
+                }
+            ]
+        },
+        {
+            "type": "Veteran Assault Prime Brother",
+            "name": "Veteran Assault Prime Brother",
+            "armyId": "oqnnu0gk8q6hyyny",
+            "id": "jvNqUVU",
+            "cost": 45,
+            "defense": 2,
+            "quality": 3,
+            "upgrades": [
+                "D1",
+                "cjupI"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Heavy CCW",
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "bd26Yb52DH42",
+                    "name": "War Veteran",
+                    "label": "War Veteran"
+                },
+                {
+                    "id": "bLVZU4onzi2E",
+                    "name": "Medical Training",
+                    "type": "ArmyBookRule",
+                    "label": "Medical Training",
+                    "count": 1
                 }
             ],
             "upgradeCost": [
-                55
+                15
             ]
         }
     ]

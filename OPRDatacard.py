@@ -488,7 +488,6 @@ def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
         pdf.setFillColorRGB(0, 0, 0)
         pdf.drawString(startX + offsetX[0], startY + offsetY, "Upgrades")
         offsetY -= 10
-
         for equipment in unit['equipment']:
             pdf.setFont("regular", 9)
             pdf.setFillColorRGB(0, 0, 0)
@@ -755,7 +754,7 @@ def parseArmyTextList(armyListText):
                 unit = True
                 data = armyListText[x].split("|")
                 unitData['cost'] = re.sub(r'[^\d]', '', data[1].strip(" "), )
-                unitData['specialRules'] = []
+                unitData['rules'] = []
                 unitData['equipment'] = []
                 unitData['id'] = f'{x}'
                 rules = getRulesFromTxt(data[2])
@@ -769,7 +768,7 @@ def parseArmyTextList(armyListText):
                             equipment['specialRules'].append(getTxtSpecialRule(equipmentRule))
                         unitData['equipment'].append(equipment)
                     else:
-                        unitData['specialRules'].append(getTxtSpecialRule(rule))
+                        unitData['rules'].append(getTxtSpecialRule(rule))
                 regExMatch = re.findall(
                     r"(?P<name>.*)\s\[(?P<unitCount>\d+)\]\sQ(?P<quality>\d+)\+\sD(?P<defense>\d+)\+$", data[0].strip(" "))
                 unitData['name'] = regExMatch[0][0]

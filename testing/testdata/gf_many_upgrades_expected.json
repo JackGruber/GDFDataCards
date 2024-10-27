@@ -3,7 +3,7 @@
     "gameSystem": "gf",
     "gameSystemId": 2,
     "armyName": "Prime Brothers",
-    "listPoints": 285,
+    "listPoints": 280,
     "listName": "Prime Brothers",
     "units": [
         {
@@ -11,7 +11,7 @@
             "name": "Desolator Squad",
             "armyId": "oqnnu0gk8q6hyyny",
             "id": "81WTJ34",
-            "cost": 210,
+            "cost": 200,
             "defense": 2,
             "quality": 3,
             "upgrades": [
@@ -22,12 +22,6 @@
             "notes": null,
             "weapons": [
                 {
-                    "attacks": 1,
-                    "count": 5,
-                    "name": "CCW",
-                    "specialRules": []
-                },
-                {
                     "attacks": 2,
                     "count": 2,
                     "name": "HE-Launcher",
@@ -36,27 +30,9 @@
                 },
                 {
                     "attacks": 1,
-                    "count": 1,
-                    "name": "Vengeance HE-Launcher",
-                    "range": 30,
-                    "specialRules": [
-                        {
-                            "key": "blast",
-                            "name": "Blast",
-                            "type": "ArmyBookRule",
-                            "label": "Blast(3)",
-                            "modify": false,
-                            "rating": "3"
-                        },
-                        {
-                            "key": "indirect",
-                            "name": "Indirect",
-                            "type": "ArmyBookRule",
-                            "label": "Indirect",
-                            "modify": false,
-                            "rating": ""
-                        }
-                    ]
+                    "count": 5,
+                    "name": "CCW",
+                    "specialRules": []
                 },
                 {
                     "attacks": 1,
@@ -65,15 +41,34 @@
                     "range": 30,
                     "specialRules": [
                         {
-                            "key": "lock-on",
+                            "id": "QXyt-zV_bjpg",
                             "name": "Lock-On",
                             "type": "ArmyBookRule",
-                            "label": "Lock-On",
-                            "modify": false,
-                            "rating": ""
+                            "label": "Lock-On"
                         }
                     ],
-                    "ap": "2"
+                    "ap": 2
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Vengeance HE-Launcher",
+                    "range": 30,
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        },
+                        {
+                            "id": "8Ck9GAwUK824",
+                            "name": "Indirect",
+                            "type": "ArmyBookRule",
+                            "label": "Indirect"
+                        }
+                    ]
                 },
                 {
                     "attacks": 1,
@@ -82,44 +77,40 @@
                     "range": 18,
                     "specialRules": [
                         {
-                            "key": "indirect",
+                            "id": "8Ck9GAwUK824",
                             "name": "Indirect",
                             "type": "ArmyBookRule",
-                            "label": "Indirect",
-                            "modify": false,
-                            "rating": ""
+                            "label": "Indirect"
                         },
                         {
+                            "id": "9042COVrLCsI",
                             "name": "Limited",
                             "type": "ArmyBookRule",
-                            "label": "Limited",
-                            "modify": false
+                            "label": "Limited"
                         }
                     ]
                 }
             ],
-            "specialRules": [
+            "rules": [
                 {
-                    "key": "fearless",
+                    "id": "2atvlmICQSCV",
                     "name": "Fearless",
-                    "rating": "",
                     "label": "Fearless"
                 },
                 {
-                    "key": "medical-training",
+                    "id": "bLVZU4onzi2E",
                     "name": "Medical Training",
                     "type": "ArmyBookRule",
                     "label": "Medical Training",
-                    "rating": "",
                     "count": 1
                 }
             ],
             "upgradeCost": [
-                20,
                 5,
-                5,
+                25,
                 15,
-                30
+                30,
+                5
             ]
         }
     ]
