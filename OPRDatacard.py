@@ -322,7 +322,7 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
     specialRules = []
     for rule in unit['rules']:
         count = ""
-        if 'count' in rule:
+        if 'count' in rule and unit['size'] != 1:
             count = f'{rule["count"]}x '
         specialRules.append(f'{count}{rule["label"]}')
     pdf.drawString(sideClearance+2, bottomClearance +
