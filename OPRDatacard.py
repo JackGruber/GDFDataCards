@@ -942,7 +942,21 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                             if ('upgradeCost' not in unitData):
                                 unitData['upgradeCost'] = []
-                            unitData['upgradeCost'].append(option['cost'])
+                            
+                            cost = 0
+                            # Regular cost
+                            if 'cost' in option:
+                                cost = option['cost']
+                            
+                            # Cost for unit
+                            if 'costs' in option:
+                                for costs4unit in option['costs']:
+                                    if costs4unit['unitId'] == unitId:
+                                        logger.debug("Use unit cost")
+                                        cost = costs4unit['cost']
+                            
+                            if cost != 0:
+                                unitData['upgradeCost'].append(cost)
 
                             for gains in option['gains']:
                                 if (gains['type'] == "ArmyBookWeapon"):
