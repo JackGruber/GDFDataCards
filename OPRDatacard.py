@@ -879,7 +879,7 @@ def getWeapon(data, modCount=-1):
     if "range" in data and data['range'] > 0:
         weapon['range'] = data['range']
 
-    weapon['specialRules'] = getSpecialRules(data['specialRules'])
+    weapon['specialRules'] = getRules(data['specialRules'])
 
     for i in range(len(weapon['specialRules'])):
         if weapon['specialRules'][i]['name'].lower() == "ap":
@@ -965,9 +965,9 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                             elif gain['type'] == "ArmyBookWeapon":
                                                 unitData['weapons'].append(getWeapon(gain,1))
                                             elif gain['type'] == "ArmyBookRule":
-                                                unitData['specialRules'].append(getSpecialRules([gain])[0])
+                                                unitData['rules'].append(getRules([gain])[0])
                                 elif gains['type'] == "ArmyBookRule":
-                                    unitData['specialRules'].append(getSpecialRules([gains])[0])
+                                    unitData['rules'].append(getRules([gains])[0])
                                 else:
                                     print("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
@@ -1017,7 +1017,7 @@ def addEquipment(data, specialRules = True):
     equipment = {}
     equipment['name'] = data['name']
     if specialRules == True:
-        equipment['specialRules'] = getSpecialRules(data['content'])
+        equipment['specialRules'] = getRules(data['content'])
     else:
         equipment['specialRules'] = []
 
