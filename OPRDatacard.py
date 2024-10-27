@@ -418,6 +418,16 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
         pdf.drawString(5, dataCardParameters['pdfSize'][1] - 25 - offset, line)
         offset += 12
 
+def dataCardArmyBookVersion(pdf, dataCardParameters, versions, armyId):
+    version = None
+    for version in versions:
+        if armyId == version['armyId']:
+            version = version['version']
+            
+    pdf.setFont('bold', 4)
+    pdf.setFillColorRGB(0, 0, 0)
+    pdf.drawRightString(dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'],
+                0 + dataCardParameters['bottomClearance'] -6, version)
 
 def dataCardUnitSkills(pdf, dataCardParameters, unit):
     startX = dataCardParameters['pdfSize'][0] - 25
@@ -673,6 +683,8 @@ def createDataCard(army):
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
+        if 'armyVersions' in army:
+            dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
@@ -1049,6 +1061,7 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     armyData['armyId'] = jsonArmyList['armyId']
     armyData['gameSystem'] = jsonArmyList['gameSystem']
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
+    armyData['armyVersions'] = jsonArmyList['armyVersions']
 
     downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
     downloadCommonRules(armyData['gameSystemId'])

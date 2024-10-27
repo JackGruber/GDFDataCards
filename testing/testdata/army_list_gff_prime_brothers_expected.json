@@ -2,6 +2,12 @@
     "armyId": "oqnnu0gk8q6hyyny",
     "gameSystem": "gff",
     "gameSystemId": 3,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "oqnnu0gk8q6hyyny"
+        }
+    ],
     "armyName": "Prime Brothers",
     "listPoints": 300,
     "listName": "Prime Brothers",

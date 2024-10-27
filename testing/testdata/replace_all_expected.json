@@ -2,6 +2,12 @@
     "armyId": "4k5amkxoybdiqotm",
     "gameSystem": "gf",
     "gameSystemId": 2,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "4k5amkxoybdiqotm"
+        }
+    ],
     "armyName": "Robot Legions",
     "listPoints": 125,
     "listName": "Robot Legions",

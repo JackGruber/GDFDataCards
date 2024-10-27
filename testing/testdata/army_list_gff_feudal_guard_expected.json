@@ -2,6 +2,12 @@
     "armyId": "w15ncjbqsqk3tcet",
     "gameSystem": "gff",
     "gameSystemId": 3,
+    "armyVersions": [
+        {
+            "version": "3.2.2",
+            "armyId": "w15ncjbqsqk3tcet"
+        }
+    ],
     "armyName": "Feudal Guard",
     "listPoints": 295,
     "listName": "Feudal Guard",
