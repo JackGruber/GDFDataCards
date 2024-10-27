@@ -1045,8 +1045,7 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
 
     versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList[armyData['armyId']])
     if (validateVersion and not versionCheck):
-        print("Army Book version from JSON is different than Army Book Version from OPR Server")
-        waitForKeyPressAndExit()
+        armyVersionsDifference()
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
@@ -1057,6 +1056,9 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
 
     return armyData
 
+def armyVersionsDifference():
+    print("Army Book version from JSON is different than Army Book Version from OPR Server")
+    waitForKeyPressAndExit()
 
 def loadJsonFile(jsonFile: str):
     try:
