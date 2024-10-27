@@ -19,6 +19,9 @@ from tkinter.filedialog import askopenfilename
 import pathlib
 import requests
 import zipfile
+import logging
+
+logger = logging.getLogger(__name__)
 
 # determine if application is a script file or frozen exe
 if getattr(sys, 'frozen', False):
@@ -32,7 +35,6 @@ FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
 DATACARDFOLDER = os.path.join(DATAFOLDER, "datacards")
 IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
 IMAGEJSON = os.path.join(IMAGEFOLDER, "images.json")
-DEBUG = False
 
 
 @click.command()
@@ -62,8 +64,13 @@ DEBUG = False
 )
 
 def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
-    global DEBUG
-    DEBUG = debugOutput
+    FORMAT = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
+    logging.basicConfig(format=FORMAT)
+    if debugOutput:
+        logger.setLevel(logging.DEBUG)
+    else:
+        logger.setLevel(logging.WARNING)
+
     createStructure()
     checkFonts()
 
@@ -71,20 +78,20 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
         armyFile = fileSelectDialog()
 
     if armyFile == None or armyFile == "":
-        print("No army file selected")
+        logger.error("No army file selected")
         waitForKeyPressAndExit()
 
     typeJson = isFileTypeJson(armyFile)
     army = None
     if (typeJson == True or forceTypeJson == True):
-        print("Parse json army file")
+        logger.debug("Parse json army file")
         army = parseArmyJsonList(armyFile, validateVersion)
     else:
-        print("Parse txt army file")
+        logger.debug("Parse txt army file")
         txtData = readTxtFile(armyFile)
         army = parseArmyTextList(txtData)
     if army != None and army != False:
-        if (DEBUG == True):
+        if logger.level == logging.DEBUG:
             saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
 
         pdfFile = createDataCard(army)
@@ -105,7 +112,7 @@ def readTxtFile(file):
         txtData = f.read().split("\n")
         f.close()
     except Exception as ex:
-        print("Error Reading test txt file " + str(ex))
+        logger.error("Error Reading test txt file " + str(ex))
     return txtData
 
 
@@ -119,40 +126,40 @@ def createStructure():
         try:
             os.makedirs(DATAFOLDER)
         except Exception as ex:
-            print("Data folder creation failed")
-            print(ex)
+            logger.error("Data folder creation failed")
+            logger.error(ex)
             waitForKeyPressAndExit()
 
     if not os.path.exists(DATAFOLDERARMYBOOK):
         try:
             os.makedirs(DATAFOLDERARMYBOOK)
         except Exception as ex:
-            print("army book folder creation failed")
-            print(ex)
+            logger.error("army book folder creation failed")
+            logger.error(ex)
             waitForKeyPressAndExit()
 
     if not os.path.exists(FONTFOLDER):
         try:
             os.makedirs(FONTFOLDER)
         except Exception as ex:
-            print("font folder creation failed")
-            print(ex)
+            logger.error("font folder creation failed")
+            logger.error(ex)
             waitForKeyPressAndExit()
 
     if not os.path.exists(IMAGEFOLDER):
         try:
             os.makedirs(IMAGEFOLDER)
         except Exception as ex:
-            print("image folder creation failed")
-            print(ex)
+            logger.error("image folder creation failed")
+            logger.error(ex)
             waitForKeyPressAndExit()
 
     if not os.path.exists(DATACARDFOLDER):
         try:
             os.makedirs(DATACARDFOLDER)
         except Exception as ex:
-            print("datacard folder creation failed")
-            print(ex)
+            logger.error("datacard folder creation failed")
+            logger.error(ex)
             waitForKeyPressAndExit()
 
     if not os.path.exists(IMAGEJSON):
@@ -632,15 +639,15 @@ def getPdfFileName(armyName):
 
 
 def createDataCard(army):
-    print("Create datacards ...")
+    logger.info("Create datacards ...")
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
             FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
         pdfmetrics.registerFont(TTFont('regular', os.path.join(
             FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")))
     except Exception as ex:
-        print("Font is missing!")
-        print(ex)
+        logger.error("Font is missing!")
+        logger.error(ex)
         waitForKeyPressAndExit()
 
     dataCardParameters = {
@@ -657,7 +664,7 @@ def createDataCard(army):
     pdf.setTitle("GDF data card")
 
     for unit in army['units']:
-        print("  ", unit['name'], "(", unit['id'], ")")
+        logger.debug(f'{unit["name"]} ({unit["id"]})')
         dataCardBoarderFrame(pdf, dataCardParameters)
         dataCardUnitType(pdf, dataCardParameters, unit)
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
@@ -676,8 +683,8 @@ def createDataCard(army):
         pdf.save()
         return pdfFile
     except Exception as ex:
-        print("Error PDF save failed")
-        print(str(ex))
+        logger.error("Error PDF save failed")
+        logger.error(str(ex))
         return None
 
 
@@ -735,7 +742,7 @@ def parseArmyTextList(armyListText):
         armyData['gameSystemId'] = getGameSystemId(armyData['gameSystem'])
         armyData['listPoints'] = int(re.sub(r'(?is)([^\d])', '', data[1]))
     else:
-        print("Error no valid army data found!")
+        logger.error("Error no valid army data found!")
         return False
 
     unit = False
@@ -812,13 +819,13 @@ def parseArmyTextList(armyListText):
 
 
 def getUnit(unit, jsonArmyBookList):
-    if DEBUG == True:
-        print("    Func: getUnit")
+    logger.debug(f'{unit["id"]}')
     data = {}
     for listUnit in jsonArmyBookList[unit['armyId']]['units']:
         if (listUnit['id'] == unit['id']):
             data['type'] = listUnit['name']
             data['name'] = listUnit['name']
+            logger.debug(f'{data["type"]} / {data["name"]}')
             data['armyId'] = unit['armyId']
             data['id'] = listUnit['id']
             data['cost'] = listUnit['cost']
@@ -845,12 +852,10 @@ def getUnit(unit, jsonArmyBookList):
 
 
 def getRules(data):
-    if DEBUG == True:
-        print(f'    Func: getRules')
+    logger.debug(f'{len(data)}x') 
     rules = []
     for specialRule in data:
-        if DEBUG == True:
-            print(f'      {specialRule["name"]}')
+        logger.debug(f'{specialRule["name"]}') 
 
         rule = specialRule
         if 'rating' in specialRule and specialRule['rating'] != '':
@@ -865,8 +870,7 @@ def getRules(data):
 
 
 def getWeapon(data, modCount=-1):
-    if DEBUG == True:
-        print(f'    Func: getWeapon {data["name"]}')
+    logger.debug(f'{data["name"]}') 
 
     weapon = {}
     weapon['attacks'] = data['attacks']
@@ -894,8 +898,7 @@ def getWeapon(data, modCount=-1):
 
 
 def removeWeapon(removeWeapon, count: int, weapons):
-    if DEBUG == True:
-        print("    Func: removeWeapon", removeWeapon)
+    logger.debug(f'{removeWeapon}') 
     for remove in removeWeapon:
         for i in range(len(weapons)):
             remove = remove.strip()
@@ -912,16 +915,14 @@ def removeWeapon(removeWeapon, count: int, weapons):
 
 
 def getUnitUpgrades(unit, unitData, jsonArmyBookList):
-    if DEBUG == True:
-        print("    Func: getUnitUpgrades")
-
+    logger.debug(f'{len(unit["selectedUpgrades"])}x') 
     for upgrade in unit['selectedUpgrades']:
         armyId = unit['armyId']
         upgradeId = upgrade['upgradeId']
         optionId = upgrade['optionId']
+        unitId = unit['id']
 
-        if DEBUG:
-            print(f'      upgradeId: {upgradeId}')
+        logger.debug(f'upgradeId: {upgradeId} optionId: {optionId}') 
 
         for package in jsonArmyBookList[armyId]['upgradePackages']:
             for section in package['sections']:
@@ -972,7 +973,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                 elif gains['type'] == "ArmyBookRule":
                                     unitData['rules'].append(getRules([gains])[0])
                                 else:
-                                    print("Error no handling for " +
+                                    logger.error("Error no handling for " +
                                           gains['type'] + " upgradeId " + upgradeId + " optionId " + optionId)
 
                             if variant == "replace":
@@ -992,14 +993,13 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
 
                                     unitData['weapons'] = removeWeapon(targets, affectsValue, unitData['weapons'])
                                 else:
-                                    print(f"Unhandelt type '{gains['type']}' in unit upgrades")
+                                    logger.error(f"Unhandelt type '{gains['type']}' in unit upgrades")
 
     return unitData
 
 
 def mergeWeapon(weapons):
-    if DEBUG == True:
-        print("    Func: mergeWeapon")
+    logger.debug('Start')
 
     mergedWeapons = []
     for weapon in weapons:
@@ -1028,7 +1028,7 @@ def addEquipment(data, specialRules = True):
 
 
 def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
-    print("Parse army list ...")
+    logger.info("Parse army list ...")
     armyData = {}
     jsonArmyBookList = {}
 
@@ -1052,7 +1052,6 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
-        print(f'  Unit ID: {unit["id"]}')
         unitData = getUnit(unit, jsonArmyBookList)
         if unitData != {}:
             armyData['units'].append(unitData)
@@ -1060,7 +1059,7 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     return armyData
 
 def armyVersionsDifference():
-    print("Army Book version from JSON is different than Army Book Version from OPR Server")
+    logger.warning("Army Book version from JSON is different than Army Book Version from OPR Server")
     waitForKeyPressAndExit()
 
 def loadJsonFile(jsonFile: str):
@@ -1069,19 +1068,19 @@ def loadJsonFile(jsonFile: str):
         file = f.read()
         f.close()
     except Exception as ex:
-        print("file failed to open " + jsonFile)
-        print(ex)
+        logger.error("file failed to open " + jsonFile)
+        logger.error(ex)
         waitForKeyPressAndExit()
 
     try:
         jsonObj = json.loads(file)
     except json.decoder.JSONDecodeError as ex:
-        print(file + " Json is not valid!")
-        print(ex)
+        logger.error(file + " Json is not valid!")
+        logger.error(ex)
         waitForKeyPressAndExit()
     except Exception as ex:
-        print("Unhandeld Exception")
-        print(ex)
+        logger.error("Unhandeld Exception")
+        logger.error(ex)
         waitForKeyPressAndExit()
     return jsonObj
 
@@ -1102,7 +1101,7 @@ def getGameSystemId(gameSystem: str):
 
 
 def downloadArmyBook(id: str, gameSystemId):
-    print("Check/download army book ...")
+    logger.debug("Check/download army book ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/army-books/{id}?gameSystem={gameSystemId}'
 
@@ -1110,7 +1109,7 @@ def downloadArmyBook(id: str, gameSystemId):
 
 
 def downloadCommonRules(gameSystemId):
-    print("Check/download common rules ...")
+    logger.debug("Check/download common rules ...")
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/rules/common/{gameSystemId}'
     return downloadJson(url, armyBookJsonFile)
@@ -1125,15 +1124,15 @@ def downloadJson(url, file):
 
     if (download == True):
         try:
-            print("Download file")
+            logger.debug("Download file")
             urllib.request.urlretrieve(url, file)
         except Exception as ex:
-            print(f'Error for {url}')
-            print(ex)
+            logger.error(f'Error for {url}')
+            logger.error(ex)
             return False
 
     if not os.path.exists(file):
-        print("No json data found " + id)
+        logger.error("No json data found " + id)
         return False
 
     return True
@@ -1144,8 +1143,8 @@ def saveDictToJson(dictData, file):
         with open(file, 'w') as fp:
             fp.write(json.dumps(dictData, indent=4))
     except Exception as ex:
-        print("Error saving dict to json")
-        print(ex)
+        logger.error("Error saving dict to json")
+        logger.error(ex)
         return False
     return True
 
@@ -1155,12 +1154,12 @@ def checkFonts():
     font2 = os.path.join(FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")
 
     if not os.path.exists(font1) or not os.path.exists(font2):
-        print("Download font ...")
+        logger.debug("Download font ...")
 
         url = "https://raw.githubusercontent.com/JackGruber/OPRDataCards/master/rosa-sans.zip"
         zipFile = os.path.join(FONTFOLDER, "rosa-sans.zip")
         if downloadFile(url, zipFile) == True:
-            print("Unzip fonts ...")
+            logger.debug("Unzip fonts ...")
             with zipfile.ZipFile(zipFile, 'r') as zipRef:
                 zipRef.extractall(os.path.join(FONTFOLDER, "rosa-sans"))
 
@@ -1175,11 +1174,11 @@ def downloadFile(url, dstFile):
                         file.write(chunk)
             return True
         else:
-            print("Error font download failed")
+            logger.error("Error font download failed")
             return False
     except Exception as ex:
-        print("Error font download failed")
-        print(ex)
+        logger.error("Error font download failed")
+        logger.error(ex)
         return False
 
 def checkArmyVersions(armyJson, armyBookJson):
@@ -1187,14 +1186,14 @@ def checkArmyVersions(armyJson, armyBookJson):
         armyVersion = armyJson["armyVersions"][0]["version"]
         bookVersion = armyBookJson["versionString"]
     except Exception as ex:
-        print("Error on checkArmyVersions")
-        print(ex)
+        logger.error("Error on checkArmyVersions")
+        logger.error(ex)
         return False
     
     if str(armyVersion) == str(bookVersion):
         return True
     else:
-        print(f"Error: Army version {armyVersion} don't match ArmyBook version {bookVersion}")
+        logger.error(f"Army version {armyVersion} don't match ArmyBook version {bookVersion}")
         return False
 
 def waitForKeyPressAndExit():
