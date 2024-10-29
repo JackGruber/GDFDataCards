@@ -1,0 +1,150 @@
+{
+    "armyId": "jpc0kyil0juwy602",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "jpc0kyil0juwy602"
+        },
+        {
+            "version": "3.4.1",
+            "armyId": "7oi8zeiqfamiur21"
+        }
+    ],
+    "armyName": "Human Inquisition",
+    "listPoints": 110,
+    "listName": "Human Inquisition",
+    "units": [
+        {
+            "type": "Inquisitor",
+            "name": "Inquisitor",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "ZaWWIux",
+            "cost": 55,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Pistol",
+                    "range": 12,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                }
+            ]
+        },
+        {
+            "type": "Cyborg Henchman",
+            "name": "Cyborg Henchman",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "e9dUXdy",
+            "cost": 20,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "JFTXK"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Cyborg Arm",
+                    "specialRules": [],
+                    "ap": 4
+                }
+            ],
+            "equipment": [],
+            "rules": []
+        },
+        {
+            "type": "High Sister",
+            "name": "High Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "2TXWi3B",
+            "cost": 35,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "B1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Combat Shield",
+                    "specialRules": [
+                        {
+                            "id": "wsqfB0fq69eG",
+                            "name": "Shield Wall",
+                            "type": "ArmyBookRule",
+                            "label": "Shield Wall"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                }
+            ]
+        }
+    ]
+}

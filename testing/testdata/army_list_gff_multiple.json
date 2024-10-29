@@ -1,0 +1,76 @@
+{
+    "id": "MChs07FpkJlF",
+    "gameSystem": "gff",
+    "armyId": "jpc0kyil0juwy602",
+    "armyIds": [
+        "jpc0kyil0juwy602",
+        "7oi8zeiqfamiur21"
+    ],
+    "armyFaction": null,
+    "armyName": "Human Inquisition",
+    "modified": "2024-10-27T16:36:40.298Z",
+    "saveVersion": 3,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "jpc0kyil0juwy602"
+        },
+        {
+            "version": "3.4.1",
+            "armyId": "7oi8zeiqfamiur21"
+        }
+    ],
+    "listPoints": 110,
+    "list": {
+        "id": "MChs07FpkJlF",
+        "key": "Nw2radexergChnUDXoP4B",
+        "name": "Human Inquisition",
+        "description": "",
+        "pointsLimit": 300,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gff",
+        "isCloud": false,
+        "modified": "2024-10-27T16:36:40.298Z",
+        "cloudModified": null,
+        "activationCount": 3,
+        "modelCount": 3,
+        "units": [
+            {
+                "id": "ZaWWIux",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "ebHD5",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "e9dUXdy",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "mVLWh",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "2TXWi3B",
+                "armyId": "7oi8zeiqfamiur21",
+                "selectionId": "bKaxX",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    }
+}
