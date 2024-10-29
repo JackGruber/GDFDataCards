@@ -683,8 +683,8 @@ def createDataCard(army):
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
-        if 'armyVersions' in army:
-            dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
+        #if 'armyVersions' in army:
+        #    dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
@@ -844,6 +844,7 @@ def getUnit(unit, jsonArmyBookList):
             data['quality'] = listUnit['quality']
             data['upgrades'] = listUnit['upgrades']
             data['size'] = listUnit['size']
+            
             if "notes" in unit:
                 data['notes'] = unit['notes']
             else:
@@ -852,6 +853,11 @@ def getUnit(unit, jsonArmyBookList):
 
             for weapon in listUnit['weapons']:
                 data['weapons'].append(getWeapon(weapon))
+            
+            items = getItems(listUnit['items'])
+            if 'equipment' not in data:
+                data['equipment'] = []
+            data['equipment'] += items
 
             data['rules'] = getRules(listUnit['rules'])
             data = getUnitUpgrades(unit, data, jsonArmyBookList)
@@ -861,6 +867,19 @@ def getUnit(unit, jsonArmyBookList):
 
     return data
 
+
+def getItems(data):
+    logger.debug(f'{len(data)}x') 
+
+    items = []
+    for item in data:
+        rules = getRules(item['content'])
+        items.append({
+            'name': item['name'],
+            'specialRules': rules
+        })
+
+    return items
 
 def getRules(data):
     logger.debug(f'{len(data)}x') 
@@ -907,22 +926,21 @@ def getWeapon(data, modCount=-1):
 
     return weapon
 
-
-def removeWeapon(removeWeapon, count: int, weapons):
-    logger.debug(f'{removeWeapon}') 
-    for remove in removeWeapon:
-        for i in range(len(weapons)):
+def removeItem(removeItems: list, count: int, originalItems: dict, type=""):
+    logger.debug(f'{removeItems} from {type}') 
+    for remove in removeItems:
+        for i in range(len(originalItems)):
             remove = remove.strip()
             group = [remove, remove + "s", remove[:-1]]
-            if re.match(r'^(' + "|".join(group) + ')$', weapons[i]['name'].strip()):
-                if (count == "any" or count == None or weapons[i]['count'] == 1):
-                    weapons.pop(i)
+            if re.match(r'^(' + "|".join(group) + ')$', originalItems[i]['name'].strip()):
+                if ('count' not in originalItems[i] or count == "any" or count == None or originalItems[i]['count'] == 1):
+                    originalItems.pop(i)
                 else:
-                    weapons[i]['count'] -= count
-                    if weapons[i]['count'] <= 0:
-                        weapons.pop(i)
+                    originalItems[i]['count'] -= count
+                    if originalItems[i]['count'] <= 0:
+                        originalItems.pop(i)
                 break
-    return weapons
+    return originalItems
 
 
 def getUnitUpgrades(unit, unitData, jsonArmyBookList):
@@ -1016,7 +1034,9 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     if unitData['size'] > 1:
                                         unitData['weapons'] = mergeWeapon(unitData['weapons'])
 
-                                    unitData['weapons'] = removeWeapon(targets, affectsValue, unitData['weapons'])
+                                    unitData['weapons'] = removeItem(targets, affectsValue, unitData['weapons'], 'weapons')
+                                    if 'equipment' in unitData:
+                                        unitData['equipment'] = removeItem(targets, affectsValue, unitData['equipment'], 'equipment')
                                 else:
                                     logger.error(f"Unhandelt type '{gains['type']}' in unit upgrades")
 
@@ -1063,18 +1083,21 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
     armyData['armyVersions'] = jsonArmyList['armyVersions']
 
-    downloadArmyBook(armyData['armyId'], armyData['gameSystemId'])
+    for armyVersion in jsonArmyList['armyVersions']:
+        downloadArmyBook(armyVersion['armyId'], armyData['gameSystemId'])
     downloadCommonRules(armyData['gameSystemId'])
 
-    jsonArmyBookList[armyData['armyId']] = loadJsonFile(os.path.join(
-        DATAFOLDERARMYBOOK, armyData['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
+    for armyVersion in jsonArmyList['armyVersions']:
+        jsonArmyBookList[armyVersion['armyId']] = loadJsonFile(os.path.join(
+            DATAFOLDERARMYBOOK, armyVersion['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
+        
+        versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList, armyVersion['armyId'])
+        if (validateVersion and not versionCheck):
+            armyVersionsDifference()
     armyData['armyName'] = jsonArmyBookList[armyData['armyId']]['name']
     armyData['listPoints'] = jsonArmyList['listPoints']
     armyData['listName'] = jsonArmyList['list']['name']
 
-    versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList[armyData['armyId']])
-    if (validateVersion and not versionCheck):
-        armyVersionsDifference()
 
     armyData['units'] = []
     for unit in jsonArmyList['list']['units']:
@@ -1127,7 +1150,7 @@ def getGameSystemId(gameSystem: str):
 
 
 def downloadArmyBook(id: str, gameSystemId):
-    logger.debug("Check/download army book ...")
+    logger.debug(f'Check/download army book {id}/{gameSystemId}')
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/army-books/{id}?gameSystem={gameSystemId}'
 
@@ -1135,7 +1158,7 @@ def downloadArmyBook(id: str, gameSystemId):
 
 
 def downloadCommonRules(gameSystemId):
-    logger.debug("Check/download common rules ...")
+    logger.debug(f'Check/download common rules {gameSystemId}')
     armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/rules/common/{gameSystemId}'
     return downloadJson(url, armyBookJsonFile)
@@ -1207,15 +1230,24 @@ def downloadFile(url, dstFile):
         logger.error(ex)
         return False
 
-def checkArmyVersions(armyJson, armyBookJson):
+def checkArmyVersions(armyJson, armyBookJson, armyId):
+    logger.debug(f'armyId {armyId}')
+
+    # Get Army Version
+    armyVersion = None
+    for armyVersion in armyJson["armyVersions"]:
+        if armyVersion['armyId'] == armyId:
+            armyVersion = armyVersion['version']
+            break
+
     try:
-        armyVersion = armyJson["armyVersions"][0]["version"]
-        bookVersion = armyBookJson["versionString"]
+        bookVersion = armyBookJson[armyId]["versionString"]
     except Exception as ex:
         logger.error("Error on checkArmyVersions")
         logger.error(ex)
         return False
     
+    logger.debug(f'{armyVersion} / {bookVersion}')
     if str(armyVersion) == str(bookVersion):
         return True
     else:

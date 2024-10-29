@@ -46,6 +46,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "FAMbscK5vhSu",
@@ -89,6 +90,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": []
         },
         {
@@ -133,6 +135,7 @@
                     ]
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "H9E9PIWpGRdw",
@@ -181,6 +184,7 @@
                     ]
                 }
             ],
+            "equipment": [],
             "rules": [],
             "upgradeCost": [
                 15
@@ -216,10 +220,6 @@
                     "specialRules": []
                 }
             ],
-            "rules": [],
-            "upgradeCost": [
-                5
-            ],
             "equipment": [
                 {
                     "name": "Heavy Armor",
@@ -234,6 +234,10 @@
                         }
                     ]
                 }
+            ],
+            "rules": [],
+            "upgradeCost": [
+                5
             ]
         },
         {
@@ -267,6 +271,7 @@
                     "ap": 4
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "6mJw5IdqSqNC",
@@ -313,6 +318,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "bLVZU4onzi2E",
@@ -362,6 +368,20 @@
                     ]
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Heavy Armor",
+                    "specialRules": [
+                        {
+                            "id": "74RjQ1k41DoO",
+                            "name": "Defense",
+                            "type": "ArmyBookRule",
+                            "rating": 1,
+                            "label": "Defense(1)"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "T08VkBuVmNZ_",
@@ -378,20 +398,6 @@
             "upgradeCost": [
                 5,
                 5
-            ],
-            "equipment": [
-                {
-                    "name": "Heavy Armor",
-                    "specialRules": [
-                        {
-                            "id": "74RjQ1k41DoO",
-                            "name": "Defense",
-                            "type": "ArmyBookRule",
-                            "rating": 1,
-                            "label": "Defense(1)"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -432,6 +438,7 @@
                     "ap": 4
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "6mJw5IdqSqNC",

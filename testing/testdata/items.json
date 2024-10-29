@@ -1,0 +1,81 @@
+{
+    "id": "M4FVYNIo7I5A",
+    "gameSystem": "gff",
+    "armyId": "7oi8zeiqfamiur21",
+    "armyIds": [
+        "7oi8zeiqfamiur21"
+    ],
+    "armyFaction": null,
+    "armyName": "Blessed Sisters",
+    "modified": "2024-10-29T17:41:57.898Z",
+    "saveVersion": 3,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "7oi8zeiqfamiur21"
+        }
+    ],
+    "listPoints": 135,
+    "list": {
+        "id": "M4FVYNIo7I5A",
+        "key": "e_5Es-hjcVZKZVeD8e4Al",
+        "name": "Blessed Sisters",
+        "description": "",
+        "pointsLimit": 300,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gff",
+        "isCloud": false,
+        "modified": "2024-10-29T17:41:57.898Z",
+        "cloudModified": null,
+        "activationCount": 2,
+        "modelCount": 2,
+        "units": [
+            {
+                "id": "2TXWi3B",
+                "armyId": "7oi8zeiqfamiur21",
+                "selectionId": "K-c1E",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "dVNhF0sbx",
+                        "upgradeId": "jDPiWW0",
+                        "optionId": "se1bXdC"
+                    },
+                    {
+                        "instanceId": "yJfR_XD-j",
+                        "upgradeId": "QiaDUvj",
+                        "optionId": "4nJa1"
+                    },
+                    {
+                        "instanceId": "fNUmwNbmQ",
+                        "upgradeId": "9LBlxtK",
+                        "optionId": "5qZXT6w"
+                    },
+                    {
+                        "instanceId": "DIEVeqhSN",
+                        "upgradeId": "5z9UHa0",
+                        "optionId": "OqMP9"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "2TXWi3B",
+                "armyId": "7oi8zeiqfamiur21",
+                "selectionId": "zEHLc",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    }
+}

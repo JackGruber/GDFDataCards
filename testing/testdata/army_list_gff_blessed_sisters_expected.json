@@ -43,6 +43,19 @@
                     "ap": 1
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Superior",
+                    "specialRules": [
+                        {
+                            "id": "EE80BCU66oFu",
+                            "name": "Blind Faith",
+                            "type": "ArmyBookRule",
+                            "label": "Blind Faith"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "j_GPMzrugrCj",
@@ -65,19 +78,6 @@
             "upgradeCost": [
                 25,
                 10
-            ],
-            "equipment": [
-                {
-                    "name": "Superior",
-                    "specialRules": [
-                        {
-                            "id": "EE80BCU66oFu",
-                            "name": "Blind Faith",
-                            "type": "ArmyBookRule",
-                            "label": "Blind Faith"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -109,6 +109,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "6mJw5IdqSqNC",
@@ -165,6 +166,7 @@
                     "ap": 4
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "6mJw5IdqSqNC",
@@ -218,6 +220,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "j_GPMzrugrCj",
@@ -274,6 +277,7 @@
                     ]
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "j_GPMzrugrCj",
@@ -317,6 +321,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "j_GPMzrugrCj",
@@ -348,6 +353,19 @@
                     "ap": 1
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Flagellants",
+                    "specialRules": [
+                        {
+                            "id": "8KujvrTG8k9p",
+                            "name": "Regeneration",
+                            "type": "ArmyBookRule",
+                            "label": "Regeneration"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -362,19 +380,6 @@
             ],
             "upgradeCost": [
                 5
-            ],
-            "equipment": [
-                {
-                    "name": "Flagellants",
-                    "specialRules": [
-                        {
-                            "id": "8KujvrTG8k9p",
-                            "name": "Regeneration",
-                            "type": "ArmyBookRule",
-                            "label": "Regeneration"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -399,6 +404,19 @@
                     "ap": 1
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Flagellants",
+                    "specialRules": [
+                        {
+                            "id": "8KujvrTG8k9p",
+                            "name": "Regeneration",
+                            "type": "ArmyBookRule",
+                            "label": "Regeneration"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -413,19 +431,6 @@
             ],
             "upgradeCost": [
                 5
-            ],
-            "equipment": [
-                {
-                    "name": "Flagellants",
-                    "specialRules": [
-                        {
-                            "id": "8KujvrTG8k9p",
-                            "name": "Regeneration",
-                            "type": "ArmyBookRule",
-                            "label": "Regeneration"
-                        }
-                    ]
-                }
             ]
         }
     ]

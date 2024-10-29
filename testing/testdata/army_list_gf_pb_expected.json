@@ -51,6 +51,19 @@
                     "ap": 2
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Judge",
+                    "specialRules": [
+                        {
+                            "id": "FWP4aR4iYo8w",
+                            "name": "War Chant",
+                            "type": "ArmyBookRule",
+                            "label": "War Chant"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -78,19 +91,6 @@
                 15,
                 10,
                 25
-            ],
-            "equipment": [
-                {
-                    "name": "Judge",
-                    "specialRules": [
-                        {
-                            "id": "FWP4aR4iYo8w",
-                            "name": "War Chant",
-                            "type": "ArmyBookRule",
-                            "label": "War Chant"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -151,6 +151,12 @@
                     "ap": 4
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Jetpacks",
+                    "specialRules": []
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -182,12 +188,6 @@
                 10,
                 10,
                 10
-            ],
-            "equipment": [
-                {
-                    "name": "Jetpacks",
-                    "specialRules": []
-                }
             ]
         },
         {
@@ -226,6 +226,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -289,6 +290,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "dIQ3SGl2J2Ew",
@@ -380,6 +382,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "dIQ3SGl2J2Ew",
@@ -442,6 +445,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",

@@ -42,6 +42,19 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Paymaster",
+                    "specialRules": [
+                        {
+                            "id": "bIZKJ",
+                            "type": "ArmyBookRule",
+                            "name": "Deep Pockets",
+                            "label": "Deep Pockets"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -62,19 +75,6 @@
             ],
             "upgradeCost": [
                 15
-            ],
-            "equipment": [
-                {
-                    "name": "Paymaster",
-                    "specialRules": [
-                        {
-                            "id": "bIZKJ",
-                            "type": "ArmyBookRule",
-                            "name": "Deep Pockets",
-                            "label": "Deep Pockets"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -111,6 +111,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -173,6 +174,7 @@
                     ]
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -220,6 +222,19 @@
                     "ap": 2
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Combat Shields",
+                    "specialRules": [
+                        {
+                            "id": "wsqfB0fq69eG",
+                            "type": "ArmyBookRule",
+                            "name": "Shield Wall",
+                            "label": "Shield Wall"
+                        }
+                    ]
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -241,19 +256,6 @@
             "upgradeCost": [
                 5,
                 5
-            ],
-            "equipment": [
-                {
-                    "name": "Combat Shields",
-                    "specialRules": [
-                        {
-                            "id": "wsqfB0fq69eG",
-                            "type": "ArmyBookRule",
-                            "name": "Shield Wall",
-                            "label": "Shield Wall"
-                        }
-                    ]
-                }
             ]
         },
         {
@@ -298,6 +300,7 @@
                     ]
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",

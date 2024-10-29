@@ -51,6 +51,12 @@
                     "ap": 1
                 }
             ],
+            "equipment": [
+                {
+                    "name": "Jetpack",
+                    "specialRules": []
+                }
+            ],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -85,12 +91,6 @@
                 15,
                 5,
                 10
-            ],
-            "equipment": [
-                {
-                    "name": "Jetpack",
-                    "specialRules": []
-                }
             ]
         },
         {
@@ -122,6 +122,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -176,6 +177,7 @@
                     "specialRules": []
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",
@@ -225,6 +227,7 @@
                     "ap": 1
                 }
             ],
+            "equipment": [],
             "rules": [
                 {
                     "id": "2atvlmICQSCV",

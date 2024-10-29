@@ -1,0 +1,168 @@
+{
+    "armyId": "7oi8zeiqfamiur21",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "7oi8zeiqfamiur21"
+        }
+    ],
+    "armyName": "Blessed Sisters",
+    "listPoints": 135,
+    "listName": "Blessed Sisters",
+    "units": [
+        {
+            "type": "High Sister",
+            "name": "High Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "2TXWi3B",
+            "cost": 35,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "B1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Master Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Mace",
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "name": "Blast",
+                            "type": "ArmyBookRule",
+                            "rating": 3,
+                            "label": "Blast(3)"
+                        }
+                    ],
+                    "ap": 2
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Witch",
+                    "specialRules": [
+                        {
+                            "id": "47CAqf7ySlfc",
+                            "name": "Caster",
+                            "type": "ArmyBookRule",
+                            "rating": 2,
+                            "label": "Caster(2)"
+                        }
+                    ]
+                },
+                {
+                    "name": "Jetpack",
+                    "specialRules": []
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                },
+                {
+                    "id": "6mJw5IdqSqNC",
+                    "name": "Ambush",
+                    "type": "ArmyBookRule",
+                    "label": "Ambush"
+                },
+                {
+                    "id": "-QJdqJEKjIpE",
+                    "name": "Flying",
+                    "type": "ArmyBookRule",
+                    "label": "Flying"
+                }
+            ],
+            "upgradeCost": [
+                20,
+                25,
+                10,
+                10
+            ]
+        },
+        {
+            "type": "High Sister",
+            "name": "High Sister",
+            "armyId": "7oi8zeiqfamiur21",
+            "id": "2TXWi3B",
+            "cost": 35,
+            "defense": 4,
+            "quality": 4,
+            "upgrades": [
+                "A1",
+                "B1",
+                "C1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Combat Shield",
+                    "specialRules": [
+                        {
+                            "id": "wsqfB0fq69eG",
+                            "name": "Shield Wall",
+                            "type": "ArmyBookRule",
+                            "label": "Shield Wall"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "j_GPMzrugrCj",
+                    "name": "Devout",
+                    "additional": false,
+                    "label": "Devout"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                }
+            ]
+        }
+    ]
+}

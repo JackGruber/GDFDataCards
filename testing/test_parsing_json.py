@@ -129,7 +129,7 @@ def test_removeWeapon():
     ]
 
     for test in testCases:
-        result = OPRDatacard.removeWeapon(test['remove'], test['count'], weapons.copy())
+        result = OPRDatacard.removeItem(test['remove'], test['count'], weapons.copy(), 'test')
         assert result == test['expected'], "Weapon remove error for: " + ", ". join(test['remove'])
 
 
@@ -220,6 +220,17 @@ def test_replace_all():
     with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
         result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'replace_all.json'))
         expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'replace_all_expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
+
+def test_unit_items():
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'items.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'items_expected.json'))
         assert result == expected
         try:
             OPRDatacard.createDataCard(result)
