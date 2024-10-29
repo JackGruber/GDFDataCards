@@ -419,11 +419,15 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
         offset += 12
 
 def dataCardArmyBookVersion(pdf, dataCardParameters, versions, armyId):
+    logger.info("Add version")
+
     version = None
-    for version in versions:
-        if armyId == version['armyId']:
-            version = version['version']
-            
+    for check in versions:
+        if armyId == check['armyId']:
+            version = check['version']
+    if version is None:
+        return
+         
     pdf.setFont('bold', 4)
     pdf.setFillColorRGB(0, 0, 0)
     pdf.drawRightString(dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'],
@@ -683,8 +687,8 @@ def createDataCard(army):
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
-        #if 'armyVersions' in army:
-        #    dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
+        if 'armyVersions' in army:
+           dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
