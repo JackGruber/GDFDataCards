@@ -552,6 +552,70 @@ def unitOverview(pdf, dataCardParameters, army):
     dataCardBoarderFrame(pdf, dataCardParameters)
     pdf.showPage()
 
+def dataCardSpells(pdf, dataCardParameters, army):
+    casterArmyIds = []
+    regEx = r'(?i)(Caster)'
+    logger.info(f'Check Spells {regEx}')
+    for unit in army['units']:
+        for rule in unit['rules']:
+            if re.search(regEx, rule['name']):
+                logger.info(f'Spell unit {unit["name"]}')
+                if unit['armyId'] not in casterArmyIds:
+                    casterArmyIds.append(unit['armyId'])
+
+    if len(casterArmyIds) == 0:
+        return
+    
+    dataCardBoarderFrame(pdf, dataCardParameters)
+    startX = dataCardParameters['sideClearance'] + 2
+    startY = dataCardParameters['pdfSize'][1] - dataCardParameters['topClearance'] - 7
+    offsetY = 0
+    fontSize = 7
+
+    for armyId in casterArmyIds:
+        logger.info(f'Get spells from {armyId}')
+        armyRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, armyId + "_" + str(army['gameSystemId']) + ".json"))
+        # Army Name
+        pdf.setFillColorRGB(0, 0, 0)
+        pdf.setFont("bold", fontSize)
+        pdf.drawString(startX, startY + offsetY, armyRules['name'] + " Army Spells")
+        offsetY -= (fontSize + 5)
+
+        for spell in armyRules['spells']:
+            spellName = f'{spell["name"]} ({spell["threshold"]})'
+            parts = spell['effect'].split(" ")
+            offsetXName = pdf.stringWidth(spellName + ": ", "bold", fontSize)
+
+            lines = []
+            lineParts = []
+            offsetXCalc = offsetXName
+            for part in parts:
+                if startX + offsetXCalc + pdf.stringWidth(" ".join(lineParts), "regular", fontSize) + pdf.stringWidth(" ".join(part), "regular", fontSize) > dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance']:
+                    lines.append(" ".join(lineParts))
+                    lineParts = []
+                    offsetXCalc = 0
+                lineParts.append(part)
+            lines.append(" ".join(lineParts))
+
+            if startY - (len(lines)*fontSize) + offsetY < dataCardParameters['bottomClearance']:
+                pdf.showPage()
+                dataCardBoarderFrame(pdf, dataCardParameters)
+                offsetY = 0
+
+            # Name
+            pdf.setFillColorRGB(0, 0, 0)
+            pdf.setFont("bold", fontSize)
+            pdf.drawString(startX, startY + offsetY, spellName + ": ")
+
+            # Description
+            pdf.setFont("regular", fontSize)
+            pdf.setFillColorRGB(0, 0, 0)
+            for line in lines:
+                pdf.drawString(startX + offsetXName, startY + offsetY, line)
+                offsetY -= fontSize
+                offsetXName = 0
+            offsetY -= 3
+    pdf.showPage()
 
 def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = []
@@ -569,7 +633,6 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
                 for rule in equipment['specialRules']:
                     rules.append(rule['name'])
     rules = list(dict.fromkeys(rules))
-    spells = False
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
     commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
@@ -577,8 +640,6 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
         for common in commonRules['rules']:
             if common['name'].lower() == rule.lower():
                 ruleDescriptions.append({'name': common['name'], 'description': common['description']})
-                if common['name'].lower() == "psychic":
-                    spells = True
 
     if 'armyId' in army:
         armyRules = loadJsonFile(os.path.join(
@@ -587,14 +648,6 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
                     ruleDescriptions.append({'name': armyRule['name'], 'description': armyRule['description']})
-                    if armyRule['name'].lower() == "psychic":
-                        spells = True
-
-        if spells == True:
-            ruleDescriptions.append({'name': "Spells", 'description': ''})
-            for spell in armyRules['spells']:
-                ruleDescriptions.append({'name': spell['name'], 'description': str(
-                    spell['threshold']) + '+ ' + spell['effect']})
 
     dataCardBoarderFrame(pdf, dataCardParameters)
 
@@ -692,6 +745,8 @@ def createDataCard(army):
 
         pdf.showPage()
     dataCardRuleInfo(pdf, dataCardParameters, army)
+    dataCardSpells(pdf, dataCardParameters, army)
+
     unitOverview(pdf, dataCardParameters, army)
 
     try:
