@@ -235,7 +235,16 @@
                     ]
                 }
             ],
-            "rules": [],
+            "rules": [
+                {
+                    "id": "74RjQ1k41DoO",
+                    "name": "Defense",
+                    "type": "ArmyBookRule",
+                    "rating": "1",
+                    "condition": "",
+                    "label": "Defense(1)"
+                }
+            ],
             "upgradeCost": [
                 5
             ]
@@ -393,6 +402,13 @@
                     "name": "Tough",
                     "rating": "3",
                     "label": "Tough(3)"
+                },
+                {
+                    "id": "74RjQ1k41DoO",
+                    "name": "Defense",
+                    "type": "ArmyBookRule",
+                    "rating": 1,
+                    "label": "Defense(1)"
                 }
             ],
             "upgradeCost": [

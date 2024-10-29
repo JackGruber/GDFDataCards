@@ -85,6 +85,12 @@
                     "id": "bd26Yb52DH42",
                     "name": "War Veteran",
                     "label": "War Veteran"
+                },
+                {
+                    "id": "FWP4aR4iYo8w",
+                    "name": "War Chant",
+                    "type": "ArmyBookRule",
+                    "label": "War Chant"
                 }
             ],
             "upgradeCost": [

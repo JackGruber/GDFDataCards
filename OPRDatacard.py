@@ -992,6 +992,7 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                 unitData['upgradeCost'].append(cost)
 
                             for gains in option['gains']:
+                                logger.debug(f'Type: {gains["type"]}')
                                 if (gains['type'] == "ArmyBookWeapon"):
                                     if variant in ("upgrade", "replace") and affects and affects['type'] == "all":
                                         modeCount = unitData['size']
@@ -999,24 +1000,14 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                         modeCount = -1
                                     unitData['weapons'].append(getWeapon(gains, modeCount))
                                 elif gains['type'] == "ArmyBookItem":
-                                    if len(gains['content']) == 1:
-                                        if 'equipment' not in unitData:
-                                            unitData['equipment'] = []
-                                        unitData['equipment'].append(addEquipment(gains, True))
-                                    else:
-                                        if 'equipment' not in unitData:
-                                            unitData['equipment'] = []
-                                        unitData['equipment'].append(addEquipment(gains, True))
+                                    rule =  getRules(gains['content'])
+                                    if 'equipment' not in unitData:
+                                        unitData['equipment'] = []
+                                    unitData['equipment'].append(addEquipment(gains, True))
 
-                                        for gain in gains['content']:
-                                            if gain['type'] == "ArmyBookItem":
-                                                if 'equipment' not in unitData:
-                                                    unitData['equipment'] = []
-                                                unitData['equipment'].append(addEquipment(gains, True))
-                                            elif gain['type'] == "ArmyBookWeapon":
-                                                unitData['weapons'].append(getWeapon(gain,1))
-                                            elif gain['type'] == "ArmyBookRule":
-                                                unitData['rules'].append(getRules([gain])[0])
+                                    if 'rules' not in unitData:
+                                        unitData['rules'] = []
+                                    unitData['rules'] += rule
                                 elif gains['type'] == "ArmyBookRule":
                                     unitData['rules'].append(getRules([gains])[0])
                                 else:

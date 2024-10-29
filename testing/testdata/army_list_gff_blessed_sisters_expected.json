@@ -73,6 +73,12 @@
                     "name": "Tough",
                     "rating": 3,
                     "label": "Tough(3)"
+                },
+                {
+                    "id": "EE80BCU66oFu",
+                    "name": "Blind Faith",
+                    "type": "ArmyBookRule",
+                    "label": "Blind Faith"
                 }
             ],
             "upgradeCost": [
@@ -376,6 +382,12 @@
                     "id": "fpXLibfT38MT",
                     "name": "Frenzy",
                     "label": "Frenzy"
+                },
+                {
+                    "id": "8KujvrTG8k9p",
+                    "name": "Regeneration",
+                    "type": "ArmyBookRule",
+                    "label": "Regeneration"
                 }
             ],
             "upgradeCost": [
@@ -427,6 +439,12 @@
                     "id": "fpXLibfT38MT",
                     "name": "Frenzy",
                     "label": "Frenzy"
+                },
+                {
+                    "id": "8KujvrTG8k9p",
+                    "name": "Regeneration",
+                    "type": "ArmyBookRule",
+                    "label": "Regeneration"
                 }
             ],
             "upgradeCost": [

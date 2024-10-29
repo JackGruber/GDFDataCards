@@ -71,6 +71,12 @@
                     "rating": "3",
                     "name": "Tough",
                     "label": "Tough(3)"
+                },
+                {
+                    "id": "bIZKJ",
+                    "type": "ArmyBookRule",
+                    "name": "Deep Pockets",
+                    "label": "Deep Pockets"
                 }
             ],
             "upgradeCost": [
@@ -251,6 +257,12 @@
                     "rating": "3",
                     "name": "Tough",
                     "label": "Tough(3)"
+                },
+                {
+                    "id": "wsqfB0fq69eG",
+                    "type": "ArmyBookRule",
+                    "name": "Shield Wall",
+                    "label": "Shield Wall"
                 }
             ],
             "upgradeCost": [

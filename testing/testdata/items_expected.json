@@ -102,6 +102,13 @@
                     "label": "Tough(3)"
                 },
                 {
+                    "id": "47CAqf7ySlfc",
+                    "name": "Caster",
+                    "type": "ArmyBookRule",
+                    "rating": 2,
+                    "label": "Caster(2)"
+                },
+                {
                     "id": "6mJw5IdqSqNC",
                     "name": "Ambush",
                     "type": "ArmyBookRule",
