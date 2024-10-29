@@ -67,7 +67,20 @@
                 },
                 {
                     "name": "Jetpack",
-                    "specialRules": []
+                    "specialRules": [
+                        {
+                            "id": "6mJw5IdqSqNC",
+                            "name": "Ambush",
+                            "type": "ArmyBookRule",
+                            "label": "Ambush"
+                        },
+                        {
+                            "id": "-QJdqJEKjIpE",
+                            "name": "Flying",
+                            "type": "ArmyBookRule",
+                            "label": "Flying"
+                        }
+                    ]
                 }
             ],
             "rules": [

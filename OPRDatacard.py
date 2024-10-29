@@ -998,17 +998,17 @@ def getUnitUpgrades(unit, unitData, jsonArmyBookList):
                                     if len(gains['content']) == 1:
                                         if 'equipment' not in unitData:
                                             unitData['equipment'] = []
-                                        unitData['equipment'].append(addEquipment(gains))
+                                        unitData['equipment'].append(addEquipment(gains, True))
                                     else:
                                         if 'equipment' not in unitData:
                                             unitData['equipment'] = []
-                                        unitData['equipment'].append(addEquipment(gains, False))
+                                        unitData['equipment'].append(addEquipment(gains, True))
 
                                         for gain in gains['content']:
                                             if gain['type'] == "ArmyBookItem":
                                                 if 'equipment' not in unitData:
                                                     unitData['equipment'] = []
-                                                unitData['equipment'].append(addEquipment(gains))
+                                                unitData['equipment'].append(addEquipment(gains, True))
                                             elif gain['type'] == "ArmyBookWeapon":
                                                 unitData['weapons'].append(getWeapon(gain,1))
                                             elif gain['type'] == "ArmyBookRule":
@@ -1062,6 +1062,7 @@ def mergeWeapon(weapons):
 
 
 def addEquipment(data, specialRules = True):
+    logger.info(f'Add {data["name"]}')
     equipment = {}
     equipment['name'] = data['name']
     if specialRules == True:
