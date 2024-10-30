@@ -20,22 +20,13 @@ import pathlib
 import requests
 import zipfile
 import logging
+import tkinter as tk
+from tkinter import ttk, filedialog
+import os
+import platform
+import subprocess
 
 logger = logging.getLogger(__name__)
-
-# determine if application is a script file or frozen exe
-if getattr(sys, 'frozen', False):
-    BASEPATH = os.path.dirname(sys.executable)
-elif __file__:
-    BASEPATH = os.path.dirname(__file__)
-
-DATAFOLDER = os.path.join(BASEPATH, "data")
-DATAFOLDERARMYBOOK = os.path.join(DATAFOLDER, "armybook")
-FONTFOLDER = os.path.join(DATAFOLDER, "fonts")
-DATACARDFOLDER = os.path.join(DATAFOLDER, "datacards")
-IMAGEFOLDER = os.path.join(DATAFOLDER, "images")
-IMAGEJSON = os.path.join(IMAGEFOLDER, "images.json")
-
 
 @click.command()
 @click.option(
@@ -62,41 +53,73 @@ IMAGEJSON = os.path.join(IMAGEFOLDER, "images.json")
     default=True,
     required=False
 )
-
 def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
+    set_settings(forceTypeJson, armyFile, debugOutput, validateVersion)
+    conf_logging()
+    createStructure()
+    checkFonts()
+    logger.info(f'Start')
+    logger.debug(f'Start')
+
+    if armyFile is None:
+        create_gui()
+    else:
+        cli()
+
+def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
+    basePath = get_base_path()
+    imageFolder = os.path.join(basePath, "images")
+    dataFolder = os.path.join(basePath, "data")
+    global settings
+    settings = {
+        'forceJson': forceTypeJson,
+        'validateVersion': validateVersion,
+        'path': {
+            'dataFolder': dataFolder,
+            'dataFolderArmyBook': os.path.join(dataFolder, "armybook"),
+            'fontFolder': os.path.join(dataFolder, "fonts"),
+            'dataCardFolder': os.path.join(dataFolder, "datacards"),
+            'imageFolder': imageFolder,
+            'imageJson': os.path.join(imageFolder, "image.json"),
+        },
+        'debug': debugOutput,
+        '2w6': debugOutput,
+    }
+
+def conf_logging():
     FORMAT = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
     logging.basicConfig(format=FORMAT)
-    if debugOutput:
+    if settings['debug']:
         logger.setLevel(logging.DEBUG)
     else:
         logger.setLevel(logging.WARNING)
 
-    createStructure()
-    checkFonts()
+def get_base_path():
+    # determine if application is a script file or frozen exe
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    elif __file__:
+        return os.path.dirname(__file__)
 
-    if (armyFile == None):
-        armyFile = fileSelectDialog()
+def cli():
+    pass
 
-    if armyFile == None or armyFile == "":
-        logger.error("No army file selected")
-        waitForKeyPressAndExit()
-
+def processArmyFile(armyFile: str):
     typeJson = isFileTypeJson(armyFile)
     army = None
-    if (typeJson == True or forceTypeJson == True):
+    if (typeJson == True):
         logger.debug("Parse json army file")
-        army = parseArmyJsonList(armyFile, validateVersion)
+        army = parseArmyJsonList(armyFile, settings['validateVersion'])
     else:
         logger.debug("Parse txt army file")
         txtData = readTxtFile(armyFile)
         army = parseArmyTextList(txtData)
     if army != None and army != False:
         if logger.level == logging.DEBUG:
-            saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
+            saveDictToJson(army, os.path.join(settings['path']['dataFolder'], "debug_army.json"))
 
         pdfFile = createDataCard(army)
         openFile(pdfFile)
-
 
 def isFileTypeJson(file):
     if file != None and file != "":
@@ -122,47 +145,48 @@ def fileSelectDialog():
 
 
 def createStructure():
-    if not os.path.exists(DATAFOLDER):
+    logger.debug(f'Check data structure')
+    if not os.path.exists(settings['path']['dataFolder']):
         try:
-            os.makedirs(DATAFOLDER)
+            os.makedirs(settings['path']['dataFolder'])
         except Exception as ex:
             logger.error("Data folder creation failed")
             logger.error(ex)
             waitForKeyPressAndExit()
 
-    if not os.path.exists(DATAFOLDERARMYBOOK):
+    if not os.path.exists(settings['path']['dataFolderArmyBook']):
         try:
-            os.makedirs(DATAFOLDERARMYBOOK)
+            os.makedirs(settings['path']['dataFolderArmyBook'])
         except Exception as ex:
             logger.error("army book folder creation failed")
             logger.error(ex)
             waitForKeyPressAndExit()
 
-    if not os.path.exists(FONTFOLDER):
+    if not os.path.exists(settings['path']['fontFolder']):
         try:
-            os.makedirs(FONTFOLDER)
+            os.makedirs(settings['path']['fontFolder'])
         except Exception as ex:
             logger.error("font folder creation failed")
             logger.error(ex)
             waitForKeyPressAndExit()
 
-    if not os.path.exists(IMAGEFOLDER):
+    if not os.path.exists(settings['path']['imageFolder']):
         try:
-            os.makedirs(IMAGEFOLDER)
+            os.makedirs(settings['path']['imageFolder'])
         except Exception as ex:
             logger.error("image folder creation failed")
             logger.error(ex)
             waitForKeyPressAndExit()
 
-    if not os.path.exists(DATACARDFOLDER):
+    if not os.path.exists(settings['path']['dataCardFolder']):
         try:
-            os.makedirs(DATACARDFOLDER)
+            os.makedirs(settings['path']['dataCardFolder'])
         except Exception as ex:
             logger.error("datacard folder creation failed")
             logger.error(ex)
             waitForKeyPressAndExit()
 
-    if not os.path.exists(IMAGEJSON):
+    if not os.path.exists(settings['path']['imageJson']):
         example = [
             {
                 'listName': '*',
@@ -189,7 +213,7 @@ def createStructure():
                 'image': 'example.jpg',
             },
         ]
-        saveDictToJson(example, os.path.join(IMAGEJSON))
+        saveDictToJson(example, os.path.join(settings['path']['imageJson']))
 
 
 def openFile(filePath):
@@ -330,7 +354,7 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
 
 
 def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
-    imageInfos = loadJsonFile(IMAGEJSON)
+    imageInfos = loadJsonFile(settings['path']['imageJson'])
 
     unitImage = None
     for imageInfo in imageInfos:
@@ -339,19 +363,19 @@ def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
                 if imageInfo['listName'] == "*" or re.search(r'(?is)' + imageInfo['listName'], listName.strip()):
                     if imageInfo['armyFaction'] == "*" or re.search(r'(?is)' + imageInfo['armyFaction'], armyFaction.strip()):
                         if imageInfo['weaponOrEquipment'] == "*":
-                            unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                            unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
                         else:
                             for weapon in unit['weapons']:
                                 if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], weapon['name'].strip()):
-                                    unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                                    unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
 
                             if 'equipment' in unit:
                                 for equipment in unit['equipment']:
                                     if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], equipment['name'].strip()):
-                                        unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                                        unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
 
                         if unitImage is not None:
-                            unitImage = os.path.join(IMAGEFOLDER, imageInfo['image'])
+                            unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
                             if not os.path.exists(unitImage):
                                 unitImage = None
                             break
@@ -635,7 +659,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     rules = list(dict.fromkeys(rules))
     ruleDescriptions = []
     downloadCommonRules(army['gameSystemId'])
-    commonRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(army['gameSystemId']) + ".json"))
+    commonRules = loadJsonFile(os.path.join(settings['path']['dataFolderArmyBook'], "common-rules_" + str(army['gameSystemId']) + ".json"))
     for rule in rules:
         for common in commonRules['rules']:
             if common['name'].lower() == rule.lower():
@@ -643,7 +667,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
 
     if 'armyId' in army:
         armyRules = loadJsonFile(os.path.join(
-            DATAFOLDERARMYBOOK, army['armyId'] + "_" + str(army['gameSystemId']) + ".json"))
+            settings['path']['dataFolderArmyBook'], army['armyId'] + "_" + str(army['gameSystemId']) + ".json"))
         for rule in rules:
             for armyRule in armyRules['specialRules']:
                 if armyRule['name'].lower() == rule.lower():
@@ -694,7 +718,7 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
 def getPdfFileName(armyName):
     pdfName = re.sub(r'(?is)([^\w])', '_', armyName.lower())
     pdfName = re.sub(r'(?is)(_+)', '_', pdfName)
-    pdfFile = os.path.join(DATACARDFOLDER, pdfName)
+    pdfFile = os.path.join(settings['path']['dataCardFolder'], pdfName)
 
     if os.path.exists(pdfFile + ".pdf"):
         nr = 1
@@ -708,9 +732,9 @@ def createDataCard(army):
     logger.info("Create datacards ...")
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
-            FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
+            settings['path']['fontFolder'], "rosa-sans", "hinted-RosaSans-Bold.ttf")))
         pdfmetrics.registerFont(TTFont('regular', os.path.join(
-            FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")))
+            settings['path']['fontFolder'], "rosa-sans", "hinted-RosaSans-Regular.ttf")))
     except Exception as ex:
         logger.error("Font is missing!")
         logger.error(ex)
@@ -1140,7 +1164,7 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
 
     for armyVersion in jsonArmyList['armyVersions']:
         jsonArmyBookList[armyVersion['armyId']] = loadJsonFile(os.path.join(
-            DATAFOLDERARMYBOOK, armyVersion['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
+            settings['path']['dataFolderArmyBook'], armyVersion['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
         
         versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList, armyVersion['armyId'])
         if (validateVersion and not versionCheck):
@@ -1202,7 +1226,7 @@ def getGameSystemId(gameSystem: str):
 
 def downloadArmyBook(id: str, gameSystemId):
     logger.debug(f'Check/download army book {id}/{gameSystemId}')
-    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, str(id) + "_" + str(gameSystemId) + ".json")
+    armyBookJsonFile = os.path.join(settings['path']['dataFolderArmyBook'], str(id) + "_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/army-books/{id}?gameSystem={gameSystemId}'
 
     return downloadJson(url, armyBookJsonFile)
@@ -1210,7 +1234,7 @@ def downloadArmyBook(id: str, gameSystemId):
 
 def downloadCommonRules(gameSystemId):
     logger.debug(f'Check/download common rules {gameSystemId}')
-    armyBookJsonFile = os.path.join(DATAFOLDERARMYBOOK, "common-rules_" + str(gameSystemId) + ".json")
+    armyBookJsonFile = os.path.join(settings['path']['dataFolderArmyBook'], "common-rules_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/rules/common/{gameSystemId}'
     return downloadJson(url, armyBookJsonFile)
 
@@ -1250,18 +1274,19 @@ def saveDictToJson(dictData, file):
 
 
 def checkFonts():
-    font1 = os.path.join(FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")
-    font2 = os.path.join(FONTFOLDER, "rosa-sans", "hinted-RosaSans-Regular.ttf")
+    logging.debug("Start")
+    font1 = os.path.join(settings['path']['fontFolder'], "rosa-sans", "hinted-RosaSans-Bold.ttf")
+    font2 = os.path.join(settings['path']['fontFolder'], "rosa-sans", "hinted-RosaSans-Regular.ttf")
 
     if not os.path.exists(font1) or not os.path.exists(font2):
         logger.debug("Download font ...")
 
         url = "https://raw.githubusercontent.com/JackGruber/OPRDataCards/master/rosa-sans.zip"
-        zipFile = os.path.join(FONTFOLDER, "rosa-sans.zip")
+        zipFile = os.path.join(settings['path']['fontFolder'], "rosa-sans.zip")
         if downloadFile(url, zipFile) == True:
             logger.debug("Unzip fonts ...")
             with zipfile.ZipFile(zipFile, 'r') as zipRef:
-                zipRef.extractall(os.path.join(FONTFOLDER, "rosa-sans"))
+                zipRef.extractall(os.path.join(settings['path']['fontFolder'], "rosa-sans"))
 
 
 def downloadFile(url, dstFile):
@@ -1309,5 +1334,119 @@ def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
 
+
+
+def create_gui():
+    # Hauptfenster erstellen
+    root = tk.Tk()
+    root.title("GDFDataCards")
+    root.geometry("600x300")
+    root.resizable(False, False)
+    root.configure(bg="#f0f0f0")
+
+    # Stil anpassen
+    style = ttk.Style(root)
+    style.theme_use("clam")  # Verwenden eines modernen Themes
+    style.configure("TButton", font=("Helvetica", 10), padding=5)
+    style.configure("TFrame", background="#f0f0f0")
+    style.configure("TLabel", background="#f0f0f0", font=("Helvetica", 12))
+    style.configure("TCheckbutton", background="#f0f0f0", borderwidth=0)
+
+    # Haupt-Frame erstellen
+    frame = ttk.Frame(root, padding=(10, 10))
+    frame.pack(fill="both", expand=True)
+
+    # Status-Textbox für den Verarbeitungsstatus
+    status_label = ttk.Label(frame, text="Status:")
+    status_label.pack(anchor="w", pady=(0, 5))
+
+    global status_box  # Statusbox als global deklarieren
+    status_box = tk.Text(frame, wrap="word", height=8, width=45, bg="#e6e6e6", font=("Helvetica", 10))
+    status_box.pack(fill="x", pady=(0, 10))
+    status_box.insert(tk.END, "")
+
+    # Buttons für Dateiaktionen
+    button_frame = ttk.Frame(frame)
+    button_frame.pack(pady=10)
+
+    process_button = ttk.Button(button_frame, text="PDF erstellen von OPR ArmyForge Datei", command=process_file)
+    process_button.grid(row=0, column=1, padx=5)
+
+    open_images_button = ttk.Button(button_frame, text="images.json öffnen", command=open_images_json)
+    open_images_button.grid(row=0, column=2, padx=5)
+
+    open_folder_button = ttk.Button(button_frame, text="Images Ordner öffnen", command=open_images_folder)
+    open_folder_button.grid(row=0, column=3, padx=5)
+
+    # Checkboxen für Debug und 2x W6
+    checkbox_frame = ttk.Frame(frame)
+    checkbox_frame.pack(pady=(15, 0))
+
+    global debug_var
+    debug_var = tk.BooleanVar()
+    debug_checkbox = ttk.Checkbutton(checkbox_frame, text="Debug", variable=debug_var, command=toggle_debug)
+    debug_checkbox.grid(row=0, column=0, padx=5, pady=5)
+
+    global w6_var  # w6_var als global deklarieren
+    w6_var = tk.BooleanVar()
+    w6_checkbox = ttk.Checkbutton(checkbox_frame, text="2x W6", variable=w6_var, command=toggle_2x_w6)
+    w6_checkbox.grid(row=0, column=1, padx=5, pady=5)
+
+    # Hauptschleife starten
+    root.mainloop()
+
+def toggle_debug():
+    status = "aktiviert" if debug_var.get() else "deaktiviert"
+    log_status(f'Debug-Modus {status}')
+    settings['debug'] = debug_var.get()
+    conf_logging()
+
+def toggle_2x_w6():
+    status = "aktiviert" if w6_var.get() else "deaktiviert"
+    log_status(f'2x W6-Modus {status}')
+    settings['2w6'] = debug_var.get()
+
+def log_status(message):
+    status_box.insert(tk.END, message + "\n")
+    status_box.see(tk.END)  # Scrollt zum Ende der Textbox
+
+def process_file():
+    file_path = filedialog.askopenfilename(
+        title="Wähle eine OPR ArmyBook Datei zum Verarbeiten aus",
+        filetypes=[("JSON-Dateien", "*.json"), ("Textdateien", "*.txt"), ("Alle Dateien", "*.*")]
+    )
+    if file_path:
+        log_status(f"Verarbeitung der Datei '{os.path.basename(file_path)}' gestartet...")  # Status in die Statusbox ausgeben
+        
+    processArmyFile(file_path)
+
+def open_images_json():
+    file_path = "images.json"
+    if os.path.exists(file_path):
+        try:
+            if platform.system() == "Windows":
+                os.startfile(file_path)
+            elif platform.system() == "Darwin":  # macOS
+                subprocess.call(["open", file_path])
+            else:  # Linux
+                subprocess.call(["xdg-open", file_path])
+            log_status(f"Die Datei '{file_path}' wurde im Standardeditor geöffnet.")  # Status in die Statusbox ausgeben
+        except Exception as e:
+            log_status(f"Fehler beim Öffnen der Datei '{file_path}': {e}")
+
+def open_images_folder():
+    folder_path = "images"
+    if os.path.isdir(folder_path):
+        try:
+            if platform.system() == "Windows":
+                os.startfile(folder_path)
+            elif platform.system() == "Darwin":  # macOS
+                subprocess.call(["open", folder_path])
+            else:  # Linux
+                subprocess.call(["xdg-open", folder_path])
+            log_status(f"Der Ordner '{folder_path}' wurde im Dateiexplorer geöffnet.")  # Status in die Statusbox ausgeben
+        except Exception as e:
+            log_status(f"Fehler beim Öffnen des Ordners '{folder_path}': {e}")
+
 if __name__ == "__main__":
-    Main()
+    Main()    
