@@ -68,8 +68,8 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
 
 def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
     basePath = get_base_path()
-    imageFolder = os.path.join(basePath, "images")
     dataFolder = os.path.join(basePath, "data")
+    imageFolder = os.path.join(dataFolder, "images")
     global settings
     settings = {
         'forceJson': forceTypeJson,
@@ -80,7 +80,7 @@ def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
             'fontFolder': os.path.join(dataFolder, "fonts"),
             'dataCardFolder': os.path.join(dataFolder, "datacards"),
             'imageFolder': imageFolder,
-            'imageJson': os.path.join(imageFolder, "image.json"),
+            'imageJson': os.path.join(imageFolder, "images.json"),
         },
         'debug': debugOutput,
         '2w6': debugOutput,
