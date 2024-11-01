@@ -1404,7 +1404,7 @@ def gui_create():
     open_folder_button = ttk.Button(button_frame, text="Images Ordner öffnen", command=open_images_folder)
     open_folder_button.grid(row=0, column=3, padx=5)
 
-    # Checkboxen für Debug und 2x W6
+    # Checkboxen
     checkbox_frame = ttk.Frame(frame)
     checkbox_frame.pack(pady=(15, 0))
 
@@ -1413,10 +1413,18 @@ def gui_create():
     debug_checkbox = ttk.Checkbutton(checkbox_frame, text="Debug", variable=debug_var, command=toggle_debug)
     debug_checkbox.grid(row=0, column=0, padx=5, pady=5)
 
-    global w6_var  # w6_var als global deklarieren
-    w6_var = tk.BooleanVar()
-    w6_checkbox = ttk.Checkbutton(checkbox_frame, text="2x W6", variable=w6_var, command=toggle_2x_w6)
-    w6_checkbox.grid(row=0, column=1, padx=5, pady=5)
+    # Log box
+    status_frame = ttk.Frame(frame)
+    status_frame.pack(fill="both", expand=True)
+
+    global status_box
+    status_box = tk.Text(status_frame, wrap="word", height=8, width=45, bg="#e6e6e6", font=("Helvetica", 10))
+    status_box.pack(side="left", fill="both", expand=True)
+
+    scrollbar = ttk.Scrollbar(status_frame, orient="vertical", command=status_box.yview)
+    scrollbar.pack(side="right", fill="y")
+
+    status_box.config(yscrollcommand=scrollbar.set)
 
     return root
 
