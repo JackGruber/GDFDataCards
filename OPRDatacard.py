@@ -63,7 +63,7 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
 
     if armyFile is None:
         root = gui_create()
-        root.after(0, process_file)
+        root.after(0, select_file)
         root.mainloop()
     else:
         cli()
@@ -1383,7 +1383,7 @@ def gui_create():
     button_frame = ttk.Frame(frame)
     button_frame.pack(pady=10)
 
-    process_button = ttk.Button(button_frame, text="PDF erstellen von OPR ArmyForge Datei", command=process_file)
+    process_button = ttk.Button(button_frame, text="PDF erstellen von OPR ArmyForge Datei", command=select_file)
     process_button.grid(row=0, column=1, padx=5)
 
     open_images_button = ttk.Button(button_frame, text="images.json öffnen", command=open_images_json)
@@ -1423,7 +1423,7 @@ def log_status(message):
     status_box.insert(tk.END, message + "\n")
     status_box.see(tk.END)  # Scrollt zum Ende der Textbox
 
-def process_file():
+def select_file():
     file_path = filedialog.askopenfilename(
         title="Wähle eine OPR ArmyBook Datei zum Verarbeiten aus",
         filetypes=[("JSON-Dateien", "*.json"), ("Textdateien", "*.txt"), ("Alle Dateien", "*.*")]
