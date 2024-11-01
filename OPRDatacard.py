@@ -1455,7 +1455,7 @@ def select_file():
         processArmyFile(file_path)
 
 def open_images_json():
-    file_path = "images.json"
+    file_path = settings['path']['imageJson']
     if os.path.exists(file_path):
         try:
             if platform.system() == "Windows":
@@ -1469,7 +1469,7 @@ def open_images_json():
             log_status(f"Fehler beim Öffnen der Datei '{file_path}': {e}")
 
 def open_images_folder():
-    folder_path = "images"
+    folder_path = settings['path']['imageFolder']
     if os.path.isdir(folder_path):
         try:
             if platform.system() == "Windows":
