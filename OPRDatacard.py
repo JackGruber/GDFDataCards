@@ -1429,9 +1429,8 @@ def process_file():
         filetypes=[("JSON-Dateien", "*.json"), ("Textdateien", "*.txt"), ("Alle Dateien", "*.*")]
     )
     if file_path:
-        log_status(f"Verarbeitung der Datei '{os.path.basename(file_path)}' gestartet...")  # Status in die Statusbox ausgeben
-        
-    processArmyFile(file_path)
+        log_status(f"Starte verarbeitung der Datei '{os.path.basename(file_path)}' ...")
+        processArmyFile(file_path)
 
 def open_images_json():
     file_path = "images.json"
