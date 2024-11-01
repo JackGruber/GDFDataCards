@@ -1439,6 +1439,8 @@ def select_file():
         filetypes=[("JSON-Dateien", "*.json"), ("Textdateien", "*.txt"), ("Alle Dateien", "*.*")]
     )
     if file_path:
+        log_status("")
+        log_status("")
         log_status(f"Starte verarbeitung der Datei '{os.path.basename(file_path)}' ...")
         processArmyFile(file_path)
 
