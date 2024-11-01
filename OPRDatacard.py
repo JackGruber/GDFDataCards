@@ -650,7 +650,7 @@ def dataCardSpells(pdf, dataCardParameters, army):
 
         for spell in armyRules['spells']:
             spellName = f'{spell["name"]} ({spell["threshold"]})'
-            effect = getTextWithDiceRoll(spell['effect'])
+            effect = getTextWithDiceRoll(spell['effect'], settings['2w6'])
             parts = effect.split(" ")
             offsetXName = pdf.stringWidth(spellName + ": ", "bold", fontSize)
 
@@ -1384,8 +1384,8 @@ def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
 
-def getDiceRoll(w6: int, asW12: False):
-    if asW12:
+def getDiceRoll(w6: int, as2w6: False):
+    if as2w6:
         if w6 == 6:
             #return '6/9'
             return '10'
@@ -1394,8 +1394,8 @@ def getDiceRoll(w6: int, asW12: False):
     else:
         return f'{w6}'
 
-def getTextWithDiceRoll(text, asW12: False):
-    if not asW12:
+def getTextWithDiceRoll(text, as2w6: False):
+    if not as2w6:
         return text
 
     # Replace 6 with +
