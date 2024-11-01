@@ -1,0 +1,355 @@
+{
+    "armyId": "jpc0kyil0juwy602",
+    "gameSystem": "gff",
+    "gameSystemId": 3,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "jpc0kyil0juwy602"
+        }
+    ],
+    "armyName": "Human Inquisition",
+    "listPoints": 300,
+    "listName": "Human Inquisition",
+    "units": [
+        {
+            "type": "Inquisitor",
+            "name": "Inquisitor",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "ZaWWIux",
+            "cost": 55,
+            "defense": 3,
+            "quality": 3,
+            "upgrades": [
+                "A1"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Needle Pistol",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "id": "Naqc5mga9Uha",
+                            "name": "Poison",
+                            "type": "ArmyBookRule",
+                            "label": "Poison"
+                        }
+                    ]
+                }
+            ],
+            "equipment": [
+                {
+                    "name": "Alien Hunter",
+                    "specialRules": [
+                        {
+                            "id": "t7HEBfsGLkCS",
+                            "name": "Bloodthirsty",
+                            "type": "ArmyBookRule",
+                            "label": "Bloodthirsty"
+                        }
+                    ]
+                },
+                {
+                    "name": "Forbidden Lore",
+                    "specialRules": [
+                        {
+                            "id": "47CAqf7ySlfc",
+                            "name": "Caster",
+                            "type": "ArmyBookRule",
+                            "rating": 2,
+                            "label": "Caster(2)"
+                        }
+                    ]
+                }
+            ],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                },
+                {
+                    "id": "T08VkBuVmNZ_",
+                    "name": "Hero",
+                    "label": "Hero"
+                },
+                {
+                    "id": "a0YtInGiUDd6",
+                    "name": "Tough",
+                    "rating": 3,
+                    "label": "Tough(3)"
+                },
+                {
+                    "id": "t7HEBfsGLkCS",
+                    "name": "Bloodthirsty",
+                    "type": "ArmyBookRule",
+                    "label": "Bloodthirsty"
+                },
+                {
+                    "id": "47CAqf7ySlfc",
+                    "name": "Caster",
+                    "type": "ArmyBookRule",
+                    "rating": 2,
+                    "label": "Caster(2)"
+                }
+            ],
+            "upgradeCost": [
+                10,
+                20
+            ]
+        },
+        {
+            "type": "Cyborg Henchman",
+            "name": "Cyborg Henchman",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "e9dUXdy",
+            "cost": 20,
+            "defense": 4,
+            "quality": 5,
+            "upgrades": [
+                "JFTXK"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Cyborg Arm",
+                    "specialRules": [],
+                    "ap": 4
+                },
+                {
+                    "attacks": 3,
+                    "count": 1,
+                    "name": "Heavy Machinegun",
+                    "range": 30,
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "equipment": [],
+            "rules": [],
+            "upgradeCost": [
+                25
+            ]
+        },
+        {
+            "type": "Private Guard",
+            "name": "Private Guard",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "Qdu-BuF",
+            "cost": 35,
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [
+                "C1"
+            ],
+            "size": 3,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 3,
+                    "name": "Rifle",
+                    "range": 24,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 3,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [],
+            "rules": []
+        },
+        {
+            "type": "Custodian Sister",
+            "name": "Custodian Sister",
+            "armyId": "GVxHmWD8A7pc3ryK",
+            "id": "y3-rDBS",
+            "cost": 25,
+            "defense": 3,
+            "quality": 4,
+            "upgrades": [
+                "Xp993"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Flamer",
+                    "range": 12,
+                    "specialRules": [
+                        {
+                            "id": "w_vX0mi58KKt",
+                            "type": "ArmyBookRule",
+                            "rating": 3,
+                            "name": "Blast",
+                            "label": "Blast(3)"
+                        },
+                        {
+                            "id": "Zx4mWN0SbmK8",
+                            "type": "ArmyBookRule",
+                            "name": "Reliable",
+                            "label": "Reliable"
+                        }
+                    ]
+                }
+            ],
+            "equipment": [],
+            "rules": [
+                {
+                    "id": "143D1Z5xwkKo",
+                    "name": "Aegis",
+                    "label": "Aegis"
+                },
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                }
+            ],
+            "upgradeCost": [
+                10
+            ]
+        },
+        {
+            "type": "Custodian Sister",
+            "name": "Custodian Sister",
+            "armyId": "GVxHmWD8A7pc3ryK",
+            "id": "y3-rDBS",
+            "cost": 25,
+            "defense": 3,
+            "quality": 4,
+            "upgrades": [
+                "Xp993"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                },
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                }
+            ],
+            "equipment": [],
+            "rules": [
+                {
+                    "id": "143D1Z5xwkKo",
+                    "name": "Aegis",
+                    "label": "Aegis"
+                },
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                }
+            ],
+            "upgradeCost": []
+        },
+        {
+            "type": "Psychic Henchman",
+            "name": "Psychic Henchman",
+            "armyId": "jpc0kyil0juwy602",
+            "id": "dL4b6gF",
+            "cost": 20,
+            "defense": 5,
+            "quality": 5,
+            "upgrades": [],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 1,
+                    "count": 1,
+                    "name": "Pistol",
+                    "range": 12,
+                    "specialRules": []
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [],
+            "rules": [
+                {
+                    "id": "Om8njwmp_Vp7",
+                    "name": "Psychic Host",
+                    "label": "Psychic Host"
+                }
+            ]
+        },
+        {
+            "type": "Battle Brother Attach\u00e9",
+            "name": "Battle Brother Attach\u00e9",
+            "armyId": "GVxHmWD8A7pc3ryK",
+            "id": "nJpCve4",
+            "cost": 55,
+            "defense": 2,
+            "quality": 3,
+            "upgrades": [
+                "Gq8dy"
+            ],
+            "size": 1,
+            "notes": null,
+            "weapons": [
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "Master Heavy Rifle",
+                    "range": 24,
+                    "specialRules": [],
+                    "ap": 1
+                },
+                {
+                    "attacks": 2,
+                    "count": 1,
+                    "name": "CCW",
+                    "specialRules": []
+                }
+            ],
+            "equipment": [],
+            "rules": [
+                {
+                    "id": "2atvlmICQSCV",
+                    "name": "Fearless",
+                    "label": "Fearless"
+                }
+            ]
+        }
+    ]
+}

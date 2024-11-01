@@ -1,0 +1,150 @@
+{
+    "id": "p0vhDLS6Rhwl",
+    "gameSystem": "gff",
+    "armyId": "jpc0kyil0juwy602",
+    "armyIds": [
+        "jpc0kyil0juwy602",
+        "GVxHmWD8A7pc3ryK"
+    ],
+    "armyFaction": null,
+    "armyName": "Human Inquisition",
+    "modified": "2024-11-01T12:49:12.964Z",
+    "saveVersion": 3,
+    "favourite": false,
+    "armyVersions": [
+        {
+            "version": "3.4.1",
+            "armyId": "jpc0kyil0juwy602"
+        }
+    ],
+    "listPoints": 300,
+    "list": {
+        "id": "p0vhDLS6Rhwl",
+        "key": "Mpm3irK6tJXocHp5xRLyW",
+        "name": "Human Inquisition",
+        "description": "",
+        "pointsLimit": 300,
+        "campaignMode": false,
+        "narrativeMode": false,
+        "forceOrg": true,
+        "gameSystem": "gff",
+        "isCloud": false,
+        "modified": "2024-11-01T12:49:12.964Z",
+        "cloudModified": null,
+        "activationCount": 7,
+        "modelCount": 9,
+        "units": [
+            {
+                "id": "ZaWWIux",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "swhiG",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "YWNKY9-hj",
+                        "upgradeId": "yWenFqb",
+                        "optionId": "PiHYaoW"
+                    },
+                    {
+                        "instanceId": "Zc6rhOGT_",
+                        "upgradeId": "F7N3yYc",
+                        "optionId": "umlDbVb"
+                    },
+                    {
+                        "instanceId": "gJFnMdRFI",
+                        "upgradeId": "o0n1yzW",
+                        "optionId": "jA-Hf"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "e9dUXdy",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "D5F4y",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "GRPgJgUob",
+                        "upgradeId": "ZNO4G",
+                        "optionId": "5bAFP"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "Qdu-BuF",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "JCn8X",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "y3-rDBS",
+                "armyId": "GVxHmWD8A7pc3ryK",
+                "selectionId": "sLkmy",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "EGL2IyqWI",
+                        "upgradeId": "g-oWy",
+                        "optionId": "CsMXJ"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "y3-rDBS",
+                "armyId": "GVxHmWD8A7pc3ryK",
+                "selectionId": "ivU43",
+                "selectedUpgrades": [
+                    {
+                        "instanceId": "oObeUKJyG",
+                        "upgradeId": "g-oWy",
+                        "optionId": "1hANL"
+                    }
+                ],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "dL4b6gF",
+                "armyId": "jpc0kyil0juwy602",
+                "selectionId": "ZT1U3",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            },
+            {
+                "id": "nJpCve4",
+                "armyId": "GVxHmWD8A7pc3ryK",
+                "selectionId": "s7_0Z",
+                "selectedUpgrades": [],
+                "combined": false,
+                "joinToUnit": null,
+                "xp": 0,
+                "traits": [],
+                "notes": null
+            }
+        ]
+    }
+}

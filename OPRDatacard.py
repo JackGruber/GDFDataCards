@@ -623,12 +623,13 @@ def unitOverview(pdf, dataCardParameters, army):
 
 def dataCardSpells(pdf, dataCardParameters, army):
     casterArmyIds = []
-    regEx = r'(?i)(Caster)'
-    logger.debug(f'Check Spells {regEx}')
+    regEx = r'(?i)(Caster|Psychic Host)'
+    logger.info(f'Check Spells for units with Spells')
+    logger.debug(f'RegEx: {regEx}')
     for unit in army['units']:
         for rule in unit['rules']:
             if re.search(regEx, rule['name']):
-                logger.debug(f'Spell unit {unit["name"]}')
+                logger.debug(f'Spell unit {unit["name"]} for {rule["name"]}')
                 if unit['armyId'] not in casterArmyIds:
                     casterArmyIds.append(unit['armyId'])
 

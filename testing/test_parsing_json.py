@@ -227,6 +227,17 @@ def test_gff_multiple_armybooks():
         except Exception:
             assert False, "Error in createDataCard"
 
+def test_gff_inquisition():
+    with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
+        result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'GFF', 'Human_Inquisition_multiple.json'))
+        expected = testhelper.readJsonFile(os.path.join(testhelper.TESTDATADIR, 'GFF', 'Human_Inquisition_multiple.expected.json'))
+        assert result == expected
+        try:
+            OPRDatacard.createDataCard(result)
+            assert True
+        except Exception:
+            assert False, "Error in createDataCard"
+
 def test_replace_all():
     with (patch('OPRDatacard.waitForKeyPressAndExit', failTestWrongVersion) as mock_waitForKeyPressAndExit):
         result = OPRDatacard.parseArmyJsonList(os.path.join(testhelper.TESTDATADIR, 'replace_all.json'))
