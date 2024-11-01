@@ -150,7 +150,9 @@ def processArmyFile(armyFile: str):
         army = parseArmyTextList(txtData)
     if army != None and army != False:
         if logger.level == logging.DEBUG:
-            saveDictToJson(army, os.path.join(settings['path']['dataFolder'], "debug_army.json"))
+            file = os.path.join(settings['path']['dataFolder'], "debug_army.json")
+            logger.info("Save debug file {file}")
+            saveDictToJson(army, file)
 
         pdfFile = createDataCard(army)
         openFile(pdfFile)
@@ -963,7 +965,7 @@ def parseArmyTextList(armyListText):
 
 
 def getUnit(unit, jsonArmyBookList):
-    logger.debug(f'{unit["id"]}')
+    logger.debug(f'{unit["id"]} from {unit["armyId"]}')
     data = {}
     for listUnit in jsonArmyBookList[unit['armyId']]['units']:
         if (listUnit['id'] == unit['id']):
@@ -1286,7 +1288,7 @@ def downloadArmyBook(id: str, gameSystemId):
 
 
 def downloadCommonRules(gameSystemId):
-    logger.debug(f'Check/download common rules {gameSystemId}')
+    logger.debug(f'Check/download common rules game system {gameSystemId}')
     armyBookJsonFile = os.path.join(settings['path']['dataFolderArmyBook'], "common-rules_" + str(gameSystemId) + ".json")
     url = f'https://army-forge.onepagerules.com/api/rules/common/{gameSystemId}'
     return downloadJson(url, armyBookJsonFile)
