@@ -62,7 +62,9 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
     logger.debug(f'Start')
 
     if armyFile is None:
-        create_gui()
+        root = gui_create()
+        root.after(0, process_file)
+        root.mainloop()
     else:
         cli()
 
@@ -1349,7 +1351,7 @@ def gui_geometry(tkRoot):
     tkRoot.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
     tkRoot.resizable(False, False)
 
-def create_gui():
+def gui_create():
     # Hauptfenster erstellen
     root = tk.Tk()
     root.title("GDFDataCards")
@@ -1404,8 +1406,7 @@ def create_gui():
     w6_checkbox = ttk.Checkbutton(checkbox_frame, text="2x W6", variable=w6_var, command=toggle_2x_w6)
     w6_checkbox.grid(row=0, column=1, padx=5, pady=5)
 
-    # Hauptschleife starten
-    root.mainloop()
+    return root
 
 def toggle_debug():
     status = "aktiviert" if debug_var.get() else "deaktiviert"
