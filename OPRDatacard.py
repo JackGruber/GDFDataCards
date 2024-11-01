@@ -1432,12 +1432,10 @@ def toggle_debug():
     status = "aktiviert" if debug_var.get() else "deaktiviert"
     log_status(f'Debug-Modus {status}')
     settings['debug'] = debug_var.get()
-    conf_logging()
-
-def toggle_2x_w6():
-    status = "aktiviert" if w6_var.get() else "deaktiviert"
-    log_status(f'2x W6-Modus {status}')
-    settings['2w6'] = debug_var.get()
+    if settings['debug']:
+        logger.setLevel(logging.DEBUG)
+    else:
+        logger.setLevel(logging.INFO)
 
 def log_status(message):
     if settings is not None and settings['gui']:
