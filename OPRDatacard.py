@@ -103,7 +103,6 @@ def conf_logging():
     log_format = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
     logger = logging.getLogger(__name__)
     logging.basicConfig(format=log_format)
-    logger.setLevel(logging.DEBUG)
     custom_handler = CustomHandler(log_format)
     logger.addHandler(custom_handler)
 
