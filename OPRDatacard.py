@@ -1334,14 +1334,26 @@ def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
 
+def gui_geometry(tkRoot):
+    window_width = 600
+    window_height = 300
 
+    # Bildschirmbreite und -höhe abrufen
+    screen_width = tkRoot.winfo_screenwidth()
+    screen_height = tkRoot.winfo_screenheight()
+    
+    # Berechnen, um das Fenster zu zentrieren
+    position_x = (screen_width - window_width) // 2
+    position_y = (screen_height - window_height) // 2
+
+    tkRoot.geometry(f"{window_width}x{window_height}+{position_x}+{position_y}")
+    tkRoot.resizable(False, False)
 
 def create_gui():
     # Hauptfenster erstellen
     root = tk.Tk()
     root.title("GDFDataCards")
-    root.geometry("600x300")
-    root.resizable(False, False)
+    gui_geometry(root)
     root.configure(bg="#f0f0f0")
 
     # Stil anpassen
