@@ -1391,16 +1391,7 @@ def gui_create():
     frame = ttk.Frame(root, padding=(10, 10))
     frame.pack(fill="both", expand=True)
 
-    # Status-Textbox für den Verarbeitungsstatus
-    status_label = ttk.Label(frame, text="Status:")
-    status_label.pack(anchor="w", pady=(0, 5))
-
-    global status_box  # Statusbox als global deklarieren
-    status_box = tk.Text(frame, wrap="word", height=8, width=45, bg="#e6e6e6", font=("Helvetica", 10))
-    status_box.pack(fill="x", pady=(0, 10))
-    status_box.insert(tk.END, "")
-
-    # Buttons für Dateiaktionen
+    # Buttons
     button_frame = ttk.Frame(frame)
     button_frame.pack(pady=10)
 
