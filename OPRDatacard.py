@@ -28,6 +28,24 @@ import subprocess
 
 logger = logging.getLogger(__name__)
 
+
+# Erstelle einen benutzerdefinierten Handler
+class CustomHandler(logging.Handler):
+    def __init__(self, log_format):
+        super().__init__()
+        # Initialisiere den Formatter im Handler
+        self.formatter = logging.Formatter(log_format)
+
+    def emit(self, record):
+        if record.levelname == "INFO":
+            log_status(record.getMessage())
+        else:
+            # Formatiere die Log-Nachricht
+            formatiertes_log = self.format(record)
+            # Ruf die Funktion auf, wenn eine Log-Nachricht gesendet wird
+            log_status(formatiertes_log)
+
+
 @click.command()
 @click.option(
     "--json",
@@ -58,14 +76,14 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
     conf_logging()
     createStructure()
     checkFonts()
-    logger.info(f'Start')
-    logger.debug(f'Start')
 
     if armyFile is None:
         root = gui_create()
+        settings['gui'] = True
         root.after(0, select_file)
         root.mainloop()
     else:
+        settings['gui'] = False
         cli()
 
 def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
@@ -74,6 +92,7 @@ def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
     imageFolder = os.path.join(dataFolder, "images")
     global settings
     settings = {
+        'gui': False,
         'forceJson': forceTypeJson,
         'validateVersion': validateVersion,
         'path': {
@@ -89,12 +108,17 @@ def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
     }
 
 def conf_logging():
-    FORMAT = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
-    logging.basicConfig(format=FORMAT)
+    log_format = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
+    logger = logging.getLogger(__name__)
+    logging.basicConfig(format=log_format)
+    logger.setLevel(logging.DEBUG)
+    custom_handler = CustomHandler(log_format)
+    logger.addHandler(custom_handler)
+
     if settings['debug']:
         logger.setLevel(logging.DEBUG)
     else:
-        logger.setLevel(logging.WARNING)
+        logger.setLevel(logging.INFO)
 
 def get_base_path():
     # determine if application is a script file or frozen exe
@@ -445,7 +469,7 @@ def dataCardUnitName(pdf, dataCardParameters, unit):
         offset += 12
 
 def dataCardArmyBookVersion(pdf, dataCardParameters, versions, armyId):
-    logger.info("Add version")
+    logger.debug("Add version")
 
     version = None
     for check in versions:
@@ -1417,8 +1441,9 @@ def toggle_2x_w6():
     settings['2w6'] = debug_var.get()
 
 def log_status(message):
-    status_box.insert(tk.END, message + "\n")
-    status_box.see(tk.END)  # Scrollt zum Ende der Textbox
+    if settings is not None and settings['gui']:
+        status_box.insert(tk.END, message + "\n")
+        status_box.see(tk.END)  # Scrollt zum Ende der Textbox
 
 def select_file():
     file_path = filedialog.askopenfilename(
