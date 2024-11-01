@@ -62,8 +62,14 @@ IMAGEJSON = os.path.join(IMAGEFOLDER, "images.json")
     default=True,
     required=False
 )
+@click.option(
+    "--w12 / --w6",
+    "w12",
+    default=False,
+    required=False
+)
 
-def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
+def Main(forceTypeJson, armyFile, debugOutput, validateVersion, w12):
     FORMAT = "%(levelname)10s [%(lineno)5s - %(funcName)30s() ] %(message)s"
     logging.basicConfig(format=FORMAT)
     if debugOutput:
@@ -94,7 +100,7 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
         if logger.level == logging.DEBUG:
             saveDictToJson(army, os.path.join(DATAFOLDER, "debug_army.json"))
 
-        pdfFile = createDataCard(army)
+        pdfFile = createDataCard(army, w12)
         openFile(pdfFile)
 
 
@@ -257,7 +263,7 @@ def dataCardUnitType(pdf, dataCardParameters, unit):
     pdf.drawString(5, dataCardParameters['pdfSize'][1] - 47, " ".join(smallInfo))
 
 
-def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
+def dataCardUnitWounds(pdf, dataCardParameters, unit, army, w12):
     if 'gameSystem' in army and army['gameSystem'] == "gff":
         woundsSize = 12
         wounds = 5
@@ -287,7 +293,10 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         path.close()
         pdf.drawPath(path, stroke=1, fill=1)
 
-        w6 = 5
+        if w12:
+            dice = 8
+        else:
+            dice = 5
         for i in range(wounds + tough):
             pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
             pdf.setFillColorRGB(1, 1, 1)
@@ -295,8 +304,8 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
             if (i < tough):
                 text = "-"
             else:
-                text = str(w6) + "+"
-                w6 -= 1
+                text = str(dice) + "+"
+                dice -= 1
             pdf.drawCentredString(startX + (woundsSize*i) + (woundsSize/2), startY + (woundsSize/2) - 3, text)
 
 
@@ -433,17 +442,19 @@ def dataCardArmyBookVersion(pdf, dataCardParameters, versions, armyId):
     pdf.drawRightString(dataCardParameters['pdfSize'][0] - dataCardParameters['sideClearance'],
                 0 + dataCardParameters['bottomClearance'] -6, version)
 
-def dataCardUnitSkills(pdf, dataCardParameters, unit):
+def dataCardUnitSkills(pdf, dataCardParameters, unit, w12):
     startX = dataCardParameters['pdfSize'][0] - 25
     startY = dataCardParameters['pdfSize'][1] - 21
     lineHight = 8
+    quality = getDiceRoll(unit["quality"], w12)
+    defense = getDiceRoll(unit["defense"], w12)
     pdf.setFont('bold', 8)
     pdf.setFillColorRGB(0, 0, 0)
     pdf.drawCentredString(startX, startY, "Quality")
     pdf.drawCentredString(startX, startY - (lineHight*2), "Defense")
     pdf.setFont('regular', 8)
-    pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
-    pdf.drawCentredString(startX, startY - (lineHight*3), str(unit["defense"]) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*1), str(quality) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*3), str(defense) + "+")
 
 
 def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
@@ -552,7 +563,7 @@ def unitOverview(pdf, dataCardParameters, army):
     dataCardBoarderFrame(pdf, dataCardParameters)
     pdf.showPage()
 
-def dataCardSpells(pdf, dataCardParameters, army):
+def dataCardSpells(pdf, dataCardParameters, army, w12):
     casterArmyIds = []
     regEx = r'(?i)(Caster)'
     logger.info(f'Check Spells {regEx}')
@@ -583,7 +594,8 @@ def dataCardSpells(pdf, dataCardParameters, army):
 
         for spell in armyRules['spells']:
             spellName = f'{spell["name"]} ({spell["threshold"]})'
-            parts = spell['effect'].split(" ")
+            effect = getTextWithDiceRoll(spell['effect'], w12)
+            parts = effect.split(" ")
             offsetXName = pdf.stringWidth(spellName + ": ", "bold", fontSize)
 
             lines = []
@@ -617,7 +629,7 @@ def dataCardSpells(pdf, dataCardParameters, army):
             offsetY -= 3
     pdf.showPage()
 
-def dataCardRuleInfo(pdf, dataCardParameters, army):
+def dataCardRuleInfo(pdf, dataCardParameters, army, w12):
     rules = []
     for unit in army['units']:
         for rule in unit['rules']:
@@ -658,7 +670,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     for rule in ruleDescriptions:
         offsetXName = pdf.stringWidth(rule['name'] + ": ", "bold", fontSize)
 
-        parts = rule['description'].split(" ")
+        description = getTextWithDiceRoll(rule['description'], w12)
+        parts = description.split(" ")
         lines = []
         lineParts = []
         offsetXCalc = offsetXName
@@ -704,8 +717,8 @@ def getPdfFileName(armyName):
     return pdfFile + ".pdf"
 
 
-def createDataCard(army):
-    logger.info("Create datacards ...")
+def createDataCard(army, w12):
+    logger.info(f'Create datacards with W12 {w12}...')
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
             FONTFOLDER, "rosa-sans", "hinted-RosaSans-Bold.ttf")))
@@ -733,19 +746,19 @@ def createDataCard(army):
         logger.debug(f'{unit["name"]} ({unit["id"]})')
         dataCardBoarderFrame(pdf, dataCardParameters)
         dataCardUnitType(pdf, dataCardParameters, unit)
-        dataCardUnitWounds(pdf, dataCardParameters, unit, army)
+        dataCardUnitWounds(pdf, dataCardParameters, unit, army, w12)
         dataCardUnitRules(pdf, dataCardParameters, unit)
         dataCardUnitPoints(pdf, dataCardParameters, unit)
         dataCardUnitImage(pdf, dataCardParameters, unit, army['listName'], army['armyName'])
         dataCardUnitName(pdf, dataCardParameters, unit)
-        dataCardUnitSkills(pdf, dataCardParameters, unit)
+        dataCardUnitSkills(pdf, dataCardParameters, unit, w12)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
         if 'armyVersions' in army:
            dataCardArmyBookVersion(pdf, dataCardParameters, army['armyVersions'], unit['armyId'])
 
         pdf.showPage()
-    dataCardRuleInfo(pdf, dataCardParameters, army)
-    dataCardSpells(pdf, dataCardParameters, army)
+    dataCardRuleInfo(pdf, dataCardParameters, army, w12)
+    dataCardSpells(pdf, dataCardParameters, army, w12)
 
     unitOverview(pdf, dataCardParameters, army)
 
@@ -1308,6 +1321,30 @@ def checkArmyVersions(armyJson, armyBookJson, armyId):
 def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
+
+def getDiceRoll(w6: int, asW12: False):
+    if asW12:
+        if w6 == 6:
+            #return '6/9'
+            return '10'
+        #return f'{w6}/{w6 + 3}'
+        return f'{w6 + 3}'
+    else:
+        return f'{w6}'
+
+def getTextWithDiceRoll(text, asW12: False):
+    if not asW12:
+        return text
+
+    # Replace 6 with +
+    text = re.sub(r'6(?!\stoken)', getDiceRoll(6, True) + "+", text)
+    text = re.sub(r'5\+', getDiceRoll(5, True) + "+", text)
+    text = re.sub(r'4\+', getDiceRoll(4, True) + "+", text)
+    text = re.sub(r'3\+', getDiceRoll(3, True) + "+", text)
+    text = re.sub(r'2\+', getDiceRoll(2, True) + "+", text)
+    text = re.sub(r'1\+', getDiceRoll(1, True) + "+", text)
+
+    return text
 
 if __name__ == "__main__":
     Main()
