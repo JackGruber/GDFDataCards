@@ -1442,13 +1442,13 @@ def gui_create():
     button_frame = ttk.Frame(frame)
     button_frame.pack(pady=10)
 
-    process_button = ttk.Button(button_frame, text="PDF erstellen von OPR ArmyForge Datei", command=select_file)
+    process_button = ttk.Button(button_frame, text="Create PDF from OPR ArmyForge file", command=select_file)
     process_button.grid(row=0, column=1, padx=5)
 
-    open_images_button = ttk.Button(button_frame, text="images.json öffnen", command=open_images_json)
+    open_images_button = ttk.Button(button_frame, text="Open images.json", command=open_images_json)
     open_images_button.grid(row=0, column=2, padx=5)
 
-    open_folder_button = ttk.Button(button_frame, text="Images Ordner öffnen", command=open_images_folder)
+    open_folder_button = ttk.Button(button_frame, text="Open Images Folder", command=open_images_folder)
     open_folder_button.grid(row=0, column=3, padx=5)
 
     # Checkboxen
@@ -1491,13 +1491,13 @@ def log_status(message):
 
 def select_file():
     file_path = filedialog.askopenfilename(
-        title="Wähle eine OPR ArmyBook Datei zum Verarbeiten aus",
-        filetypes=[("JSON-Dateien", "*.json"), ("Textdateien", "*.txt"), ("Alle Dateien", "*.*")]
+        title="Select an OPR ArmyBook file for processing",
+        filetypes=[("JSON File", "*.json"), ("TXT File", "*.txt")]
     )
     if file_path:
         log_status("")
         log_status("")
-        log_status(f"Starte verarbeitung der Datei '{os.path.basename(file_path)}' ...")
+        log_status(f"Start processing the file '{os.path.basename(file_path)}' ...")
         threading.Thread(target=processArmyFile, args=(file_path,), daemon=True).start()
 
 def open_images_json():
@@ -1510,9 +1510,9 @@ def open_images_json():
                 subprocess.call(["open", file_path])
             else:  # Linux
                 subprocess.call(["xdg-open", file_path])
-            log_status(f"Die Datei '{file_path}' wurde im Standardeditor geöffnet.")  # Status in die Statusbox ausgeben
+            log_status(f"The file '{file_path}' was opened in the default editor.")  # Status in die Statusbox ausgeben
         except Exception as e:
-            log_status(f"Fehler beim Öffnen der Datei '{file_path}': {e}")
+            log_status(f"Error opening the file '{file_path}': {e}")
 
 def open_images_folder():
     folder_path = settings['path']['imageFolder']
@@ -1524,9 +1524,9 @@ def open_images_folder():
                 subprocess.call(["open", folder_path])
             else:  # Linux
                 subprocess.call(["xdg-open", folder_path])
-            log_status(f"Der Ordner '{folder_path}' wurde im Dateiexplorer geöffnet.")  # Status in die Statusbox ausgeben
+            log_status(f"The folder '{folder_path}' was opened in the file explorer.")  # Status in die Statusbox ausgeben
         except Exception as e:
-            log_status(f"Fehler beim Öffnen des Ordners '{folder_path}': {e}")
+            log_status(f"Error when opening the folder '{folder_path}': {e}")
 
 if __name__ == "__main__":
     Main()    
