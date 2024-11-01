@@ -77,7 +77,7 @@ def Main(armyFile, debugOutput, validateVersion):
         root.mainloop()
     else:
         settings['gui'] = False
-        cli()
+        cli(armyFile)
 
 def set_settings(debugOutput, validateVersion):
     basePath = get_base_path()
@@ -118,8 +118,8 @@ def get_base_path():
     elif __file__:
         return os.path.dirname(__file__)
 
-def cli():
-    pass
+def cli(armyFile):
+    processArmyFile(armyFile)
 
 def processArmyFile(armyFile: str):
     typeJson = isFileTypeJson(armyFile)
