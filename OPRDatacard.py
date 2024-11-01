@@ -248,6 +248,8 @@ def createStructure():
             },
         ]
         saveDictToJson(example, os.path.join(settings['path']['imageJson']))
+    
+    return True
 
 
 def openFile(filePath):
