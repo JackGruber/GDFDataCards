@@ -600,11 +600,11 @@ def unitOverview(pdf, dataCardParameters, army):
 def dataCardSpells(pdf, dataCardParameters, army):
     casterArmyIds = []
     regEx = r'(?i)(Caster)'
-    logger.info(f'Check Spells {regEx}')
+    logger.debug(f'Check Spells {regEx}')
     for unit in army['units']:
         for rule in unit['rules']:
             if re.search(regEx, rule['name']):
-                logger.info(f'Spell unit {unit["name"]}')
+                logger.debug(f'Spell unit {unit["name"]}')
                 if unit['armyId'] not in casterArmyIds:
                     casterArmyIds.append(unit['armyId'])
 
@@ -775,7 +775,7 @@ def createDataCard(army):
     pdf.setTitle("GDF data card")
 
     for unit in army['units']:
-        logger.debug(f'{unit["name"]} ({unit["id"]})')
+        logger.info(f'{unit["name"]} ({unit["id"]})')
         dataCardBoarderFrame(pdf, dataCardParameters)
         dataCardUnitType(pdf, dataCardParameters, unit)
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
@@ -796,6 +796,7 @@ def createDataCard(army):
 
     try:
         pdf.save()
+        logger.info("Datacards finished ...")
         return pdfFile
     except Exception as ex:
         logger.error("Error PDF save failed")
@@ -940,7 +941,7 @@ def getUnit(unit, jsonArmyBookList):
         if (listUnit['id'] == unit['id']):
             data['type'] = listUnit['name']
             data['name'] = listUnit['name']
-            logger.debug(f'{data["type"]} / {data["name"]}')
+            logger.info(f'{data["type"]} / {data["name"]} ({unit["id"]})')
             data['armyId'] = unit['armyId']
             data['id'] = listUnit['id']
             data['cost'] = listUnit['cost']
@@ -1157,7 +1158,7 @@ def mergeWeapon(weapons):
 
 
 def addEquipment(data, specialRules = True):
-    logger.info(f'Add {data["name"]}')
+    logger.debug(f'Add {data["name"]}')
     equipment = {}
     equipment['name'] = data['name']
     if specialRules == True:
