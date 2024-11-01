@@ -65,10 +65,18 @@ class CustomHandler(logging.Handler):
     default=True,
     required=False
 )
-def Main(armyFile, debugOutput, validateVersion):
-    set_settings(debugOutput, validateVersion)
+@click.option(
+    "--2w6 / --w6",
+    "_2w6",
+    default=False,
+    required=False
+)
+
+def Main(armyFile, debugOutput, validateVersion, _2w6):
+    set_settings(debugOutput, validateVersion, _2w6)
     conf_logging()
-    createStructure()
+    if not createStructure():
+        waitForKeyPressAndExit()
     checkFonts()
 
     if armyFile is None:
@@ -83,7 +91,7 @@ def gui_mode():
     root.after(0, select_file)
     root.mainloop()
 
-def set_settings(debugOutput, validateVersion):
+def set_settings(debugOutput, validateVersion,_2w6):
     basePath = get_base_path()
     dataFolder = os.path.join(basePath, "data")
     imageFolder = os.path.join(dataFolder, "images")
@@ -100,7 +108,7 @@ def set_settings(debugOutput, validateVersion):
             'imageJson': os.path.join(imageFolder, "images.json"),
         },
         'debug': debugOutput,
-        '2w6': debugOutput,
+        '2w6': _2w6,
     }
 
 def conf_logging():
@@ -130,7 +138,12 @@ def processArmyFile(armyFile: str):
     army = None
     if (typeJson == True):
         logger.debug("Parse json army file")
-        army = parseArmyJsonList(armyFile, settings['validateVersion'])
+        try:
+            army = parseArmyJsonList(armyFile, settings['validateVersion'])
+        except Exception as ex:
+            logger.error("Parsing error")
+            logger.error(ex)
+            return
     else:
         logger.debug("Parse txt army file")
         txtData = readTxtFile(armyFile)
@@ -173,7 +186,7 @@ def createStructure():
         except Exception as ex:
             logger.error("Data folder creation failed")
             logger.error(ex)
-            waitForKeyPressAndExit()
+            return False
 
     if not os.path.exists(settings['path']['dataFolderArmyBook']):
         try:
@@ -181,7 +194,7 @@ def createStructure():
         except Exception as ex:
             logger.error("army book folder creation failed")
             logger.error(ex)
-            waitForKeyPressAndExit()
+            return False
 
     if not os.path.exists(settings['path']['fontFolder']):
         try:
@@ -189,7 +202,7 @@ def createStructure():
         except Exception as ex:
             logger.error("font folder creation failed")
             logger.error(ex)
-            waitForKeyPressAndExit()
+            return False
 
     if not os.path.exists(settings['path']['imageFolder']):
         try:
@@ -197,7 +210,7 @@ def createStructure():
         except Exception as ex:
             logger.error("image folder creation failed")
             logger.error(ex)
-            waitForKeyPressAndExit()
+            return False
 
     if not os.path.exists(settings['path']['dataCardFolder']):
         try:
@@ -205,7 +218,7 @@ def createStructure():
         except Exception as ex:
             logger.error("datacard folder creation failed")
             logger.error(ex)
-            waitForKeyPressAndExit()
+            return False
 
     if not os.path.exists(settings['path']['imageJson']):
         example = [
@@ -235,6 +248,8 @@ def createStructure():
             },
         ]
         saveDictToJson(example, os.path.join(settings['path']['imageJson']))
+    
+    return True
 
 
 def openFile(filePath):
@@ -332,7 +347,10 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
         path.close()
         pdf.drawPath(path, stroke=1, fill=1)
 
-        w6 = 5
+        if settings['2w6']:
+            dice = 8
+        else:
+            dice = 5
         for i in range(wounds + tough):
             pdf.line(startX + (woundsSize*i), startY, startX + (woundsSize*i), startY + woundsSize)
             pdf.setFillColorRGB(1, 1, 1)
@@ -340,8 +358,8 @@ def dataCardUnitWounds(pdf, dataCardParameters, unit, army):
             if (i < tough):
                 text = "-"
             else:
-                text = str(w6) + "+"
-                w6 -= 1
+                text = str(dice) + "+"
+                dice -= 1
             pdf.drawCentredString(startX + (woundsSize*i) + (woundsSize/2), startY + (woundsSize/2) - 3, text)
 
 
@@ -376,6 +394,8 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
 
 def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
     imageInfos = loadJsonFile(settings['path']['imageJson'])
+    if imageInfos == False:
+        return
 
     unitImage = None
     for imageInfo in imageInfos:
@@ -482,13 +502,15 @@ def dataCardUnitSkills(pdf, dataCardParameters, unit):
     startX = dataCardParameters['pdfSize'][0] - 25
     startY = dataCardParameters['pdfSize'][1] - 21
     lineHight = 8
+    quality = getDiceRoll(unit["quality"], settings['2w6'])
+    defense = getDiceRoll(unit["defense"], settings['2w6'])
     pdf.setFont('bold', 8)
     pdf.setFillColorRGB(0, 0, 0)
     pdf.drawCentredString(startX, startY, "Quality")
     pdf.drawCentredString(startX, startY - (lineHight*2), "Defense")
     pdf.setFont('regular', 8)
-    pdf.drawCentredString(startX, startY - (lineHight*1), str(unit["quality"]) + "+")
-    pdf.drawCentredString(startX, startY - (lineHight*3), str(unit["defense"]) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*1), str(quality) + "+")
+    pdf.drawCentredString(startX, startY - (lineHight*3), str(defense) + "+")
 
 
 def dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit):
@@ -628,7 +650,8 @@ def dataCardSpells(pdf, dataCardParameters, army):
 
         for spell in armyRules['spells']:
             spellName = f'{spell["name"]} ({spell["threshold"]})'
-            parts = spell['effect'].split(" ")
+            effect = getTextWithDiceRoll(spell['effect'], settings['2w6'])
+            parts = effect.split(" ")
             offsetXName = pdf.stringWidth(spellName + ": ", "bold", fontSize)
 
             lines = []
@@ -703,7 +726,8 @@ def dataCardRuleInfo(pdf, dataCardParameters, army):
     for rule in ruleDescriptions:
         offsetXName = pdf.stringWidth(rule['name'] + ": ", "bold", fontSize)
 
-        parts = rule['description'].split(" ")
+        description = getTextWithDiceRoll(rule['description'], settings['2w6'])
+        parts = description.split(" ")
         lines = []
         lineParts = []
         offsetXCalc = offsetXName
@@ -750,7 +774,11 @@ def getPdfFileName(armyName):
 
 
 def createDataCard(army):
-    logger.info("Create datacards ...")
+    if settings['2w6']:
+        logger.info(f'Create datacards with 2x W6')
+    else:
+        logger.info(f'Create datacards')
+
     try:
         pdfmetrics.registerFont(TTFont('bold', os.path.join(
             settings['path']['fontFolder'], "rosa-sans", "hinted-RosaSans-Bold.ttf")))
@@ -759,7 +787,7 @@ def createDataCard(army):
     except Exception as ex:
         logger.error("Font is missing!")
         logger.error(ex)
-        waitForKeyPressAndExit()
+        return False
 
     dataCardParameters = {
         'pdfSize': (300.0, 200.0),
@@ -1216,18 +1244,18 @@ def loadJsonFile(jsonFile: str):
     except Exception as ex:
         logger.error("file failed to open " + jsonFile)
         logger.error(ex)
-        waitForKeyPressAndExit()
+        return False
 
     try:
         jsonObj = json.loads(file)
     except json.decoder.JSONDecodeError as ex:
         logger.error(file + " Json is not valid!")
         logger.error(ex)
-        waitForKeyPressAndExit()
+        return False
     except Exception as ex:
         logger.error("Unhandeld Exception")
         logger.error(ex)
-        waitForKeyPressAndExit()
+        return False
     return jsonObj
 
 
@@ -1356,6 +1384,29 @@ def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
 
+def getDiceRoll(w6: int, as2w6: False):
+    if as2w6:
+        if w6 == 6:
+            #return '6/9'
+            return '10'
+        #return f'{w6}/{w6 + 3}'
+        return f'{w6 + 3}'
+    else:
+        return f'{w6}'
+
+def getTextWithDiceRoll(text, as2w6: False):
+    if not as2w6:
+        return text
+
+    # Replace 6 with +
+    text = re.sub(r'6(?!\stoken)', getDiceRoll(6, True) + "+", text)
+    text = re.sub(r'5\+', getDiceRoll(5, True) + "+", text)
+    text = re.sub(r'4\+', getDiceRoll(4, True) + "+", text)
+    text = re.sub(r'3\+', getDiceRoll(3, True) + "+", text)
+    text = re.sub(r'2\+', getDiceRoll(2, True) + "+", text)
+    text = re.sub(r'1\+', getDiceRoll(1, True) + "+", text)
+
+    return text
 def gui_geometry(tkRoot, window_width, window_height):
     # Bildschirmbreite und -höhe abrufen
     screen_width = tkRoot.winfo_screenwidth()
