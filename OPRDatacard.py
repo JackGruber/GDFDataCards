@@ -25,6 +25,7 @@ from tkinter import ttk, filedialog
 import os
 import platform
 import subprocess
+import threading
 
 logger = logging.getLogger(__name__)
 
@@ -1445,7 +1446,7 @@ def select_file():
         log_status("")
         log_status("")
         log_status(f"Starte verarbeitung der Datei '{os.path.basename(file_path)}' ...")
-        processArmyFile(file_path)
+        threading.Thread(target=processArmyFile, args=(file_path,), daemon=True).start()
 
 def open_images_json():
     file_path = settings['path']['imageJson']
