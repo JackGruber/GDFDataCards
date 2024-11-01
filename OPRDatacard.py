@@ -141,7 +141,7 @@ def processArmyFile(armyFile: str):
         try:
             army = parseArmyJsonList(armyFile, settings['validateVersion'])
         except Exception as ex:
-            logger.error("Parsing error")
+            logger.error("General Parsing error")
             logger.error(ex)
             return
     else:
@@ -1203,6 +1203,10 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     jsonArmyBookList = {}
 
     jsonArmyList = loadJsonFile(armyListJsonFile)
+    if 'list' not in jsonArmyList or 'name' not in jsonArmyList['list']:
+        logger.error(f'Invalid json file ')
+        return
+
     armyData['armyId'] = jsonArmyList['armyId']
     armyData['gameSystem'] = jsonArmyList['gameSystem']
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
