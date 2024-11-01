@@ -1336,10 +1336,7 @@ def waitForKeyPressAndExit():
     input("Press Enter to continue...")
     sys.exit(1)
 
-def gui_geometry(tkRoot):
-    window_width = 600
-    window_height = 300
-
+def gui_geometry(tkRoot, window_width, window_height):
     # Bildschirmbreite und -höhe abrufen
     screen_width = tkRoot.winfo_screenwidth()
     screen_height = tkRoot.winfo_screenheight()
@@ -1355,7 +1352,7 @@ def gui_create():
     # Hauptfenster erstellen
     root = tk.Tk()
     root.title("GDFDataCards")
-    gui_geometry(root)
+    gui_geometry(root, 600, 300)
     root.configure(bg="#f0f0f0")
 
     # Stil anpassen
