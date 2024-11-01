@@ -72,7 +72,7 @@ class CustomHandler(logging.Handler):
     required=False
 )
 def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
-    set_settings(forceTypeJson, armyFile, debugOutput, validateVersion)
+    set_settings(forceTypeJson, debugOutput, validateVersion)
     conf_logging()
     createStructure()
     checkFonts()
@@ -86,7 +86,7 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
         settings['gui'] = False
         cli()
 
-def set_settings(forceTypeJson, armyFile, debugOutput, validateVersion):
+def set_settings(forceTypeJson, debugOutput, validateVersion):
     basePath = get_base_path()
     dataFolder = os.path.join(basePath, "data")
     imageFolder = os.path.join(dataFolder, "images")
