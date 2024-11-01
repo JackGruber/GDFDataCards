@@ -1212,14 +1212,13 @@ def parseArmyJsonList(armyListJsonFile: str, validateVersion=True):
     armyData['gameSystemId'] = getGameSystemId(jsonArmyList['gameSystem'])
     armyData['armyVersions'] = jsonArmyList['armyVersions']
 
-    for armyVersion in jsonArmyList['armyVersions']:
-        downloadArmyBook(armyVersion['armyId'], armyData['gameSystemId'])
+    for armyId in jsonArmyList['armyIds']:
+        downloadArmyBook(armyId, armyData['gameSystemId'])
+        jsonArmyBookList[armyId] = loadJsonFile(os.path.join(
+            settings['path']['dataFolderArmyBook'], armyId + "_" + str(armyData['gameSystemId']) + ".json"))
     downloadCommonRules(armyData['gameSystemId'])
 
     for armyVersion in jsonArmyList['armyVersions']:
-        jsonArmyBookList[armyVersion['armyId']] = loadJsonFile(os.path.join(
-            settings['path']['dataFolderArmyBook'], armyVersion['armyId'] + "_" + str(armyData['gameSystemId']) + ".json"))
-        
         versionCheck = checkArmyVersions(jsonArmyList, jsonArmyBookList, armyVersion['armyId'])
         if (validateVersion and not versionCheck):
             armyVersionsDifference()
