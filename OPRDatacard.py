@@ -71,13 +71,16 @@ def Main(armyFile, debugOutput, validateVersion):
     checkFonts()
 
     if armyFile is None:
-        root = gui_create()
-        settings['gui'] = True
-        root.after(0, select_file)
-        root.mainloop()
+        gui_mode()
     else:
         settings['gui'] = False
         cli(armyFile)
+
+def gui_mode():
+    root = gui_create()
+    settings['gui'] = True
+    root.after(0, select_file)
+    root.mainloop()
 
 def set_settings(debugOutput, validateVersion):
     basePath = get_base_path()
