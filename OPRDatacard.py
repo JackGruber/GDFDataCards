@@ -48,13 +48,6 @@ class CustomHandler(logging.Handler):
 
 @click.command()
 @click.option(
-    "--json",
-    "forceTypeJson",
-    is_flag=True,
-    default=False,
-    required=False
-)
-@click.option(
     "-f",
     "--file",
     "armyFile",
@@ -71,8 +64,8 @@ class CustomHandler(logging.Handler):
     default=True,
     required=False
 )
-def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
-    set_settings(forceTypeJson, debugOutput, validateVersion)
+def Main(armyFile, debugOutput, validateVersion):
+    set_settings(debugOutput, validateVersion)
     conf_logging()
     createStructure()
     checkFonts()
@@ -86,14 +79,13 @@ def Main(forceTypeJson, armyFile, debugOutput, validateVersion):
         settings['gui'] = False
         cli()
 
-def set_settings(forceTypeJson, debugOutput, validateVersion):
+def set_settings(debugOutput, validateVersion):
     basePath = get_base_path()
     dataFolder = os.path.join(basePath, "data")
     imageFolder = os.path.join(dataFolder, "images")
     global settings
     settings = {
         'gui': False,
-        'forceJson': forceTypeJson,
         'validateVersion': validateVersion,
         'path': {
             'dataFolder': dataFolder,
