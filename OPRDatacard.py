@@ -600,7 +600,7 @@ def dataCardSpells(pdf, dataCardParameters, army):
 
     for armyId in casterArmyIds:
         logger.info(f'Get spells from {armyId}')
-        armyRules = loadJsonFile(os.path.join(DATAFOLDERARMYBOOK, armyId + "_" + str(army['gameSystemId']) + ".json"))
+        armyRules = loadJsonFile(os.path.join(settings['path']['dataFolderArmyBook'], armyId + "_" + str(army['gameSystemId']) + ".json"))
         # Army Name
         pdf.setFillColorRGB(0, 0, 0)
         pdf.setFont("bold", fontSize)
