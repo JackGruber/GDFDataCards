@@ -230,7 +230,7 @@ def createStructure():
                 'unitType': 'Company Leader',
                 'unitName': '*',
                 'weaponOrEquipment': "*",
-                'image': 'example.jpg',
+                'images': 'example.jpg',
             },
             {
                 'listName': '*',
@@ -238,7 +238,7 @@ def createStructure():
                 'unitType': '*',
                 'unitName': 'Herg Alasem',
                 'weaponOrEquipment': "*",
-                'image': 'example.jpg',
+                'images': ['example.jpg'],
             },
             {
                 'listName': '*',
@@ -246,7 +246,15 @@ def createStructure():
                 'unitType': 'Storm Trooper',
                 'unitName': '*',
                 'weaponOrEquipment': "Flamer",
-                'image': 'example.jpg',
+                'images': ['example.jpg'],
+            },
+            {
+                'listName': '*',
+                'armyFaction': '*',
+                'unitType': 'Storm Trooper',
+                'unitName': '*',
+                'weaponOrEquipment': "*",
+                'images': ['example1.jpg', 'example2.jpg'],
             },
         ]
         saveDictToJson(example, os.path.join(settings['path']['imageJson']))
@@ -394,37 +402,67 @@ def dataCardUnitRules(pdf, dataCardParameters, unit):
                    (height/2)-2, ", ".join(specialRules))
 
 
-def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
-    imageInfos = loadJsonFile(settings['path']['imageJson'])
+def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction, imageInfos):
     if imageInfos == False:
         return
 
-    unitImage = None
-    for imageInfo in imageInfos:
+
+    logger.debug(f'Get image')
+    logger.debug(f'listName:  {listName}')
+    logger.debug(f'armyFaction:  {armyFaction}')
+    unit_images = None
+    for image_index in range(0, len(imageInfos)):
+        imageInfo = imageInfos[image_index]
         if imageInfo['unitName'] == "*" or re.search(r'(?is)' + imageInfo['unitName'], unit['name'].strip()):
             if imageInfo['unitType'] == "*" or re.search(r'(?is)' + imageInfo['unitType'], unit['type'].strip()):
                 if imageInfo['listName'] == "*" or re.search(r'(?is)' + imageInfo['listName'], listName.strip()):
                     if imageInfo['armyFaction'] == "*" or re.search(r'(?is)' + imageInfo['armyFaction'], armyFaction.strip()):
                         if imageInfo['weaponOrEquipment'] == "*":
-                            unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
+                            unit_images = imageInfo['images']
                         else:
                             for weapon in unit['weapons']:
                                 if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], weapon['name'].strip()):
-                                    unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
+                                    unit_images = imageInfo['images']
 
                             if 'equipment' in unit:
                                 for equipment in unit['equipment']:
                                     if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], equipment['name'].strip()):
-                                        unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
+                                        unit_images = imageInfo['images']
 
-                        if unitImage is not None:
-                            unitImage = os.path.join(settings['path']['imageFolder'], imageInfo['image'])
-                            if not os.path.exists(unitImage):
-                                unitImage = None
+                            if 'rules' in unit:
+                                for rules in unit['rules']:
+                                    if re.search(r'(?is)' + imageInfo['weaponOrEquipment'], rules['name'].strip()):
+                                        unit_images = imageInfo['images']
+
+                        if unit_images is not None:
+                            logger.debug(f'Match {image_index}: {unit_images}')
                             break
+    
+    unit_image = None
+    if unit_images is not None:
+        if len(unit_images) == 1: # Only one image
+            unit_image = unit_images[0]['file']
+            unit_images[0]['used'] += 1
+        elif len(unit_images) > 1: # Multiple images
+            lowest_use_index = -1
+            for index in range(0, len(unit_images)):
+                if lowest_use_index == -1:
+                    lowest_use_index = index
+                elif unit_images[index]['used'] < unit_images[lowest_use_index]['used']:
+                    lowest_use_index = index
+            unit_image = unit_images[lowest_use_index]['file']
+            unit_images[lowest_use_index]['used'] += 1
 
-    if (unitImage != None):
-        with Image.open(unitImage) as img:
+        if unit_images is not None:
+            unit_image = os.path.join(settings['path']['imageFolder'], unit_image)
+            if not os.path.exists(unit_image):
+                logger.warning(f'Image not found: {unit_image}')
+
+                unit_image = None
+
+
+    if (unit_image != None):
+        with Image.open(unit_image) as img:
             img.load()
             imgSize = img.size
             draw = ImageDraw.Draw(img)
@@ -449,7 +487,7 @@ def dataCardUnitImage(pdf, dataCardParameters, unit, listName, armyFaction):
 
     pdf.setStrokeColorRGB(dataCardParameters['lineColor'][0],
                           dataCardParameters['lineColor'][1], dataCardParameters['lineColor'][2])
-    if (unitImage != None):
+    if (unit_image != None):
         pdf.drawImage(utils.ImageReader(imageBuffer), dataCardParameters['pdfSize'][0] - offsetRight - edgeLength,
                       dataCardParameters['pdfSize'][1] - offsetTop - edgeLength, edgeLength, edgeLength, mask=[0, 0, 255, 255, 0, 0])
         fillPath = 0
@@ -805,6 +843,7 @@ def createDataCard(army):
     pdf = canvas.Canvas(pdfFile, pagesize=dataCardParameters['pdfSize'])
     pdf.setTitle("GDF data card")
 
+    image_infos = get_image_infos(settings)
     for unit in army['units']:
         logger.info(f'{unit["name"]} ({unit["id"]})')
         dataCardBoarderFrame(pdf, dataCardParameters)
@@ -812,7 +851,7 @@ def createDataCard(army):
         dataCardUnitWounds(pdf, dataCardParameters, unit, army)
         dataCardUnitRules(pdf, dataCardParameters, unit)
         dataCardUnitPoints(pdf, dataCardParameters, unit)
-        dataCardUnitImage(pdf, dataCardParameters, unit, army['listName'], army['armyName'])
+        dataCardUnitImage(pdf, dataCardParameters, unit, army['listName'], army['armyName'], image_infos)
         dataCardUnitName(pdf, dataCardParameters, unit)
         dataCardUnitSkills(pdf, dataCardParameters, unit)
         dataCardUnitWeaponsEquipment(pdf, dataCardParameters, unit)
@@ -834,6 +873,30 @@ def createDataCard(army):
         logger.error(str(ex))
         return None
 
+def get_image_infos(settings):
+    image_infos = loadJsonFile(settings['path']['imageJson'])
+
+    # Convert old image to images list
+    for rule in image_infos:
+        if 'image' in rule and type(rule['image']) == str:
+            rule['images'] = [rule['image']]
+            del rule['image']
+
+        if 'images' in rule and type(rule['images']) == str:
+            rule['images'] = [rule['images']]
+        
+        if 'image' in rule and type(rule['image']) == list:
+            rule['images'] = rule['image']
+            del rule['image']
+
+    # Add used counter
+    for rule in image_infos:
+        unit_images = []
+        for image in rule['images']:
+            unit_images.append({'file': image, 'used': 0})
+        rule['images'] = unit_images
+
+    return image_infos
 
 def getTxtSpecialRule(txt):
     rule = {}
