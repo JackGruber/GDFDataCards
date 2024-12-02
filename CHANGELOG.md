@@ -3,6 +3,7 @@
 ## not released
 
 - PT values wrong on unit overview #5
+- Add: Option to define multiple images for units
 
 ## v1.1.2 (2024-04-01)
 
